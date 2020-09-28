@@ -1,1 +1,3 @@
 # codecompliance-frontend
+
+# React template
