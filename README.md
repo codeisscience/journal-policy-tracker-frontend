@@ -4,12 +4,10 @@
 
 In the project directory, you can run:
 
-## Running locally
-
+## Running local
 In order to run this project locally, you need to install dependencies
 
 ### Installing dependencies
-
 Run the command `npm install or yarn` in your local terminal
 
 ### `yarn start`
