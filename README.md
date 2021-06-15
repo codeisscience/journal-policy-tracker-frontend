@@ -1,38 +1,91 @@
-# Journal Policy Tracker Frontend
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/codeisscience/journal-policy-tracker-frontend">
+    <img src="logo.png" alt="Logo">
+  </a>
 
-In the project directory, you can run:
+  <h1 style="text-align:center">Journal Policy Tracker Frontend</h1>
 
-## Running locally
+</p>
 
-In order to run this project locally, you need to install dependencies
+<!-- ABOUT THE PROJECT -->
 
-### Installing dependencies
+## About The Project
 
-Run the command `npm install or yarn` in your local terminal
+This is the frontend repository for the [Journal Policy Tracker](https://github.com/codeisscience/journal-policy-tracker-backend) web application.
 
-### `yarn start`
+### Built With
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [TailwindCSS](https://tailwindcss.com/)
+- [React](https://reactjs.org/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- GETTING STARTED -->
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `yarn build`
+To run this project locally on your machine you need the following installed
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- nodejs
+- npm or yarn
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/codeisscience/journal-policy-tracker-frontend.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install or yarn install
+   ```
+3. Running the project
+   ```sh
+   npm start or yarn start
+   ```
 
-### `yarn eject`
+<!-- USAGE EXAMPLES -->
+<!-- ## Usage will be added later -->
+<!-- ROADMAP -->
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Code Is Science - [@codeisscience](https://twitter.com/codeisscience)
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+- [GitHub Pages](https://pages.github.com)
+- [Font Awesome](https://fontawesome.com)
