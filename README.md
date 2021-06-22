@@ -26,7 +26,7 @@ This is the frontend repository for the [Journal Policy Tracker](https://github.
 
 ### Built With
 
-- [TailwindCSS](https://tailwindcss.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
 
 <!-- GETTING STARTED -->
