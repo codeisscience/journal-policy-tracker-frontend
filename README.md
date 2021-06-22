@@ -38,7 +38,7 @@ This is the frontend repository for the [Journal Policy Tracker](https://github.
 To run this project locally on your machine you need the following installed
 
 - nodejs
-- npm or yarn
+- npm
 
 ### Installation
 
@@ -48,13 +48,12 @@ To run this project locally on your machine you need the following installed
    ```
 2. Install NPM packages
    ```sh
-   npm install or yarn install
+   npm install
    ```
 3. Running the project
    ```sh
-   npm start or yarn start
+   npm start
    ```
-
 <!-- USAGE EXAMPLES -->
 <!-- ## Usage will be added later -->
 <!-- ROADMAP -->
