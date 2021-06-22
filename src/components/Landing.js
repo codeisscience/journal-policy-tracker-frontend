@@ -1,7 +1,8 @@
 import React from "react";
+import Nav from "./Nav";
 
-const Landing = () => {
-  return <div>Landing</div>;
+const Landing = (props) => {
+  return <Nav />;
 };
 
 export default Landing;

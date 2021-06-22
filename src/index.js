@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Nav from "./components/Nav";
-import Home from "./components/home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <Nav />
-    // <Home />
+    <>
+      <Navigation />
+    </>
   );
 }
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(<App />, document.getElementById("root"));
