@@ -1,6 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Nav from "./Nav";
 
-function home() {
-  return <Router></Router>;
-}
+const home = () => {
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
+};
+
+export default home;
