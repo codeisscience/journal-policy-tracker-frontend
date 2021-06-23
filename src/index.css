@@ -3,6 +3,7 @@
   height: 550px;
 }
 
+/* Footer */
 .footer-below {
   height: 3.5em;
   background: #069;
@@ -12,4 +13,9 @@
 
 .footer-below p {
   padding: 1em;
+}
+
+.footer-above {
+  background-color: #4c4c4d;
+  color: #fff;
 }
