@@ -24,4 +24,9 @@
 .footer-above a {
   display: block;
   color: #fff;
+  text-decoration: none;
+}
+
+.footer-above a:hover {
+  color: #e74d3c;
 }

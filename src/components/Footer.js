@@ -15,9 +15,18 @@ function Footer() {
         </Col>
         <Col xs>
           <h4>Resources</h4>
+          <a href="#">Authors</a>
+          <a href="#">Open science</a>
+          <a href="#">Contributors</a>
         </Col>
         <Col xs>
           <h4>Contact Us</h4>
+          <a href="#">
+            <span></span>Email
+          </a>
+          <a href="#">Twitter</a>
+          <a href="#">GitHub</a>
+          <a href="#">Slack</a>
         </Col>
       </Row>
       <Row className="footer-below">
