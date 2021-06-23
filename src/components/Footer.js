@@ -7,9 +7,15 @@ function Footer() {
   return (
     <Container fluid>
       <Row className="footer-above">
-        <Col xs={{ order: "last" }}>First, but last</Col>
-        <Col xs>Second, but unordered</Col>
-        <Col xs={{ order: "first" }}>Third, but first</Col>
+        <Col xs>
+          <h4>Useful links</h4>
+        </Col>
+        <Col xs>
+          <h4>Resources</h4>
+        </Col>
+        <Col xs>
+          <h4>Contact Us</h4>
+        </Col>
       </Row>
       <Row className="footer-below">
         <p>2021 Code is Science</p>
