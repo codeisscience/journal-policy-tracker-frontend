@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 
 function Footer() {
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <Col xs={{ order: "last" }}>First, but last</Col>
         <Col xs>Second, but unordered</Col>

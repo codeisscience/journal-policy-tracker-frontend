@@ -1,6 +1,15 @@
 .header {
-  background-image: url('components/assets/bg.png');
+  background-image: url("components/assets/bg.png");
   height: 550px;
 }
 
+.footer-below {
+  height: 3.5em;
+  background: #069;
+  color: #fff;
+  text-align: center;
+}
 
+.footer-below p {
+  padding: 1em;
+}
