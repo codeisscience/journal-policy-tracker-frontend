@@ -2,24 +2,28 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import RocketImg from "./assets/rocket.png";
 
 function Footer() {
   return (
     <Container fluid>
       <Row className="footer-above">
-        <Col xs>
+        <Col xs md={2}>
+          <img src={RocketImg} height={130} />
+        </Col>
+        <Col xs md={3}>
           <h4>Useful links</h4>
           <a href="#">Contribute</a>
           <a href="#">Manifesto</a>
           <a href="#">Code of conduct</a>
         </Col>
-        <Col xs>
+        <Col xs md={3}>
           <h4>Resources</h4>
           <a href="#">Authors</a>
           <a href="#">Open science</a>
           <a href="#">Contributors</a>
         </Col>
-        <Col xs>
+        <Col xs md={3}>
           <h4>Contact Us</h4>
           <a href="#">
             <span></span>Email
