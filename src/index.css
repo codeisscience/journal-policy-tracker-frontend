@@ -17,5 +17,11 @@
 
 .footer-above {
   background-color: #4c4c4d;
+  color: #babfc5;
+  padding: 1.5em;
+}
+
+.footer-above a {
+  display: block;
   color: #fff;
 }

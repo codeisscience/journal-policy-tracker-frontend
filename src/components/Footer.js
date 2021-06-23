@@ -9,6 +9,9 @@ function Footer() {
       <Row className="footer-above">
         <Col xs>
           <h4>Useful links</h4>
+          <a href="#">Contribute</a>
+          <a href="#">Manifesto</a>
+          <a href="#">Code of conduct</a>
         </Col>
         <Col xs>
           <h4>Resources</h4>
