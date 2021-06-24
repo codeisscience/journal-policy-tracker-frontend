@@ -3,6 +3,28 @@
   height: 550px;
 }
 
+.header button {
+  color: #fff;
+  background-color: #f29422;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+  margin-top: 20em;
+  margin-left: 60em;
+}
+
+.header button:hover {
+  color: #fff;
+  background-color: #3d9dd9;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+  margin-top: 20em;
+  margin-left: 60em;
+}
+
 /* Footer */
 .footer-below {
   height: 3.5em;
