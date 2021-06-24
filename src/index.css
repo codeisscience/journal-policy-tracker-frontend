@@ -37,7 +37,8 @@
   margin-bottom: 5em;
 }
 
-.section-one h1 {
+.section-one h1,
+.section-two h1 {
   color: #3d9dd9;
 }
 
