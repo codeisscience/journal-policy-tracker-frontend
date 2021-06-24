@@ -57,6 +57,44 @@ function LandingSection() {
           </Row>
         </Container>
       </section>
+      <section className="section-three">
+        <Container>
+          <Row>
+            <Col md={6}>
+              <h1>Looking to Contribute?</h1>
+              <ul>
+                <li>
+                  Do you wish more code was open source? Have you wished in the
+                  past that a DB of open source journals existed? Share your
+                  story.
+                </li>
+                <li>
+                  Add more journals to our list Right now it’s a google form,
+                  but hopefully we’ll have the full site up and running soon!
+                </li>
+                <li>
+                  Pick up a technical or design task on GitHub:
+                  https://github.com/codeisscience/code-is-science
+                </li>
+              </ul>
+            </Col>
+            <Col md={6}>
+              <h1>Latest Posts</h1>
+              <ul>
+                <li>
+                  <a href>Good practices & good quality code</a>
+                </li>
+                <li>
+                  <a href>Mozfest Session 2017</a>
+                </li>
+                <li>
+                  <a href>Mozfest Is Coming</a>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </>
   );
 }
