@@ -31,6 +31,7 @@
   color: #e74d3c;
 }
 
+/* Landing page section one */
 .section-one {
   margin-top: 5em;
   margin-bottom: 5em;
@@ -42,4 +43,9 @@
 
 .section-one h2 {
   color: #e74d3c;
+}
+
+/* Landing page section two */
+.section-two {
+  margin-bottom: 5em;
 }
