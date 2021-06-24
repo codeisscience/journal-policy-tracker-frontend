@@ -30,3 +30,8 @@
 .footer-above a:hover {
   color: #e74d3c;
 }
+
+.section-one {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
