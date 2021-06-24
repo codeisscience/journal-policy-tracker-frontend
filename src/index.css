@@ -42,11 +42,23 @@
   color: #3d9dd9;
 }
 
-.section-one h2 {
+.section-one h2,
+.section-three h1 {
   color: #e74d3c;
 }
 
 /* Landing page section two */
-.section-two {
+.section-two,
+.section-three {
   margin-bottom: 5em;
+}
+
+/* landing page section three */
+.section-three ul {
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+.section-three a {
+  text-decoration: none;
 }

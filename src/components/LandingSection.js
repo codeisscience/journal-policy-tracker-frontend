@@ -82,13 +82,13 @@ function LandingSection() {
               <h1>Latest Posts</h1>
               <ul>
                 <li>
-                  <a href>Good practices & good quality code</a>
+                  <a href="#">Good practices & good quality code</a>
                 </li>
                 <li>
-                  <a href>Mozfest Session 2017</a>
+                  <a href="#">Mozfest Session 2017</a>
                 </li>
                 <li>
-                  <a href>Mozfest Is Coming</a>
+                  <a href="#">Mozfest Is Coming</a>
                 </li>
               </ul>
             </Col>
