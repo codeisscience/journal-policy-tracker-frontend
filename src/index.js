@@ -5,12 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import Home from "./components/home";
 import Footer from "./components/Footer";
+import Journal from "./components/Journal";
 
 function App() {
   return (
     <>
       <Navigation />
-      <Home />
+      <Journal />
       <Footer />
     </>
   );
