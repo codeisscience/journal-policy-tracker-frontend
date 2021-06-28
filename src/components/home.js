@@ -1,12 +1,14 @@
 import React from "react";
-import Nav from "./Nav";
+import Header from "./Header";
+import LandingSection from "./LandingSection";
 
-const home = () => {
+function Home() {
   return (
-    <div>
-      <Nav />
-    </div>
+    <>
+      <Header />
+      <LandingSection />
+    </>
   );
-};
+}
 
-export default home;
+export default Home;
