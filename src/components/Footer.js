@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
 import RocketImg from "./assets/rocket.png";
 
 function Footer() {
@@ -24,10 +25,15 @@ function Footer() {
         <Col xs md={3}>
           <h4>Contact Us</h4>
           <a href="#">
-            <span></span>Email
+            <ImMail /> Email
           </a>
-          <a href="#">Twitter</a>
-          <a href="#">GitHub</a>
+          <a href="#">
+            <ImTwitter />
+            &nbsp;Twitter
+          </a>
+          <a href="#">
+            <ImGithub /> GitHub
+          </a>
           <a href="#">Slack</a>
         </Col>
       </Row>
