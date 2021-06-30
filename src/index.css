@@ -88,3 +88,8 @@
 .manifesto {
   text-align: center;
 }
+
+.manifesto-header {
+  padding-top: 2em;
+  margin-bottom: 5em;
+}
