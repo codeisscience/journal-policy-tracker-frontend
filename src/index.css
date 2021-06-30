@@ -87,9 +87,23 @@
 
 .manifesto {
   text-align: center;
+  padding: 5em;
+  color: #3d9dd9;
+}
+
+.manifesto h1 {
+  font-size: 5em;
 }
 
 .manifesto-header {
   padding-top: 2em;
   margin-bottom: 5em;
+}
+
+.manifesto-section-one h1 {
+  color: #3d9dd9;
+}
+
+.manifesto-section-one p {
+  font-size: 1.4em;
 }
