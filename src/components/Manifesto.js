@@ -21,10 +21,14 @@ const Manifesto = () => {
       <Row className="manifesto-section-one">
         <Col md={6}>
           <img src={ImgOne} width="500" />
+          <p>
+            Code is Science - a manifesto for anyone who deals with code in a
+            scientific scenario
+          </p>
         </Col>
         <Col md={6}>
           <h1>Code is Science Manifesto</h1>
-          <p>
+          <p className="manifesto-text">
             Through working with scientific code, we agree that scientific code
             needs to be treated as a genuine research output. For this reason we
             have created a manifesto, which will allow both individuals and
