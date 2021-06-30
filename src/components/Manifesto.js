@@ -8,7 +8,7 @@ const Manifesto = () => {
         <Col md={3}>
           <img src />
         </Col>
-        <Col md={6}>
+        <Col md={6} className="manifesto">
           <h1>Manifesto</h1>
         </Col>
         <Col md={3}>

@@ -6,12 +6,13 @@ import Navigation from "./components/Navigation";
 import Home from "./components/home";
 import Footer from "./components/Footer";
 import Journal from "./components/Journal";
+import Manifesto from "./components/Manifesto";
 
 function App() {
   return (
     <>
       <Navigation />
-      <Journal />
+      <Manifesto />
       <Footer />
     </>
   );
