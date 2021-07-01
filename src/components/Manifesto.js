@@ -38,6 +38,30 @@ const Manifesto = () => {
           </p>
         </Col>
       </Row>
+      <Row>
+        <h1>Want to contribute</h1>
+        <Col md={4}>
+          <img src={ImgOne} width="500" />
+          <p>
+            Code is Science - a manifesto for anyone who deals with code in a
+            scientific scenario
+          </p>
+        </Col>
+        <Col md={4}>
+          <img src={ImgOne} width="500" />
+          <p>
+            Code is Science - a manifesto for anyone who deals with code in a
+            scientific scenario
+          </p>
+        </Col>
+        <Col md={4}>
+          <img src={ImgOne} width="500" />
+          <p>
+            Code is Science - a manifesto for anyone who deals with code in a
+            scientific scenario
+          </p>
+        </Col>
+      </Row>
     </Container>
   );
 };
