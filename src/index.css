@@ -107,3 +107,12 @@
 .manifesto-text {
   font-size: 1.4em;
 }
+
+.manifesto-support p, img {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.manifesto-support img {
+  margin: 1em auto;
+}

@@ -41,7 +41,7 @@ const Manifesto = () => {
           </p>
         </Col>
       </Row>
-      <Row className="manifest-support">
+      <Row className="manifesto-support">
         <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
           <img src={WalkingImg} height={140}/>
