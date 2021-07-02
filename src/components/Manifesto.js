@@ -3,6 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import StandingImg from "./assets/human-2.png";
 import SittingImg from "./assets/human-1.png";
 import ImgOne from "./assets/manifesto-img-1.png";
+import WalkingImg from "./assets/walking-man.png";
+import PeersImg from "./assets/peers.png";
+import HandsIcon from "./assets/hands-icon.png";
 
 const Manifesto = () => {
   return (
@@ -39,23 +42,23 @@ const Manifesto = () => {
         </Col>
       </Row>
       <Row>
-        <h1>Want to contribute</h1>
+        <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
-          <img src={ImgOne} width="500" />
+          <img src={WalkingImg} height={140}/>
           <p>
             Code is Science - a manifesto for anyone who deals with code in a
             scientific scenario
           </p>
         </Col>
         <Col md={4}>
-          <img src={ImgOne} width="500" />
+          <img src={PeersImg} height={140} />
           <p>
             Code is Science - a manifesto for anyone who deals with code in a
             scientific scenario
           </p>
         </Col>
         <Col md={4}>
-          <img src={ImgOne} width="500" />
+          <img src={HandsIcon} height={140} />
           <p>
             Code is Science - a manifesto for anyone who deals with code in a
             scientific scenario
