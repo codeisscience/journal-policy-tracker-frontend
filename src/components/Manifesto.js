@@ -41,27 +41,24 @@ const Manifesto = () => {
           </p>
         </Col>
       </Row>
-      <Row>
+      <Row className="manifest-support">
         <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
           <img src={WalkingImg} height={140}/>
           <p>
-            Code is Science - a manifesto for anyone who deals with code in a
-            scientific scenario
+            Sign the manifesto as an individual
           </p>
         </Col>
         <Col md={4}>
           <img src={PeersImg} height={140} />
           <p>
-            Code is Science - a manifesto for anyone who deals with code in a
-            scientific scenario
+            Sign the manifesto as an organisation or institution. Please make sure you have authority to sign on behalf of your organisation before you sign on behalf of an organisation.
           </p>
         </Col>
         <Col md={4}>
           <img src={HandsIcon} height={140} />
           <p>
-            Code is Science - a manifesto for anyone who deals with code in a
-            scientific scenario
+            We’re particularly interested in adding logos and links indicating organisational support from publishers, funders, and research institutions.
           </p>
         </Col>
       </Row>
