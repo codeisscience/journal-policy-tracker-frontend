@@ -44,26 +44,42 @@ const Manifesto = () => {
       <Row className="manifesto-support">
         <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
-          <img src={WalkingImg} height={140}/>
-          <p>
-            Sign the manifesto as an individual
-          </p>
+          <img src={WalkingImg} height={140} />
+          <p>Sign the manifesto as an individual</p>
         </Col>
         <Col md={4}>
           <img src={PeersImg} height={140} />
           <p>
-            Sign the manifesto as an organisation or institution. Please make sure you have authority to sign on behalf of your organisation before you sign on behalf of an organisation.
+            Sign the manifesto as an organisation or institution. Please make
+            sure you have authority to sign on behalf of your organisation
+            before you sign on behalf of an organisation.
           </p>
         </Col>
         <Col md={4}>
           <img src={HandsIcon} height={140} />
           <p>
-            We’re particularly interested in adding logos and links indicating organisational support from publishers, funders, and research institutions.
+            We’re particularly interested in adding logos and links indicating
+            organisational support from publishers, funders, and research
+            institutions.
           </p>
         </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
+          <h2>How can I contribute?</h2>
+          <ul>
+            <li>Sign the manifesto and share with all your friends!</li>
+            <li>Add links to your personal and institutional sites.</li>
+            <li>
+              You can also look at the issues on GitHub and see if there’s
+              anything else you can pick up. You can also look at our roadmap to
+              get an understanding of our timeline.
+            </li>
+          </ul>
+        </Col>
+        <Col md={6}></Col>
       </Row>
     </Container>
   );
 };
-
 export default Manifesto;
