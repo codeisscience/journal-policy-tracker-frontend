@@ -77,7 +77,20 @@ const Manifesto = () => {
             </li>
           </ul>
         </Col>
-        <Col md={6}></Col>
+        <Col md={6}>
+          <h2>Contact</h2>
+          <a href="#">
+            <ImTwitter />
+            &nbsp;Twitter: @codeisscience
+          </a>
+          <a href="#">
+            <ImMail /> Email: contact@codeisscience.com
+          </a>
+          <a href="#">
+            <ImGithub /> GitHub: You can also create issues on the manifesto
+            repository
+          </a>
+        </Col>
       </Row>
     </Container>
   );
