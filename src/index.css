@@ -108,11 +108,17 @@
   font-size: 1.4em;
 }
 
-.manifesto-support p, img {
+.manifesto-support p,
+img {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
 .manifesto-support img {
   margin: 1em auto;
+}
+
+.manifesto-contact a {
+  display: block;
+  text-decoration: none;
 }

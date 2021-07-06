@@ -6,6 +6,7 @@ import ImgOne from "./assets/manifesto-img-1.png";
 import WalkingImg from "./assets/walking-man.png";
 import PeersImg from "./assets/peers.png";
 import HandsIcon from "./assets/hands-icon.png";
+import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
 
 const Manifesto = () => {
   return (
@@ -77,7 +78,7 @@ const Manifesto = () => {
             </li>
           </ul>
         </Col>
-        <Col md={6}>
+        <Col md={6} className="manifesto-contact">
           <h2>Contact</h2>
           <a href="#">
             <ImTwitter />
