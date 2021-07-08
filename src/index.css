@@ -1,6 +1,124 @@
 .header {
-  background-image: url('components/assets/bg.png');
+  background-image: url("components/assets/bg.png");
   height: 550px;
 }
 
+.header button {
+  color: #fff;
+  background-color: #f29422;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+  margin-top: 20em;
+  margin-left: 60em;
+}
 
+.header button:hover {
+  color: #fff;
+  background-color: #3d9dd9;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+  margin-top: 20em;
+  margin-left: 60em;
+}
+
+/* Footer */
+.footer-below {
+  height: 3.5em;
+  background: #069;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-below p {
+  padding: 1em;
+}
+
+.footer-above {
+  background-color: #4c4c4d;
+  color: #babfc5;
+  padding: 1.5em;
+}
+
+.footer-above a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-above a:hover {
+  color: #e74d3c;
+}
+
+/* Landing page section one */
+.section-one {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.section-one h1,
+.section-two h1 {
+  color: #3d9dd9;
+}
+
+.section-one h2,
+.section-three h1 {
+  color: #e74d3c;
+}
+
+/* Landing page section two */
+.section-two,
+.section-three {
+  margin-bottom: 5em;
+}
+
+/* landing page section three */
+.section-three ul {
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+.section-three a {
+  text-decoration: none;
+}
+
+.manifesto {
+  text-align: center;
+  padding: 5em;
+  color: #3d9dd9;
+}
+
+.manifesto h1 {
+  font-size: 5em;
+}
+
+.manifesto-header {
+  padding-top: 2em;
+  margin-bottom: 5em;
+}
+
+.manifesto-section-one h1 {
+  color: #3d9dd9;
+}
+
+.manifesto-text {
+  font-size: 1.4em;
+}
+
+.manifesto-support p,
+img {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.manifesto-support img {
+  margin: 1em auto;
+}
+
+.manifesto-contact a {
+  display: block;
+  text-decoration: none;
+}
