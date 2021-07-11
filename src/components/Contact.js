@@ -13,18 +13,16 @@ const Contact = () => {
       </p>
       <Row className="contact-card-one">
         <Col md={6}>
-          <div>
+          <div className="contact-card">
             <ImMail size={150} />
-
             <p>
               <a href="#">contact@codeisscience.com</a>
             </p>
           </div>
         </Col>
         <Col md={6}>
-          <div>
+          <div className="contact-card">
             <ImGithub size={150} />
-            <br />
             <p>
               <a href="#">GitHub</a>
             </p>
@@ -33,7 +31,7 @@ const Contact = () => {
       </Row>
       <Row className="contact-card-two">
         <Col md={6}>
-          <div>
+          <div className="contact-card">
             <ImTwitter size={150} />
             <p>
               <a href="#">@codeisscience</a>
@@ -41,7 +39,7 @@ const Contact = () => {
           </div>
         </Col>
         <Col md={6}>
-          <div>
+          <div className="contact-card">
             <FaGitter size={150} />
             <p>
               <a href="#">Gitter</a>
@@ -49,6 +47,7 @@ const Contact = () => {
           </div>
         </Col>
       </Row>
+      <hr />
     </Container>
   );
 };

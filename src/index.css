@@ -124,6 +124,12 @@ img {
   text-decoration: none;
 }
 
-.contact-card-one {
-  width: ;
+.contact-card {
+  width: 20em;
+  margin: 2em auto;
+  padding: 3em;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 4;
+  background-color: #f3f3f3;
 }
