@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
+import { FaGitter } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -12,24 +14,38 @@ const Contact = () => {
       <Row className="contact-card-one">
         <Col md={6}>
           <div>
-            <a href="#">contact@codeisscience.com</a>
+            <ImMail size={150} />
+
+            <p>
+              <a href="#">contact@codeisscience.com</a>
+            </p>
           </div>
         </Col>
         <Col md={6}>
           <div>
-            <a href="#">GitHub</a>
+            <ImGithub size={150} />
+            <br />
+            <p>
+              <a href="#">GitHub</a>
+            </p>
           </div>
         </Col>
       </Row>
       <Row className="contact-card-two">
         <Col md={6}>
           <div>
-            <a href="#">@codeisscience</a>
+            <ImTwitter size={150} />
+            <p>
+              <a href="#">@codeisscience</a>
+            </p>
           </div>
         </Col>
         <Col md={6}>
           <div>
-            <a href="#">Gitter</a>
+            <FaGitter size={150} />
+            <p>
+              <a href="#">Gitter</a>
+            </p>
           </div>
         </Col>
       </Row>
