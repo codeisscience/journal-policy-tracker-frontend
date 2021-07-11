@@ -100,7 +100,8 @@
   margin-bottom: 5em;
 }
 
-.manifesto-section-one h1 {
+.manifesto-section-one h1,
+h1 {
   color: #3d9dd9;
 }
 

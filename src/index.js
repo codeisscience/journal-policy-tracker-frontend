@@ -7,12 +7,13 @@ import Home from "./components/home";
 import Footer from "./components/Footer";
 import Journal from "./components/Journal";
 import Manifesto from "./components/Manifesto";
+import Contact from "./components/Contact";
 
 function App() {
   return (
     <>
       <Navigation />
-      <Manifesto />
+      <Contact />
       <Footer />
     </>
   );
