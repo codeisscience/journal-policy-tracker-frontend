@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
+import { ImTwitter, ImMail, ImGithub, FaFacebook } from "react-icons/im";
 import RocketImg from "./assets/rocket.png";
 
 function Footer() {
