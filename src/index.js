@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <Contact />
+      <Home />
       <Footer />
     </>
   );
