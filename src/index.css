@@ -100,7 +100,8 @@
   margin-bottom: 5em;
 }
 
-.manifesto-section-one h1 {
+.manifesto-section-one h1,
+h1 {
   color: #3d9dd9;
 }
 
@@ -121,4 +122,18 @@ img {
 .manifesto-contact a {
   display: block;
   text-decoration: none;
+}
+
+.contact-card {
+  width: 20em;
+  margin: 2em auto;
+  padding: 3em;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 4;
+  background-color: #f3f3f3;
+}
+
+.contact-form {
+  margin-bottom: 4em;
 }

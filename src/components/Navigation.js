@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Form } from "react-bootstrap";
 import Logo from "./assets/logo.png";
 
 function Navigation() {
@@ -22,6 +22,9 @@ function Navigation() {
             <Nav.Link href="#blog">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <Form>
+          <input type="text" placeholder="Search" />
+        </Form>
       </Navbar>
     </>
   );
