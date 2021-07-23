@@ -9,6 +9,7 @@ import Journal from "./components/Journal";
 import Manifesto from "./components/Manifesto";
 import Contact from "./components/Contact";
 
+
 function App() {
   return (
     <>
