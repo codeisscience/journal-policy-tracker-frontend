@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Form } from "react-bootstrap";
 import Logo from "./assets/logo.png";
-import { Link } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Navigation() {
   return (
@@ -13,21 +13,21 @@ function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <Link to="/" exact>
+            <LinkContainer to="/" exact>
               <Nav.Link>Home</Nav.Link>
-            </Link>
-            <Link to="/journal" exact>
+            </LinkContainer>
+            <LinkContainer to="/journal" exact>
               <Nav.Link>Journals</Nav.Link>
-            </Link>
-            <Link to="/manifesto" exact>
+            </LinkContainer>
+            <LinkContainer to="/manifesto" exact>
               <Nav.Link>Manifesto</Nav.Link>
-            </Link>
-            <Link to="/contact" exact>
+            </LinkContainer>
+            <LinkContainer to="/contact" exact>
               <Nav.Link>Contact</Nav.Link>
-            </Link>
-            <Link to="/about" exact>
+            </LinkContainer>
+            <LinkContainer to="/about" exact>
               <Nav.Link>About</Nav.Link>
-            </Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
