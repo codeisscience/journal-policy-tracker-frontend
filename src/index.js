@@ -4,19 +4,27 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import Home from "./components/home";
-import Footer from "./components/Footer";
 import Journal from "./components/Journal";
 import Manifesto from "./components/Manifesto";
 import Contact from "./components/Contact";
+import About from "./components/About";
+import Footer from "./components/Footer";
+
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <Navigation />
-      {/* <Home /> */}
-      <Manifesto />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/manifesto" exact component={Manifesto} />
+        <Route path="/journal" exact component={Journal} />
+        <Route path="/contact" exact component={Contact} />
+        <Route path="/about" exact component={About} />
+      </Switch>
       <Footer />
-    </>
+    </Router>
   );
 }
 
