@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import StandingImg from "./assets/human-2.png";
 import SittingImg from "./assets/human-1.png";
 import ImgOne from "./assets/manifesto-img-1.png";
@@ -12,19 +12,19 @@ const Manifesto = () => {
   return (
     <Container>
       <Row className="manifesto-header">
-        <Col md={3}>
-          <img src={StandingImg} height={220} />
+        <Col xs={12} sm={12} md={3}>
+          <Image src={StandingImg} height={220} />
         </Col>
-        <Col md={6} className="manifesto">
+        <Col xs={12} sm={12} md={6} className="manifesto">
           <h1>Manifesto</h1>
         </Col>
         <Col md={3}>
-          <img src={SittingImg} height={220} />
+          <Image src={SittingImg} height={220} />
         </Col>
       </Row>
       <Row className="manifesto-section-one">
-        <Col md={6}>
-          <img src={ImgOne} width="500" />
+        <Col xs={12} sm={12} md={6}>
+          <Image src={ImgOne} fluid />
           <p>
             Code is Science - a manifesto for anyone who deals with code in a
             scientific scenario
@@ -45,11 +45,11 @@ const Manifesto = () => {
       <Row className="manifesto-support">
         <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
-          <img src={WalkingImg} height={140} />
+          <Image src={WalkingImg} height={140} />
           <p>Sign the manifesto as an individual</p>
         </Col>
         <Col md={4}>
-          <img src={PeersImg} height={140} />
+          <Image src={PeersImg} height={140} />
           <p>
             Sign the manifesto as an organisation or institution. Please make
             sure you have authority to sign on behalf of your organisation

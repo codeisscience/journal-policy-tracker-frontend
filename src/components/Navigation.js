@@ -22,9 +22,6 @@ function Navigation() {
             <Nav.Link href="#blog">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Form>
-          <input type="text" placeholder="Search" />
-        </Form>
       </Navbar>
     </>
   );

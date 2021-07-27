@@ -1,28 +1,28 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { ImTwitter, ImMail, ImGithub, FaFacebook } from "react-icons/im";
+import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
 import RocketImg from "./assets/rocket.png";
 
 function Footer() {
   return (
     <Container fluid>
       <Row className="footer-above">
-        <Col xs md={2}>
+        <Col xs={12} md={2}>
           <img src={RocketImg} height={130} />
         </Col>
-        <Col xs md={3}>
+        <Col xs={12} sm={12} md={3}>
           <h4>Useful links</h4>
           <a href="#">Contribute</a>
           <a href="#">Manifesto</a>
           <a href="#">Code of conduct</a>
         </Col>
-        <Col xs md={3}>
+        <Col xs={12} sm={12} md={3}>
           <h4>Resources</h4>
           <a href="#">Authors</a>
           <a href="#">Open science</a>
           <a href="#">Contributors</a>
         </Col>
-        <Col xs md={3}>
+        <Col xs={12} sm={12} md={3}>
           <h4>Contact Us</h4>
           <a href="#">
             <ImMail /> Email
