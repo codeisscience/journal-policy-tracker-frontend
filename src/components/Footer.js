@@ -12,8 +12,20 @@ function Footer() {
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Useful links</h4>
-          <a href="#">Contribute</a>
-          <a href="#">Manifesto</a>
+          <a
+            href="https://github.com/codeisscience"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Contribute
+          </a>
+          <a
+            href="https://codeisscience.github.io/manifesto/manifesto.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Manifesto
+          </a>
           <a href="#">Code of conduct</a>
         </Col>
         <Col xs={12} sm={12} md={3}>
@@ -24,14 +36,26 @@ function Footer() {
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Contact Us</h4>
-          <a href="#">
+          <a
+            href="mailto:contact@codeisscience.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             <ImMail /> Email
           </a>
-          <a href="#">
+          <a
+            href="https://twitter.com/codeisscience"
+            target="_blank"
+            rel="noreferrer"
+          >
             <ImTwitter />
             &nbsp;Twitter
           </a>
-          <a href="#">
+          <a
+            href="https://github.com/codeisscience"
+            target="_blank"
+            rel="noreferrer"
+          >
             <ImGithub /> GitHub
           </a>
           <a href="#">Slack</a>
