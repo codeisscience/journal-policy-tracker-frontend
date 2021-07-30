@@ -16,7 +16,9 @@ const Contact = () => {
           <div className="contact-card" style={{ color: "#E74D3C" }}>
             <ImMail size={150} />
             <p>
-              <a href="#">contact@codeisscience.com</a>
+              <a href="mailto:contact@codeisscience.com">
+                contact@codeisscience.com
+              </a>
             </p>
           </div>
         </Col>
@@ -24,7 +26,13 @@ const Contact = () => {
           <div className="contact-card" style={{ color: "#4C4C4D" }}>
             <ImGithub size={150} />
             <p>
-              <a href="#">GitHub</a>
+              <a
+                href="https://github.com/codeisscience"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
             </p>
           </div>
         </Col>
@@ -34,7 +42,13 @@ const Contact = () => {
           <div className="contact-card" style={{ color: "#3D9DD9" }}>
             <ImTwitter size={150} />
             <p>
-              <a href="#">@codeisscience</a>
+              <a
+                href="https://twitter.com/codeisscience"
+                target="_blank"
+                rel="noreferrer"
+              >
+                @codeisscience
+              </a>
             </p>
           </div>
         </Col>
@@ -42,7 +56,13 @@ const Contact = () => {
           <div className="contact-card" style={{ color: "#4C4C4D" }}>
             <FaGitter size={150} />
             <p>
-              <a href="#">Gitter</a>
+              <a
+                href="https://gitter.im/codeisscience/Lobby"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Gitter
+              </a>
             </p>
           </div>
         </Col>
