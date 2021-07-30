@@ -80,14 +80,14 @@ const Manifesto = () => {
         </Col>
         <Col md={6} className="manifesto-contact">
           <h2>Contact</h2>
-          <a href="#">
+          <a href="https://twitter.com/codeisscience">
             <ImTwitter />
             &nbsp;Twitter: @codeisscience
           </a>
-          <a href="#">
+          <a href="mailto:contact@codeisscience.com">
             <ImMail /> Email: contact@codeisscience.com
           </a>
-          <a href="#">
+          <a href="https://github.com/codeisscience">
             <ImGithub /> GitHub: You can also create issues on the manifesto
             repository
           </a>
