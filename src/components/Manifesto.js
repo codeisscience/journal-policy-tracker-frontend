@@ -35,10 +35,17 @@ const Manifesto = () => {
           <p className="manifesto-text">
             Through working with scientific code, we agree that scientific code
             needs to be treated as a genuine research output. For this reason we
-            have created a manifesto, which will allow both individuals and
-            organisations to sign up and agree to make genuine efforts to both
-            make their own scientific code open, as well as sharing the
-            manifesto mission with others.
+            have created a{" "}
+            <a
+              href="https://codeisscience.github.io/manifesto/manifesto.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              manifesto
+            </a>
+            , which will allow both individuals and organisations to sign up and
+            agree to make genuine efforts to both make their own scientific code
+            open, as well as sharing the manifesto mission with others.
           </p>
         </Col>
       </Row>
@@ -46,14 +53,28 @@ const Manifesto = () => {
         <h1>I want to express my support for the manifesto! Tell me how</h1>
         <Col md={4}>
           <Image src={WalkingImg} height={140} />
-          <p>Sign the manifesto as an individual</p>
+          <p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeaDLDaREkUyOwpvbQf41hxT12ixoBToTdBhlgTj_YoW0tSgw/viewform?usp=sf_link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Sign the manifesto as an individual
+            </a>
+          </p>
         </Col>
         <Col md={4}>
           <Image src={PeersImg} height={140} />
           <p>
-            Sign the manifesto as an organisation or institution. Please make
-            sure you have authority to sign on behalf of your organisation
-            before you sign on behalf of an organisation.
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdUPKlP__5saaYMyEJwkHF3gRNAHiKihOlp6zd6QK4vUqs3gg/viewform?usp=sf_link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Sign the manifesto as an organisation or institution.
+            </a>
+            Please make sure you have authority to sign on behalf of your
+            organisation before you sign on behalf of an organisation.
           </p>
         </Col>
         <Col md={4}>
@@ -72,9 +93,24 @@ const Manifesto = () => {
             <li>Sign the manifesto and share with all your friends!</li>
             <li>Add links to your personal and institutional sites.</li>
             <li>
-              You can also look at the issues on GitHub and see if there’s
-              anything else you can pick up. You can also look at our roadmap to
-              get an understanding of our timeline.
+              You can also look at the{" "}
+              <a
+                href="https://github.com/codeisscience/manifesto/issues/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                issues
+              </a>{" "}
+              on GitHub and see if there’s anything else you can pick up. You
+              can also look at our{" "}
+              <a
+                href="https://codeisscience.github.io/manifesto/roadmap.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                roadmap
+              </a>{" "}
+              to get an understanding of our timeline.
             </li>
           </ul>
         </Col>
