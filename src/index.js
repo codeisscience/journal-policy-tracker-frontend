@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Footer from "./components/Footer";
 
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/journal" exact component={Journal} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
+        <Redirect to="/" />
       </Switch>
       <Footer />
     </Router>
