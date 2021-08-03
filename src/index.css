@@ -150,3 +150,8 @@ img {
 a:link {
   text-decoration: none;
 }
+
+.login-box {
+  width: 500px;
+  margin: 5em auto;
+}
