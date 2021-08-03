@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
+import {IoLogoSlack} from "react-icons/io";
 import RocketImg from "./assets/rocket.png";
 
 function Footer() {
@@ -34,7 +35,9 @@ function Footer() {
           <a href="#">
             <ImGithub /> GitHub
           </a>
-          <a href="#">Slack</a>
+          <a href="#">
+          <IoLogoSlack /> Slack 
+          </a>
         </Col>
       </Row>
       <Row className="footer-below">
