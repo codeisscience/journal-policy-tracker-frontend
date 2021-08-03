@@ -2,9 +2,7 @@ import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 
 function About() {
-  return (
-
-  );
+  return <div>About</div>;
 }
 
 export default About;
