@@ -7,7 +7,8 @@ import Home from "./components/home";
 import Journal from "./components/Journal";
 import Manifesto from "./components/Manifesto";
 import Contact from "./components/Contact";
-import About from "./components/About";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
@@ -21,7 +22,8 @@ function App() {
         <Route path="/manifesto" exact component={Manifesto} />
         <Route path="/journal" exact component={Journal} />
         <Route path="/contact" exact component={Contact} />
-        <Route path="/about" exact component={About} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={SignUp} />
       </Switch>
       <Footer />
     </Router>
