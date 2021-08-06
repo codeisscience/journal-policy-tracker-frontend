@@ -11,7 +11,10 @@ function Navigation() {
           <img src={Logo} alt="" srcset="" width={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-center"
+        >
           <Nav>
             <LinkContainer to="/" exact>
               <Nav.Link>Home</Nav.Link>
