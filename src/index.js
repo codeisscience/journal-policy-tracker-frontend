@@ -18,10 +18,10 @@ function App() {
       <Navigation />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/manifesto" exact component={Manifesto} />
-        <Route path="/journal" exact component={Journal} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/about" exact component={About} />
+        <Route path="/manifesto" component={Manifesto} />
+        <Route path="/journal" component={Journal} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/about" component={About} />
         <Redirect to="/" />
       </Switch>
       <Footer />
