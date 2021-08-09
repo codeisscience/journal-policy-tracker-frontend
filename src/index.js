@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/contact" exact component={Contact} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
+        <Redirect to="/" />
       </Switch>
       <Footer />
     </Router>
