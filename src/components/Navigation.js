@@ -25,8 +25,11 @@ function Navigation() {
             <LinkContainer to="/contact" exact>
               <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/about" exact>
-              <Nav.Link>About</Nav.Link>
+            <LinkContainer to="/login" exact>
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/signup" exact>
+              <Nav.Link>Sign Up</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

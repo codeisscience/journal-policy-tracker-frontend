@@ -1,7 +1,8 @@
 import React from "react";
+import { Row, Col, Form, Button } from "react-bootstrap";
 
-const About = () => {
-  return <div>About</div>;
-};
+function About() {
+  return <section>About</section>;
+}
 
 export default About;
