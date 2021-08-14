@@ -1,11 +1,14 @@
 import React from "react";
 import { Col, Row, Container, Table } from "react-bootstrap";
 
+import AddJournal from "./AddJournal";
+
 const Journal = () => {
   return (
     <Container>
       <h1>Journals</h1>
-      <Row>
+      <AddJournal />
+      {/* <Row>
         <Col md={12}>
           <Table striped bordered hover>
             <thead>
@@ -68,7 +71,7 @@ const Journal = () => {
             </tbody>
           </Table>
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 };
