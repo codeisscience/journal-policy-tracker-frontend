@@ -85,7 +85,7 @@ class Login extends React.Component {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Remember me" />
             </Form.Group>
-            <Button variant="primary" onClick={this.handleLogin}>
+            <Button variant="primary" onClick={this.handleLogin} type="submit">
               Login
             </Button>
           </Form>

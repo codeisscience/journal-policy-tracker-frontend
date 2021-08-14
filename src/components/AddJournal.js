@@ -28,6 +28,10 @@ class AddJournal extends Component {
               <Form.Label>Date</Form.Label>
               <Form.Control type="date" placeholder="Date" />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPolicies">
+              <Form.Label>Policies</Form.Label>
+              <Form.Control type="text" placeholder="Policies" />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicDomain">
               <Form.Label>Domain</Form.Label>
               <Form.Control type="text" placeholder="Domain" />
