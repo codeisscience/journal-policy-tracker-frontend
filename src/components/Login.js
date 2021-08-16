@@ -57,7 +57,7 @@ class Login extends React.Component {
       <Row>
         <Col md={4}></Col>
         <Col md={4}>
-          <Form className="login-form" onSubmit={this.handleSubmit}>
+          <Form className="login-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
