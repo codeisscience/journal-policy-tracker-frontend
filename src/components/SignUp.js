@@ -9,12 +9,12 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://journal-policy-tracker.herokuapp.com/api/journals", {
+    fetch("https://journal-policy-tracker.herokuapp.com/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(journal),
+      body: JSON.stringify(),
     }).then(() => {
-      console.log("New Journal Added");
+      console.log("Sign up was successful");
     });
   };
 
