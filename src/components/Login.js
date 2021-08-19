@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Col, Row, Form, Button } from "react-bootstrap";
 
 class Login extends React.Component {
@@ -12,7 +13,7 @@ class Login extends React.Component {
     e.preventDefault();
     fetch("https://journal-policy-tracker.herokuapp.com/users/login", {
       method: "POST",
-      mode: "cors",
+      mode: "CORS",
       headers: {
         "Content-Type": "application/json",
       },

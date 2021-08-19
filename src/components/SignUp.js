@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 
-const SignUp = ({ SignUp, error }) => {
+const SignUp = () => {
   const [details, setDetails] = useState({
     username: "",
     email: "",
@@ -10,11 +10,10 @@ const SignUp = ({ SignUp, error }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    SignUp(details);
     fetch("https://journal-policy-tracker.herokuapp.com/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(),
+      body: JSON.stringify(details),
     }).then(() => {
       console.log("Sign up was successful");
     });
