@@ -7,11 +7,21 @@ const AddJournal = () => {
   const [issn, setIssn] = useState("");
   const [rating, setRating] = useState("");
   const [date, setDate] = useState("");
-  const [policies, setPolicies] = useState("");
+  const [policyTitle, setPolicyTitle] = useState("")
+  const [firstYear, setFirstYear] = useState("")
+  const [lastYear, setLastYear] = useState("")
+  const [policyType, setPolicyType] = useState("")
   const [domain, setDomain] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const policies = {
+      title: policyTitle,
+      first_year: firstYear,
+      last_year: lastYear,
+      type: policyType
+    }
     const journal = { title, url, issn, rating, date, policies, domain };
 
     fetch("https://journal-policy-tracker.herokuapp.com/api/journals", {
@@ -19,7 +29,7 @@ const AddJournal = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(journal),
     }).then(() => {
-      console.log("New Journal Added");
+      console.log("Journal added successfully!");
     });
   };
 
@@ -72,8 +82,23 @@ const AddJournal = () => {
             <Form.Label>Policies</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Policies"
-              onChange={(e) => setPolicies(e.target.value)}
+              placeholder="Policy Title"
+              onChange={(e) => setPolicyTitle(e.target.value)}
+            />
+            <Form.Control
+              type="text"
+              placeholder="First Year"
+              onChange={(e) => setFirstYear(e.target.value)}
+            />
+            <Form.Control
+              type="text"
+              placeholder="Last Year"
+              onChange={(e) => setLastYear(e.target.value)}
+            />
+            <Form.Control
+              type="text"
+              placeholder="Type"
+              onChange={(e) => setPolicyType(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicDomain">
