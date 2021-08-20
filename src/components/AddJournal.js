@@ -19,7 +19,7 @@ const AddJournal = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(journal),
     }).then(() => {
-      console.log("New Journal Added");
+      console.log(JSON.stringify(journal));
     });
   };
 
