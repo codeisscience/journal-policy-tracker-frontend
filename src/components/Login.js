@@ -60,7 +60,7 @@ class Login extends React.Component {
         <Col md={4}>
           <Form className="login-form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
