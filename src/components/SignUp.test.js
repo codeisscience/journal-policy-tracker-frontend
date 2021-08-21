@@ -1,5 +1,6 @@
 import React from "react";
-import { toBeInTheDocument, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import SignUp from "./SignUp";
 
 test("renders the form correctly", () => {
@@ -8,6 +9,6 @@ test("renders the form correctly", () => {
   const emailLabel = getByText(/Email/i);
   expect(usernameLabel).toBeInTheDocument();
   expect(emailLabel).toBeInTheDocument();
-  const input = getByLabelText(/Password:/i);
+  const input = getByLabelText(/Password/i);
   expect(input).toHaveAttribute("type", "password");
 });

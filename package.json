@@ -5,7 +5,6 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^5.0.1",
     "react": "^17.0.2",
@@ -40,7 +39,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.7",
     "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36"
+    "jest-dom": "^4.0.0",
+    "postcss": "^7.0.36",
+    "react-test-renderer": "^17.0.2"
   }
 }
