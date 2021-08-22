@@ -24,7 +24,7 @@ class Login extends React.Component {
     })
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
+        alert("Login successful");
         // The response is expected to be in the form:
         // {
         // message: "Login Successful!"
@@ -34,7 +34,6 @@ class Login extends React.Component {
         this.setState({
           accessToken: res.token,
         });
-        console.log(this.state.accessToken);
       })
       .catch((error) => {
         console.log(error);
