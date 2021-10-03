@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "./assets/logo.png";
 import { LinkContainer } from "react-router-bootstrap";
+import SearchBar from "./Search";
 
 function Navigation() {
   return (
@@ -31,6 +32,7 @@ function Navigation() {
             <LinkContainer to="/signup" exact>
               <Nav.Link>Sign Up</Nav.Link>
             </LinkContainer>
+            <SearchBar />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
