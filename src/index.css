@@ -162,3 +162,41 @@ a:link {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+.searchInputs {
+  display: flex;
+  margin-top: 6px;
+  border-radius: 0px;
+}
+
+.search input {
+  background-color: white;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-right-width: 0px;
+  border-right-color: #fff;
+  border-radius: 30px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 200px;
+}
+
+.searchIcon {
+  border: solid;
+  border-width: 1px;
+  border-left-width: 0px;
+  border-color: black;
+  border-left-color: #fff;
+  height: 32px;
+  width: 50px;
+  border-radius: 0px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
