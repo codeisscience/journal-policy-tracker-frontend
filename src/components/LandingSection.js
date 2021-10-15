@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Container, Row, Image } from "react-bootstrap";
-import Img from "./assets/section-img.png";
-import ClockImg from "./assets/clock.png";
-import TalkingImg from "./assets/talking.png";
+import Img from "./assets/section-img.webp";
+import ClockImg from "./assets/clock.webp";
+import TalkingImg from "./assets/talking.webp";
 
 function LandingSection() {
   return (
@@ -11,7 +11,7 @@ function LandingSection() {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <Image src={Img} alt="" fluid />
+              <Image src={Img} height={342} width={456} alt="" fluid />
             </Col>
             <Col xs={12} sm={12} md={6}>
               <h1>Premise</h1>
@@ -40,7 +40,7 @@ function LandingSection() {
                 If software is required to perform science, it stands to reason
                 that errors in your software mean errors in your science.
               </p>
-              <Image src={ClockImg} width={220} fluid />
+              <Image src={ClockImg} height={252} width={220} fluid />
             </Col>
             <Col xs={12} sm={12} md={6}>
               <h1>Possible Solution?</h1>
@@ -52,7 +52,7 @@ function LandingSection() {
                 That’s easier said than done. Getting there requires awareness,
                 culture shift, and adherence to best practices.
               </p>
-              <Image src={TalkingImg} fluid />
+              <Image src={TalkingImg} height={266} width={456} fluid />
             </Col>
           </Row>
         </Container>
