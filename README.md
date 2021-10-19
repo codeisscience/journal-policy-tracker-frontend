@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/codeisscience/journal-policy-tracker-frontend">
-    <img src="logo.png" alt="Logo">
+    <img src="logo.webp" alt="Logo">
   </a>
 
   <h1 style="text-align:center">Journal Policy Tracker Frontend</h1>
