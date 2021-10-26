@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Jumbotron } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
+import React from 'react'
+import { Button, Jumbotron } from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
 
 function Header() {
   return (
@@ -9,7 +9,7 @@ function Header() {
         <Button fluid>Read and Sign the Manifesto</Button>
       </Jumbotron>
     </div>
-  );
+  )
 }
 
-export default Header;
+export default Header

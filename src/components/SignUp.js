@@ -1,7 +1,7 @@
-import React from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import React from 'react'
+import { Row, Col, Form, Button } from 'react-bootstrap'
 
-function SignUp() {
+function SignUp () {
   return (
     <Row>
       <Col md={4}></Col>
@@ -37,7 +37,7 @@ function SignUp() {
       </Col>
       <Col md={4}></Col>
     </Row>
-  );
+  )
 }
 
-export default SignUp;
+export default SignUp

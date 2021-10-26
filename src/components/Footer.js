@@ -1,10 +1,10 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
-import { IoLogoSlack } from "react-icons/io";
-import RocketImg from "./assets/rocket.webp";
+import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
+import { ImTwitter, ImMail, ImGithub } from 'react-icons/im'
+import { IoLogoSlack } from 'react-icons/io'
+import RocketImg from './assets/rocket.webp'
 
-function Footer() {
+function Footer () {
   return (
     <Container fluid>
       <Row className="footer-above">
@@ -68,7 +68,7 @@ function Footer() {
         <p>2021 Code is Science</p>
       </Row>
     </Container>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

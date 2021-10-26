@@ -1,10 +1,10 @@
-import React from "react";
-import { Col, Container, Row, Image } from "react-bootstrap";
-import Img from "./assets/section-img.webp";
-import ClockImg from "./assets/clock.webp";
-import TalkingImg from "./assets/talking.webp";
+import React from 'react'
+import { Col, Container, Row, Image } from 'react-bootstrap'
+import Img from './assets/section-img.webp'
+import ClockImg from './assets/clock.webp'
+import TalkingImg from './assets/talking.webp'
 
-function LandingSection() {
+function LandingSection () {
   return (
     <>
       <section className="section-one">
@@ -96,7 +96,7 @@ function LandingSection() {
         </Container>
       </section>
     </>
-  );
+  )
 }
 
-export default LandingSection;
+export default LandingSection

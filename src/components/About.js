@@ -1,8 +1,8 @@
-import React from "react";
-import { Row, Col, Form, Button } from "react-bootstrap";
+import React from "react"
+import { Row, Col, Form, Button } from "react-bootstrap"
 
 function About() {
-  return <section>About</section>;
+  return <section>About</section>
 }
 
-export default About;
+export default About

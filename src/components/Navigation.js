@@ -1,14 +1,14 @@
-import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import Logo from "./assets/logo.webp";
-import { LinkContainer } from "react-router-bootstrap";
+import React from 'react'
+import { Navbar, Nav } from 'react-bootstrap'
+import Logo from './assets/logo.webp'
+import { LinkContainer } from 'react-router-bootstrap'
 
-function Navigation() {
+function Navigation () {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand href="#home">
-          <img src={Logo} alt="" srcset="" height={81} width={150} />
+          <img src={Logo} alt="" srcSet="" height={81} width={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -35,7 +35,7 @@ function Navigation() {
         </Navbar.Collapse>
       </Navbar>
     </>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation

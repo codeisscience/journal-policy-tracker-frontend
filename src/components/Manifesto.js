@@ -1,12 +1,12 @@
-import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
-import StandingImg from "./assets/human-2.webp";
-import SittingImg from "./assets/human-1.webp";
-import ImgOne from "./assets/manifesto-img-1.webp";
-import WalkingImg from "./assets/walking-man.webp";
-import PeersImg from "./assets/peers.webp";
-import HandsIcon from "./assets/hands-icon.webp";
-import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
+import React from 'react'
+import { Container, Row, Col, Image } from 'react-bootstrap'
+import StandingImg from './assets/human-2.webp'
+import SittingImg from './assets/human-1.webp'
+import ImgOne from './assets/manifesto-img-1.webp'
+import WalkingImg from './assets/walking-man.webp'
+import PeersImg from './assets/peers.webp'
+import HandsIcon from './assets/hands-icon.webp'
+import { ImTwitter, ImMail, ImGithub } from 'react-icons/im'
 
 const Manifesto = () => {
   return (
@@ -35,7 +35,7 @@ const Manifesto = () => {
           <p className="manifesto-text">
             Through working with scientific code, we agree that scientific code
             needs to be treated as a genuine research output. For this reason we
-            have created a{" "}
+            have created a{' '}
             <a
               href="https://codeisscience.github.io/manifesto/manifesto.html"
               target="_blank"
@@ -93,16 +93,16 @@ const Manifesto = () => {
             <li>Sign the manifesto and share with all your friends!</li>
             <li>Add links to your personal and institutional sites.</li>
             <li>
-              You can also look at the{" "}
+              You can also look at the{' '}
               <a
                 href="https://github.com/codeisscience/manifesto/issues/"
                 target="_blank"
                 rel="noreferrer"
               >
                 issues
-              </a>{" "}
+              </a>{' '}
               on GitHub and see if there’s anything else you can pick up. You
-              can also look at our{" "}
+              can also look at our{' '}
               <a
                 href="https://codeisscience.github.io/manifesto/roadmap.html"
                 target="_blank"
@@ -130,6 +130,6 @@ const Manifesto = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
-export default Manifesto;
+  )
+}
+export default Manifesto

@@ -1,24 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navigation from "./components/Navigation";
-import Home from "./components/home";
-import Journal from "./components/Journal";
-import Manifesto from "./components/Manifesto";
-import Contact from "./components/Contact";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import Footer from "./components/Footer";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navigation from './components/Navigation'
+import Home from './components/home'
+import Journal from './components/Journal'
+import Manifesto from './components/Manifesto'
+import Contact from './components/Contact'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
+import Footer from './components/Footer'
 
 import {
   Route,
   BrowserRouter as Router,
   Switch,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom'
 
-function App() {
+function App () {
   return (
     <Router>
       <Navigation />
@@ -33,7 +33,7 @@ function App() {
       </Switch>
       <Footer />
     </Router>
-  );
+  )
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))

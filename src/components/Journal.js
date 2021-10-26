@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row, Container, Table } from "react-bootstrap";
+import React from 'react'
+import { Col, Row, Container, Table } from 'react-bootstrap'
 
 const Journal = () => {
   return (
@@ -70,7 +70,7 @@ const Journal = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Journal;
+export default Journal

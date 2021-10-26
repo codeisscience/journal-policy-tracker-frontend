@@ -1,7 +1,7 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
-import { FaGitter } from "react-icons/fa";
+import React from 'react'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { ImTwitter, ImMail, ImGithub } from 'react-icons/im'
+import { FaGitter } from 'react-icons/fa'
 
 const Contact = () => {
   return (
@@ -13,7 +13,7 @@ const Contact = () => {
       </p>
       <Row className="contact-card-one">
         <Col md={6}>
-          <div className="contact-card" style={{ color: "#E74D3C" }}>
+          <div className="contact-card" style={{ color: '#E74D3C' }}>
             <ImMail size={150} />
             <p>
               <a href="mailto:contact@codeisscience.com">
@@ -23,7 +23,7 @@ const Contact = () => {
           </div>
         </Col>
         <Col md={6}>
-          <div className="contact-card" style={{ color: "#4C4C4D" }}>
+          <div className="contact-card" style={{ color: '#4C4C4D' }}>
             <ImGithub size={150} />
             <p>
               <a
@@ -115,7 +115,7 @@ const Contact = () => {
         </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
