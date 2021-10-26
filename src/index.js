@@ -15,7 +15,7 @@ import {
   Route,
   BrowserRouter as Router,
   Switch,
-  Redirect,
+  Redirect
 } from 'react-router-dom'
 
 function App () {

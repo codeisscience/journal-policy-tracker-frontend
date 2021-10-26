@@ -47,7 +47,7 @@ function LandingSection () {
               <p>
                 Scientific code needs to be peer reviewed, and ideally open
                 source.
-              </p>{" "}
+              </p>{' '}
               <p>
                 That’s easier said than done. Getting there requires awareness,
                 culture shift, and adherence to best practices.

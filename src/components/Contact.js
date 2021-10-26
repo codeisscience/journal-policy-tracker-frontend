@@ -39,7 +39,7 @@ const Contact = () => {
       </Row>
       <Row className="contact-card-two">
         <Col md={6}>
-          <div className="contact-card" style={{ color: "#3D9DD9" }}>
+          <div className="contact-card" style={{ color: '#3D9DD9' }}>
             <ImTwitter size={150} />
             <p>
               <a
@@ -53,7 +53,7 @@ const Contact = () => {
           </div>
         </Col>
         <Col md={6}>
-          <div className="contact-card" style={{ color: "#4C4C4D" }}>
+          <div className="contact-card" style={{ color: '#4C4C4D' }}>
             <FaGitter size={150} />
             <p>
               <a

@@ -1,6 +1,6 @@
-import React from "react";
-import Header from "./Header";
-import LandingSection from "./LandingSection";
+import React from 'react'
+import Header from './Header'
+import LandingSection from './LandingSection'
 
 function Home() {
   return (
@@ -8,7 +8,7 @@ function Home() {
       <Header />
       <LandingSection />
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

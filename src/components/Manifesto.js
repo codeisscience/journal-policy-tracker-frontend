@@ -109,7 +109,7 @@ const Manifesto = () => {
                 rel="noreferrer"
               >
                 roadmap
-              </a>{" "}
+              </a>{' '}
               to get an understanding of our timeline.
             </li>
           </ul>
