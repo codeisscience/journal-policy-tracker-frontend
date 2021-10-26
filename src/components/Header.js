@@ -1,8 +1,7 @@
 import React from 'react'
 import { Button, Jumbotron } from 'react-bootstrap'
 
-
-function Header() {
+function Header () {
   return (
     <div className="header">
       <Jumbotron fluid>

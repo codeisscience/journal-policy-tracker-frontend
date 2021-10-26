@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import LandingSection from './LandingSection'
 
-function Home() {
+function Home () {
   return (
     <>
       <Header />
