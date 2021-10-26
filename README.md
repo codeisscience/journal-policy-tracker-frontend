@@ -54,9 +54,9 @@ To run this project locally on your machine you need the following installed
    ```sh
    npm start
    ```
-<!-- USAGE EXAMPLES -->
-<!-- ## Usage will be added later -->
-<!-- ROADMAP -->
+   <!-- USAGE EXAMPLES -->
+   <!-- ## Usage will be added later -->
+   <!-- ROADMAP -->
 
 <!-- CONTRIBUTING -->
 
