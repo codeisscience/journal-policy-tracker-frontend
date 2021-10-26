@@ -11,7 +11,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 
-import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 function App() {
   return (
