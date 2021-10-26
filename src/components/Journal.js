@@ -1,15 +1,13 @@
-import React from "react";
-import { Col, Row, Container, Table } from "react-bootstrap";
+import React from 'react';
+import { Col, Row, Container, Table } from 'react-bootstrap';
 
-import AddJournal from "./AddJournal";
+import AddJournal from './AddJournal';
 
-const Journal = () => {
-  return (
-    <Container>
-      <h1>Journals</h1>
-      <AddJournal />
-    </Container>
-  );
-};
+const Journal = () => (
+  <Container>
+    <h1>Journals</h1>
+    <AddJournal />
+  </Container>
+);
 
 export default Journal;

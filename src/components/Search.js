@@ -1,14 +1,15 @@
-import React from "react";
-import { FiSearch } from "react-icons/fi";
-import "../../src/index.css";
+/* eslint-disable import/no-useless-path-segments */
+import React from 'react';
+import { FiSearch } from 'react-icons/fi';
+import '../../src/index.css';
 
 function SearchBar() {
   return (
-    <div className="search">
-      <div className="searchInputs">
-        <input type="text" />
-        <div className="searchIcon">
-          <FiSearch style={{ color: "orange" }} />
+    <div className='search'>
+      <div className='searchInputs'>
+        <input type='text' />
+        <div className='searchIcon'>
+          <FiSearch style={{ color: 'orange' }} />
         </div>
       </div>
     </div>
