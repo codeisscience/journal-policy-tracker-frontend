@@ -1,0 +1,12 @@
+.active {
+    border-bottom: 4px solid #3d9dd9;
+    color: #3d9dd9;
+  }
+  
+  .navbar {
+    box-shadow: 2px 1px 12px 2px #3d9dd9;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }  
