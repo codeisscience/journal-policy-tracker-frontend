@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header";
-import LandingSection from "./LandingSection";
+import Header from "../components/Header";
+import LandingSection from "../components/LandingSection";
 
 function Home() {
   return (
