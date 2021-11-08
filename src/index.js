@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
-import Home from "./components/home";
-import Journal from "./components/Journal";
-import Manifesto from "./components/Manifesto";
-import Contact from "./components/Contact";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
+import Home from "./pages/Home";
+import Manifesto from "./pages/Manifesto";
+import Journal from "./pages/Journal";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
 
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";

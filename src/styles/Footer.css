@@ -1,0 +1,26 @@
+.footer-below {
+    height: 3.5em;
+    background: #069;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .footer-below p {
+    padding: 1em;
+  }
+  
+  .footer-above {
+    background-color: #4c4c4d;
+    color: #babfc5;
+    padding: 1.5em;
+  }
+  
+  .footer-above a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-above a:hover {
+    color: #e74d3c;
+  }
