@@ -1,15 +1,16 @@
 import React from "react";
+import '../styles/Footer.css';
 import { Container, Row, Col } from "react-bootstrap";
 import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
 import { IoLogoSlack } from "react-icons/io";
-import RocketImg from "./assets/rocket.png";
+import RocketImg from "../assets/rocket.webp";
 
 function Footer() {
   return (
     <Container fluid>
       <Row className="footer-above">
         <Col xs={12} md={2}>
-          <img src={RocketImg} height={130} />
+          <img src={RocketImg} height={130} width={69} />
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Useful links</h4>

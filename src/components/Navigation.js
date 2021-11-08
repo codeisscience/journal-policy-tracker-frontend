@@ -1,6 +1,7 @@
 import React from "react";
+import '../styles/Navigation.css';
 import { Navbar, Nav } from "react-bootstrap";
-import Logo from "./assets/logo.png";
+import Logo from "../assets/logo.webp";
 import { LinkContainer } from "react-router-bootstrap";
 import SearchBar from "./Search";
 
@@ -9,7 +10,7 @@ function Navigation() {
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand href="#home">
-          <img src={Logo} alt="" srcset="" width={150} />
+          <img src={Logo} alt="" srcset="" height={81} width={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse

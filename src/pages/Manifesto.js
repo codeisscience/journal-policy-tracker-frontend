@@ -1,11 +1,12 @@
 import React from "react";
+import '../styles/Manifesto.css';
 import { Container, Row, Col, Image } from "react-bootstrap";
-import StandingImg from "./assets/human-2.png";
-import SittingImg from "./assets/human-1.png";
-import ImgOne from "./assets/manifesto-img-1.png";
-import WalkingImg from "./assets/walking-man.png";
-import PeersImg from "./assets/peers.png";
-import HandsIcon from "./assets/hands-icon.png";
+import StandingImg from "../assets/human-2.webp";
+import SittingImg from "../assets/human-1.webp";
+import ImgOne from "../assets/manifesto-img-1.webp";
+import WalkingImg from "../assets/walking-man.webp";
+import PeersImg from "../assets/peers.webp";
+import HandsIcon from "../assets/hands-icon.webp";
 import { ImTwitter, ImMail, ImGithub } from "react-icons/im";
 
 const Manifesto = () => {

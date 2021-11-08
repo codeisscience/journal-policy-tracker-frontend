@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row, Container, Table } from "react-bootstrap";
 
-import AddJournal from "./AddJournal";
+import AddJournal from "../components/AddJournal";
 
 const Journal = () => {
   return (
