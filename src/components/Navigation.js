@@ -3,6 +3,7 @@ import '../styles/Navigation.css';
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/logo.webp";
 import { LinkContainer } from "react-router-bootstrap";
+import SearchBar from "./Search";
 
 function Navigation() {
   return (
@@ -12,7 +13,10 @@ function Navigation() {
           <img src={Logo} alt="" srcset="" height={81} width={150} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-evenly"
+        >
           <Nav>
             <LinkContainer to="/" exact>
               <Nav.Link>Home</Nav.Link>
@@ -33,6 +37,7 @@ function Navigation() {
               <Nav.Link>Sign Up</Nav.Link>
             </LinkContainer>
           </Nav>
+          <SearchBar />
         </Navbar.Collapse>
       </Navbar>
     </>
