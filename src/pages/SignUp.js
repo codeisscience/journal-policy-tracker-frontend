@@ -16,6 +16,7 @@ const SignUp = () => {
       body: JSON.stringify(details),
     }).then(() => {
       console.log("Sign up was successful");
+      window.location.href = '/login';
     });
   };
 
