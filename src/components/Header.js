@@ -7,9 +7,6 @@ import Container from "react-bootstrap/Container";
 function Header() {
   return (
     <div className="header">
-      <Jumbotron fluid>
-        <Button fluid>Read and Sign the Manifesto</Button>
-      </Jumbotron>
       <img src={Bg} alt=""></img>
     </div>
   );
