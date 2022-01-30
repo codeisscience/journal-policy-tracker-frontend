@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/LandingSection.css';
+import "../styles/LandingSection.css";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import Img from "../assets/section-img.webp";
 import ClockImg from "../assets/clock.webp";
