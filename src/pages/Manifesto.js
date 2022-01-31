@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Manifesto.css';
+import "../styles/Manifesto.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import StandingImg from "../assets/human-2.webp";
 import SittingImg from "../assets/human-1.webp";
@@ -16,7 +16,7 @@ const Manifesto = () => {
         <Col xs={12} sm={12} md={3}>
           <Image src={StandingImg} height={220} />
         </Col>
-        <Col xs={12} sm={12} md={6} className="manifesto">
+        <Col xs={3} sm={6} md={6} className="manifesto">
           <h1>Manifesto</h1>
         </Col>
         <Col md={3}>
