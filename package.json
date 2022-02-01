@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.16.7",
     "@mdx-js/loader": "^1.6.22",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/user-event": "^12.1.10",
@@ -39,11 +40,19 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-react": "^7.16.7",
     "@testing-library/react": "^11.2.7",
     "autoprefixer": "^9.8.6",
-    "eslint": "^8.7.0",
+    "eslint": "^7.11.0",
+    "eslint-config": "^0.3.0",
+    "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
     "jest-dom": "^4.0.0",
     "postcss": "^7.0.36",
     "prettier": "^2.5.1",
