@@ -1,26 +1,34 @@
-.header {
-    background-image: url("../assets/bg.webp");
-    height: 550px;
+.header img {
+  width: 100vw;
+  height: 550px;
+  padding: 0;
+  object-fit: cover;
+  margin-top: -80px;
+}
+
+.header button {
+  color: #fff;
+  background-color: #f29422;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+  position: relative;
+  left: 60%;
+  top: 380px;
+}
+
+.header button:hover {
+  color: #fff;
+  background-color: #3d9dd9;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 20px;
+  border: none;
+}
+
+/* @media screen and (min-width: 1080px) {
+  .header img {
+    margin-left: 0;
   }
-  
-  .header button {
-    color: #fff;
-    background-color: #f29422;
-    font-size: 18px;
-    border-radius: 30px;
-    padding: 20px;
-    border: none;
-    margin-top: 20em;
-    margin-left: 60em;
-  }
-  
-  .header button:hover {
-    color: #fff;
-    background-color: #3d9dd9;
-    font-size: 18px;
-    border-radius: 30px;
-    padding: 20px;
-    border: none;
-    margin-top: 20em;
-    margin-left: 60em;
-  }
+} */
