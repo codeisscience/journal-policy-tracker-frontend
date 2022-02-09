@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/Header.css";
-import { Button, Jumbotron } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
 import Bg from "../assets/bg.webp";
 import Hidden from "@mui/material/Hidden";
 
@@ -9,9 +7,9 @@ function Header() {
   return (
     <div className="header">
       <Hidden smDown>
-        <Button fluid>Read and Sign the Manifesto</Button>
+        <button className="header_btn">Read and Sign the Manifesto</button>
       </Hidden>
-      <img src={Bg} alt=""></img>
+      <img src={Bg} alt="background image"></img>
     </div>
   );
 }
