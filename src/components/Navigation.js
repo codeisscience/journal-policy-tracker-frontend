@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Navigation.css';
+import "../styles/Navigation.css";
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../assets/logo.webp";
 import { LinkContainer } from "react-router-bootstrap";
