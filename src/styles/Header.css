@@ -5,7 +5,13 @@
   object-fit: cover;
   margin-top: -80px;
 }
-
+/* .header img {
+  width: 100vw;
+  height: 550px;
+  padding: 0;
+  object-fit: cover;
+  margin-top: -80px;
+} */
 .header_btn {
   color: #fff;
   background-color: #f29422;
