@@ -14,7 +14,7 @@
     <img src="logo.webp" alt="Logo">
   </a>
 
-  <h1 style="text-align:center">Journal Policy Tracker Frontend</h1>
+  <h1 style="text-align:center">Journal Policy Tracker Backend</h1>
 
 </p>
 
@@ -68,7 +68,7 @@ Contributions are what make the open source community such an amazing place to b
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+5. Open a Pull Request to the development branch
 
 <!-- LICENSE -->
 
