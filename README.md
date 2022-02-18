@@ -70,7 +70,7 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request to the `development` branch
 
-See also the [Backend Contribution guidelines](https://github.com/codeisscience/journal-policy-tracker-backend/blob/master/CONTRIBUTING.md) for more info. 
+See also the [Contribution guidelines](https://github.com/codeisscience/journal-policy-tracker-backend/blob/master/CONTRIBUTING.md) for more info. 
 
 <!-- LICENSE -->
 
