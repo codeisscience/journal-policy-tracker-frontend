@@ -64,11 +64,13 @@ To run this project locally on your machine you need the following installed
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the Project
+1. Fork the Project. Always make sure to fork from the `development` branch (this is the default branch). 
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request to the development branch
+5. Open a Pull Request to the `development` branch
+
+See also the [Backend Contribution guidelines](https://github.com/codeisscience/journal-policy-tracker-backend/blob/master/CONTRIBUTING.md) for more info. 
 
 <!-- LICENSE -->
 
