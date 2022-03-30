@@ -14,7 +14,7 @@
     <img src="logo.webp" alt="Logo">
   </a>
 
-  <h1 style="text-align:center">Journal Policy Tracker Backend</h1>
+  <h1 style="text-align:center">Journal Policy Tracker Frontend</h1>
 
 </p>
 
