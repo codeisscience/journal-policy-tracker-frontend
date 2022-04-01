@@ -60,9 +60,9 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Row>
+      <Row style={{ paddingTop: '7vh', paddingBottom: '7vh' }}>
         <Col md={4} />
-        <Col md={4}>
+        <Col md={4} style={{ width: '100%' }}>
           <Form className='login-form'>
             <Form.Group className='mb-3' controlId='formBasicEmail'>
               <Form.Label>Email</Form.Label>

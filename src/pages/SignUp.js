@@ -22,9 +22,9 @@ const SignUp = () => {
   };
 
   return (
-    <Row>
+    <Row style={{ paddingTop: '7vh', paddingBottom: '7vh' }}>
       <Col md={4} />
-      <Col md={4}>
+      <Col md={4} style={{ width: '100%' }}>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicUsername'>
             <Form.Label>Username</Form.Label>
