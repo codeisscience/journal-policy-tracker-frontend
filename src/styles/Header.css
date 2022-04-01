@@ -1,6 +1,13 @@
 .header {
-  background-image: url('../assets/bg.webp');
-  height: 550px;
+  /* background-image: url('../assets/bg.webp'); */
+  /* height: 550px; */
+  position: relative;
+}
+
+.header-img {
+  padding: 0;
+  width: 100%;
+  min-height: 260px;
 }
 
 .header button {
@@ -10,8 +17,11 @@
   border-radius: 30px;
   padding: 20px;
   border: none;
-  margin-top: 20em;
-  margin-left: 60em;
+  position: absolute;
+  right: 15vw;
+  bottom: 5vw;
+  /* margin-top: 20em;
+  margin-left: 60em; */
 }
 
 .header button:hover {
@@ -21,6 +31,9 @@
   border-radius: 30px;
   padding: 20px;
   border: none;
-  margin-top: 20em;
-  margin-left: 60em;
+  position: absolute;
+  right: 15vw;
+  bottom: 5vw;
+  /* margin-top: 20em; */
+  /* margin-left: 60em; */
 }
