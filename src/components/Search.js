@@ -4,7 +4,7 @@ import '../index.css';
 
 function SearchBar() {
   return (
-    <div className='search'>
+    <div className='search' style={{ display: 'flex', justifyContent: 'center' }}>
       <div className='searchInputs'>
         <input type='text' />
         <div className='searchIcon'>
