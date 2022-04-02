@@ -1,6 +1,8 @@
 /* eslint-disable react/function-component-definition */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import { showSuccessMessage,showErrorMessage } from '../helpers/alerts';
+import { SignupValidation } from '../helpers/validate';
 
 const SignUp = () => {
   const [details, setDetails] = useState({
@@ -8,17 +10,32 @@ const SignUp = () => {
     email: '',
     password: '',
   });
+  const [success,setSuccess] = useState("");
+  const [error,setError]=useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
+    setSuccess("");
+    setError("");
+    const check = SignupValidation(details);
+    if(check){
+    try{
+      fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(details),
-    }).then(() => {
-      // console.log('Sign up was successful');
+    })
+    setSuccess("Signup Successful")
+    setTimeout(()=>{
       window.location.href = '/login';
-    });
+    },800)
+    }catch(err){
+      setError("Signup Failed")
+    }
+  }
+  else{
+    setError("Invalid Input")
+  }
   };
 
   return (
@@ -27,6 +44,8 @@ const SignUp = () => {
       <Col md={4}>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicUsername'>
+             {success && showSuccessMessage(success)}
+             {error && showErrorMessage(error)}
             <Form.Label>Username</Form.Label>
             <Form.Control
               type='text'
