@@ -12,7 +12,7 @@ function Navigation() {
       expand='lg'
       bg='light'
       variant='light'
-      style={{ paddingLeft: '30px', paddingRight: '30px', textAlign: 'center' }}
+      style={{ paddingLeft: '30px', paddingRight: '30px' }}
     >
       <Navbar.Brand href='#home'>
         <img src={Logo} alt='' srcSet='' height={81} width={150} />
