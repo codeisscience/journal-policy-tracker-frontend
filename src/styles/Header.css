@@ -11,7 +11,8 @@
   padding: 20px;
   border: none;
   margin-top: 20em;
-  margin-left: 60em;
+  position: absolute;
+  left: 60%;
 }
 
 .header button:hover {
