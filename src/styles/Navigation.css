@@ -10,3 +10,13 @@
 a:link {
   text-decoration: none;
 }
+
+@media screen and (max-width:768px){
+  .navbar{
+    padding: 0px 20px;
+  }
+
+  .navbar .navbar-nav{
+    text-align: center;
+  }
+}
