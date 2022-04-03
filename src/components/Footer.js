@@ -51,7 +51,7 @@ function Footer() {
         </Col>
       </Row>
       <Row className='footer-below'>
-        <p>2021 Code is Science</p>
+        <p>{new Date().getFullYear()}<sup>©</sup> Code is Science</p>
       </Row>
     </Container>
   );
