@@ -14,7 +14,7 @@ import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 
 const Manifesto = () => (
   <Container>
-    <Row className='manifesto-header'>
+    <Row className='manifesto-header manifesto-padding'>
       <Col xs={12} sm={12} md={3}>
         <Image src={StandingImg} height={220} />
       </Col>

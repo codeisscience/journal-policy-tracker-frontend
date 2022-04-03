@@ -7,8 +7,8 @@ import SearchBar from './Search';
 
 function Navigation() {
   return (
-    <Navbar collapseOnSelect expand='lg' bg='light' variant='light'>
-      <Navbar.Brand href='#home'>
+    <Navbar collapseOnSelect expand='lg' bg='light' variant='light' className='sticky-navbar'>
+      <Navbar.Brand href='/'>
         <img src={Logo} alt='' srcSet='' height={81} width={150} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />

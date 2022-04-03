@@ -10,3 +10,9 @@
 a:link {
   text-decoration: none;
 }
+.sticky-navbar{
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    max-width: 100%;
+}
