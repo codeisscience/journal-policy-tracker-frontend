@@ -1,26 +1,27 @@
 .header {
   background-image: url('../assets/bg.webp');
   height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header button {
   color: #fff;
+  text-transform: uppercase;
   background-color: #f29422;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 30px;
-  padding: 20px;
+  padding: 20px 40px;
   border: none;
-  margin-top: 20em;
-  margin-left: 60em;
+  box-shadow: 0 10px 30px #e2762d;
 }
 
 .header button:hover {
   color: #fff;
   background-color: #3d9dd9;
-  font-size: 18px;
-  border-radius: 30px;
-  padding: 20px;
   border: none;
-  margin-top: 20em;
-  margin-left: 60em;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px #e2762d;
+  transition: .3s;
 }
