@@ -73,9 +73,9 @@ function AddJournal() {
       <Col md={4}>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicTitle'>
+            {success && showSuccessMessage(success)}
+            {error && showErrorMessage(error)}
             <Form.Label>Title</Form.Label>
-             {success && showSuccessMessage(success)}
-             {error && showErrorMessage(error)}
             <Form.Control
               type='text'
               placeholder='Journal title'
