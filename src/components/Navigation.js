@@ -13,6 +13,7 @@ function Navigation() {
       bg='light'
       variant='light'
       style={{ paddingLeft: '30px', paddingRight: '30px' }}
+      fixed="top"
     >
       <Navbar.Brand href='#home'>
         <img src={Logo} alt='' srcSet='' height={81} width={150} />
