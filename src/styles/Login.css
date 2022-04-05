@@ -9,3 +9,9 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+@media screen and (max-width:500px) {
+  .responsive{
+    width: auto;
+  }
+}

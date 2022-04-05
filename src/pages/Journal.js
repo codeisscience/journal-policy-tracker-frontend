@@ -7,7 +7,7 @@ import AddJournal from '../components/AddJournal';
 
 const Journal = () => (
   <Container>
-    <h1>Journals</h1>
+    <h1 className='text-center mt-4'>Journals</h1>
     <AddJournal />
   </Container>
 );
