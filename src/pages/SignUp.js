@@ -1,6 +1,7 @@
 /* eslint-disable react/function-component-definition */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import "../styles/Signup.css"
 
 const SignUp = () => {
   const [details, setDetails] = useState({
@@ -22,7 +23,7 @@ const SignUp = () => {
   };
 
   return (
-    <Row>
+    <Row className='signup-padding'>
       <Col md={4} />
       <Col md={4}>
         <Form className='login-form' onSubmit={handleSubmit}>

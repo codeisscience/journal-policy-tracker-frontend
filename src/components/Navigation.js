@@ -7,7 +7,14 @@ import SearchBar from './Search';
 
 function Navigation() {
   return (
-    <Navbar collapseOnSelect expand='lg' bg='light' variant='light'>
+    <Navbar
+      collapseOnSelect
+      expand='lg'
+      bg='light'
+      variant='light'
+      style={{ paddingLeft: '30px', paddingRight: '30px' }}
+      fixed="top"
+    >
       <Navbar.Brand href='#home'>
         <img src={Logo} alt='' srcSet='' height={81} width={150} />
       </Navbar.Brand>

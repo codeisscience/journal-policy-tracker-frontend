@@ -11,7 +11,7 @@
   padding: 20px;
   border: none;
   margin-top: 20em;
-  margin-left: 60em;
+  margin-left: calc(((100% - 270px) / 3) * 2);
 }
 
 .header button:hover {
@@ -22,5 +22,8 @@
   padding: 20px;
   border: none;
   margin-top: 20em;
-  margin-left: 60em;
+  margin-left: calc(((100% - 270px) / 3) * 2);
+}
+.header-padding{
+  padding-top: 6.7em; 
 }

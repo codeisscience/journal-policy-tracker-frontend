@@ -6,7 +6,7 @@ import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 import { FaGitter } from 'react-icons/fa';
 
 const Contact = () => (
-  <Container>
+  <Container  className='contact-padding'>
     <h1>Contact Us</h1>
     <p>Ideas? Comments? Critiques? Want to help out? Here’s how to get in contact:</p>
     <Row className='contact-card-one'>

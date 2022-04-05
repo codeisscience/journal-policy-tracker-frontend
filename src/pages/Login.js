@@ -60,7 +60,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Row>
+      <Row className='login-padding'>
         <Col md={4} />
         <Col md={4}>
           <Form className='login-form'>
