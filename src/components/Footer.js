@@ -10,11 +10,11 @@ function Footer() {
   return (
     <Container fluid>
       <Row className='footer-above'>
-        <Col xs={12} md={2}>
-          <img src={RocketImg} alt='' height={130} width={69} />
+        <Col xs={12} md={3}>
+            <img src={RocketImg} alt='' height={130} width={69} />
         </Col>
         <Col xs={12} sm={12} md={3}>
-          <h4>Useful links</h4>
+          <h4>Useful Links</h4>
           <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
             Contribute
           </a>
@@ -36,17 +36,17 @@ function Footer() {
         <Col xs={12} sm={12} md={3}>
           <h4>Contact Us</h4>
           <a href='mailto:contact@codeisscience.com' target='_blank' rel='noreferrer'>
-            <ImMail /> Email
+            <ImMail className='email-icon icons'/> Email
           </a>
           <a href='https://twitter.com/codeisscience' target='_blank' rel='noreferrer'>
-            <ImTwitter />
-            &nbsp;Twitter
+            <ImTwitter className='twitter-icon icons'/> 
+            Twitter
           </a>
           <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
-            <ImGithub /> GitHub
+            <ImGithub className='github-icon icons'/> GitHub
           </a>
           <a href='#'>
-            <IoLogoSlack /> Slack
+            <IoLogoSlack className='slack-icon icons'/> Slack
           </a>
         </Col>
       </Row>
