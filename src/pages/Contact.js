@@ -7,7 +7,7 @@ import { FaGitter } from 'react-icons/fa';
 
 const Contact = () => (
   <Container>
-    <h1>Contact Us</h1>
+    <h1 className="mt-4">Contact Us</h1>
     <p>Ideas? Comments? Critiques? Want to help out? Here’s how to get in contact:</p>
     <Row className='contact-card-one'>
       <Col md={6}>
@@ -69,7 +69,7 @@ const Contact = () => (
               Subject
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type='password' placeholder='Code is Science' />
+              <Form.Control type='text' placeholder='Code is Science' />
             </Col>
           </Form.Group>
           <br />
@@ -78,16 +78,16 @@ const Contact = () => (
               Message
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type='text' placeholder='What is code is science' />
+            <Form.Control as="textarea" rows={3} placeholder="Enter your message here..." />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} controlId='formHorizontalCheck'>
+          <Form.Group as={Row} controlId='formHorizontalCheck' className='mt-3'>
             <Col sm={{ span: 10, offset: 2 }}>
               <Form.Check label='Remember me' />
             </Col>
           </Form.Group>
 
-          <Form.Group as={Row}>
+          <Form.Group as={Row} className='mt-3'>
             <Col sm={{ span: 10, offset: 2 }}>
               <Button type='submit'>Send</Button>
             </Col>
