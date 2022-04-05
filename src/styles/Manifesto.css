@@ -9,12 +9,13 @@
 }
 
 .manifesto-header {
-  padding-top: 2em;
   margin-bottom: 5em;
   display : flex;
   align-items: center;
 }
-
+.manifesto-padding{
+  padding-top: 8.7em;
+}
 .manifesto-section-one h1,
 h1 {
   color: #3d9dd9;

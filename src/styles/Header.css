@@ -24,3 +24,6 @@
   margin-top: 20em;
   margin-left: calc(((100% - 270px) / 3) * 2);
 }
+.header-padding{
+  padding-top: 6.7em; 
+}
