@@ -15,7 +15,7 @@ function Navigation() {
       style={{ paddingLeft: '30px', paddingRight: '30px' }}
       fixed="top"
     >
-      <Navbar.Brand href='#home'>
+      <Navbar.Brand href='/'>
         <img src={Logo} alt='' srcSet='' height={81} width={150} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
