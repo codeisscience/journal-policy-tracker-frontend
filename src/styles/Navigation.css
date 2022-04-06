@@ -10,3 +10,8 @@
 a:link {
   text-decoration: none;
 }
+
+a:hover{
+  border-bottom: 4px solid #3d9dd946;
+  color: #00000076;
+}

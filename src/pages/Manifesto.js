@@ -15,13 +15,13 @@ import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 const Manifesto = () => (
   <Container>
     <Row className='manifesto-header manifesto-padding'>
-      <Col xs={12} sm={12} md={3}>
+      <Col xs={12} sm={12} md={3} style={{'text-align':'center'}}>
         <Image src={StandingImg} height={220} />
       </Col>
       <Col xs={12} sm={12} md={6} className='manifesto'>
         <h1>Manifesto</h1>
       </Col>
-      <Col md={3}>
+      <Col xs={12} sm={12} md={3} style={{'text-align':'center'}}>
         <Image src={SittingImg} height={220} />
       </Col>
     </Row>
