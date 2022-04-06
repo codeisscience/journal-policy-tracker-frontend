@@ -1,19 +1,34 @@
 .manifesto {
   text-align: center;
-  padding: 5em;
   color: #3d9dd9;
 }
 
 .manifesto h1 {
-  font-size: 4em;
+  font-size: 5em;
+}
+
+@media screen and (max-width: 992px) {
+  .manifesto h1 {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .manifesto h1 {
+    font-size: 3em;
+  }
+}
+
+.manifesto-right-image {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .manifesto-header {
   margin-bottom: 5em;
-  display : flex;
+  display: flex;
   align-items: center;
 }
-.manifesto-padding{
+.manifesto-padding {
   padding-top: 8.7em;
 }
 .manifesto-section-one h1,
@@ -26,14 +41,14 @@ h1 {
 }
 
 .manifesto-support {
-  margin : 10px;
+  margin: 10px;
   display: flex;
   justify-content: center;
 }
 
 .manifesto-support h1 {
   text-align: center;
-  margin : 15px;
+  margin: 15px;
 }
 
 .manifesto-support p,
@@ -64,9 +79,9 @@ img {
 
 .manifesto-contribute {
   display: flex;
-  justify-content : center;
-  padding : 30px;
-  margin : 0px auto;
+  justify-content: center;
+  padding: 30px;
+  margin: 0px auto;
 }
 
 .manifesto-contribute li {

@@ -21,7 +21,7 @@ const Manifesto = () => (
       <Col xs={12} sm={12} md={6} className='manifesto'>
         <h1>Manifesto</h1>
       </Col>
-      <Col md={3}>
+      <Col xs={12} sm={12} md={3} className='manifesto-right-image'>
         <Image src={SittingImg} height={220} />
       </Col>
     </Row>
@@ -50,7 +50,7 @@ const Manifesto = () => (
     </Row>
     <Row className='manifesto-support'>
       <h1>I want to express my support for the manifesto! Tell me how</h1>
-      <Col md={3} className="manifesto-support-points">
+      <Col md={3} className='manifesto-support-points'>
         <Image src={WalkingImg} height={140} />
         <p>
           <a
@@ -62,7 +62,7 @@ const Manifesto = () => (
           </a>
         </p>
       </Col>
-      <Col md={3} className="manifesto-support-points">
+      <Col md={3} className='manifesto-support-points'>
         <Image src={PeersImg} height={140} />
         <p>
           <a
@@ -76,7 +76,7 @@ const Manifesto = () => (
           on behalf of an organisation.
         </p>
       </Col>
-      <Col md={3} className="manifesto-support-points">
+      <Col md={3} className='manifesto-support-points'>
         <img src={HandsIcon} alt='' height={140} />
         <p>
           We’re particularly interested in adding logos and links indicating organisational support
