@@ -72,3 +72,17 @@ img {
 .manifesto-contribute li {
   line-height: 25px;
 }
+
+
+@media only screen and (max-width: 768px){
+  .manifesto{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .manifesto-header {
+    margin-bottom: 0;
+  }
+  .manifesto-header .imgContainer{
+    display: none;
+  }
+}
