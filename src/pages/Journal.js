@@ -7,13 +7,8 @@ import "../styles/Journal.css"
 import AddJournal from '../components/AddJournal';
 
 const Journal = () => (
-
-
-
-
   <Container className='journal-padding'>
-<h1 className='text-center'>Journals</h1>
-
+    <h1 className='text-center'>Journals</h1>
     <AddJournal />
   </Container>
 );
