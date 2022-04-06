@@ -14,7 +14,7 @@ import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 
 const Manifesto = () => (
   <Container>
-    <Row className='manifesto-header'>
+    <Row className='manifesto-header manifesto-padding'>
       <Col xs={12} sm={12} md={3}>
         <Image src={StandingImg} height={220} />
       </Col>
@@ -50,7 +50,7 @@ const Manifesto = () => (
     </Row>
     <Row className='manifesto-support'>
       <h1>I want to express my support for the manifesto! Tell me how</h1>
-      <Col md={4}>
+      <Col md={3} className="manifesto-support-points">
         <Image src={WalkingImg} height={140} />
         <p>
           <a
@@ -62,7 +62,7 @@ const Manifesto = () => (
           </a>
         </p>
       </Col>
-      <Col md={4}>
+      <Col md={3} className="manifesto-support-points">
         <Image src={PeersImg} height={140} />
         <p>
           <a
@@ -76,7 +76,7 @@ const Manifesto = () => (
           on behalf of an organisation.
         </p>
       </Col>
-      <Col md={4}>
+      <Col md={3} className="manifesto-support-points">
         <img src={HandsIcon} alt='' height={140} />
         <p>
           We’re particularly interested in adding logos and links indicating organisational support
@@ -84,8 +84,8 @@ const Manifesto = () => (
         </p>
       </Col>
     </Row>
-    <Row>
-      <Col md={6}>
+    <Row className='manifesto-contribute'>
+      <Col md={5}>
         <h2>How can I contribute?</h2>
         <ul>
           <li>Sign the manifesto and share with all your friends!</li>
@@ -111,7 +111,7 @@ const Manifesto = () => (
           </li>
         </ul>
       </Col>
-      <Col md={6} className='manifesto-contact'>
+      <Col md={5} className='manifesto-contact'>
         <h2>Contact</h2>
         <a href='https://twitter.com/codeisscience'>
           <ImTwitter />

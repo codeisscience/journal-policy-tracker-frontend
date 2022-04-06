@@ -51,7 +51,7 @@ function Login() {
   }
   };
     return (
-      <Row>
+      <Row className='login-padding'>
         <Col md={4} />
         <Col md={4}>
           <Form className='login-form' onSubmit={handleLogin}>
