@@ -76,8 +76,8 @@ img {
 
 @media only screen and (max-width: 768px){
   .manifesto{
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding:0px;
+
   }
   .manifesto-header {
     margin-bottom: 0;
