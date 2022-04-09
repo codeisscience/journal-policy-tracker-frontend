@@ -25,9 +25,13 @@
 This is the frontend repository for the [Journal Policy Tracker](https://github.com/codeisscience/journal-policy-tracker-backend) web application.
 
 ### Built With
-
+- [JavaScript](https://www.w3schools.com/jsref/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
+- [CSS3](https://www.w3schools.com/cssref/)
+- [HTML5](https://www.tutorialspoint.com/html5/index.htm)
+- [Grid](https://cssreference.io/css-grid/)
+- [Flex-box](https://cssreference.io/flexbox/)
 
 <!-- GETTING STARTED -->
 
@@ -38,7 +42,9 @@ This is the frontend repository for the [Journal Policy Tracker](https://github.
 To run this project locally on your machine you need the following installed
 
 - nodejs
+  
 - npm
+  
 
 ### Installation
 
@@ -83,6 +89,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Code Is Science - [@codeisscience](https://twitter.com/codeisscience)
+Mailing List/Forum - [GSOC](https://groups.google.com/g/obf-gsoc-general)
+Twitter - (https://twitter.com/obf_news)
+Blog - (https://www.open-bio.org/blog/)
+Linked In -(https://www.linkedin.com/in/sarthaksehgal99/)
+           (https://www.linkedin.com/in/vermasrijan/)
+           (https://www.linkedin.com/in/hidayat-khan-b188b1155/)
 
 <!-- ACKNOWLEDGEMENTS -->
 
