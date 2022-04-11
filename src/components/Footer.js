@@ -10,11 +10,11 @@ function Footer() {
   return (
     <Container fluid>
       <Row className='footer-above'>
-        <Col xs={12} md={2}>
-          <img src={RocketImg} alt='' height={130} width={69} />
+        <Col xs={12} md={3}>
+            <img src={RocketImg} alt='' height={130} width={69} />
         </Col>
         <Col xs={12} sm={12} md={3}>
-          <h4>Useful links</h4>
+          <h4>Useful Links</h4>
           <li className='footer-link'>
             <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
               Contribute
@@ -47,23 +47,25 @@ function Footer() {
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Contact Us</h4>
+
           <li className='footer-link'>
             <a href='mailto:contact@codeisscience.com' target='_blank' rel='noreferrer'>
-              <ImMail /> Email
+            <ImMail className='email-icon icons'/> Email
             </a>
           </li>
           <li className='footer-link'>
             <a href='https://twitter.com/codeisscience' target='_blank' rel='noreferrer'>
-              <ImTwitter />
+            <ImTwitter className='twitter-icon icons'/> 
               &nbsp;Twitter
             </a>
           </li>
           <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
-            <ImGithub /> GitHub
+            <ImGithub className='github-icon icons'/> GitHub
           </a>
+
           <li className='footer-link'>
             <a href='#'>
-              <IoLogoSlack /> Slack
+              <IoLogoSlack className='slack-icon icons'/> Slack
             </a>
           </li>
         </Col>
