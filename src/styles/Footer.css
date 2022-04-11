@@ -8,19 +8,59 @@
 .footer-below p {
   padding: 1em;
 }
-
+.footer-above img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
 .footer-above {
   background-color: #4c4c4d;
   color: #babfc5;
   padding: 1.5em;
+}
+.footer-above h4 {
+  padding: 1rem 0 0.4rem 0;
+  color: #aad8f5;
 }
 
 .footer-above a {
   display: block;
   color: #fff;
   text-decoration: none;
+  padding: 0.2rem 0;
+  transition:0.2s all;
 }
-
+.icons{
+  font-size:1.2rem;
+  margin-right: 0.5rem;
+}
+.email-icon{
+  color: #fff;
+}
+.github-icon{
+  color:#171515;
+}
+.twitter-icon{
+  color:#00ACEE;
+  margin-right: 0.8rem;
+}
+.slack-icon{
+  color: #E01E5A;
+}
 .footer-above a:hover {
   color: #e74d3c;
 }
+
+
+@media screen and (max-width: 900px) {
+  .footer-above img {
+    margin-left:0;
+    margin-right:auto;
+  }
+}
+
+.footer-link{
+  list-style-type: none;
+  display: flex;
+}
+

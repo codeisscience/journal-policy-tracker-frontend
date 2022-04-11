@@ -36,9 +36,8 @@ function AddJournal() {
 
   return (
     <Row>
-      <Col md={4} />
-      <Col md={4}>
-        <Form className='login-form' onSubmit={handleSubmit}>
+      <Col className='m-auto'>
+        <Form className='login-form responsive' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicTitle'>
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -111,7 +110,6 @@ function AddJournal() {
           </Button>
         </Form>
       </Col>
-      <Col md={4} />
     </Row>
   );
 }
