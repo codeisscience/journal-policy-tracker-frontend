@@ -51,9 +51,16 @@
   color: #e74d3c;
 }
 
+
 @media screen and (max-width: 900px) {
   .footer-above img {
     margin-left:0;
     margin-right:auto;
   }
 }
+
+.footer-link{
+  list-style-type: none;
+  display: flex;
+}
+

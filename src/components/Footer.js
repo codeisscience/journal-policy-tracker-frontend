@@ -15,39 +15,59 @@ function Footer() {
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Useful Links</h4>
-          <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
-            Contribute
-          </a>
-          <a
-            href='https://codeisscience.github.io/manifesto/manifesto.html'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Manifesto
-          </a>
-          <a href='#'>Code of conduct</a>
+          <li className='footer-link'>
+            <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
+              Contribute
+            </a>
+          </li>
+          <li className='footer-link'>
+            <a
+              href='https://codeisscience.github.io/manifesto/manifesto.html'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Manifesto
+            </a>
+          </li>
+          <li className='footer-link'>
+            <a href='#'>Code of conduct</a>
+          </li>
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Resources</h4>
-          <a href='#'>Authors</a>
-          <a href='#'>Open science</a>
-          <a href='#'>Contributors</a>
+          <li className='footer-link'>
+            <a href='#'>Authors</a>
+          </li>
+          <li className='footer-link'>
+            <a href='#'>Open science</a>
+          </li>
+          <li className='footer-link'>
+            <a href='#'>Contributors</a>
+          </li>
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Contact Us</h4>
-          <a href='mailto:contact@codeisscience.com' target='_blank' rel='noreferrer'>
+
+          <li className='footer-link'>
+            <a href='mailto:contact@codeisscience.com' target='_blank' rel='noreferrer'>
             <ImMail className='email-icon icons'/> Email
-          </a>
-          <a href='https://twitter.com/codeisscience' target='_blank' rel='noreferrer'>
+            </a>
+          </li>
+          <li className='footer-link'>
+            <a href='https://twitter.com/codeisscience' target='_blank' rel='noreferrer'>
             <ImTwitter className='twitter-icon icons'/> 
-            Twitter
-          </a>
+              &nbsp;Twitter
+            </a>
+          </li>
           <a href='https://github.com/codeisscience' target='_blank' rel='noreferrer'>
             <ImGithub className='github-icon icons'/> GitHub
           </a>
-          <a href='#'>
-            <IoLogoSlack className='slack-icon icons'/> Slack
-          </a>
+
+          <li className='footer-link'>
+            <a href='#'>
+              <IoLogoSlack className='slack-icon icons'/> Slack
+            </a>
+          </li>
         </Col>
       </Row>
       <Row className='footer-below'>
