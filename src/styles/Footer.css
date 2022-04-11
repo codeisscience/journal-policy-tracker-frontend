@@ -24,3 +24,7 @@
 .footer-above a:hover {
   color: #e74d3c;
 }
+.footer-link{
+  list-style-type: none;
+  display: flex;
+}
