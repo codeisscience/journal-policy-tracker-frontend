@@ -69,7 +69,7 @@ const Contact = () => (
               Subject
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type='password' placeholder='Code is Science' />
+              <Form.Control type='text' placeholder='Code is Science' />
             </Col>
           </Form.Group>
           <br />
