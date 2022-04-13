@@ -1,6 +1,8 @@
 .header {
   background-image: url('../assets/bg.webp');
   height: 550px;
+  background-size: 150vw;
+  background-repeat: no-repeat;
 }
 
 .header button {
@@ -10,20 +12,37 @@
   border-radius: 30px;
   padding: 20px;
   border: none;
-  margin-top: 20em;
-  margin-left: calc(((100% - 270px) / 3) * 2);
+  margin-top: 26vw;
+  margin-left: 5vw;
 }
 
 .header button:hover {
-  color: #fff;
   background-color: #3d9dd9;
-  font-size: 18px;
-  border-radius: 30px;
-  padding: 20px;
-  border: none;
-  margin-top: 20em;
-  margin-left: calc(((100% - 270px) / 3) * 2);
 }
+
 .header-padding{
   padding-top: 6.7em; 
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    background-size: 200vw;
+  }
+  
+  .header button {
+    margin-top: 35vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    background-size: 250vw;
+    background-position-x: 20%;
+  }
+  
+  .header button {
+    margin-top: 45vw;
+    font-size: 3.5vw;
+    padding: 3.5vw
+  }
 }
