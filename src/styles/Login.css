@@ -9,6 +9,11 @@
   margin-top: 50px;
   margin-bottom: 100px;
 }
+@media screen and (max-width:500px) {
+  .responsive{
+    width: auto;
+  }
+}
 .login-padding{
   padding-top: 7em;
 }
