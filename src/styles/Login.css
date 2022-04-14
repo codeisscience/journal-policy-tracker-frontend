@@ -7,7 +7,7 @@
   border-radius: 15px;
   transition: all 0.3s;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
 }
 @media screen and (max-width:500px) {
   .responsive{
