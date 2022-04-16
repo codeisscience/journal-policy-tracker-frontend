@@ -23,7 +23,7 @@ const SignUp = () => {
   };
 
   return (
-    <Row className='signup-padding'>
+    <Row className='signup-padding signup-margin'>
       <Col md={4} />
       <Col md={4}>
         <Form className='login-form' onSubmit={handleSubmit}>

@@ -7,7 +7,7 @@
   border-radius: 15px;
   transition: all 0.3s;
   margin-top: 50px;
-  margin-bottom: 300px;
+  margin-bottom: 50px;
 }
 @media screen and (max-width:500px) {
   .responsive{
@@ -16,4 +16,7 @@
 }
 .login-padding{
   padding-top: 7em;
+}
+.login-margin{
+  margin: 0;
 }
