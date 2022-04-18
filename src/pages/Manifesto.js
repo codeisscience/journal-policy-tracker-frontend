@@ -16,18 +16,18 @@ const Manifesto = () => (
   <Container>
     <Row className='manifesto-header manifesto-padding'>
       <Col xs={12} sm={12} md={3} className='imgContainer'>
-        <Image src={StandingImg} height={220} />
+        <Image src={StandingImg} height={220} alt= 'animated standing and talking girl' />
       </Col>
       <Col xs={12} sm={12} md={6} className='manifesto'>
         <h1>Manifesto</h1>
       </Col>
       <Col md={3} className='imgContainer'>
-        <Image src={SittingImg} height={220} />
+        <Image src={SittingImg} height={220} alt='animated sitting and talking girl' />
       </Col>
     </Row>
     <Row className='manifesto-section-one'>
       <Col xs={12} sm={12} md={6}>
-        <Image src={ImgOne} fluid />
+        <Image src={ImgOne} alt='research' fluid />
         <p>Code is Science - a manifesto for anyone who deals with code in a scientific scenario</p>
       </Col>
       <Col md={6}>
@@ -51,7 +51,7 @@ const Manifesto = () => (
     <Row className='manifesto-support'>
       <h1>I want to express my support for the manifesto! Tell me how</h1>
       <Col md={3} className="manifesto-support-points">
-        <Image src={WalkingImg} height={140} />
+        <Image src={WalkingImg} height={140} alt='walking man' />
         <p>
           <a
             href='https://docs.google.com/forms/d/e/1FAIpQLSeaDLDaREkUyOwpvbQf41hxT12ixoBToTdBhlgTj_YoW0tSgw/viewform?usp=sf_link'
@@ -63,7 +63,7 @@ const Manifesto = () => (
         </p>
       </Col>
       <Col md={3} className="manifesto-support-points">
-        <Image src={PeersImg} height={140} />
+        <Image src={PeersImg} height={140} alt='animated talking boys'/>
         <p>
           <a
             href='https://docs.google.com/forms/d/e/1FAIpQLSdUPKlP__5saaYMyEJwkHF3gRNAHiKihOlp6zd6QK4vUqs3gg/viewform?usp=sf_link'
@@ -77,7 +77,7 @@ const Manifesto = () => (
         </p>
       </Col>
       <Col md={3} className="manifesto-support-points">
-        <img src={HandsIcon} alt='' height={140} />
+        <img src={HandsIcon} alt='hands icon' height={140} />
         <p>
           We’re particularly interested in adding logos and links indicating organisational support
           from publishers, funders, and research institutions.
