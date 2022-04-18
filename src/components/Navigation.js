@@ -16,7 +16,7 @@ function Navigation() {
       fixed='top'
     >
       <Navbar.Brand href='#home'>
-        <img src={Logo} alt='' srcSet='' height={81} width={150} />
+        <img src={Logo} alt='code is science' srcSet='' height={81} width={150} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav' className='justify-content-evenly'>
