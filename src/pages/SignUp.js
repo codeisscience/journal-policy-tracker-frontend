@@ -1,7 +1,9 @@
 /* eslint-disable react/function-component-definition */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import "../styles/Signup.css"
+import { showSuccessMessage, showErrorMessage } from '../helpers/alerts';
+import { SignupValidation } from '../helpers/validate';
+import '../styles/Signup.css';
 
 const SignUp = () => {
   const [details, setDetails] = useState({
@@ -9,25 +11,40 @@ const SignUp = () => {
     email: '',
     password: '',
   });
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(details),
-    }).then(() => {
-      // console.log('Sign up was successful');
-      window.location.href = '/login';
-    });
+    setSuccess('');
+    setError('');
+    const check = SignupValidation(details);
+    if (check) {
+      try {
+        fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(details),
+        });
+        setSuccess('Signup Successful');
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 800);
+      } catch (err) {
+        setError('Signup Failed');
+      }
+    } else {
+      setError('Invalid Input');
+    }
   };
 
   return (
     <Row className='signup-padding'>
-      <Col md={4} />
-      <Col md={4}>
+      <Col>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicUsername'>
+            {success && showSuccessMessage(success)}
+            {error && showErrorMessage(error)}
             <Form.Label>Username</Form.Label>
             <Form.Control
               type='text'
@@ -59,7 +76,6 @@ const SignUp = () => {
           </Button>
         </Form>
       </Col>
-      <Col md={4} />
     </Row>
   );
 };

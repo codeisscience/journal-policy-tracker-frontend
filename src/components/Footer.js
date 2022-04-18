@@ -11,7 +11,7 @@ function Footer() {
     <Container fluid>
       <Row className='footer-above'>
         <Col xs={12} md={3}>
-            <img src={RocketImg} alt='' height={130} width={69} />
+            <img src={RocketImg} alt='rocket' height={130} width={69} />
         </Col>
         <Col xs={12} sm={12} md={3}>
           <h4>Useful Links</h4>
@@ -55,7 +55,7 @@ function Footer() {
           </li>
           <li className='footer-link'>
             <a href='https://twitter.com/codeisscience' target='_blank' rel='noreferrer'>
-            <ImTwitter className='twitter-icon icons'/> 
+            <ImTwitter className='twitter-icon icons'/>
               &nbsp;Twitter
             </a>
           </li>

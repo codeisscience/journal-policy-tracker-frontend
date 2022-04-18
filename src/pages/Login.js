@@ -4,102 +4,89 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/state-in-constructor */
-import React from 'react';
+import { React, useState } from 'react';
 import '../styles/Login.css';
 import { Col, Row, Form, Button } from 'react-bootstrap';
+import { showSuccessMessage, showErrorMessage } from '../helpers/alerts';
+import { LoginValidation } from '../helpers/validate';
 
-class Login extends React.Component {
-  state = {
+function Login() {
+  const [details, setDetails] = useState({
     email: '',
     password: '',
     accessToken: '',
-  };
+  });
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
-  handleLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    fetch('https://journal-policy-tracker.herokuapp.com/users/login', {
-      method: 'POST',
-      mode: 'CORS',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((res) => {
-        alert('Login successful');
-        // The response is expected to be in the form:
-        // {
-        // message: "Login Successful!"
-        // token: "",
-        // }
-
-        this.setState({
-          accessToken: res.token,
+    setSuccess('');
+    setError('');
+    const check = LoginValidation(details);
+    if (check) {
+      try {
+        const response = fetch('https://journal-policy-tracker.herokuapp.com/users/login', {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            details,
+          }),
         });
-      })
-      .catch((error) => {
+        // const res = response.json();
+        // setDetails({ ...details,accessToken: res.token })
+        setSuccess('Login Successful');
+      } catch (err) {
         // console.log(error);
-      });
+        setError('Invalid Credentials');
+      }
+    } else {
+      setError('Invalid Input');
+    }
   };
+  return (
+    <Row className='login-padding'>
+      <Col>
+        <Form className='login-form' onSubmit={handleLogin}>
+          <Form.Group className='mb-3' controlId='formBasicEmail'>
+            {success && showSuccessMessage(success)}
+            {error && showErrorMessage(error)}
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type='email'
+              placeholder='Enter email'
+              name='email'
+              value={details.email}
+              onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            />
+            <Form.Text className='text-muted'>
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-  handleEmailChange = (e) => {
-    this.setState({
-      email: e.target.value,
-    });
-  };
-
-  handlePasswordChange = (e) => {
-    this.setState({
-      password: e.target.value,
-    });
-  };
-
-  render() {
-    return (
-      <Row className='login-padding'>
-        <Col md={4} />
-        <Col md={4}>
-          <Form className='login-form'>
-            <Form.Group className='mb-3' controlId='formBasicEmail'>
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type='email'
-                placeholder='Enter email'
-                name='email'
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-              />
-              <Form.Text className='text-muted'>
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group className='mb-3' controlId='formBasicPassword'>
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type='password'
-                placeholder='Password'
-                name='password'
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-              />
-            </Form.Group>
-            <Form.Group className='mb-3' controlId='formBasicCheckbox'>
-              <Form.Check type='checkbox' label='Remember me' />
-            </Form.Group>
-            <Button variant='primary' onClick={this.handleLogin} type='submit'>
-              Login
-            </Button>
-          </Form>
-        </Col>
-        <Col md={4} />
-      </Row>
-    );
-  }
+          <Form.Group className='mb-3' controlId='formBasicPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Password'
+              name='password'
+              value={details.password}
+              onChange={(e) => setDetails({ ...details, password: e.target.value })}
+            />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='formBasicCheckbox'>
+            <Form.Check type='checkbox' label='Remember me' />
+          </Form.Group>
+          <Button variant='primary' type='submit'>
+            Login
+          </Button>
+        </Form>
+      </Col>
+    </Row>
+  );
 }
 
 export default Login;

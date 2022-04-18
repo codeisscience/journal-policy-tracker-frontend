@@ -14,3 +14,10 @@
 .contact-padding{
   padding-top: 8.7em;
 }
+
+.invalidInput{
+  color: red;
+  font-size: small;
+  padding: 0;
+  margin: 0;
+}
