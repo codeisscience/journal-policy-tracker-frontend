@@ -1,9 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import AddJournal from "./AddJournal";
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import AddJournal from './AddJournal';
 
-test("Add Journal renders the form correctly", () => {
+test('Add Journal renders the form correctly', () => {
   const { getByText, getByLabelText } = render(<AddJournal />);
   const title = getByText(/Title/i);
   const url = getByText(/URL/i);
@@ -16,5 +16,5 @@ test("Add Journal renders the form correctly", () => {
   expect(rating).toBeInTheDocument();
   expect(policies).toBeInTheDocument();
   const input = getByLabelText(/Date/i);
-  expect(input).toHaveAttribute("type", "date");
+  expect(input).toHaveAttribute('type', 'date');
 });
