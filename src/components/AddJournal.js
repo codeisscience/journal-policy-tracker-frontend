@@ -81,16 +81,19 @@ const AddJournal = () => {
           <Form.Group className="mb-3" controlId="formBasicPolicies">
             <Form.Label>Policies</Form.Label>
             <Form.Control
+              className="mb-2"
               type="text"
               placeholder="Policy Title"
               onChange={(e) => setPolicyTitle(e.target.value)}
             />
             <Form.Control
+              className="mb-2"
               type="text"
               placeholder="First Year"
               onChange={(e) => setFirstYear(e.target.value)}
             />
             <Form.Control
+              className="mb-2"
               type="text"
               placeholder="Last Year"
               onChange={(e) => setLastYear(e.target.value)}
