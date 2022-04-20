@@ -10,6 +10,7 @@ const SignUp = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -18,8 +19,19 @@ const SignUp = () => {
     e.preventDefault();
     setSuccess('');
     setError('');
+
     const check = SignupValidation(details);
-    if (check) {
+    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*_])(?=.*[A-Z])[a-zA-Z0-9!@#%^&*_]{8,}$/;
+
+    if (!check) {
+      setError('Invalid Email/Username');
+    } else if (details.password !== details.confirmPassword) {
+      setError('Passwords do not match');
+    } else if (!regex.test(details.password)) {
+      setError(
+        'Use 8 or more characters with a mix of upper and lowercase letters, numbers & symbols',
+      );
+    } else {
       try {
         fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
           method: 'POST',
@@ -33,8 +45,6 @@ const SignUp = () => {
       } catch (err) {
         setError('Signup Failed');
       }
-    } else {
-      setError('Invalid Input');
     }
   };
 
@@ -70,6 +80,19 @@ const SignUp = () => {
               name='password'
               onChange={(e) => setDetails({ ...details, password: e.target.value })}
             />
+            <Form.Text id='passwordHelpBlock' muted style={{ fontSize: '12px' }}>
+              Your password must be 8 or more characters long with a mix of upper and lowercase
+              letters, numbers &amp; symbols
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='formBasicConfirmPassword'>
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type='password'
+              placeholder='Confirm password'
+              name='confirmPassword'
+              onChange={(e) => setDetails({ ...details, confirmPassword: e.target.value })}
+            />
           </Form.Group>
           <Button variant='primary' type='submit'>
             Sign Up
@@ -81,3 +104,34 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+// if (details.password !== details.confirmPassword) {
+//   // console.log('password do not match');
+//   setError('Passwords do not match');
+// } else {
+//   const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*_])(?=.*[A-Z])[a-zA-Z0-9!@#%^&*_]{8,}$/;
+//   if (!regex.test(details.password))
+//     setError(
+//       'Use 8 or more characters with a mix of upper and lowercase letters, numbers & symbols',
+//     );
+//   else {
+//     const check = SignupValidation(details);
+//     if (check) {
+//       try {
+//         fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
+//           method: 'POST',
+//           headers: { 'Content-Type': 'application/json' },
+//           body: JSON.stringify(details),
+//         });
+//         setSuccess('Signup Successful');
+//         setTimeout(() => {
+//           window.location.href = '/login';
+//         }, 800);
+//       } catch (err) {
+//         setError('Signup Failed');
+//       }
+//     } else {
+//       setError('Invalid Email/Username');
+//     }
+//   }
+// }
