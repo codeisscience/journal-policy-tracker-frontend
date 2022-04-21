@@ -13,31 +13,31 @@ function Navigation() {
       bg='light'
       variant='light'
       style={{ paddingLeft: '30px', paddingRight: '30px' }}
-      fixed="top"
+      fixed='top'
     >
       <Navbar.Brand href='#home'>
-        <img src={Logo} alt='' srcSet='' height={81} width={150} />
+        <img src={Logo} alt='code is science' srcSet='' height={81} width={150} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav' className='justify-content-evenly'>
         <Nav>
           <LinkContainer to='/' exact>
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link active={false}>Home</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/journal' exact>
-            <Nav.Link>Journals</Nav.Link>
+            <Nav.Link active={false}>Journals</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/manifesto' exact>
-            <Nav.Link>Manifesto</Nav.Link>
+            <Nav.Link active={false}>Manifesto</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/contact' exact>
-            <Nav.Link>Contact</Nav.Link>
+            <Nav.Link active={false}>Contact</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/login' exact>
-            <Nav.Link>Login</Nav.Link>
+            <Nav.Link active={false}>Login</Nav.Link>
           </LinkContainer>
           <LinkContainer to='/signup' exact>
-            <Nav.Link>Sign Up</Nav.Link>
+            <Nav.Link active={false}>Sign Up</Nav.Link>
           </LinkContainer>
         </Nav>
         <SearchBar />

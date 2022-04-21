@@ -13,7 +13,7 @@ function LandingSection() {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <Image src={Img} height={342} width={456} alt='' fluid />
+              <Image src={Img} height={342} width={456} alt= 'people working with laptops' fluid />
             </Col>
             <Col xs={12} sm={12} md={6}>
               <h1>Premise</h1>
@@ -41,7 +41,7 @@ function LandingSection() {
                 If software is required to perform science, it stands to reason that errors in your
                 software mean errors in your science.
               </p>
-              <Image src={ClockImg} height={252} width={220} fluid />
+              <Image src={ClockImg} height={252} width={220} alt='clock' fluid />
             </Col>
             <Col xs={12} sm={12} md={6}>
               <h1>Possible Solution?</h1>
@@ -50,7 +50,7 @@ function LandingSection() {
                 That’s easier said than done. Getting there requires awareness, culture shift, and
                 adherence to best practices.
               </p>
-              <Image src={TalkingImg} height={266} width={456} fluid />
+              <Image src={TalkingImg} height={266} width={456} alt='animated talking girls'fluid />
             </Col>
           </Row>
         </Container>
