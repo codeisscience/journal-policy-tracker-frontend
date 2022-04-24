@@ -1,13 +1,14 @@
-import React from "react";
-import Header from "../components/Header";
-import LandingSection from "../components/LandingSection";
+import React from 'react';
+import Header from '../components/Header';
+import LandingSection from '../components/LandingSection';
+import "../styles/Header.css"
 
 function Home() {
   return (
-    <>
-      <Header />
+    <div className='header-padding'>
+       <Header />
       <LandingSection />
-    </>
+    </div>
   );
 }
 

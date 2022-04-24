@@ -1,38 +1,86 @@
 .manifesto {
-    text-align: center;
-    padding: 5em;
-    color: #3d9dd9;
+  text-align: center;
+  padding: 5em;
+  color: #3d9dd9;
+}
+
+.manifesto h1 {
+  font-size: 4em;
+}
+
+.manifesto-header {
+  margin-bottom: 5em;
+  display : flex;
+  align-items: center;
+}
+.manifesto-padding{
+  padding-top: 8.7em;
+}
+.manifesto-section-one h1,
+h1 {
+  color: #3d9dd9;
+}
+
+.manifesto-text {
+  font-size: 1.4em;
+}
+
+.manifesto-support {
+  margin : 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.manifesto-support h1 {
+  text-align: center;
+  margin : 15px;
+}
+
+.manifesto-support p,
+img {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.manifesto-support img {
+  margin: 1em auto;
+}
+
+.manifesto-support-points {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.manifesto-contact a {
+  display: block;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.manifesto-contribute {
+  display: flex;
+  justify-content : center;
+  padding : 30px;
+  margin : 0px auto;
+}
+
+.manifesto-contribute li {
+  line-height: 25px;
+}
+
+@media only screen and (max-width: 768px){
+  .manifesto{
+    padding:0px;
   }
-  
-  .manifesto h1 {
-    font-size: 5em;
-  }
-  
   .manifesto-header {
-    padding-top: 2em;
-    margin-bottom: 5em;
+    margin-bottom: 0;
   }
-  
-  .manifesto-section-one h1,
-  h1 {
-    color: #3d9dd9;
+  .manifesto-header .imgContainer{
+    display: none;
   }
-  
-  .manifesto-text {
-    font-size: 1.4em;
-  }
-  
-  .manifesto-support p,
-  img {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-  
-  .manifesto-support img {
-    margin: 1em auto;
-  }
-  
-  .manifesto-contact a {
-    display: block;
-    text-decoration: none;
-  }  
+}
