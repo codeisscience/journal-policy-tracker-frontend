@@ -58,7 +58,9 @@ const Contact = () => {
   return (
     <Container>
       <h1 className="mt-4">Contact Us</h1>
-      <p>Ideas? Comments? Critiques? Want to help out? Here’s how to get in contact:</p>
+      <p className='mt-p'>
+        Ideas? Comments? Critiques? Want to help out? Here’s how to get in contact:
+      </p>
       <Row className='contact-card-one'>
         <Col md={6}>
           <div className='contact-card' style={{ color: '#E74D3C' }}>
