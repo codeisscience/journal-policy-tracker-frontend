@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/contact' exact component={Contact} />
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={SignUp} />
+        <Route path='/header' component={Header} />
         <Redirect to='/' />
       </Switch>
       <Footer />
