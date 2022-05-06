@@ -1,42 +1,10 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Riturajseal2001 
-codeisscience
-/
-journal-policy-tracker-frontend
-Public
-Code
-Issues
-20
-Pull requests
-7
-Actions
-Projects
-Wiki
-Security
-Insights
-journal-policy-tracker-frontend/src/pages/Contact.js /
-@prajwalkulkarni
-prajwalkulkarni Add contact form validation
-Latest commit 31e26c4 6 days ago
- History
- 5 contributors
-@prajwalkulkarni@jayeclark@padmajabhol@NumanAnees@dikshashukla455
-168 lines (153 sloc)  5.59 KB
-   
-/* eslint-disable react/function-component-definition */
 import React, { useState } from 'react';
 import '../styles/Contact.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 import { FaGitter } from 'react-icons/fa';
 
-const Contact = () => {
+function Contact(){
   let formIsValid = false
 
   const [email, setEmailAttr] = useState({
@@ -224,17 +192,4 @@ const Contact = () => {
   )
 };
 
-export default Contact;
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+export default Contact
