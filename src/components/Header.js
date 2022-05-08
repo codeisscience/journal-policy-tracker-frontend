@@ -3,12 +3,16 @@ import React from 'react';
 import '../styles/Header.css';
 import { Button, Jumbotron } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
+import {Link} from "react-router-dom";
 
 function Header() {
+
   return (
     <div className='header'>
       <Jumbotron fluid>
-        <Button fluid="true">Read and Sign the Manifesto</Button>
+        <Link to='/manifesto'>
+          <Button fluid="true">Read and Sign the Manifesto</Button>
+        </Link>
       </Jumbotron>
     </div>
   );

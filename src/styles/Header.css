@@ -1,6 +1,8 @@
 .header {
   background-image: url('../assets/bg.webp');
   height: 550px;
+  background-size: 150vw;
+  background-repeat: no-repeat;
 }
 
 .header button {
@@ -15,15 +17,82 @@
 }
 
 .header button:hover {
-  color: #fff;
   background-color: #3d9dd9;
-  font-size: 18px;
-  border-radius: 30px;
-  padding: 20px;
-  border: none;
-  margin-top: 20em;
-  margin-left: calc(((100% - 270px) / 3) * 2);
 }
-.header-padding{
-  padding-top: 6.7em; 
+.header-padding {
+  padding-top: 6.7em;
+}
+
+@media screen and (max-width: 1162px) {
+  .header button {
+    margin-top: 15em;
+    font-size: 16px;
+  }
+  .header {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header button {
+    margin-top: 12em;
+    font-size: 16px;
+  }
+  .header {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 695px) {
+  .header button {
+    margin-top: 10em;
+    font-size: 16px;
+  }
+  .header {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 551px) {
+  .header button {
+    margin-top: 8em;
+    font-size: 14px;
+    margin-left: 12em;
+  }
+  .header {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 423px) {
+  .header button {
+    margin-top: 8em;
+    font-size: 12px;
+    margin-left: 10em;
+  }
+  .header {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 382px) {
+  .header button {
+    margin-top: 5em;
+    font-size: 12px;
+    margin-left: 9em;
+  }
+  .header {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 301px) {
+  .header button {
+    margin-top: 4em;
+    font-size: 8px;
+    margin-left: 14em;
+  }
+  .header {
+    height: 120px;
+  }
 }
