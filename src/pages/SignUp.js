@@ -39,7 +39,7 @@ const SignUp = () => {
   };
 
   return (
-    <Row className='signup-padding'>
+    <Row className='signup-padding signup-margin'>
       <Col>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicUsername'>
