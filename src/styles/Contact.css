@@ -5,16 +5,24 @@
   border-radius: 10px;
   text-align: center;
   line-height: 4;
-  background-color: #f3f3f3;
+  background-color: #fefefe;
+  box-shadow: 0.5px 0.5px 6px rgb(208, 204, 204);
+  transition: all 0.2s
+}
+.contact-card:hover{
+  transform: scale(1.03);
+}
+
+h2{
+  color: #3d9dd9;
 }
 
 .contact-form {
-  margin-bottom: 4em;
+  margin: 0.5em auto 4em auto;
 }
 .contact-padding{
   padding-top: 8.7em;
 }
-
 .invalidInput{
   color: red;
   font-size: small;
