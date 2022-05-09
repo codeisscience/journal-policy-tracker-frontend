@@ -6,7 +6,7 @@ import { FaGitter } from 'react-icons/fa';
 
 function Contact(){
   let formIsValid = false
-
+  
   const [email, setEmailAttr] = useState({
     value: '',
     focused: false
@@ -129,6 +129,8 @@ function Contact(){
         </Col>
       </Row>
       <hr />
+    <h2>Send us a message</h2>
+    <p>Sends us a message and we will get back to you asap!</p>
       <Row>
         <Col md={6} className='contact-form'>
           <Form onSubmit={formSubmitHandler}>
