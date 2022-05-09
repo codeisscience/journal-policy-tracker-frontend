@@ -48,7 +48,7 @@ function Login() {
     }
   };
   return (
-    <Row className='login-padding'>
+    <Row className='login-padding login-margin'>
       <Col>
         <Form className='login-form' onSubmit={handleLogin}>
           <Form.Group className='mb-3' controlId='formBasicEmail'>

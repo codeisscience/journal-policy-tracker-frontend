@@ -49,7 +49,7 @@ const SignUp = () => {
   };
 
   return (
-    <Row className='signup-padding'>
+    <Row className='signup-padding signup-margin'>
       <Col>
         <Form className='login-form' onSubmit={handleSubmit}>
           <Form.Group className='mb-3' controlId='formBasicUsername'>
@@ -102,36 +102,5 @@ const SignUp = () => {
     </Row>
   );
 };
-
 export default SignUp;
 
-// if (details.password !== details.confirmPassword) {
-//   // console.log('password do not match');
-//   setError('Passwords do not match');
-// } else {
-//   const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*_])(?=.*[A-Z])[a-zA-Z0-9!@#%^&*_]{8,}$/;
-//   if (!regex.test(details.password))
-//     setError(
-//       'Use 8 or more characters with a mix of upper and lowercase letters, numbers & symbols',
-//     );
-//   else {
-//     const check = SignupValidation(details);
-//     if (check) {
-//       try {
-//         fetch('https://journal-policy-tracker.herokuapp.com/users/register', {
-//           method: 'POST',
-//           headers: { 'Content-Type': 'application/json' },
-//           body: JSON.stringify(details),
-//         });
-//         setSuccess('Signup Successful');
-//         setTimeout(() => {
-//           window.location.href = '/login';
-//         }, 800);
-//       } catch (err) {
-//         setError('Signup Failed');
-//       }
-//     } else {
-//       setError('Invalid Email/Username');
-//     }
-//   }
-// }
