@@ -129,9 +129,9 @@ function Contact(){
         </Col>
       </Row>
       <hr />
+      <Row>
     <h2>Send us a message</h2>
     <p>Sends us a message and we will get back to you asap!</p>
-      <Row>
         <Col md={6} className='contact-form'>
           <Form onSubmit={formSubmitHandler}>
             <Form.Group as={Row} controlId='formHorizontalEmail'>
