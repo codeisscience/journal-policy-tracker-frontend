@@ -56,10 +56,12 @@ function Contact(){
 
   return (
     <Container>
+    <center>
       <h1 className="mt-4">Contact Us</h1>
       <p className='mt-p'>
         Ideas? Comments? Critiques? Want to help out? Here’s how to get in contact:
       </p>
+    </center>
       <Row className='contact-card-one'>
         <Col md={6}>
           <div className='contact-card' style={{ color: '#E74D3C' }}>
@@ -130,8 +132,10 @@ function Contact(){
       </Row>
       <hr />
       <Row>
+     <center>
     <h2>Send us a message</h2>
     <p>Sends us a message and we will get back to you asap!</p>
+     </center>
         <Col md={6} className='contact-form'>
           <Form onSubmit={formSubmitHandler}>
             <Form.Group as={Row} controlId='formHorizontalEmail'>
