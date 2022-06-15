@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import '../styles/Footer.css';
+import './Footer.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 import { IoLogoSlack } from 'react-icons/io';
-import RocketImg from '../assets/rocket.webp';
+import RocketImg from '../../../assets/rocket.webp';
 
 function Footer() {
   return (
