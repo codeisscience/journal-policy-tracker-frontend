@@ -8,9 +8,7 @@ import Home from './pages/Home';
 import Manifesto from './pages/Manifesto';
 import Journal from './pages/Journal';
 import Contact from './pages/Contact';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import { Footer } from './components';
+import { Footer, Login, SignUp } from './components';
 import Header from './components/Header';
 
 function App() {

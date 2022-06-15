@@ -5,10 +5,10 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/state-in-constructor */
 import { React, useState } from 'react';
-import '../styles/Login.css';
+import './Login.css';
 import { Col, Row, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from '../helpers/alerts';
-import { LoginValidation } from '../helpers/validate';
+import { showSuccessMessage, showErrorMessage } from '../../../helpers/alerts';
+import { LoginValidation } from '../../../helpers/validate';
 
 function Login() {
   const [details, setDetails] = useState({
