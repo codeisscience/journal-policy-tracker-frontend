@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Login from '../pages/Login';
+import Login from '../index';
 
 test('Login renders the form correctly', () => {
   const { getByText, getByLabelText } = render(<Login />);

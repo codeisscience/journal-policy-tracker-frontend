@@ -3,7 +3,7 @@
 import React from 'react';
 import { Col, Row, Container, Table } from 'react-bootstrap';
 
-import { AddJournal } from '../components';
+import { AddJournal } from '../../components';
 
 const Journal = () => (
   <Container style={{"padding-top": 130}}>
