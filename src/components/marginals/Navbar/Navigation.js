@@ -3,7 +3,7 @@ import './Navigation.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Logo from '../../../assets/logo.webp';
-import SearchBar from '../../Search';
+import { SearchBar } from '../index';
 
 function Navigation() {
   return (
