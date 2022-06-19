@@ -3,20 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import Manifesto from './pages/Manifesto';
-import Journal from './pages/Journal';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { Journal, Contact, Manifesto, Home } from './pages';
+import { Footer, Login, SignUp, Header, Navbar } from './components';
 
 function App() {
   return (
     <Router>
-      <Navigation />
+      <Navbar />
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/manifesto' exact component={Manifesto} />

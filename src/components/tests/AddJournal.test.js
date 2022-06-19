@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import AddJournal from './AddJournal';
+import AddJournal from '../index';
 
 test('Add Journal renders the form correctly', () => {
   const { getByText, getByLabelText } = render(<AddJournal />);

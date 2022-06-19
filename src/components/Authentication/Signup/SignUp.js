@@ -1,9 +1,9 @@
 /* eslint-disable react/function-component-definition */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from '../helpers/alerts';
-import { SignupValidation } from '../helpers/validate';
-import '../styles/Signup.css';
+import { showSuccessMessage, showErrorMessage } from '../../../helpers/alerts';
+import { SignupValidation } from '../../../helpers/validate';
+import './Signup.css';
 
 const SignUp = () => {
   const [details, setDetails] = useState({

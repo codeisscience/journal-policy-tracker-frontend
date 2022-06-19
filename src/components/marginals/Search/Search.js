@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import '../index.css';
+import '../../../index.css';
 
 function SearchBar() {
   return (

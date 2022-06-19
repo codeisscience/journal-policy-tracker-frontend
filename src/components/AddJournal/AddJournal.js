@@ -1,8 +1,8 @@
 /* eslint-disable no-alert */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from "../helpers/alerts"
-import { JournalValidation } from '../helpers/validate';
+import { showSuccessMessage, showErrorMessage } from "../../helpers/alerts"
+import { JournalValidation } from '../../helpers/validate';
 
 function AddJournal() {
   const [title, setTitle] = useState('');

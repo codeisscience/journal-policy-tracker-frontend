@@ -2,12 +2,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Col, Row, Container, Table } from 'react-bootstrap';
-import "../styles/Journal.css"
 
-import AddJournal from '../components/AddJournal';
+import { AddJournal } from '../../components';
 
 const Journal = () => (
-  <Container className='journal-padding'>
+  <Container style={{"padding-top": 130}}>
     <h1 className='text-center'>Journals</h1>
     <AddJournal />
   </Container>
