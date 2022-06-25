@@ -1,8 +1,9 @@
 .footer-below {
   height: 3.5em;
   background: #069;
-  color: #fff;
+  /* color: #fff; */
   text-align: center;
+  padding: 2rem 2rem 2rem 0;
 }
 
 .footer-below p {

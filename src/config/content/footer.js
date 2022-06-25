@@ -1,12 +1,23 @@
-import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
-import { IoLogoSlack } from 'react-icons/io';
+// import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
+// import { IoLogoSlack } from 'react-icons/io';
+// import {
+//     faTwitter,
+//     faInstagram,
+//     faLinkedin,
+//     faGithubSquare,
+//     faDiscord,
+//     faFacebook,
+//   } from '@fortawesome/free-brands-svg-icons';
+import {faTwitter, faGithub, faSlack} from '@fortawesome/free-brands-svg-icons';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+
 
 export default{
     img: {
         src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702085/CiS/rocket_vkcatz.png',
         alt: 'Code Is Science',
     },
-    copyright: 'Copyright © 2022 Code is Science',
+    copyright: 'Copyright © {{ new Date().getFullYear() }} Code is Science',
     col1: {
         head: 'Useful Links',
         links: [
@@ -51,20 +62,32 @@ export default{
         head: 'Contact Us',
         links: [
             {
-                icon: ImMail,
+                id: 1,
+                icon: faEnvelope,
+                head: 'Email',
                 link: 'mailto:contact@codeisscience.com',
+                color: 'white',
             },
             {
-                icon: ImTwitter,
+                id: 2,
+                icon: faTwitter,
+                head: 'Twitter',
                 link: 'https://twitter.com/codeisscience',
+                color: '#00acee',
             },
             {
-                icon: ImGithub,
+                id: 3,
+                icon: faGithub,
+                head: 'Github',
                 link: 'https://github.com/codeisscience',
+                color: 'black',
             },
             {
-                icon: IoLogoSlack,
+                id: 4,
+                icon: faSlack,
+                head: 'Slack',
                 link: '',
+                color: '#e01e5a',
             }
         ]
     }
