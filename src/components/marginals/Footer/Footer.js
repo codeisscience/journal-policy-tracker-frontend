@@ -1,13 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import './Footer.css';
-// import { Container, Row, Col } from 'react-bootstrap';
-// import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
-// import { IoLogoSlack } from 'react-icons/io';
-// import RocketImg from '../../../assets/rocket.webp';
-// import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
-// import { IoLogoSlack } from 'react-icons/io';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FooterContainer, SecondaryContainer, UpperDiv, Logo, LinksContainer, Heading2, Heading3, NoStyleNav, SocialDiv, LowerDiv } from './styles';
 import { footer } from '../../../config/content';

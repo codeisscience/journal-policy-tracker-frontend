@@ -1,13 +1,3 @@
-// import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
-// import { IoLogoSlack } from 'react-icons/io';
-// import {
-//     faTwitter,
-//     faInstagram,
-//     faLinkedin,
-//     faGithubSquare,
-//     faDiscord,
-//     faFacebook,
-//   } from '@fortawesome/free-brands-svg-icons';
 import {faTwitter, faGithub, faSlack} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
