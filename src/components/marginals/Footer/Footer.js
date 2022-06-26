@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FooterContainer, SecondaryContainer, UpperDiv, Logo, LinksContainer, Heading2, Heading3, NoStyleNav, SocialDiv, LowerDiv } from './styles';
 import { footer } from '../../../config/content';
 

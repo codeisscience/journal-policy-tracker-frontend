@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import {faTwitter, faGithub, faSlack} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
