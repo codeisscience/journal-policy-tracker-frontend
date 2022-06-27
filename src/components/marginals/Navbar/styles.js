@@ -6,7 +6,9 @@ export const Button = styled.button`
   font-size: 20px;
   flex-direction: column;
   cursor: pointer;
-  @media (max-width: 768px) {
+  color: #3d9dd9;
+  background: transparent;
+  @media (max-width: 1032px) {
     display: flex;
   }
 `;
@@ -35,6 +37,7 @@ export const Nav = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  box-shadow: 2px 1px 12px 2px #3d9dd9;
 `;
 
 export const Logo = styled.img`
@@ -46,37 +49,27 @@ export const Menu = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  @media (max-width: 768px) {
+  @media (max-width: 1032px) {
     overflow: hidden;
     flex-direction: column;
     max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
-    transition: max-height 0.3s ease-in;
+    transition: max-height 0.1s ease-in;
     width: 100%;
-  }
-`;
-
-export const Hamburger = styled.div`
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  span {
-    height: 2px;
-    width: 25px;
-    background: #7b7fda;
-    margin-bottom: 4px;
-    border-radius: 5px;
-  }
-  @media (max-width: 768px) {
-    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
   }
 `;
 
 export const Items = styled.li`
   text-decoration: none;
   list-style: none;
-  color: black;
+  color: #636363;
+  font-weight: 500;
   padding: 0 10px;
   margin: 0 10px;
   cursor: pointer;
   text-transform: capitalize;
+  :hover {
+    color: #3d9dd9;
+  }
 `;
