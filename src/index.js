@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Login, SignUp, Header, Navbar } from './components';
+import { Footer, Login, SignUp, Header } from './components';
+import Navbar from './components/marginals/Navbar/Navbar';
 
 function App() {
   return (
@@ -17,9 +19,9 @@ function App() {
         <Route path='/contact' exact component={Contact} />
         <Route path='/login' exact component={Login} />
         <Route path='/signup' exact component={SignUp} />
-        <Route path='/header' component={Header} />
         <Redirect to='/' />
       </Switch>
+      <Navbar/>
       <Footer />
     </Router>
   );

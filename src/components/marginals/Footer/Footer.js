@@ -6,7 +6,7 @@ import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 import { IoLogoSlack } from 'react-icons/io';
 import RocketImg from '../../../assets/rocket.webp';
 
-function Footer() {
+function Footer () {
   return (
     <Container fluid>
       <Row className='footer-above'>

@@ -1,9 +1,13 @@
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+
 export default {
     title: 'Navbar',
     logo: {
         src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702059/CiS/logo_ch4fzv.png',
         alt: 'Code Is Science',
     },
+    icon: faBars,
+    icon2: faXmark,
     navItems: [
         {
             id: 'home',
