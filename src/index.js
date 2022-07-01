@@ -5,7 +5,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Login, SignUp, Header } from './components';
+import { Footer, Auth, Header } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
 
 function App() {
@@ -17,8 +17,7 @@ function App() {
         <Route path='/manifesto' exact component={Manifesto} />
         <Route path='/journal' exact component={Journal} />
         <Route path='/contact' exact component={Contact} />
-        <Route path='/login' exact component={Login} />
-        <Route path='/signup' exact component={SignUp} />
+        <Route path='/login' exact component={Auth} />
         <Redirect to='/' />
       </Switch>
       <Navbar/>
