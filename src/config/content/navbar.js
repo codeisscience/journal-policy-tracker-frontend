@@ -30,9 +30,14 @@ export default {
             link: '/contact',
         },
         {
-            id: 'login',
-            name: 'Login',
-            link: '/login',
+            id: 'signup',
+            name: 'Signup',
+            link: '/signup',
         },
+        {
+            id: 'login',
+            name: null,
+            link: '/login',
+        }
     ],
 };

@@ -1,13 +1,10 @@
-
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 
-const useForm = (callback, validate) => {
+const useFormLogin = (callback, validate) => {
     const [values, setValues] = useState({
-        username: '',
         email: '',
         password: '',
-        password2: '',
     });
 
     const [errors, setErrors] = useState({});
@@ -37,4 +34,4 @@ const useForm = (callback, validate) => {
     return {handleChange, values, handleSubmit, errors};
 };
 
-export default useForm;
+export default useFormLogin;

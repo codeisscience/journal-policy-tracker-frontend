@@ -5,11 +5,11 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState } from 'react';
-import FormSignup from './SignUp';
-import FormSuccess from './FormSuccess';
-import { FormContainer, FormContentLeft, FormImg, RightH2, Logo } from './styles.js';
+import FormLogin from './Login';
+import FormSuccess from '../FormSuccess';
+import { FormContainer, FormContentLeft, FormImg, RightH2, Logo } from '../styles';
 
-const Form = () => {
+const LoginForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -19,7 +19,7 @@ const Form = () => {
     <>
       <FormContainer>
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <FormLogin submitForm={submitForm} />
         ) : (
           <FormSuccess />
         )}
@@ -33,4 +33,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default LoginForm;

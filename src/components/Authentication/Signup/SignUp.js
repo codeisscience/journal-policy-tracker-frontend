@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -6,7 +7,7 @@
 import React from 'react'
 import useForm from './useForm';
 import validate from './validateInfo';
-import { FormContentRight, FormDiv, FormH1, FormInputs, FormInputsP, FormLabel, FormInput, FormInputBtn, FormInputLogin} from './styles.js';
+import { FormContentRight, FormDiv, FormH1, FormInputs, FormInputsP, FormLabel, FormInput, FormInputBtn, FormInputLogin} from '../styles.js';
 
 const FormSignup = ({submitForm}) => {
     const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validate);
@@ -67,11 +68,11 @@ const FormSignup = ({submitForm}) => {
                 />
                 {errors.password2 && <FormInputsP>{errors.password2}</FormInputsP>}
         </FormInputs>
-        <FormInputBtn type='submit'>
+        <FormInputBtn signup type='submit'>
             Sign Up
         </FormInputBtn>
         <FormInputLogin>
-            Already have an account? Login <a href='#'>here</a>
+            Already have an account? Login <a href='/login' style={{color: "orange"}}>here</a>
         </FormInputLogin>
         </FormDiv>
     </FormContentRight>

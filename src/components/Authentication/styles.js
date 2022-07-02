@@ -71,20 +71,26 @@ export const FormInputsP = styled.p`
   color: #E48900;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
 export const FormInputBtn = styled.button`
-  width: 72.5%;
+  width: ${props => props.signup ? '72%' : '34.5%'};
   height: 50px;
   margin-top: 10px;
   border-radius: 10px;
-  background: #E48900;
+  background: ${props => props.primary ? 'white' : '#E48900'};
   outline: none;
-  border: none;
-  color: #fff;
+  border: ${props => props.primary ? '1.5px solid #EA8900' : 'none'};
+  color: ${props => props.primary ? '#EA8900' : '#fff'};
   font-size: 1rem;
   &:hover {
     cursor: pointer;
-    background: #F6B149;
-    transition: all 0.4s ease-out;
+    color: #fff;
+    background: ${props => props.primary ? '#fff' : '#F6B149'};
+    transition: all 0.2s ease-out;
   }
 `;
 
@@ -105,7 +111,6 @@ export const FormInput = styled.input`
   // height: 40px;
   width: 90%;
   border: 1px solid #7D7A76;
-
   :-ms-input-placeholder {
     color: #595959;
     font-size: 12px;
