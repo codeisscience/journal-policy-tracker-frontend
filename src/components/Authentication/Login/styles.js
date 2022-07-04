@@ -1,63 +1,5 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  width: 60%;
-  border-radius: 50px;
-  margin: 8rem auto 4rem auto;
-  border: 5px solid #50C4ED;
-  @media (max-width: 1200px) {
-    width: 80%;
-  }
-  @media (max-width: 840px) {
-    width: 90%;
-  }
-  @media (max-width: 646px) {
-    width: 70%;
-    grid-template-columns: 1fr;
-    border-radius: 20px;
-  }
-  @media (max-width: 450px){
-    padding: 2%;
-    width: 90%;
-  }
-
-`;
-
-export const FormContentLeft = styled.div`
-  background: #FFDFC0;
-  text-align: center;
-  border-radius: 0px 50px 50px 0px;
-  padding: 2rem;
-  position: relative;
-  @media (max-width: 646px) {
-    display: none;
-  }
-  @media (max-width: 1200px) {
-    padding: 0.8rem;
-  }
-`;
-
-export const FormImg = styled.img`
-  width: 100%;
-`;
-
-export const RightH2 = styled.h1`
-  color: #52504D;
-  font-size: 1.4rem;
-  @media (max-width: 1300px) {
-    font-size: 1.2rem;
-  }
-`;
-
-export const Logo = styled.img`
-  width: 45%;
-  @media (max-width: 1200px) {
-    width: 60%;
-  }
-`;
-
 export const FormContentRight = styled.div`
   border-radius: 50px 50px 50px 50px;
   background: #FFFFFF;
@@ -73,21 +15,46 @@ export const FormContentRight = styled.div`
 
 export const FormDiv = styled.form`
 padding-left: 2.5rem;
-padding-top: 2rem;
+padding-top: 5rem;
 width: 100%;
 display: flex;
 flex-direction: column;
+gap: 25px;
 justify-content: center;
 align-items: left;
+@media (max-width: 1650px) {
+  padding-top: 3.5rem;
+}
+@media (max-width: 1330px) {
+    padding-top: 2rem;
+  }
+
+@media (max-width: 1000px) {
+    gap: 12px;
+  }
 @media (max-width: 646px) {
   padding: 0.7rem;
-  gap: 8px;
+  gap: 5px;
 }
 `;
 
 export const FormH1 = styled.h1`
   color: #52504D;
   font-size: 1.5rem;
+  font-weight: bold;
+  text-align: start;
+  @media (max-width: 1000px) {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+  }
+  @media (max-width: 646px) {
+    font-size: 1.1rem;
+  }
+`;
+
+export const FormH2 = styled.h1`
+  color: #52504D;
+  font-size: 1rem;
   font-weight: bold;
   text-align: start;
   @media (max-width: 1000px) {
@@ -143,7 +110,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const FormInputBtn = styled.button`
-  width: ${props => props.signup ? '60%' : '34.5%'};
+  width: 28.5%;
   padding: 2.2%;
   // height: 50px;
   margin-top: 10px;
@@ -160,29 +127,9 @@ export const FormInputBtn = styled.button`
     transition: all 0.2s ease-out;
   }
   @media (max-width: 1000px) {
-    width: 80%;
+    width: 38%;
   }
   @media (max-width: 646px) {
     width: 100%;
   }
 `;
-
-export const FormInputLogin = styled.span`
-  font-size: 0.8rem;
-  margin-top: 10px;
-  color: black;
-  width: 60%;
-  text-align: center;
-  @media (max-width: 646px) {
-    width: 100%;
-  }
-`;
-
-export const FormSuccessDiv = styled.h1`
-  // font-size: 24px;
-  color: #fff;
-`;
-
-export const FormImg2 = styled.img`
-`;
-

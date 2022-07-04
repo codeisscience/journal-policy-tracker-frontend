@@ -8,6 +8,7 @@ import React from 'react'
 import useForm from './useForm';
 import validate from './validateInfo';
 import { FormContentRight, FormDiv, FormH1, FormInputs, FormInputsP, FormLabel, FormInput, FormInputBtn, FormInputLogin} from '../styles.js';
+import { signup } from '../../../config/content';
 
 const FormSignup = ({submitForm}) => {
     const {handleChange, values, handleSubmit, errors} = useForm(submitForm, validate);
@@ -15,10 +16,10 @@ const FormSignup = ({submitForm}) => {
   return (
     <FormContentRight>
         <FormDiv onSubmit={handleSubmit}>
-        <FormH1>Welcome to Code Is Science</FormH1>
+        <FormH1>{signup.head}</FormH1>
         <FormInputs>
             <FormLabel htmlFor='username'>
-                Enter your username
+                {signup.labelUsername}
             </FormLabel>
             <FormInput 
                 id='username'
@@ -31,7 +32,7 @@ const FormSignup = ({submitForm}) => {
         </FormInputs>
         <FormInputs>
             <FormLabel htmlFor='email'>
-               Enter your email
+               {signup.labelEmail}
             </FormLabel>
             <FormInput 
                 id='email'
@@ -44,7 +45,7 @@ const FormSignup = ({submitForm}) => {
         </FormInputs>
         <FormInputs>
             <FormLabel htmlFor='password'>
-               Enter your password
+               {signup.labelPassword}
             </FormLabel>
             <FormInput 
                 id='password'
@@ -57,7 +58,7 @@ const FormSignup = ({submitForm}) => {
         </FormInputs>
         <FormInputs>
             <FormLabel htmlFor='password2'>
-               Confirm your password
+               {signup.labelPassword2}
             </FormLabel>
             <FormInput 
                 id='password2'
@@ -69,10 +70,10 @@ const FormSignup = ({submitForm}) => {
                 {errors.password2 && <FormInputsP>{errors.password2}</FormInputsP>}
         </FormInputs>
         <FormInputBtn signup type='submit'>
-            Sign Up
+            {signup.button}
         </FormInputBtn>
         <FormInputLogin>
-            Already have an account? Login <a href='/login' style={{color: "orange"}}>here</a>
+            {signup.login} <a href='/login' style={{color: "orange"}}>here</a>
         </FormInputLogin>
         </FormDiv>
     </FormContentRight>

@@ -7,7 +7,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import useFormLogin from './useFormLogin';
 import validateLoginInfo from './validateLoginInfo.js';
-import { FormContentRight, FormDiv, FormH1, FormInputs, FormInputsP, FormLabel, FormInput, FormInputBtn, ButtonContainer} from '../styles';
+import { FormContentRight, FormDiv, FormH1, FormInputs, FormInputsP, FormLabel, FormInput, FormInputBtn, ButtonContainer, FormH2} from './styles';
+import { signup } from '../../../config/content';
 
 
 const FormLogin = ({submitForm}) => {
@@ -16,10 +17,11 @@ const FormLogin = ({submitForm}) => {
   return (
     <FormContentRight>
         <FormDiv onSubmit={handleSubmit}>
-        <FormH1>Welcome to Code Is Science</FormH1>
+        <FormH1>{signup.head}</FormH1>
+        <FormH2>{signup.head2}</FormH2>
         <FormInputs>
             <FormLabel htmlFor='email'>
-               Enter your email
+               {signup.labelEmail}
             </FormLabel>
             <FormInput 
                 id='email'
@@ -32,7 +34,7 @@ const FormLogin = ({submitForm}) => {
         </FormInputs>
         <FormInputs>
             <FormLabel htmlFor='password'>
-               Enter your password
+               {signup.labelPassword}
             </FormLabel>
             <FormInput 
                 id='password'
@@ -45,11 +47,11 @@ const FormLogin = ({submitForm}) => {
         </FormInputs>
         <ButtonContainer>
         <FormInputBtn type='submit'>
-            Login
+            {signup.buttonLogin}
         </FormInputBtn>
-        <FormInputBtn primary>
+        <FormInputBtn primary type="button">
             <Link to='/Signup' style={{color: '#EA8900', hover: '#fff' }}>
-                Signup
+                {signup.button}
             </Link>
         </FormInputBtn>
         </ButtonContainer>
