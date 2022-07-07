@@ -24,17 +24,11 @@ function Navbar() {
                      onClick={() => setIsOpen(!isOpen)}  
                      key={id} 
                      to={link}>
-                        <Items>
+                        {name ? ( <Items>
                             {name}
-                        </Items>
+                        </Items>) : <div/>}
                     </Link>
                 ))}
-                {/* <Link to='/'><Items>Home</Items></Link>
-                <Link to='/manifesto'><Items>Manifesto</Items></Link>
-                <Link to='/journal'><Items>Journal</Items></Link>
-                <Link to='/contact'><Items>Contact</Items></Link>
-                <Link to='/login'><Items>Login</Items></Link>
-                <Link to='/signup'><Items>SignUp</Items></Link> */}
             </Menu>
         </Nav>
     );
