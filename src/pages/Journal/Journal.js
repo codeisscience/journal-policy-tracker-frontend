@@ -3,12 +3,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Journals } from '../../components';
+import { Container } from '../../components/Journals/styles';
 
 const Journal = () => {
   return (
-    <div style={{minHeight: "100vh", marginTop: "100px"}}>
+    <Container>
       <Journals/>
-    </div>
+    </Container>
   )
 };
 

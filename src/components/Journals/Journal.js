@@ -3,6 +3,7 @@
 import React from "react";
 import JournalList from "./JournalList";
 import useFetch from "./useFetch";
+import { JContainer, Head } from "./styles";
 
 const Journal = () => {
 
@@ -10,11 +11,12 @@ const Journal = () => {
     
     
     return (
-        <div className="home">
+        <JContainer>
+            <Head>Journals</Head>
             { error && <div>{ error }</div>}
             { isPending && <div>Loading...</div>}
             {journalFetch && <JournalList journalFetch={journalFetch}/> }
-        </div>
+        </JContainer>
     );
 }
 
