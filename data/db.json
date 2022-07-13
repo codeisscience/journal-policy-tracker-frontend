@@ -3,112 +3,112 @@
         {
             "id": 1,
             "title": "Privacy-preserving clustering of unstructured big data for cloud-based enterprise search solutions",
-            "Authors": [
+            "authors": [
                 "Sm Zobaed", "Mohsen Amini Salehi"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682456"
+            "published": "12 July 2022",
+            "issn": "issn-615-682456"
         },
         {
             "id": 2,
             "title": "PECCO: A profit and cost-oriented computation offloading scheme in edge-cloud environment with improved Moth-flame optimization",
-            "Authors": [
+            "authors": [
                 "Jlashu Wu", "Hao Dai", "Yang Wang"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682543"
+            "published": "12 July 2022",
+            "issn": "issn-615-682543"
         },
         {
             "id": 3,
             "title": "A survey of knowledge-based sequential decision-making under uncertainty",
-            "Authors": [
+            "authors": [
                 "Shiqui Zhang", "Mohan Sridharan"
             ],
             "journaltype": "AI Journal",
             "topic": "Computer Science",
-            "Published": "23 July 2022",
-            "ISSN": "ISSN-615-892543"
+            "published": "23 July 2022",
+            "issn": "issn-615-892543"
         },
         {
             "id": 4,
             "title": "TCP/IP Architecture, Design, and Implementation in Linux",
-            "Authors": [
+            "authors": [
                 "Sameer Seth", "M. Ajaykumar Venkatesulu"
             ],
             "journaltype": "Book",
             "topic": "Networking / LINUX",
-            "Published": "29 January 2008",
-            "ISSN": "ISSN-615-892643"
+            "published": "29 January 2008",
+            "issn": "issn-615-892643"
         },
         {
             "id": 5,
             "title": "Privacy-preserving clustering of unstructured big data for cloud-based enterprise search solutions",
-            "Authors": [
+            "authors": [
                 "Sm Zobaed", "Mohsen Amini Salehi"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682456"
+            "published": "12 July 2022",
+            "issn": "issn-615-682456"
         },
         {
             "id": 6,
             "title": "PECCO: A profit and cost-oriented computation offloading scheme in edge-cloud environment with improved Moth-flame optimization",
-            "Authors": [
+            "authors": [
                 "Jlashu Wu", "Hao Dai", "Yang Wang"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682543"
+            "published": "12 July 2022",
+            "issn": "issn-615-682543"
         },
         {
             "id": 7,
             "title": "TCP/IP Architecture, Design, and Implementation in Linux",
-            "Authors": [
+            "authors": [
                 "Sameer Seth", "M. Ajaykumar Venkatesulu"
             ],
             "journaltype": "Book",
             "topic": "Networking / LINUX",
-            "Published": "29 January 2008",
-            "ISSN": "ISSN-615-892643"
+            "published": "29 January 2008",
+            "issn": "issn-615-892643"
         },
         {
             "id": 8,
             "title": "Privacy-preserving clustering of unstructured big data for cloud-based enterprise search solutions",
-            "Authors": [
+            "authors": [
                 "Sm Zobaed", "Mohsen Amini Salehi"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682456"
+            "published": "12 July 2022",
+            "issn": "issn-615-682456"
         },
         {
             "id": 9,
             "title": "A survey of knowledge-based sequential decision-making under uncertainty",
-            "Authors": [
+            "authors": [
                 "Shiqui Zhang", "Mohan Sridharan"
             ],
             "journaltype": "AI Journal",
             "topic": "Computer Science",
-            "Published": "23 July 2022",
-            "ISSN": "ISSN-615-892543"
+            "published": "23 July 2022",
+            "issn": "issn-615-892543"
         },
         {
             "id": 10,
             "title": "Privacy-preserving clustering of unstructured big data for cloud-based enterprise search solutions",
-            "Authors": [
+            "authors": [
                 "Sm Zobaed", "Mohsen Amini Salehi"
             ],
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
-            "Published": "12 July 2022",
-            "ISSN": "ISSN-615-682456"
+            "published": "12 July 2022",
+            "issn": "issn-615-682456"
         }
     ]
 }
