@@ -17,7 +17,7 @@ export default {
         {
             id: 'journals',
             name: 'Journals',
-            link: '/journals',
+            link: '/journal',
         },
         {
             id: 'manifesto',

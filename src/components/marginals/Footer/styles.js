@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
   width: 100%;
-  overflow-x: hidden;
+  left: 0;
+  bottom: 0;
+  text-align: center;
 `;
 
 export const SecondaryContainer = styled.div`
