@@ -15,7 +15,7 @@ export default {
             link: '/home',
         },
         {
-            id: 'journals',
+            id: 'journal',
             name: 'Journals',
             link: '/journal',
         },
@@ -38,6 +38,7 @@ export default {
             id: 'login',
             name: null,
             link: '/login',
-        }
+        },
+       
     ],
 };

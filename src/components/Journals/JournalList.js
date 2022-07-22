@@ -4,6 +4,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 import React from "react";
+import { Link } from "react-router-dom";
 import { Box, Preview, Head2, Authors, Head3, Description } from './styles';
 
 const JournalList = ({journalFetch}) => {
@@ -12,6 +13,7 @@ const JournalList = ({journalFetch}) => {
            {journalFetch.map((blog) => (
         <Preview key={blog.id}>
             <Head2 primary>{ blog.journaltype }</Head2>
+            <Link to={`/journals/${blog.id}`}>
             <Head2>{ blog.title }</Head2>
             <Authors>
             {blog.authors.map((author) => (
@@ -23,6 +25,8 @@ const JournalList = ({journalFetch}) => {
             <Head3>ISSN: {blog.issn}</Head3>
             </Description>
             <Head3><span style={{color: "#EC8D20"}}>First Published: </span>{blog.published}</Head3>
+            </Link>
+            
             
         </Preview>
        ))}

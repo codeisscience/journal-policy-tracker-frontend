@@ -6,3 +6,4 @@ export { default as Login } from './Authentication/Login/LoginForm';
 export { default as Header } from './Landing/Header/Header';
 export { default as LandingSection } from './Landing/LandingSection/LandingSection';
 export { default as Journals } from './Journals/Journal';
+export { default as JournalDetails} from './JournalDetails/Details';
