@@ -9,7 +9,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682456"
+            "issn": "issn-615-682456",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 2,
@@ -20,7 +31,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682543"
+            "issn": "issn-615-682543",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 3,
@@ -31,7 +53,18 @@
             "journaltype": "AI Journal",
             "topic": "Computer Science",
             "published": "23 July 2022",
-            "issn": "issn-615-892543"
+            "issn": "issn-615-892543",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 4,
@@ -42,7 +75,18 @@
             "journaltype": "Book",
             "topic": "Networking / LINUX",
             "published": "29 January 2008",
-            "issn": "issn-615-892643"
+            "issn": "issn-615-892643",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 5,
@@ -53,7 +97,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682456"
+            "issn": "issn-615-682456",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 6,
@@ -64,7 +119,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682543"
+            "issn": "issn-615-682543",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 7,
@@ -75,7 +141,18 @@
             "journaltype": "Book",
             "topic": "Networking / LINUX",
             "published": "29 January 2008",
-            "issn": "issn-615-892643"
+            "issn": "issn-615-892643",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 8,
@@ -86,7 +163,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682456"
+            "issn": "issn-615-682456",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 9,
@@ -97,7 +185,18 @@
             "journaltype": "AI Journal",
             "topic": "Computer Science",
             "published": "23 July 2022",
-            "issn": "issn-615-892543"
+            "issn": "issn-615-892543",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         },
         {
             "id": 10,
@@ -108,7 +207,18 @@
             "journaltype": "RESEARCH ARTICLE",
             "topic": "General Computing",
             "published": "12 July 2022",
-            "issn": "issn-615-682456"
+            "issn": "issn-615-682456",
+            "updated": "16th Aug 2022",
+            "link": "https://doi.org/10.1002/agg2.20287",
+            "policies": {
+                "policy": "Policy 1",
+                "dataavail": true,
+                "datashared": true,
+                "peerreview": true,
+                "enforced": "Yes - before application",
+                "enforcedevidence": "Random String"
+
+            }
         }
     ]
 }

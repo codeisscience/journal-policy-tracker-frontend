@@ -15,7 +15,18 @@ function Details() {
        <h1>
         Journal Detail - { id }
         { indv && (
-          <h2>{ indv.title }</h2>
+          <>
+          <h2>{indv.title}</h2>
+          <div>
+            <h2>Policy</h2>
+            <p>POLICY TYPE: {indv.policies.policy}</p>
+            <p>DATA AVAILABILITY STATEMENT PUBLISHED: {indv.policies.dataavail}</p>
+            <p>DATA SHARED: {indv.policies.datashared}</p>
+            <p>DATA PEER REVIEWED: {indv.policies.peerreview}</p>
+            <p>ENFORCED: {indv.policies.enforced}</p>
+            <p>ENFORCED EVIDENCE: {indv.policies.enforcedevidence}</p>
+          </div>
+          </>
         )}
        </h1>
     </Container>
