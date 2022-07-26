@@ -15,7 +15,7 @@
             "policies": {
                 "policy": "Policy 1",
                 "dataavail": true,
-                "datashared": true,
+                "datashared": false,
                 "peerreview": true,
                 "enforced": "Yes - before application",
                 "enforcedevidence": "Random String"
@@ -34,9 +34,10 @@
             "issn": "issn-615-682543",
             "updated": "16th Aug 2022",
             "link": "https://doi.org/10.1002/agg2.20287",
+
             "policies": {
                 "policy": "Policy 1",
-                "dataavail": true,
+                "dataavail": false,
                 "datashared": true,
                 "peerreview": true,
                 "enforced": "Yes - before application",
@@ -60,7 +61,7 @@
                 "policy": "Policy 1",
                 "dataavail": true,
                 "datashared": true,
-                "peerreview": true,
+                "peerreview": false,
                 "enforced": "Yes - before application",
                 "enforcedevidence": "Random String"
 

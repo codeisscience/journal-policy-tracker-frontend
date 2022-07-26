@@ -39,6 +39,11 @@ export default {
             name: null,
             link: '/login',
         },
+        {
+            id: 'policy',
+            name: null,
+            link: '/policy/:id',
+        }
        
     ],
 };

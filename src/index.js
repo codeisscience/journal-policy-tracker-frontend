@@ -5,18 +5,18 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Auth, Header, Login, JournalDetails } from './components';
+import { Footer, Auth, Header, Login, JournalDetails, } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Navbar/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/manifesto' exact component={Manifesto} />
         <Route path='/journal' exact component={Journal} />
-        <Route path='/journals/:id'>
+        <Route path='/policy/:id'>
           <JournalDetails/>
         </Route>
         <Route path='/contact' exact component={Contact} />
