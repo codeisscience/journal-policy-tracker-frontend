@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Button = styled.button`
   display: none;
@@ -52,7 +52,7 @@ export const Menu = styled.div`
   @media (max-width: 1032px) {
     overflow: hidden;
     flex-direction: column;
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
     transition: max-height 0.1s ease-in;
     width: 100%;
     gap: 1rem;

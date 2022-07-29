@@ -8,9 +8,9 @@ import { Container } from '../../components/Journals/styles';
 const Journal = () => {
   return (
     <Container>
-      <Journals/>
+      <Journals />
     </Container>
-  )
+  );
 };
 
 export default Journal;

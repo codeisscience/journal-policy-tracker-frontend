@@ -13,7 +13,7 @@ function LandingSection() {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <Image src={Img} height={342} width={456} alt= 'people working with laptops' fluid />
+              <Image src={Img} height={342} width={456} alt='people working with laptops' fluid />
             </Col>
             <Col xs={12} sm={12} md={6}>
               <h1>Premise</h1>
@@ -50,7 +50,7 @@ function LandingSection() {
                 That’s easier said than done. Getting there requires awareness, culture shift, and
                 adherence to best practices.
               </p>
-              <Image src={TalkingImg} height={266} width={456} alt='animated talking girls'fluid />
+              <Image src={TalkingImg} height={266} width={456} alt='animated talking girls' fluid />
             </Col>
           </Row>
         </Container>
