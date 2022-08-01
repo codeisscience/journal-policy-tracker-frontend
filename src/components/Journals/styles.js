@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-min-height: 100vh;
-background-color: #EFEFF0;
-padding-bottom: 3%;
+  min-height: 100vh;
+  background-color: #efeff0;
+  padding-bottom: 3%;
 `;
 
 export const JContainer = styled.div`
@@ -26,10 +26,10 @@ export const JContainer = styled.div`
 `;
 
 export const Head = styled.div`
-margin-top: 100px;
-font-size: 2rem;
-color: #EC8D20;
-@media (max-width: 1000px) {
+  margin-top: 100px;
+  font-size: 2rem;
+  color: #ec8d20;
+  @media (max-width: 1000px) {
     font-size: 1.6rem;
   }
   @media (max-width: 700px) {
@@ -38,46 +38,46 @@ color: #EC8D20;
 `;
 
 export const Box = styled.div`
-display: grid;
-gap: 15px;
+  display: grid;
+  gap: 15px;
 `;
 
 export const Preview = styled.div`
- display: grid;
- background-color: #FFFFFF;
- padding: 23px;
+  display: grid;
+  background-color: #ffffff;
+  padding: 23px;
 `;
 
 export const Authors = styled.div`
- display: flex;
- gap: 5px;
+  display: flex;
+  gap: 5px;
 `;
 
 export const Description = styled.div`
- display: flex;
- gap: 5px;
+  display: flex;
+  gap: 5px;
 `;
 
 export const Head2 = styled.h1`
-font-size: 1.3rem;
-width: 100%;
-color: ${props => props.primary ? '#7D7A76' : '#EC8D20'};
-@media (max-width: 1000px) {
+  font-size: 1.3rem;
+  width: 100%;
+  color: ${(props) => (props.primary ? '#7D7A76' : '#EC8D20')};
+  @media (max-width: 1000px) {
     font-size: 1.2rem;
   }
-@media (max-width: 700px) {
+  @media (max-width: 700px) {
     font-size: 1rem;
-    width: 100%; 
+    width: 100%;
   }
 `;
 
 export const Head3 = styled.h1`
-font-size: 1rem;
-color: ${props => props.secondary ? '#7D7A76' : '#504D4D'};
-@media (max-width: 1000px) {
+  font-size: 1rem;
+  color: ${(props) => (props.secondary ? '#7D7A76' : '#504D4D')};
+  @media (max-width: 1000px) {
     font-size: 0.9rem;
   }
-@media (max-width: 700px) {
+  @media (max-width: 700px) {
     font-size: 0.8rem;
-  };
+  } ;
 `;

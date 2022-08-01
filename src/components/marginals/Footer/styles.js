@@ -14,7 +14,6 @@ export const SecondaryContainer = styled.div`
   justify-content: center;
 `;
 
-
 export const UpperDiv = styled.div`
   width: 100%;
   display: grid;
@@ -24,7 +23,7 @@ export const UpperDiv = styled.div`
   @media (max-width: 990px) {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 1.5rem 10rem;
-  };
+  }
   @media (max-width: 484px) {
     grid-template-columns: repeat(1, minmax(100px, 1fr));
     gap: 1.5rem 10rem;
@@ -44,7 +43,7 @@ export const LinksContainer = styled.div`
 export const Heading2 = styled.h1`
   font-size: 1.3rem;
   margin-bottom: 1rem;
-`
+`;
 
 export const NoStyleNav = styled.a`
     no-underline
@@ -58,7 +57,7 @@ export const Heading3 = styled.p`
 `;
 
 export const SocialDiv = styled.div`
-  display:flex;
+  display: flex;
   gap: 5px;
 `;
 

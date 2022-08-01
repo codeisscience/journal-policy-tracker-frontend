@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from "../../helpers/alerts"
+import { showSuccessMessage, showErrorMessage } from '../../helpers/alerts';
 import { JournalValidation } from '../../helpers/validate';
 
 function AddJournal() {
@@ -15,56 +15,62 @@ function AddJournal() {
   const [lastYear, setLastYear] = useState('');
   const [policyType, setPolicyType] = useState('');
   const [domain, setDomain] = useState('');
-  const [success,setSuccess] = useState("");
-  const [error,setError]=useState("");
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
-  const emptyFields=()=>{
-    setTitle("");
-    setUrl("");
-    setIssn("");
-    setRating("");
-    setDate("");
-    setPolicyTitle("");
-    setFirstYear("");
-    setLastYear("");
-    setPolicyType("");
-    setDomain("");
-  }
+  const emptyFields = () => {
+    setTitle('');
+    setUrl('');
+    setIssn('');
+    setRating('');
+    setDate('');
+    setPolicyTitle('');
+    setFirstYear('');
+    setLastYear('');
+    setPolicyType('');
+    setDomain('');
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSuccess("");
-    setError("");
-    const check = JournalValidation(title, url, issn, rating, policyTitle, firstYear,
-                                lastYear, policyType, domain, date)
-    if(check){
-    const policies = {
-      title: policyTitle,
-      first_year: firstYear,
-      last_year: lastYear,
-      type: policyType,
-    };
-    const journal = { title, url, issn, rating, date, policies, domain };
+    setSuccess('');
+    setError('');
+    const check = JournalValidation(
+      title,
+      url,
+      issn,
+      rating,
+      policyTitle,
+      firstYear,
+      lastYear,
+      policyType,
+      domain,
+      date,
+    );
+    if (check) {
+      const policies = {
+        title: policyTitle,
+        first_year: firstYear,
+        last_year: lastYear,
+        type: policyType,
+      };
+      const journal = { title, url, issn, rating, date, policies, domain };
 
-    try{
-    window.scrollTo(0,0);
-    fetch('https://journal-policy-tracker.herokuapp.com/api/journals', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(journal),
-    })
-    emptyFields();
-    setSuccess("Journal Added Successfuly")
+      try {
+        window.scrollTo(0, 0);
+        fetch('https://journal-policy-tracker.herokuapp.com/api/journals', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(journal),
+        });
+        emptyFields();
+        setSuccess('Journal Added Successfuly');
+      } catch (err) {
+        setError('Cannot Add Journal');
+      }
+    } else {
+      window.scrollTo(0, 0);
+      setError('Invalid Input');
     }
-    catch(err)
-    {
-      setError("Cannot Add Journal")
-    }
-  }
-  else{
-    window.scrollTo(0,0);
-    setError("Invalid Input")
-  }
-   
   };
 
   return (
@@ -84,8 +90,12 @@ function AddJournal() {
           </Form.Group>
           <Form.Group className='mb-3' controlId='formBasicUrl'>
             <Form.Label>URL</Form.Label>
-            <Form.Control type='text' placeholder='URL' 
-            onChange={(e) => setUrl(e.target.value)} value={url} />
+            <Form.Control
+              type='text'
+              placeholder='URL'
+              onChange={(e) => setUrl(e.target.value)}
+              value={url}
+            />
           </Form.Group>
           <Form.Group className='mb-3' controlId='formBasicIssn'>
             <Form.Label>ISSN</Form.Label>

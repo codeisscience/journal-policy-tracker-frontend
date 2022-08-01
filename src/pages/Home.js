@@ -1,11 +1,11 @@
 import React from 'react';
 import { Header, LandingSection } from '../components';
-import "../components/Landing/Header/Header.css"
+import '../components/Landing/Header/Header.css';
 
 function Home() {
   return (
     <div className='header-padding'>
-       <Header />
+      <Header />
       <LandingSection />
     </div>
   );

@@ -18,13 +18,9 @@ const LoginForm = () => {
   return (
     <>
       <FormContainer>
-        {!isSubmitted ? (
-          <FormLogin submitForm={submitForm} />
-        ) : (
-          <FormSuccess />
-        )}
+        {!isSubmitted ? <FormLogin submitForm={submitForm} /> : <FormSuccess />}
         <FormContentLeft>
-          <Logo src={signup.logo.src} alt={signup.logo.alt}/>
+          <Logo src={signup.logo.src} alt={signup.logo.alt} />
           <RightH2>{signup.formHead}</RightH2>
           <FormImg src={signup.img.src} alt={signup.img.alt} />
         </FormContentLeft>
