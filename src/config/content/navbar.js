@@ -20,6 +20,11 @@ export default {
       link: '/journal',
     },
     {
+      id: 'addjournal',
+      name: 'Add Journal',
+      link: '/addjournal',
+    },
+    {
       id: 'manifesto',
       name: 'Manifesto',
       link: '/manifesto',
