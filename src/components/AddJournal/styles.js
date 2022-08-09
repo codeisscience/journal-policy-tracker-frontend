@@ -136,6 +136,6 @@ export const ToggleContainer = styled.div`
   // gap: ${(props) => (props.primary ? '4rem' : '4rem')};
   margin-top: 50px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px;
+  grid-template-rows: 80px 70px;
   column-gap: 7rem;
 `;

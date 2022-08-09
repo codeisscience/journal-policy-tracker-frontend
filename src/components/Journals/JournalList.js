@@ -16,9 +16,10 @@ const JournalList = ({ journalFetch }) => {
           <Link to={`/policy/${blog.id}`}>
             <Head2>{blog.title}</Head2>
             <Authors>
-              {blog.authors.map((author) => (
+              {/* {blog.authors.map((author) => (
                 <Head3 secondary>{author},</Head3>
-              ))}
+              ))} */}
+              <Head3 secondary>{blog.authors}</Head3>
             </Authors>
             <Description>
               <Head3>{blog.topic} |</Head3>

@@ -35,12 +35,12 @@ function Details() {
   const poli = [
     {
       ques: 'POLICY TYPE:',
-      ans: indv && indv.policies.policy,
+      ans: indv && indv.policy,
     },
     {
       ques: 'DATA AVAILABILITY STATEMENT PUBLISHED:',
       ans:
-        indv && indv.policies.dataavail ? (
+        indv && indv.dataavail ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -49,7 +49,7 @@ function Details() {
     {
       ques: 'DATA SHARED:',
       ans:
-        indv && indv.policies.datashared ? (
+        indv && indv.datashared ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -58,7 +58,7 @@ function Details() {
     {
       ques: 'DATA PEER REVIEWED:',
       ans:
-        indv && indv.policies.peerreview ? (
+        indv && indv.peerreview ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -66,11 +66,11 @@ function Details() {
     },
     {
       ques: 'ENFORCED:',
-      ans: indv && indv.policies.enforced,
+      ans: indv && indv.enforced,
     },
     {
       ques: 'ENFORCED EVIDENCE:',
-      ans: indv && indv.policies.enforcedevidence,
+      ans: indv && indv.evidence,
     },
   ];
 
@@ -85,7 +85,7 @@ function Details() {
     },
     {
       ques: 'CREATED BY:',
-      ans: indv && indv.authors.map((author) => <div key={indv.id}>{author}</div>),
+      ans: indv && indv.authors,
     },
   ];
 

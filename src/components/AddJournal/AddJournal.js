@@ -1,6 +1,9 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
@@ -21,31 +24,120 @@ import {
   Div,
   ToggleContainer,
 } from './styles';
+import { FormInputBtn } from '../Authentication/styles';
 
 function AddJournal() {
-  const [checked, setChecked] = useState(false);
-  const handleChange = (nextChecked) => {
-    setChecked(nextChecked);
+  const [title, setTitle] = useState('');
+  const [authors, setAuthors] = useState('');
+  const [journaltype, setJournaltype] = useState('');
+  const [topic, setTopic] = useState('');
+  const [published, setPublished] = useState(new Date());
+  const [issn, setIssn] = useState();
+  const [updated, setUpdated] = useState(published);
+  const [link, setLink] = useState('');
+  const [policy, setPolicy] = useState('policy 1');
+  const [dataavail, setDataavail] = useState(false);
+  const handleChangeData = (nextChecked) => {
+    setDataavail(nextChecked);
   };
+  const [datashared, setDatashared] = useState(false);
+  const handleChangeData2 = (nextChecked) => {
+    setDatashared(nextChecked);
+  };
+  const [peerreview, setPeerreview] = useState(false);
+  const handleChangePeer = (nextChecked) => {
+    setPeerreview(nextChecked);
+  };
+  const [enforced, setEnforced] = useState('');
+  const [evidence, setEvidence] = useState('');
+  const [isPending, setIsPending] = useState(false);
+
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const codeJournal = {
+      title,
+      authors,
+      journaltype,
+      topic,
+      published,
+      issn,
+      updated,
+      link,
+      policy,
+      dataavail,
+      datashared,
+      peerreview,
+      enforced,
+      evidence,
+    };
+
+    setIsPending(true);
+
+    fetch('http://localhost:8000/journals', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(codeJournal),
+    }).then(() => {
+      setIsPending(false);
+      history.push('/journal');
+    });
+  };
+
   return (
     <Container>
       <PolicyContainer>
         <Head>Create Journal Policies</Head>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Label>Journal titile</Label>
-          <Input type='text' required />
+          <Input type='text' required value={title} onChange={(e) => setTitle(e.target.value)} />
+          <FirstDiv>
+            <div>
+              <Label>Journal Type</Label>
+              <Input
+                type='text'
+                required
+                value={journaltype}
+                onChange={(e) => setJournaltype(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>ISSN Number</Label>
+              <Input type='text' required value={issn} onChange={(e) => setIssn(e.target.value)} />
+            </div>
+            <div>
+              <Label>Enforced Evidence</Label>
+              <Input
+                type='text'
+                required
+                value={evidence}
+                onChange={(e) => setEvidence(e.target.value)}
+              />
+            </div>
+          </FirstDiv>
           <FirstDiv>
             <div>
               <Label>Domain</Label>
-              <Input type='text' required />
+              <Input
+                type='text'
+                required
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+              />
             </div>
             <div>
               <Label>Source</Label>
-              <Input type='text' required />
+              <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
             </div>
             <div>
               <Label>Authors</Label>
-              <Input type='text' required />
+              <Input
+                type='text'
+                required
+                value={authors}
+                onChange={(e) => setAuthors(e.target.value)}
+              />
             </div>
           </FirstDiv>
           <Subhead>
@@ -58,7 +150,7 @@ function AddJournal() {
             <SecondDiv>
               <div>
                 <Label>Policy Type:</Label>
-                <Select>
+                <Select value={policy} onChange={(e) => setPolicy(e.target.value)}>
                   <option value='policy 1'>Policy 1</option>
                   <option value='policy 2'>Policy 2</option>
                   <option value='policy 3'>Policy 3</option>
@@ -66,7 +158,7 @@ function AddJournal() {
               </div>
               <div>
                 <Label>Enforced:</Label>
-                <Select>
+                <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
                   <option value='policy 1'>Yes - before publication</option>
                   <option value='policy 2'>Policy 2</option>
                 </Select>
@@ -79,8 +171,8 @@ function AddJournal() {
                   <Label htmlFor='material-switch'>
                     <Toggle>
                       <Switch
-                        onChange={handleChange}
-                        checked={checked}
+                        onChange={handleChangeData}
+                        checked={dataavail}
                         onColor='#ef9c38'
                         onHandleColor='#'
                         handleDiameter={22}
@@ -101,8 +193,8 @@ function AddJournal() {
                   <Label htmlFor='material-switch'>
                     <Toggle>
                       <Switch
-                        onChange={handleChange}
-                        checked={checked}
+                        onChange={handleChangeData2}
+                        checked={datashared}
                         onColor='#ef9c38'
                         onHandleColor='#'
                         handleDiameter={22}
@@ -123,8 +215,8 @@ function AddJournal() {
                   <Label htmlFor='material-switch'>
                     <Toggle>
                       <Switch
-                        onChange={handleChange}
-                        checked={checked}
+                        onChange={handleChangePeer}
+                        checked={peerreview}
                         onColor='#ef9c38'
                         onHandleColor='#'
                         handleDiameter={22}
@@ -142,9 +234,9 @@ function AddJournal() {
                 </Div>
               </ToggleContainer>
             </SecondDiv>
-            <Label style={{ marginTop: '0px' }}>Enforced Evidence</Label>
-            <Input primary type='text' required />
           </Div>
+          {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
+          {isPending && <FormInputBtn>Adding blog...</FormInputBtn>}
         </Form>
       </PolicyContainer>
     </Container>
