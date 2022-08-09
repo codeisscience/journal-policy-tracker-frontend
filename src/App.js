@@ -10,8 +10,7 @@ import Navbar from './components/marginals/Navbar/Navbar';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <div className='App'>
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -38,7 +37,7 @@ function App() {
       </Switch>
       <Navbar />
       <Footer />
-    </Router>
+    </div>
   );
 }
 

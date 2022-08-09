@@ -20,6 +20,7 @@ export const PolicyContainer = styled.div`
   margin: 0px auto 0px auto;
   background-color: #ffff;
   padding: 3rem 6rem;
+  border: 5px;
   align-self: center;
   justify-self: center;
   @media (max-width: 1300px) {

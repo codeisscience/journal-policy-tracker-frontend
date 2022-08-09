@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -19,10 +20,15 @@ export const PolicyContainer = styled.div`
   background-color: #ffff;
   padding: 3rem 6rem;
   align-self: center;
+  border-radius: 8px;
   justify-self: center;
 
   @media (max-width: 1300px) {
     width: 78%;
+    padding: 2rem 4rem;
+  }
+  @media (max-width: 1000px) {
+    width: 90%;
     padding: 2rem 4rem;
   }
   @media (max-width: 800px) {
@@ -80,49 +86,58 @@ export const Icon = styled.div`
 
 export const Subhead2 = styled.p`
   font-size: 1.4rem;
-  // @media (max-width: 1000px) {
-  //   font-size: 1.6rem;
-  // }
-  // @media (max-width: 700px) {
-  //   font-size: 1.2rem;
-  // }
 `;
 
 export const Select = styled.select`
-  width: 20rem;
-  padding: 2.2%;
-  height: 50px;
-  margin-top: 14px;
-  border-radius: 10px;
-  background: white;
-  outline: none;
-  border: 1.5px solid #ea8900;
-  color: #ea8900;
-  font-size: 1rem;
-  &:hover {
-    cursor: pointer;
-    color: #fff;
-    background: ${(props) => (props.primary ? '#fff' : '#F6B149')};
-    transition: all 0.2s ease-out;
+  background-color: white;
+  border: thin solid #afaeac;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  margin-top: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: linear-gradient(45deg, transparent 50%, #ef9c38 50%),
+    linear-gradient(135deg, #ef9c38 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  width: 21rem;
+
+  @media (max-width: 1300px) {
+    width: 15rem;
   }
-  @media (max-width: 1000px) {
-    width: 38%;
-  }
-  @media (max-width: 646px) {
-    width: 100%;
+  @media (max-width: 650px) {
+    width: 18rem;
   }
 `;
 
 export const SecondDiv = styled.div`
-  display: flex;
-  // margin-top: ${(props) => (props.primary ? '40px' : '0px')};
+  display: ${(props) => (props.primary ? 'flex' : 'grid')};
+  grid-template-columns: ${(props) => (props.primary ? '' : '50% 50%')};
   width: ${(props) => (props.primary ? '100%' : '100%')};
-  gap: ${(props) => (props.primary ? '2rem' : '6rem')};
+  gap: ${(props) => (props.primary ? '2rem' : '1rem')};
+  @media (max-width: 650px) {
+    grid-template-columns: none;
+  }
 `;
 
 export const Form = styled.form`
   display: grid;
   width: 70%;
+
+  // // @media (max-width: 1000px) {
+  // //   width: 10%;
+  // //   padding: 2rem 4rem;
+  // // }
 `;
 
 export const Div = styled.div`
@@ -138,4 +153,8 @@ export const ToggleContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 80px 70px;
   column-gap: 7rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: none;
+  }
 `;
