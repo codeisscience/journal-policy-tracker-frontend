@@ -13,16 +13,27 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/manifesto' component={Manifesto} />
-        <Route path='/journal' component={Journal} />
-        <Route path='/addjournal' component={AddJournal} />
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/manifesto'>
+          <Manifesto />
+        </Route>
+        <Route path='/journal'>
+          <Journal />
+        </Route>
+        <Route path='/addjournal'>
+          <AddJournal />
+        </Route>
         <Route path='/policy/:id'>
           <JournalDetails />
         </Route>
-        <Route path='/contact' component={Contact} />
-        <Route path='/Signup' component={Auth} />
-        <Route path='/Login' component={Login} />
+        <Route path='/Signup'>
+          <Auth />
+        </Route>
+        <Route path='/Login'>
+          <Login />
+        </Route>
         <Redirect to='/' />
       </Switch>
       <Navbar />
