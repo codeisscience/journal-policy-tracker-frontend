@@ -7,10 +7,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Preview, Head2, Authors, Head3, Description } from './styles';
 
-const JournalList = ({ journalFetch }) => {
+const JournalList = ({ posts }) => {
   return (
     <Box>
-      {journalFetch.map((blog) => (
+      {posts.map((blog) => (
         <Preview key={blog.id}>
           <Head2 primary>{blog.journaltype}</Head2>
           <Link to={`/policy/${blog.id}`}>

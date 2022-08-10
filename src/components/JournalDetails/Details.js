@@ -1,9 +1,11 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-shadow */
 /* eslint-disable react/jsx-key */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBookmark,
@@ -28,9 +30,10 @@ import {
 } from './styles';
 import { Authors, Head3 } from '../Journals/styles';
 
-function Details() {
+function Details({ posts, handleDelete }) {
   const { id } = useParams();
-  const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
+  const indv = posts.find((post) => post.id.toString() === id);
+  // const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
 
   const poli = [
     {
@@ -123,8 +126,20 @@ function Details() {
                 ))}
               </UpdateContainer>
             </Misc>
+            <Link to={`/edit/${indv.id}`}>
+              <button>Edit Post</button>
+            </Link>
+            <button onClick={() => handleDelete(indv.id)}>Delete Post</button>
           </div>
         </PolicyContainer>
+      )}
+      {!indv && (
+        <>
+          <h2>Journal Not Found</h2>
+          <p>
+            <Link to='/'>Homepage</Link>
+          </p>
+        </>
       )}
     </Container>
   );

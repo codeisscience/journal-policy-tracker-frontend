@@ -5,11 +5,9 @@ import React from 'react';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
 
-const Journal = () => {
+const Journal = ({ posts }) => {
   return (
-    <Container>
-      <Journals />
-    </Container>
+    <Container>{posts.length ? <Journals posts={posts} /> : <p>No posts to display</p>}</Container>
   );
 };
 
