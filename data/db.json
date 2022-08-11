@@ -111,20 +111,6 @@
       "datashared": false,
       "peerreview": true,
       "enforced": "Yes - before application"
-    },
-    {
-      "title": "Privacy-rving clustering of unstructured big data for cloud-based enterprise search solutions",
-      "authors": "Sm Zobaed, Sameer Seth",
-      "topic": "General Computing",
-      "issn": "issn-615-682456",
-      "updated": "August 11, 02022 1:40:50 AM",
-      "link": "https://doi.org/10.1002/agg2.20287",
-      "policy": "Policy 1",
-      "dataavail": true,
-      "datashared": false,
-      "peerreview": true,
-      "enforced": "Yes - before application",
-      "id": 8
     }
   ]
 }

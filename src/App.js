@@ -153,7 +153,7 @@ function App() {
     <div className='App'>
       <Switch>
         <Route exact path='/'>
-          <Home />
+          <Home search={search} setSearch={setSearch} posts={posts} searchResults={searchResults} />
         </Route>
         <Route path='/manifesto'>
           <Manifesto />
