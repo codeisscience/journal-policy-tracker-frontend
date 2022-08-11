@@ -15,7 +15,6 @@ function Navbar({ search, setSearch }) {
     <Nav>
       <Logo src={navbar.logo.src} />
       <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor='search'>Search Journal</label>
         <input
           id='search'
           type='text'

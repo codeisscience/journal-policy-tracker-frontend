@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import { React, useEffect, useState } from 'react';
@@ -53,6 +54,24 @@ function App() {
   const [evidence, setEvidence] = useState('');
   const [editEvidence, setEditEvidence] = useState('');
   const [isPending, setIsPending] = useState(false);
+
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState('');
+
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = posts.filter((value) => {
+      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === '') {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
   const history = useHistory();
 
   useEffect(() => {
@@ -153,7 +172,17 @@ function App() {
     <div className='App'>
       <Switch>
         <Route exact path='/'>
-          <Home search={search} setSearch={setSearch} posts={posts} searchResults={searchResults} />
+          <Home
+            search={search}
+            setSearch={setSearch}
+            posts={posts}
+            searchResults={searchResults}
+            filteredData={filteredData}
+            setFilteredData={setFilteredData}
+            wordEntered={wordEntered}
+            setWordEntered={setWordEntered}
+            handleFilter={handleFilter}
+          />
         </Route>
         <Route path='/manifesto'>
           <Manifesto />
@@ -200,7 +229,7 @@ function App() {
             posts={posts}
             editTitle={editTitle}
             setEditTitle={setEditTitle}
-            editAuthors={setAuthors}
+            editAuthors={editAuthors}
             setEditAuthors={setEditAuthors}
             editJournaltype={editJournaltype}
             setEditJournaltype={setEditJournaltype}

@@ -7,29 +7,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../../index.css';
 
-function SearchBar({ posts }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState('');
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = posts.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === '') {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered('');
-  };
-
+function SearchBar({
+  posts,
+  filteredData,
+  setFilteredData,
+  wordEntered,
+  setWordEntered,
+  handleFilter,
+}) {
   return (
     <div className='search'>
       <div className='searchInputs'>
