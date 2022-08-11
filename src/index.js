@@ -1,33 +1,14 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Auth, Header, Login, JournalDetails } from './components';
-import Navbar from './components/marginals/Navbar/Navbar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './App';
 
-function App() {
-  return (
+ReactDOM.render(
+  <React.StrictMode>
     <Router>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/manifesto' exact component={Manifesto} />
-        <Route path='/journal' exact component={Journal} />
-        <Route path='/policy/:id'>
-          <JournalDetails />
-        </Route>
-        <Route path='/contact' exact component={Contact} />
-        <Route path='/Signup' exact component={Auth} />
-        <Route path='/Login' exact component={Login} />
-        <Redirect to='/' />
-      </Switch>
-      <Navbar />
-      <Footer />
+      <Route path='/' component={App} />
     </Router>
-  );
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+  </React.StrictMode>,
+  document.getElementById('root'),
+);

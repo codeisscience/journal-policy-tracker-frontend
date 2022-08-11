@@ -1,171 +1,245 @@
-/* eslint-disable no-alert */
-import { React, useState } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from '../../helpers/alerts';
-import { JournalValidation } from '../../helpers/validate';
+/* eslint-disable no-restricted-globals */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import Switch from 'react-switch';
+import {
+  Container,
+  Head,
+  Label,
+  PolicyContainer,
+  Toggle,
+  Input,
+  FirstDiv,
+  Subhead,
+  Icon,
+  Subhead2,
+  Select,
+  SecondDiv,
+  Form,
+  Div,
+  ToggleContainer,
+} from './styles';
+import { FormInputBtn } from '../Authentication/styles';
 
 function AddJournal() {
   const [title, setTitle] = useState('');
-  const [url, setUrl] = useState('');
-  const [issn, setIssn] = useState('');
-  const [rating, setRating] = useState('');
-  const [date, setDate] = useState('');
-  const [policyTitle, setPolicyTitle] = useState('');
-  const [firstYear, setFirstYear] = useState('');
-  const [lastYear, setLastYear] = useState('');
-  const [policyType, setPolicyType] = useState('');
-  const [domain, setDomain] = useState('');
-  const [success, setSuccess] = useState('');
-  const [error, setError] = useState('');
-
-  const emptyFields = () => {
-    setTitle('');
-    setUrl('');
-    setIssn('');
-    setRating('');
-    setDate('');
-    setPolicyTitle('');
-    setFirstYear('');
-    setLastYear('');
-    setPolicyType('');
-    setDomain('');
+  const [authors, setAuthors] = useState('');
+  const [journaltype, setJournaltype] = useState('');
+  const [topic, setTopic] = useState('');
+  const [published, setPublished] = useState(new Date());
+  const [issn, setIssn] = useState();
+  const [updated, setUpdated] = useState(published);
+  const [link, setLink] = useState('');
+  const [policy, setPolicy] = useState('policy 1');
+  const [dataavail, setDataavail] = useState(false);
+  const handleChangeData = (nextChecked) => {
+    setDataavail(nextChecked);
   };
+  const [datashared, setDatashared] = useState(false);
+  const handleChangeData2 = (nextChecked) => {
+    setDatashared(nextChecked);
+  };
+  const [peerreview, setPeerreview] = useState(false);
+  const handleChangePeer = (nextChecked) => {
+    setPeerreview(nextChecked);
+  };
+  const [enforced, setEnforced] = useState('');
+  const [evidence, setEvidence] = useState('');
+  const [isPending, setIsPending] = useState(false);
+
+  const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSuccess('');
-    setError('');
-    const check = JournalValidation(
+    const codeJournal = {
       title,
-      url,
+      authors,
+      journaltype,
+      topic,
+      published,
       issn,
-      rating,
-      policyTitle,
-      firstYear,
-      lastYear,
-      policyType,
-      domain,
-      date,
-    );
-    if (check) {
-      const policies = {
-        title: policyTitle,
-        first_year: firstYear,
-        last_year: lastYear,
-        type: policyType,
-      };
-      const journal = { title, url, issn, rating, date, policies, domain };
+      updated,
+      link,
+      policy,
+      dataavail,
+      datashared,
+      peerreview,
+      enforced,
+      evidence,
+    };
 
-      try {
-        window.scrollTo(0, 0);
-        fetch('https://journal-policy-tracker.herokuapp.com/api/journals', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(journal),
-        });
-        emptyFields();
-        setSuccess('Journal Added Successfuly');
-      } catch (err) {
-        setError('Cannot Add Journal');
-      }
-    } else {
-      window.scrollTo(0, 0);
-      setError('Invalid Input');
-    }
+    setIsPending(true);
+
+    fetch('http://localhost:8000/journals', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(codeJournal),
+    }).then(() => {
+      setIsPending(false);
+      history.push('/journal');
+    });
   };
 
   return (
-    <Row>
-      <Col className='m-auto'>
-        <Form className='login-form responsive' onSubmit={handleSubmit}>
-          <Form.Group className='mb-3' controlId='formBasicTitle'>
-            {success && showSuccessMessage(success)}
-            {error && showErrorMessage(error)}
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Journal title'
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicUrl'>
-            <Form.Label>URL</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='URL'
-              onChange={(e) => setUrl(e.target.value)}
-              value={url}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicIssn'>
-            <Form.Label>ISSN</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='ISSN'
-              onChange={(e) => setIssn(e.target.value)}
-              value={issn}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicRating'>
-            <Form.Label>Rating</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Rating'
-              onChange={(e) => setRating(e.target.value)}
-              value={rating}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicDate'>
-            <Form.Label>Date</Form.Label>
-            <Form.Control
-              type='date'
-              placeholder='Date'
-              onChange={(e) => setDate(e.target.value)}
-              value={date}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicPolicies'>
-            <Form.Label>Policies</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Policy Title'
-              onChange={(e) => setPolicyTitle(e.target.value)}
-              value={policyTitle}
-            />
-            <Form.Control
-              type='text'
-              placeholder='First Year'
-              onChange={(e) => setFirstYear(e.target.value)}
-              value={firstYear}
-            />
-            <Form.Control
-              type='text'
-              placeholder='Last Year'
-              onChange={(e) => setLastYear(e.target.value)}
-              value={lastYear}
-            />
-            <Form.Control
-              type='text'
-              placeholder='Type'
-              onChange={(e) => setPolicyType(e.target.value)}
-              value={policyType}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicDomain'>
-            <Form.Label>Domain</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Domain'
-              onChange={(e) => setDomain(e.target.value)}
-              value={domain}
-            />
-          </Form.Group>
-          <Button variant='primary' type='submit'>
-            Add Journal
-          </Button>
+    <Container>
+      <PolicyContainer>
+        <Head>Create Journal Policies</Head>
+        <Form onSubmit={handleSubmit}>
+          <Label>Journal titile</Label>
+          <Input type='text' required value={title} onChange={(e) => setTitle(e.target.value)} />
+          <FirstDiv>
+            <div>
+              <Label>Journal Type</Label>
+              <Input
+                type='text'
+                required
+                value={journaltype}
+                onChange={(e) => setJournaltype(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>ISSN Number</Label>
+              <Input type='text' required value={issn} onChange={(e) => setIssn(e.target.value)} />
+            </div>
+            <div>
+              <Label>Enforced Evidence</Label>
+              <Input
+                type='text'
+                required
+                value={evidence}
+                onChange={(e) => setEvidence(e.target.value)}
+              />
+            </div>
+          </FirstDiv>
+          <FirstDiv>
+            <div>
+              <Label>Domain</Label>
+              <Input
+                type='text'
+                required
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Source</Label>
+              <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
+            </div>
+            <div>
+              <Label>Authors</Label>
+              <Input
+                type='text'
+                required
+                value={authors}
+                onChange={(e) => setAuthors(e.target.value)}
+              />
+            </div>
+          </FirstDiv>
+          <Subhead>
+            <Icon>
+              <FontAwesomeIcon icon={faBookmark} color='#EC8D20' />
+            </Icon>
+            <Subhead2>Policies</Subhead2>
+          </Subhead>
+          <Div>
+            <SecondDiv>
+              <div>
+                <Label>Policy Type:</Label>
+                <Select value={policy} onChange={(e) => setPolicy(e.target.value)}>
+                  <option value='policy 1'>Policy 1</option>
+                  <option value='policy 2'>Policy 2</option>
+                  <option value='policy 3'>Policy 3</option>
+                </Select>
+              </div>
+              <div>
+                <Label>Enforced:</Label>
+                <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
+                  <option value='policy 1'>Yes - before publication</option>
+                  <option value='policy 2'>Policy 2</option>
+                </Select>
+              </div>
+            </SecondDiv>
+            <SecondDiv primary>
+              <ToggleContainer primary>
+                <Div primary>
+                  <Label>Data Availability Statement Published:</Label>
+                  <Label htmlFor='material-switch'>
+                    <Toggle>
+                      <Switch
+                        onChange={handleChangeData}
+                        checked={dataavail}
+                        onColor='#ef9c38'
+                        onHandleColor='#'
+                        handleDiameter={22}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                        activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                        height={28}
+                        width={54}
+                        className='react-switch'
+                        id='material-switch'
+                      />
+                    </Toggle>
+                  </Label>
+                </Div>
+                <Div primary>
+                  <Label>Data Peer Reviewed:</Label>
+                  <Label htmlFor='material-switch'>
+                    <Toggle>
+                      <Switch
+                        onChange={handleChangeData2}
+                        checked={datashared}
+                        onColor='#ef9c38'
+                        onHandleColor='#'
+                        handleDiameter={22}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                        activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                        height={28}
+                        width={54}
+                        className='react-switch'
+                        id='material-switch'
+                      />
+                    </Toggle>
+                  </Label>
+                </Div>
+                <Div primary>
+                  <Label>Data Shared:</Label>
+                  <Label htmlFor='material-switch'>
+                    <Toggle>
+                      <Switch
+                        onChange={handleChangePeer}
+                        checked={peerreview}
+                        onColor='#ef9c38'
+                        onHandleColor='#'
+                        handleDiameter={22}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                        activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                        height={28}
+                        width={54}
+                        className='react-switch'
+                        id='material-switch'
+                      />
+                    </Toggle>
+                  </Label>
+                </Div>
+              </ToggleContainer>
+            </SecondDiv>
+          </Div>
+          {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
+          {isPending && <FormInputBtn>Adding blog...</FormInputBtn>}
         </Form>
-      </Col>
-    </Row>
+      </PolicyContainer>
+    </Container>
   );
 }
 
