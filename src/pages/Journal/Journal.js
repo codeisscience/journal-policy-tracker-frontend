@@ -5,9 +5,15 @@ import React from 'react';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
 
-const Journal = ({ posts }) => {
+const Journal = ({ posts, search, setSearch }) => {
   return (
-    <Container>{posts.length ? <Journals posts={posts} /> : <p>No posts to display</p>}</Container>
+    <Container>
+      {posts.length ? (
+        <Journals posts={posts} search={search} setSearch={setSearch} />
+      ) : (
+        <p>No posts to display</p>
+      )}
+    </Container>
   );
 };
 

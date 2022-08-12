@@ -14,7 +14,7 @@ function Navbar({ search, setSearch }) {
   return (
     <Nav>
       <Logo src={navbar.logo.src} />
-      <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
+      {/* <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
         <input
           id='search'
           type='text'
@@ -22,7 +22,7 @@ function Navbar({ search, setSearch }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </form>
+      </form> */}
       <Button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <FontAwesomeIcon icon={navbar.icon2} /> : <FontAwesomeIcon icon={navbar.icon} />}
       </Button>

@@ -9,7 +9,8 @@ export const Container = styled.div`
 export const JContainer = styled.div`
   display: grid;
   width: 60%;
-  margin-left: 100px;
+  margin: 0px auto 0px auto;
+  // margin-left: 100px;
   gap: 10px;
   @media (max-width: 1300px) {
     width: 70%;
@@ -26,7 +27,7 @@ export const JContainer = styled.div`
 `;
 
 export const Head = styled.div`
-  margin-top: 100px;
+  margin: 100px auto 0px;
   font-size: 2rem;
   color: #ec8d20;
   @media (max-width: 1000px) {
@@ -80,4 +81,34 @@ export const Head3 = styled.h1`
   @media (max-width: 700px) {
     font-size: 0.8rem;
   } ;
+`;
+
+export const Search = styled.div`
+  width: 40%;
+  position: relative;
+  margin: 0px auto 0px auto;
+  display: flex;
+`;
+
+export const SearchTerm = styled.input`
+  width: 100%;
+  border: 3px solid #e48900;
+  border-right: none;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+`;
+
+export const SearchButton = styled.button`
+  width: 40px;
+  height: 36px;
+  border: 1px solid #e48900;
+  background: #e48900;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
 `;

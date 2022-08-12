@@ -188,7 +188,7 @@ function App() {
           <Manifesto />
         </Route>
         <Route path='/journal'>
-          <Journal posts={searchResults} />
+          <Journal search={search} setSearch={setSearch} posts={searchResults} />
         </Route>
         <Route exact path='/addjournal'>
           <AddJournal
