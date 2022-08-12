@@ -133,8 +133,8 @@ const AddJournal = ({
               <div>
                 <Label>Enforced:</Label>
                 <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
-                  <option value='policy 1'>Yes - before publication</option>
-                  <option value='policy 2'>Policy 2</option>
+                  <option value='Yes - before publication'>Yes - before publication</option>
+                  <option value='option 2'>Option 2</option>
                 </Select>
               </div>
             </SecondDiv>

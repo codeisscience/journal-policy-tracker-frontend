@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-key */
@@ -27,8 +28,10 @@ import {
   Misc,
   UpdateContainer,
   Icon,
+  ButtonContainer,
 } from './styles';
 import { Authors, Head3 } from '../Journals/styles';
+import { FormInputBtn } from '../Authentication/styles';
 
 function Details({ posts, handleDelete }) {
   const { id } = useParams();
@@ -126,10 +129,14 @@ function Details({ posts, handleDelete }) {
                 ))}
               </UpdateContainer>
             </Misc>
-            <Link to={`/edit/${indv.id}`}>
-              <button>Edit Post</button>
-            </Link>
-            <button onClick={() => handleDelete(indv.id)}>Delete Post</button>
+            <ButtonContainer>
+              <Link to={`/edit/${indv.id}`}>
+                <FormInputBtn>Edit Post</FormInputBtn>
+              </Link>
+              <FormInputBtn style={{ marginLeft: '1rem' }} onClick={() => handleDelete(indv.id)}>
+                Delete Post
+              </FormInputBtn>
+            </ButtonContainer>
           </div>
         </PolicyContainer>
       )}
