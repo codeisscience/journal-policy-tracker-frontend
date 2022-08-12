@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable arrow-body-style */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
@@ -7,7 +8,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
-import api from './api/posts';
+import { api } from './api/posts';
 import { Journal, Contact, Manifesto, Home } from './pages';
 import { Footer, Auth, Header, Login, JournalDetails, AddJournal } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
@@ -15,6 +16,9 @@ import Edit from './components/EditJournal/Edit';
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -77,8 +81,10 @@ function App() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        setLoading(true);
         const response = await api.get('/journals');
         setPosts(response.data);
+        setLoading(false);
       } catch (err) {
         if (err.response) {
           console.log(err.response.data);
@@ -93,13 +99,20 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const filteredResults = posts.filter(
-      (post) =>
-        post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
-    );
+    const filteredResults = posts
+      .reverse()
+      .filter(
+        (post) =>
+          post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+      );
 
-    setSearchResults(filteredResults.reverse());
+    setSearchResults(filteredResults);
   }, [posts, search]);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = searchResults.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -188,7 +201,15 @@ function App() {
           <Manifesto />
         </Route>
         <Route path='/journal'>
-          <Journal search={search} setSearch={setSearch} posts={searchResults} />
+          <Journal
+            search={search}
+            setSearch={setSearch}
+            posts={currentPost}
+            loading={loading}
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
         </Route>
         <Route exact path='/addjournal'>
           <AddJournal

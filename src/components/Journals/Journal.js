@@ -6,9 +6,7 @@ import JournalList from './JournalList';
 // import useFetch from './useFetch';
 import { JContainer, Head, Search, SearchTerm, SearchButton } from './styles';
 
-const Journal = ({ posts, search, setSearch }) => {
-  // const { journalFetch, isPending, error } = useFetch('http://localhost:8000/journals/');
-
+const Journal = ({ posts, search, setSearch, postsPerPage, totalPosts, paginate }) => {
   return (
     <JContainer>
       <Head>Journals</Head>
@@ -26,7 +24,12 @@ const Journal = ({ posts, search, setSearch }) => {
           </SearchButton>
         </Search>
       </form>
-      <JournalList posts={posts} />
+      <JournalList
+        posts={posts}
+        postsPerPage={postsPerPage}
+        totalPosts={totalPosts}
+        paginate={paginate}
+      />
     </JContainer>
   );
 };
