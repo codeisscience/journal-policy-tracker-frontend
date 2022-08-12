@@ -122,8 +122,3 @@ export const UpdateContainer = styled.div`
 `;
 
 export const Misc = styled.div``;
-
-export const ButtonContainer = styled.div`
-  width: 40%;
-  margin-top: 1.2rem;
-`;

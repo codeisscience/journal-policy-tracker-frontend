@@ -6,25 +6,11 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import { SearchBar } from '../../marginals';
 
-function Header({
-  posts,
-  filteredData,
-  setFilteredData,
-  wordEntered,
-  setWordEntered,
-  handleFilter,
-}) {
+function Header({ posts }) {
   return (
     <div className='header'>
       <Jumbotron fluid>
-        <SearchBar
-          posts={posts}
-          filteredData={filteredData}
-          setFilteredData={setFilteredData}
-          wordEntered={wordEntered}
-          setWordEntered={setWordEntered}
-          handleFilter={handleFilter}
-        />
+        <SearchBar posts={posts} />
         <Link to='/manifesto'>
           <Button fluid='true'>Read and Sign the Manifesto</Button>
         </Link>

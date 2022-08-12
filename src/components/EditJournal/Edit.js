@@ -23,7 +23,7 @@ import {
   Div,
   ToggleContainer,
 } from '../AddJournal/styles';
-import { FormInputBtn } from '../Authentication/styles';
+// import { FormInputBtn } from '../Authentication/styles';
 
 const Edit = ({
   posts,
@@ -59,7 +59,7 @@ const Edit = ({
     if (post) {
       setEditTitle(post.title);
       setEditAuthors(post.authors);
-      setEditJournaltype(post.journaltype);
+      setEditJournaltype(post.journalType);
       setEditTopic(post.topic);
       setEditIssn(post.issn);
       setEditLink(post.link);
@@ -253,10 +253,9 @@ const Edit = ({
                   </ToggleContainer>
                 </SecondDiv>
               </Div>
-              <FormInputBtn type='submit' onClick={() => handleEdit(post.id)}>
+              <button type='submit' onClick={() => handleEdit(post.id)}>
                 Submit
-              </FormInputBtn>
-
+              </button>
               {/* {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
               {isPending && <FormInputBtn>Adding blog...</FormInputBtn>} */}
             </Form>
