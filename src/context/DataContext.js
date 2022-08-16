@@ -1,22 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable arrow-body-style */
-/* eslint-disable max-len */
+/* eslint-disable consistent-return */
+/* eslint-disable default-case */
 /* eslint-disable no-unused-vars */
-import { React, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/function-component-definition */
+import { createContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
-import { api } from './api/posts';
-import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Auth, Header, Login, JournalDetails, AddJournal } from './components';
-import Navbar from './components/marginals/Navbar/Navbar';
-import Edit from './components/EditJournal/Edit';
-import useAxiosFetch from './hooks/useAxiosFetch';
-import { DataProvider } from './context/DataContext';
+import { api } from '../api/posts';
+import useAxiosFetch from '../hooks/useAxiosFetch';
 
-function App() {
+const DataContext = createContext({});
+
+export const DataProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -166,41 +163,84 @@ function App() {
     }
   };
 
-  return (
-    <div className='App'>
-      <DataProvider>
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/manifesto'>
-            <Manifesto />
-          </Route>
-          <Route path='/journal'>
-            <Journal />
-          </Route>
-          <Route exact path='/addjournal'>
-            <AddJournal />
-          </Route>
-          <Route path='/edit/:id'>
-            <Edit />
-          </Route>
-          <Route path='/policy/:id'>
-            <JournalDetails />
-          </Route>
-          <Route path='/Signup'>
-            <Auth />
-          </Route>
-          <Route path='/Login'>
-            <Login />
-          </Route>
-          <Redirect to='/' />
-        </Switch>
-        <Navbar />
-        <Footer />
-      </DataProvider>
-    </div>
-  );
-}
+  const totalPosts = posts.length;
 
-export default App;
+  return (
+    <DataContext.Provider
+      value={{
+        search,
+        setSearch,
+        currentPost,
+        loading,
+        postsPerPage,
+        paginate,
+        totalPosts,
+        posts,
+        handleDelete,
+        title,
+        setTitle,
+        authors,
+        setAuthors,
+        journaltype,
+        setJournaltype,
+        topic,
+        setTopic,
+        issn,
+        setIssn,
+        link,
+        setLink,
+        policy,
+        setPolicy,
+        dataavail,
+        setDataavail,
+        handleChangeData,
+        datashared,
+        setDatashared,
+        handleChangeData2,
+        peerreview,
+        setPeerreview,
+        handleChangePeer,
+        enforced,
+        setEnforced,
+        evidence,
+        setEvidence,
+        isPending,
+        setIsPending,
+        handleSubmit,
+        editTitle,
+        setEditTitle,
+        editAuthors,
+        setEditAuthors,
+        editJournaltype,
+        setEditJournaltype,
+        editTopic,
+        setEditTopic,
+        editIssn,
+        setEditIssn,
+        editLink,
+        setEditLink,
+        editPolicy,
+        setEditPolicy,
+        editDataavail,
+        editDatashared,
+        setEditDatashared,
+        editPeerreview,
+        setEditPeerreview,
+        editEnforced,
+        setEditEnforced,
+        editEvidence,
+        setEditEvidence,
+        handleEdit,
+        filteredData,
+        setFilteredData,
+        wordEntered,
+        setWordEntered,
+        handleFilter,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+export default DataContext;

@@ -2,14 +2,17 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Nav, Logo, Menu, MenuLink, Button, Items } from './styles';
 import { navbar } from '../../../config/content';
+import DataContext from '../../../context/DataContext';
 
-function Navbar({ search, setSearch }) {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { search, setSearch } = useContext(DataContext);
 
   return (
     <Nav>

@@ -1,19 +1,22 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
+import DataContext from '../../context/DataContext';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
 
-const Journal = ({ posts, search, setSearch, loading, postsPerPage, totalPosts, paginate }) => {
+const Journal = () => {
+  const { search, setSearch, currentPost, loading, postsPerPage, paginate, totalPosts } =
+    useContext(DataContext);
   if (loading) {
     return <h2>loading...</h2>;
   }
   return (
     <Container>
-      {posts.length ? (
+      {currentPost.length ? (
         <Journals
-          posts={posts}
+          posts={currentPost}
           search={search}
           setSearch={setSearch}
           loading={loading}

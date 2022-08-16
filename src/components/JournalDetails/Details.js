@@ -5,7 +5,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -14,6 +14,7 @@ import {
   faRectangleXmark,
   faLink,
 } from '@fortawesome/free-solid-svg-icons';
+import DataContext from '../../context/DataContext';
 import useFetch from '../Journals/useFetch';
 import {
   Container,
@@ -33,7 +34,9 @@ import {
 import { Authors, Head3 } from '../Journals/styles';
 import { FormInputBtn } from '../Authentication/styles';
 
-function Details({ posts, handleDelete }) {
+function Details() {
+  const { posts, handleDelete } = useContext(DataContext);
+
   const { id } = useParams();
   const indv = posts.find((post) => post.id.toString() === id);
   // const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
