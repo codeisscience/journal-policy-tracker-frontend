@@ -99,14 +99,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const filteredResults = posts
-      .reverse()
-      .filter(
-        (post) =>
-          post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
-      );
+    const filteredResults = posts.filter(
+      (post) =>
+        post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+    );
 
-    setSearchResults(filteredResults);
+    setSearchResults(filteredResults.reverse());
   }, [posts, search]);
 
   const indexOfLastPost = currentPage * postsPerPage;
