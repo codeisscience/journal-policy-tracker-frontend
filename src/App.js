@@ -13,8 +13,6 @@ import { Journal, Contact, Manifesto, Home } from './pages';
 import { Footer, Auth, Header, Login, JournalDetails, AddJournal } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
 import Edit from './components/EditJournal/Edit';
-import useAxiosFetch from './hooks/useAxiosFetch';
-import { DataProvider } from './context/DataContext';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -23,6 +21,7 @@ function App() {
   const [postsPerPage] = useState(5);
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
   const [title, setTitle] = useState('');
   const [editTitle, setEditTitle] = useState('');
   const [authors, setAuthors] = useState('');
@@ -79,19 +78,35 @@ function App() {
 
   const history = useHistory();
 
-  const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/journals');
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get('/journals');
+        setPosts(response.data);
+        setLoading(false);
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    };
+    fetchPosts();
+  }, []);
 
   useEffect(() => {
-    setPosts(data);
-  }, [data]);
+    const filteredResults = posts
+      .reverse()
+      .filter(
+        (post) =>
+          post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+      );
 
-  useEffect(() => {
-    const filteredResults = posts.filter(
-      (post) =>
-        post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
-    );
-
-    setSearchResults(filteredResults.reverse());
+    setSearchResults(filteredResults);
   }, [posts, search]);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -168,37 +183,113 @@ function App() {
 
   return (
     <div className='App'>
-      <DataProvider>
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/manifesto'>
-            <Manifesto />
-          </Route>
-          <Route path='/journal'>
-            <Journal />
-          </Route>
-          <Route exact path='/addjournal'>
-            <AddJournal />
-          </Route>
-          <Route path='/edit/:id'>
-            <Edit />
-          </Route>
-          <Route path='/policy/:id'>
-            <JournalDetails />
-          </Route>
-          <Route path='/Signup'>
-            <Auth />
-          </Route>
-          <Route path='/Login'>
-            <Login />
-          </Route>
-          <Redirect to='/' />
-        </Switch>
-        <Navbar />
-        <Footer />
-      </DataProvider>
+      <Switch>
+        <Route exact path='/'>
+          <Home
+            search={search}
+            setSearch={setSearch}
+            posts={posts}
+            searchResults={searchResults}
+            filteredData={filteredData}
+            setFilteredData={setFilteredData}
+            wordEntered={wordEntered}
+            setWordEntered={setWordEntered}
+            handleFilter={handleFilter}
+          />
+        </Route>
+        <Route path='/manifesto'>
+          <Manifesto />
+        </Route>
+        <Route path='/journal'>
+          <Journal
+            search={search}
+            setSearch={setSearch}
+            posts={currentPost}
+            loading={loading}
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
+        </Route>
+        <Route exact path='/addjournal'>
+          <AddJournal
+            title={title}
+            setTitle={setTitle}
+            authors={authors}
+            setAuthors={setAuthors}
+            journaltype={journaltype}
+            setJournaltype={setJournaltype}
+            topic={topic}
+            setTopic={setTopic}
+            issn={issn}
+            setIssn={setIssn}
+            link={link}
+            setLink={setLink}
+            policy={policy}
+            setPolicy={setPolicy}
+            dataavail={dataavail}
+            setDataavail={setDataavail}
+            handleChangeData={handleChangeData}
+            datashared={datashared}
+            setDatashared={setDatashared}
+            handleChangeData2={handleChangeData2}
+            peerreview={peerreview}
+            setPeerreview={setPeerreview}
+            handleChangePeer={handleChangePeer}
+            enforced={enforced}
+            setEnforced={setEnforced}
+            evidence={evidence}
+            setEvidence={setEvidence}
+            isPending={isPending}
+            setIsPending={setIsPending}
+            handleSubmit={handleSubmit}
+          />
+        </Route>
+        <Route path='/edit/:id'>
+          <Edit
+            posts={posts}
+            editTitle={editTitle}
+            setEditTitle={setEditTitle}
+            editAuthors={editAuthors}
+            setEditAuthors={setEditAuthors}
+            editJournaltype={editJournaltype}
+            setEditJournaltype={setEditJournaltype}
+            editTopic={editTopic}
+            setEditTopic={setEditTopic}
+            editIssn={editIssn}
+            setEditIssn={setEditIssn}
+            editLink={editLink}
+            setEditLink={setEditLink}
+            editPolicy={editPolicy}
+            setEditPolicy={setEditPolicy}
+            editDataavail={editDataavail}
+            setEditDataavail={setEditDataavail}
+            editDatashared={editDatashared}
+            setEditDatashared={setEditDatashared}
+            editPeerreview={editPeerreview}
+            setEditPeerreview={setEditPeerreview}
+            editEnforced={editEnforced}
+            setEditEnforced={setEditEnforced}
+            editEvidence={editEvidence}
+            setEditEvidence={setEditEvidence}
+            isPending={isPending}
+            setIsPending={setIsPending}
+            handleEdit={handleEdit}
+          />
+        </Route>
+        <Route path='/policy/:id'>
+          <JournalDetails posts={posts} handleDelete={handleDelete} />
+        </Route>
+        <Route path='/Signup'>
+          <Auth />
+        </Route>
+        <Route path='/Login'>
+          <Login />
+        </Route>
+        <Redirect to='/' />
+      </Switch>
+      <Navbar search={search} setSearch={setSearch} />
+      <Footer />
     </div>
   );
 }

@@ -223,6 +223,22 @@
       "datashared": false,
       "peerreview": true,
       "enforced": "Yes - before application"
+    },
+    {
+      "id": 15,
+      "title": "Integer Programming, Second Edition",
+      "authors": "Sm Zobaed, Sameer Seth",
+      "journaltype": "RESEARCH ARTICLE",
+      "topic": "General Computing",
+      "published": "12 July 2022",
+      "issn": "issn-615-682543",
+      "updated": "16th Aug 2022",
+      "link": "https://doi.org/10.1002/agg2.20287",
+      "policy": "Policy 1",
+      "dataavail": true,
+      "datashared": false,
+      "peerreview": true,
+      "enforced": "Yes - before application"
     }
   ]
 }

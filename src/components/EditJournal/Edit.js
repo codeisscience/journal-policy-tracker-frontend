@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import { React, useEffect, useContext } from 'react';
+import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -24,37 +24,35 @@ import {
   ToggleContainer,
 } from '../AddJournal/styles';
 import { FormInputBtn } from '../Authentication/styles';
-import DataContext from '../../context/DataContext';
 
-const Edit = () => {
-  const {
-    posts,
-    handleEdit,
-    editTitle,
-    setEditTitle,
-    editAuthors,
-    setEditAuthors,
-    editJournaltype,
-    setEditJournaltype,
-    editTopic,
-    setEditTopic,
-    editIssn,
-    setEditIssn,
-    editLink,
-    setEditLink,
-    editPolicy,
-    setEditPolicy,
-    editDataavail,
-    setEditDataavail,
-    editDatashared,
-    setEditDatashared,
-    editPeerreview,
-    setEditPeerreview,
-    editEnforced,
-    setEditEnforced,
-    editEvidence,
-    setEditEvidence,
-  } = useContext(DataContext);
+const Edit = ({
+  posts,
+  handleEdit,
+  editTitle,
+  setEditTitle,
+  editAuthors,
+  setEditAuthors,
+  editJournaltype,
+  setEditJournaltype,
+  editTopic,
+  setEditTopic,
+  editIssn,
+  setEditIssn,
+  editLink,
+  setEditLink,
+  editPolicy,
+  setEditPolicy,
+  editDataavail,
+  setEditDataavail,
+  editDatashared,
+  setEditDatashared,
+  editPeerreview,
+  setEditPeerreview,
+  editEnforced,
+  setEditEnforced,
+  editEvidence,
+  setEditEvidence,
+}) => {
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   useEffect(() => {

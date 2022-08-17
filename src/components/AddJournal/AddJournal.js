@@ -4,7 +4,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -27,41 +27,38 @@ import {
   ToggleContainer,
 } from './styles';
 import { FormInputBtn } from '../Authentication/styles';
-import DataContext from '../../context/DataContext';
 
-const AddJournal = () => {
-  const {
-    title,
-    setTitle,
-    authors,
-    setAuthors,
-    journaltype,
-    setJournaltype,
-    topic,
-    setTopic,
-    issn,
-    setIssn,
-    link,
-    setLink,
-    policy,
-    setPolicy,
-    dataavail,
-    setDataavail,
-    handleChangeData,
-    datashared,
-    setDatashared,
-    handleChangeData2,
-    peerreview,
-    setPeerreview,
-    handleChangePeer,
-    enforced,
-    setEnforced,
-    evidence,
-    setEvidence,
-    isPending,
-    setIsPending,
-    handleSubmit,
-  } = useContext(DataContext);
+const AddJournal = ({
+  title,
+  setTitle,
+  authors,
+  setAuthors,
+  journaltype,
+  setJournaltype,
+  topic,
+  setTopic,
+  issn,
+  setIssn,
+  link,
+  setLink,
+  policy,
+  setPolicy,
+  dataavail,
+  setDataavail,
+  handleChangeData,
+  datashared,
+  setDatashared,
+  handleChangeData2,
+  peerreview,
+  setPeerreview,
+  handleChangePeer,
+  enforced,
+  setEnforced,
+  evidence,
+  setEvidence,
+  isPending,
+  handleSubmit,
+}) => {
   return (
     <Container>
       <PolicyContainer>
