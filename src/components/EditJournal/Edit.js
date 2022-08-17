@@ -24,35 +24,37 @@ import {
   ToggleContainer,
 } from '../AddJournal/styles';
 import { FormInputBtn } from '../Authentication/styles';
+import { useGlobalContext } from '../../context/DataContext';
 
-const Edit = ({
-  posts,
-  handleEdit,
-  editTitle,
-  setEditTitle,
-  editAuthors,
-  setEditAuthors,
-  editJournaltype,
-  setEditJournaltype,
-  editTopic,
-  setEditTopic,
-  editIssn,
-  setEditIssn,
-  editLink,
-  setEditLink,
-  editPolicy,
-  setEditPolicy,
-  editDataavail,
-  setEditDataavail,
-  editDatashared,
-  setEditDatashared,
-  editPeerreview,
-  setEditPeerreview,
-  editEnforced,
-  setEditEnforced,
-  editEvidence,
-  setEditEvidence,
-}) => {
+const Edit = () => {
+  const {
+    posts,
+    handleEdit,
+    editTitle,
+    setEditTitle,
+    editAuthors,
+    setEditAuthors,
+    editJournaltype,
+    setEditJournaltype,
+    editTopic,
+    setEditTopic,
+    editIssn,
+    setEditIssn,
+    editLink,
+    setEditLink,
+    editPolicy,
+    setEditPolicy,
+    editDataavail,
+    setEditDataavail,
+    editDatashared,
+    setEditDatashared,
+    editPeerreview,
+    setEditPeerreview,
+    editEnforced,
+    setEditEnforced,
+    editEvidence,
+    setEditEvidence,
+  } = useGlobalContext();
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   useEffect(() => {
@@ -253,12 +255,10 @@ const Edit = ({
                   </ToggleContainer>
                 </SecondDiv>
               </Div>
+
               <FormInputBtn type='submit' onClick={() => handleEdit(post.id)}>
                 Submit
               </FormInputBtn>
-
-              {/* {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
-              {isPending && <FormInputBtn>Adding blog...</FormInputBtn>} */}
             </Form>
           </>
         )}

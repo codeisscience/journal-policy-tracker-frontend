@@ -4,8 +4,11 @@
 import React from 'react';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
+import { useGlobalContext } from '../../context/DataContext';
 
-const Journal = ({ posts, search, setSearch, loading, postsPerPage, totalPosts, paginate }) => {
+const Journal = () => {
+  const { posts, search, setSearch, loading, postsPerPage, totalPosts, paginate, currentPost } =
+    useGlobalContext();
   if (loading) {
     return <h2>loading...</h2>;
   }
@@ -13,12 +16,12 @@ const Journal = ({ posts, search, setSearch, loading, postsPerPage, totalPosts, 
     <Container>
       {posts.length ? (
         <Journals
-          posts={posts}
+          posts={currentPost}
           search={search}
           setSearch={setSearch}
           loading={loading}
           postsPerPage={postsPerPage}
-          totalPosts={totalPosts}
+          totalPosts={posts.length}
           paginate={paginate}
         />
       ) : (

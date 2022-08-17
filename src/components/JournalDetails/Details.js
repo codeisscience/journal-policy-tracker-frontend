@@ -32,8 +32,10 @@ import {
 } from './styles';
 import { Authors, Head3 } from '../Journals/styles';
 import { FormInputBtn } from '../Authentication/styles';
+import { useGlobalContext } from '../../context/DataContext';
 
-function Details({ posts, handleDelete }) {
+function Details() {
+  const { posts, handleDelete } = useGlobalContext();
   const { id } = useParams();
   const indv = posts.find((post) => post.id.toString() === id);
   // const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
