@@ -1,39 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import { React, createContext, useState, useEffect, useContext, useReducer } from 'react';
+import { React, createContext, useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { format } from 'date-fns';
 import { api } from '../api/posts';
 import useAxiosFetch from '../hooks/useAxiosFetch';
-// import reducer from './reducer';
-
-const initialState = {
-  posts: [],
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'GET_DATA':
-      return {
-        ...state,
-        posts: action.payload.posts,
-      };
-
-    default:
-      return state;
-  }
-};
 
 const DataContext = createContext({});
 
 const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -99,15 +79,7 @@ const DataProvider = ({ children }) => {
   const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/journals');
 
   useEffect(() => {
-    // setPosts(data);
-    console.log({ data });
-    console.log({ initialState });
-    dispatch({
-      type: 'GET_DATA',
-      payload: {
-        posts: data,
-      },
-    });
+    setPosts(data);
   }, [data]);
 
   useEffect(() => {
@@ -190,13 +162,10 @@ const DataProvider = ({ children }) => {
       console.log(`Error: ${err.message}`);
     }
   };
-
   return (
     <DataContext.Provider
       value={{
-        ...initialState,
-        posts: state.posts,
-
+        posts,
         search,
         setSearch,
         searchResults,

@@ -16,7 +16,7 @@ const Journal = () => {
     <Container>
       {posts.length ? (
         <Journals
-          posts={posts}
+          posts={currentPost}
           search={search}
           setSearch={setSearch}
           loading={loading}
