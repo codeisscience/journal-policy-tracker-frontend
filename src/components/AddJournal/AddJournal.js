@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/function-component-definition */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
@@ -26,65 +28,37 @@ import {
 } from './styles';
 import { FormInputBtn } from '../Authentication/styles';
 
-function AddJournal() {
-  const [title, setTitle] = useState('');
-  const [authors, setAuthors] = useState('');
-  const [journaltype, setJournaltype] = useState('');
-  const [topic, setTopic] = useState('');
-  const [published, setPublished] = useState(new Date());
-  const [issn, setIssn] = useState();
-  const [updated, setUpdated] = useState(published);
-  const [link, setLink] = useState('');
-  const [policy, setPolicy] = useState('policy 1');
-  const [dataavail, setDataavail] = useState(false);
-  const handleChangeData = (nextChecked) => {
-    setDataavail(nextChecked);
-  };
-  const [datashared, setDatashared] = useState(false);
-  const handleChangeData2 = (nextChecked) => {
-    setDatashared(nextChecked);
-  };
-  const [peerreview, setPeerreview] = useState(false);
-  const handleChangePeer = (nextChecked) => {
-    setPeerreview(nextChecked);
-  };
-  const [enforced, setEnforced] = useState('');
-  const [evidence, setEvidence] = useState('');
-  const [isPending, setIsPending] = useState(false);
-
-  const history = useHistory();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const codeJournal = {
-      title,
-      authors,
-      journaltype,
-      topic,
-      published,
-      issn,
-      updated,
-      link,
-      policy,
-      dataavail,
-      datashared,
-      peerreview,
-      enforced,
-      evidence,
-    };
-
-    setIsPending(true);
-
-    fetch('http://localhost:8000/journals', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(codeJournal),
-    }).then(() => {
-      setIsPending(false);
-      history.push('/journal');
-    });
-  };
-
+const AddJournal = ({
+  title,
+  setTitle,
+  authors,
+  setAuthors,
+  journaltype,
+  setJournaltype,
+  topic,
+  setTopic,
+  issn,
+  setIssn,
+  link,
+  setLink,
+  policy,
+  setPolicy,
+  dataavail,
+  setDataavail,
+  handleChangeData,
+  datashared,
+  setDatashared,
+  handleChangeData2,
+  peerreview,
+  setPeerreview,
+  handleChangePeer,
+  enforced,
+  setEnforced,
+  evidence,
+  setEvidence,
+  isPending,
+  handleSubmit,
+}) => {
   return (
     <Container>
       <PolicyContainer>
@@ -159,8 +133,8 @@ function AddJournal() {
               <div>
                 <Label>Enforced:</Label>
                 <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
-                  <option value='policy 1'>Yes - before publication</option>
-                  <option value='policy 2'>Policy 2</option>
+                  <option value='Yes - before publication'>Yes - before publication</option>
+                  <option value='option 2'>Option 2</option>
                 </Select>
               </div>
             </SecondDiv>
@@ -193,8 +167,8 @@ function AddJournal() {
                   <Label htmlFor='material-switch'>
                     <Toggle>
                       <Switch
-                        onChange={handleChangeData2}
-                        checked={datashared}
+                        onChange={handleChangePeer}
+                        checked={peerreview}
                         onColor='#ef9c38'
                         onHandleColor='#'
                         handleDiameter={22}
@@ -215,8 +189,8 @@ function AddJournal() {
                   <Label htmlFor='material-switch'>
                     <Toggle>
                       <Switch
-                        onChange={handleChangePeer}
-                        checked={peerreview}
+                        onChange={handleChangeData2}
+                        checked={datashared}
                         onColor='#ef9c38'
                         onHandleColor='#'
                         handleDiameter={22}
@@ -241,6 +215,6 @@ function AddJournal() {
       </PolicyContainer>
     </Container>
   );
-}
+};
 
 export default AddJournal;

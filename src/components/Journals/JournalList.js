@@ -5,20 +5,18 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Pagination from '../Pagination/Pagination';
 import { Box, Preview, Head2, Authors, Head3, Description } from './styles';
 
-const JournalList = ({ journalFetch }) => {
+const JournalList = ({ posts, postsPerPage, totalPosts, paginate }) => {
   return (
     <Box>
-      {journalFetch.map((blog) => (
+      {posts.map((blog) => (
         <Preview key={blog.id}>
           <Head2 primary>{blog.journaltype}</Head2>
           <Link to={`/policy/${blog.id}`}>
             <Head2>{blog.title}</Head2>
             <Authors>
-              {/* {blog.authors.map((author) => (
-                <Head3 secondary>{author},</Head3>
-              ))} */}
               <Head3 secondary>{blog.authors}</Head3>
             </Authors>
             <Description>
@@ -32,6 +30,7 @@ const JournalList = ({ journalFetch }) => {
           </Link>
         </Preview>
       ))}
+      <Pagination postsPerPage={postsPerPage} totalPosts={totalPosts} paginate={paginate} />
     </Box>
   );
 };

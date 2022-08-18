@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-shadow */
 /* eslint-disable react/jsx-key */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBookmark,
@@ -25,12 +28,15 @@ import {
   Misc,
   UpdateContainer,
   Icon,
+  ButtonContainer,
 } from './styles';
 import { Authors, Head3 } from '../Journals/styles';
+import { FormInputBtn } from '../Authentication/styles';
 
-function Details() {
+function Details({ posts, handleDelete }) {
   const { id } = useParams();
-  const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
+  const indv = posts.find((post) => post.id.toString() === id);
+  // const { journalFetch: indv } = useFetch('http://localhost:8000/journals/' + id);
 
   const poli = [
     {
@@ -123,8 +129,24 @@ function Details() {
                 ))}
               </UpdateContainer>
             </Misc>
+            <ButtonContainer>
+              <Link to={`/edit/${indv.id}`}>
+                <FormInputBtn>Edit Post</FormInputBtn>
+              </Link>
+              <FormInputBtn style={{ marginLeft: '1rem' }} onClick={() => handleDelete(indv.id)}>
+                Delete Post
+              </FormInputBtn>
+            </ButtonContainer>
           </div>
         </PolicyContainer>
+      )}
+      {!indv && (
+        <>
+          <h2>Journal Not Found</h2>
+          <p>
+            <Link to='/'>Homepage</Link>
+          </p>
+        </>
       )}
     </Container>
   );
