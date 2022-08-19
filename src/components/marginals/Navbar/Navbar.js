@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Nav, Logo, Menu, MenuLink, Button, Items } from './styles';
 import { navbar } from '../../../config/content';
+import { useGlobalContext } from '../../../context/DataContext';
 
-function Navbar({ search, setSearch }) {
+function Navbar() {
+  const { search, setSearch } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
