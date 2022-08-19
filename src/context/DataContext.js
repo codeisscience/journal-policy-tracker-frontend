@@ -15,6 +15,10 @@ import useAxiosFetch from '../hooks/useAxiosFetch';
 
 const initialState = {
   posts: [],
+  search: '',
+  searchResults: [],
+  currentPage: 1,
+  postsPerPage: 5,
 };
 
 const reducer = (state, action) => {
@@ -23,6 +27,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         posts: action.payload.posts,
+      };
+    case 'SEARCH_RESULTS':
+      return {
+        ...state,
+        searchResults: action.payload.searchResults,
+      };
+    case 'CURRENT_PAGE':
+      return {
+        ...state,
+        currentPage: action.payload,
       };
 
     default:
@@ -111,18 +125,25 @@ const DataProvider = ({ children }) => {
   }, [data]);
 
   useEffect(() => {
-    const filteredResults = posts.filter(
+    const filteredResults = state.posts.filter(
       (post) =>
-        post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+        post.issn.includes(state.search) ||
+        post.title.toLowerCase().includes(state.search.toLowerCase()),
     );
 
-    setSearchResults(filteredResults.reverse());
-  }, [posts, search]);
+    dispatch({
+      type: 'SEARCH_RESULTS',
+      payload: {
+        searchResults: filteredResults.reverse(),
+      },
+    });
+  }, [state.posts, state.search]);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPost = searchResults.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const indexOfLastPost = state.currentPage * state.postsPerPage;
+
+  const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
+  const currentPost = state.searchResults.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => dispatch({ type: 'CURRENT_PAGE', payload: pageNumber });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -197,9 +218,9 @@ const DataProvider = ({ children }) => {
         ...initialState,
         posts: state.posts,
 
-        search,
+        search: state.search,
         setSearch,
-        searchResults,
+        searchResults: state.searchResults,
         filteredData,
         setFilteredData,
         wordEntered,
@@ -207,7 +228,7 @@ const DataProvider = ({ children }) => {
         handleFilter,
         currentPost,
         loading,
-        postsPerPage,
+        postsPerPage: state.postsPerPage,
         paginate,
         title,
         setTitle,

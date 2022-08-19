@@ -7,16 +7,16 @@ import { Container } from '../../components/Journals/styles';
 import { useGlobalContext } from '../../context/DataContext';
 
 const Journal = () => {
-  const { posts, search, setSearch, loading, postsPerPage, totalPosts, paginate, currentPost } =
+  const { posts, search, currentPost, setSearch, loading, postsPerPage, totalPosts, paginate } =
     useGlobalContext();
   if (loading) {
     return <h2>loading...</h2>;
   }
   return (
     <Container>
-      {posts.length ? (
+      {currentPost.length ? (
         <Journals
-          posts={posts}
+          posts={currentPost}
           search={search}
           setSearch={setSearch}
           loading={loading}
