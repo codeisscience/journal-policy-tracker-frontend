@@ -19,18 +19,30 @@ const initialState = {
   searchResults: [],
   postsPerPage: 5,
   title: '',
+  editTitle: '',
   authors: '',
+  editAuthors: '',
   journaltype: '',
+  editJournaltype: '',
   topic: '',
+  editTopic: '',
   published: format(new Date(), 'MMMM dd, yyyyy pp'),
   issn: '',
+  editIssn: '',
   link: '',
+  editLink: '',
   policy: 'policy 1',
+  editPolicy: 'policy 1',
   dataavail: false,
+  editDataavail: false,
   datashared: false,
+  editDatashared: false,
   peerreview: false,
+  editPeerreview: false,
   enforced: '',
+  editEnforced: '',
   evidence: '',
+  editEvidence: '',
 };
 
 const reducer = (state, action) => {
@@ -119,6 +131,66 @@ const reducer = (state, action) => {
       return {
         ...state,
         evidence: action.payload,
+      };
+    case 'EDIT_TITLE':
+      return {
+        ...state,
+        editTitle: action.payload,
+      };
+    case 'EDIT_AUTHORS':
+      return {
+        ...state,
+        editAuthors: action.payload,
+      };
+    case 'EDIT_JOURNALTYPE':
+      return {
+        ...state,
+        editJournaltype: action.payload,
+      };
+    case 'EDIT_TOPIC':
+      return {
+        ...state,
+        editTopic: action.payload,
+      };
+    case 'EDIT_ISSN':
+      return {
+        ...state,
+        editIssn: action.payload,
+      };
+    case 'EDIT_LINK':
+      return {
+        ...state,
+        editLink: action.payload,
+      };
+    case 'EDIT_POLICY':
+      return {
+        ...state,
+        editPolicy: action.payload,
+      };
+    case 'EDIT_DATAAVAIL':
+      return {
+        ...state,
+        editDataavail: action.payload,
+      };
+    case 'EDIT_DATASHARED':
+      return {
+        ...state,
+        editDatashared: action.payload,
+      };
+    case 'EDIT_PEERREVIEW':
+      return {
+        ...state,
+        editPeerreview: action.payload,
+      };
+    case 'EDIT_ENFORCED':
+      return {
+        ...state,
+        editEnforced: action.payload,
+      };
+    case 'EDIT_EVIDENCE':
+      return {
+        ...state,
+        editEvidence: action.payload,
       };
 
     default:
@@ -256,23 +328,26 @@ const DataProvider = ({ children }) => {
   const handleEdit = async (id) => {
     const datetime = format(new Date(), 'MMMM dd, yyyyy pp');
     const updatedPost = {
-      title: editTitle,
-      authors: editAuthors,
-      journaltype: editJournaltype,
-      topic: editTopic,
-      issn: editIssn,
-      updated: datetime,
-      link: editLink,
-      policy: editPolicy,
-      dataavail: editDataavail,
-      datashared: editDatashared,
-      peerreview: editPeerreview,
-      enforced: editEnforced,
-      evidence: editEvidence,
+      title: state.editTitle,
+      authors: state.editAuthors,
+      journaltype: state.editJournaltype,
+      topic: state.editTopic,
+      issn: state.editIssn,
+      updated: state.datetime,
+      link: state.editLink,
+      policy: state.editPolicy,
+      dataavail: state.editDataavail,
+      datashared: state.editDatashared,
+      peerreview: state.editPeerreview,
+      enforced: state.editEnforced,
+      evidence: state.editEvidence,
     };
     try {
       const response = await api.put(`/journals/${id}`, updatedPost);
-      setPosts(posts.map((post) => (post.id === id ? { ...response.data } : post)));
+      dispatch({
+        type: 'POSTS',
+        payload: state.posts.map((post) => (post.id === id ? { ...response.data } : post)),
+      });
       history.push('/journal');
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -308,51 +383,51 @@ const DataProvider = ({ children }) => {
         paginate,
         title: state.title,
         setTitle,
-        editTitle,
+        editTitle: state.editTitle,
         setEditTitle,
         authors: state.authors,
         setAuthors,
-        editAuthors,
+        editAuthors: state.editAuthors,
         journaltype: state.journaltype,
         setJournaltype,
         setEditAuthors,
-        editJournaltype,
+        editJournaltype: state.editJournaltype,
         setEditJournaltype,
         topic: state.topic,
         setTopic,
-        editTopic,
+        editTopic: state.editTopic,
         setEditTopic,
         issn: state.issn,
         setIssn,
-        editIssn,
+        editIssn: state.editIssn,
         setEditIssn,
         link: state.link,
         setLink,
-        editLink,
+        editLink: state.editLink,
         setEditLink,
         policy: state.policy,
         setPolicy,
-        editPolicy,
+        editPolicy: state.editPolicy,
         setEditPolicy,
         dataavail: state.dataavail,
         setDataavail,
-        editDataavail,
+        editDataavail: state.editDataavail,
         setEditDataavail,
-        editDatashared,
+        editDatashared: state.editDatashared,
         datashared: state.datashared,
         setDatashared,
         setEditDatashared,
         peerreview: state.peerreview,
         setPeerreview,
-        editPeerreview,
+        editPeerreview: state.editPeerreview,
         setEditPeerreview,
         enforced: state.enforced,
         setEnforced,
-        editEnforced,
+        editEnforced: state.editEnforced,
         setEditEnforced,
         evidence: state.evidence,
         setEvidence,
-        editEvidence,
+        editEvidence: state.editEvidence,
         setEditEvidence,
         isPending,
         setIsPending,

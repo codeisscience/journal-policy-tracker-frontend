@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
@@ -54,39 +55,62 @@ const Edit = () => {
     setEditEnforced,
     editEvidence,
     setEditEvidence,
+    dispatch,
   } = useGlobalContext();
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
   useEffect(() => {
     if (post) {
-      setEditTitle(post.title);
-      setEditAuthors(post.authors);
-      setEditJournaltype(post.journaltype);
-      setEditTopic(post.topic);
-      setEditIssn(post.issn);
-      setEditLink(post.link);
-      setEditPolicy(post.policy);
-      setEditDataavail(post.dataavail);
-      setEditDatashared(post.datashared);
-      setEditPeerreview(post.peerreview);
-      setEditEnforced(post.enforced);
-      setEditEvidence(post.evidence);
+      dispatch({
+        type: 'EDIT_TITLE',
+        payload: post.title,
+      });
+      dispatch({
+        type: 'EDIT_AUTHORS',
+        payload: post.authors,
+      });
+      dispatch({
+        type: 'EDIT_JOURNALTYPE',
+        payload: post.journaltype,
+      });
+      dispatch({
+        type: 'EDIT_TOPIC',
+        payload: post.topic,
+      });
+      dispatch({
+        type: 'EDIT_ISSN',
+        payload: post.issn,
+      });
+      dispatch({
+        type: 'EDIT_LINK',
+        payload: post.link,
+      });
+      dispatch({
+        type: 'EDIT_POLICY',
+        payload: post.policy,
+      });
+      dispatch({
+        type: 'EDIT_DATAAVAIL',
+        payload: post.dataavail,
+      });
+      dispatch({
+        type: 'EDIT_DATASHARED',
+        payload: post.datashared,
+      });
+      dispatch({
+        type: 'EDIT_PEERREVIEW',
+        payload: post.peerreview,
+      });
+      dispatch({
+        type: 'EDIT_ENFORCED',
+        payload: post.enforced,
+      });
+      dispatch({
+        type: 'EDIT_EVIDENCE',
+        payload: post.evidence,
+      });
     }
-  }, [
-    post,
-    setEditTitle,
-    setEditAuthors,
-    setEditJournaltype,
-    setEditTopic,
-    setEditIssn,
-    setEditLink,
-    setEditPolicy,
-    setEditDataavail,
-    setEditDatashared,
-    setEditPeerreview,
-    setEditEnforced,
-    setEditEvidence,
-  ]);
+  }, [dispatch, post]);
 
   return (
     <Container>
@@ -100,7 +124,12 @@ const Edit = () => {
                 type='text'
                 required
                 value={editTitle}
-                onChange={(e) => setEditTitle(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'EDIT_TITLE',
+                    payload: e.target.value,
+                  })
+                }
               />
               <FirstDiv>
                 <div>
@@ -109,7 +138,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editJournaltype}
-                    onChange={(e) => setEditJournaltype(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_JOURNALTYPE',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -118,7 +152,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editIssn}
-                    onChange={(e) => setEditIssn(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_ISSN',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -127,7 +166,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editEvidence}
-                    onChange={(e) => setEditEvidence(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_EVIDENCE',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </FirstDiv>
@@ -138,7 +182,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editTopic}
-                    onChange={(e) => setEditTopic(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_TOPIC',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -147,7 +196,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editLink}
-                    onChange={(e) => setEditLink(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_LINK',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
                 <div>
@@ -156,7 +210,12 @@ const Edit = () => {
                     type='text'
                     required
                     value={editAuthors}
-                    onChange={(e) => setEditAuthors(e.target.value)}
+                    onChange={(e) =>
+                      dispatch({
+                        type: 'EDIT_AUTHORS',
+                        payload: e.target.value,
+                      })
+                    }
                   />
                 </div>
               </FirstDiv>
@@ -170,7 +229,15 @@ const Edit = () => {
                 <SecondDiv>
                   <div>
                     <Label>Policy Type:</Label>
-                    <Select value={editPolicy} onChange={(e) => setEditPolicy(e.target.value)}>
+                    <Select
+                      value={editPolicy}
+                      onChange={(e) =>
+                        dispatch({
+                          type: 'EDIT_POLICY',
+                          payload: e.target.value,
+                        })
+                      }
+                    >
                       <option value='policy 1'>Policy 1</option>
                       <option value='policy 2'>Policy 2</option>
                       <option value='policy 3'>Policy 3</option>
@@ -178,7 +245,15 @@ const Edit = () => {
                   </div>
                   <div>
                     <Label>Enforced:</Label>
-                    <Select value={editEnforced} onChange={(e) => setEditEnforced(e.target.value)}>
+                    <Select
+                      value={editEnforced}
+                      onChange={(e) =>
+                        dispatch({
+                          type: 'EDIT_ENFORCED',
+                          payload: e.target.value,
+                        })
+                      }
+                    >
                       <option value='policy 1'>Yes - before publication</option>
                       <option value='policy 2'>Policy 2</option>
                     </Select>
@@ -191,7 +266,12 @@ const Edit = () => {
                       <Label htmlFor='material-switch'>
                         <Toggle>
                           <Switch
-                            onChange={(nextChecked) => setEditDataavail(nextChecked)}
+                            onChange={(nextChecked) =>
+                              dispatch({
+                                type: 'EDIT_DATAAVAIL',
+                                payload: nextChecked,
+                              })
+                            }
                             checked={editDataavail}
                             onColor='#ef9c38'
                             onHandleColor='#'
@@ -213,7 +293,12 @@ const Edit = () => {
                       <Label htmlFor='material-switch'>
                         <Toggle>
                           <Switch
-                            onChange={(nextChecked) => setEditPeerreview(nextChecked)}
+                            onChange={(nextChecked) =>
+                              dispatch({
+                                type: 'EDIT_PEERREVIEW',
+                                payload: nextChecked,
+                              })
+                            }
                             checked={editPeerreview}
                             onColor='#ef9c38'
                             onHandleColor='#'
@@ -235,7 +320,12 @@ const Edit = () => {
                       <Label htmlFor='material-switch'>
                         <Toggle>
                           <Switch
-                            onChange={(nextChecked) => setEditDatashared(nextChecked)}
+                            onChange={(nextChecked) =>
+                              dispatch({
+                                type: 'EDIT_SHARED',
+                                payload: nextChecked,
+                              })
+                            }
                             checked={editDatashared}
                             onColor='#ef9c38'
                             onHandleColor='#'
