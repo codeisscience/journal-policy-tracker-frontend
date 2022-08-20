@@ -5,16 +5,58 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 
-import { React, createContext, useState, useEffect, useContext } from 'react';
+import { React, createContext, useState, useEffect, useContext, useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { format } from 'date-fns';
 import { api } from '../components/api/posts';
 import useAxiosFetch from '../hooks/useAxiosFetch';
 
+const initialState = {
+  posts: [],
+  currentPage: 1,
+  search: '',
+  searchResults: [],
+  postsPerPage: 5,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'POSTS':
+      return {
+        ...state,
+        posts: action.payload,
+      };
+    case 'SEARCH':
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case 'SEARCH_RESULTS':
+      return {
+        ...state,
+        searchResults: action.payload,
+      };
+    case 'CURRENT_PAGE':
+      return {
+        ...state,
+        currentPage: action.payload,
+      };
+    case 'POSTS_PER_PAGE':
+      return {
+        ...state,
+        postsPerPage: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 const DataContext = createContext({});
 
 const DataProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,22 +122,23 @@ const DataProvider = ({ children }) => {
   const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/journals');
 
   useEffect(() => {
-    setPosts(data);
+    dispatch({ type: 'POSTS', payload: data });
   }, [data]);
 
   useEffect(() => {
-    const filteredResults = posts.filter(
+    const filteredResults = state.posts.filter(
       (post) =>
-        post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+        post.issn.includes(state.search) ||
+        post.title.toLowerCase().includes(state.search.toLowerCase()),
     );
 
-    setSearchResults(filteredResults.reverse());
-  }, [posts, search]);
+    dispatch({ type: 'SEARCH_RESULTS', payload: filteredResults.reverse() });
+  }, [state.posts, state.search]);
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPost = searchResults.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const indexOfLastPost = state.currentPage * state.postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
+  const currentPost = state.searchResults.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => dispatch({ type: 'CURRENT_PAGE', payload: pageNumber });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -156,8 +199,8 @@ const DataProvider = ({ children }) => {
   const handleDelete = async (id) => {
     try {
       await api.delete(`/journals/${id}`);
-      const postsList = posts.filter((post) => post.id !== id);
-      setPosts(postsList);
+      const postsList = state.posts.filter((post) => post.id !== id);
+      dispatch({ type: 'POSTS', payload: postsList });
       history.push('/journal');
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -166,10 +209,11 @@ const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
-        posts,
-        search,
+        posts: state.posts,
+        dispatch,
+        search: state.search,
         setSearch,
-        searchResults,
+        searchResults: state.searchResults,
         filteredData,
         setFilteredData,
         wordEntered,
@@ -177,7 +221,7 @@ const DataProvider = ({ children }) => {
         handleFilter,
         currentPost,
         loading,
-        postsPerPage,
+        postsPerPage: state.postsPerPage,
         paginate,
         title,
         setTitle,
