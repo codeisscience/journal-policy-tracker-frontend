@@ -18,6 +18,19 @@ const initialState = {
   search: '',
   searchResults: [],
   postsPerPage: 5,
+  title: '',
+  authors: '',
+  journaltype: '',
+  topic: '',
+  published: format(new Date(), 'MMMM dd, yyyyy pp'),
+  issn: '',
+  link: '',
+  policy: 'policy 1',
+  dataavail: false,
+  datashared: false,
+  peerreview: false,
+  enforced: '',
+  evidence: '',
 };
 
 const reducer = (state, action) => {
@@ -46,6 +59,66 @@ const reducer = (state, action) => {
       return {
         ...state,
         postsPerPage: action.payload,
+      };
+    case 'SET_TITLE':
+      return {
+        ...state,
+        title: action.payload,
+      };
+    case 'SET_AUTHORS':
+      return {
+        ...state,
+        authors: action.payload,
+      };
+    case 'SET_JOURNALTYPE':
+      return {
+        ...state,
+        journaltype: action.payload,
+      };
+    case 'SET_TOPIC':
+      return {
+        ...state,
+        topic: action.payload,
+      };
+    case 'SET_ISSN':
+      return {
+        ...state,
+        issn: action.payload,
+      };
+    case 'SET_LINK':
+      return {
+        ...state,
+        link: action.payload,
+      };
+    case 'SET_POLICY':
+      return {
+        ...state,
+        policy: action.payload,
+      };
+    case 'SET_DATAAVAIL':
+      return {
+        ...state,
+        dataavail: action.payload,
+      };
+    case 'SET_DATASHARED':
+      return {
+        ...state,
+        datashared: action.payload,
+      };
+    case 'SET_PEERREVIEW':
+      return {
+        ...state,
+        peerreview: action.payload,
+      };
+    case 'ENFORCED':
+      return {
+        ...state,
+        enforced: action.payload,
+      };
+    case 'SET_EVIDENCE':
+      return {
+        ...state,
+        evidence: action.payload,
       };
 
     default:
@@ -83,17 +156,26 @@ const DataProvider = ({ children }) => {
   const [dataavail, setDataavail] = useState(false);
   const [editDataavail, setEditDataavail] = useState(false);
   const handleChangeData = (nextChecked) => {
-    setDataavail(nextChecked);
+    dispatch({
+      type: 'SET_DATAAVAIL',
+      payload: nextChecked,
+    });
   };
   const [datashared, setDatashared] = useState(false);
   const [editDatashared, setEditDatashared] = useState(false);
   const handleChangeData2 = (nextChecked) => {
-    setDatashared(nextChecked);
+    dispatch({
+      type: 'SET_DATASHARED',
+      payload: nextChecked,
+    });
   };
   const [peerreview, setPeerreview] = useState(false);
   const [editPeerreview, setEditPeerreview] = useState(false);
   const handleChangePeer = (nextChecked) => {
-    setPeerreview(nextChecked);
+    dispatch({
+      type: 'SET_PEERREVIEW',
+      payload: nextChecked,
+    });
   };
   const [enforced, setEnforced] = useState('');
   const [editEnforced, setEditEnforced] = useState('');
@@ -142,28 +224,29 @@ const DataProvider = ({ children }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
-    const datetime = format(new Date(), 'MMMM dd, yyyyy pp');
+    const id = state.posts.length ? state.posts[state.posts.length - 1].id + 1 : 1;
     const newPost = {
-      title,
-      authors,
-      journaltype,
-      topic,
-      published: datetime,
-      issn,
-      updated,
-      link,
-      policy,
-      dataavail,
-      datashared,
-      peerreview,
-      enforced,
-      evidence,
+      title: state.title,
+      authors: state.authors,
+      journaltype: state.journaltype,
+      topic: state.topic,
+      published: state.published,
+      issn: state.issn,
+      link: state.link,
+      policy: state.policy,
+      dataavail: state.dataavail,
+      datashared: state.datashared,
+      peerreview: state.peerreview,
+      enforced: state.enforced,
+      evidence: state.evidence,
     };
     try {
       const response = await api.post('/journals', newPost);
-      const allPosts = [...posts, response.data];
-      setPosts(allPosts);
+      const allPosts = [...state.posts, response.data];
+      dispatch({
+        type: 'POSTS',
+        payload: allPosts,
+      });
       history.push('/journal');
     } catch (err) {
       console.log(`Error: ${err.message}`);
@@ -223,51 +306,51 @@ const DataProvider = ({ children }) => {
         loading,
         postsPerPage: state.postsPerPage,
         paginate,
-        title,
+        title: state.title,
         setTitle,
         editTitle,
         setEditTitle,
-        authors,
+        authors: state.authors,
         setAuthors,
         editAuthors,
-        journaltype,
+        journaltype: state.journaltype,
         setJournaltype,
         setEditAuthors,
         editJournaltype,
         setEditJournaltype,
-        topic,
+        topic: state.topic,
         setTopic,
         editTopic,
         setEditTopic,
-        issn,
+        issn: state.issn,
         setIssn,
         editIssn,
         setEditIssn,
-        link,
+        link: state.link,
         setLink,
         editLink,
         setEditLink,
-        policy,
+        policy: state.policy,
         setPolicy,
         editPolicy,
         setEditPolicy,
-        dataavail,
+        dataavail: state.dataavail,
         setDataavail,
         editDataavail,
         setEditDataavail,
         editDatashared,
-        datashared,
+        datashared: state.datashared,
         setDatashared,
         setEditDatashared,
-        peerreview,
+        peerreview: state.peerreview,
         setPeerreview,
         editPeerreview,
         setEditPeerreview,
-        enforced,
+        enforced: state.enforced,
         setEnforced,
         editEnforced,
         setEditEnforced,
-        evidence,
+        evidence: state.evidence,
         setEvidence,
         editEvidence,
         setEditEvidence,
