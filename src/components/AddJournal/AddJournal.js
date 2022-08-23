@@ -32,34 +32,23 @@ import { useGlobalContext } from '../../context/DataContext';
 const AddJournal = () => {
   const {
     title,
-    setTitle,
     authors,
-    setAuthors,
     journaltype,
-    setJournaltype,
     topic,
-    setTopic,
     issn,
-    setIssn,
     link,
-    setLink,
     policy,
-    setPolicy,
     dataavail,
-    setDataavail,
     handleChangeData,
     datashared,
-    setDatashared,
     handleChangeData2,
     peerreview,
-    setPeerreview,
     handleChangePeer,
     enforced,
-    setEnforced,
     evidence,
-    setEvidence,
     isPending,
     handleSubmit,
+    dispatch,
   } = useGlobalContext();
   return (
     <Container>
@@ -67,7 +56,17 @@ const AddJournal = () => {
         <Head>Create Journal Policies</Head>
         <Form onSubmit={handleSubmit}>
           <Label>Journal titile</Label>
-          <Input type='text' required value={title} onChange={(e) => setTitle(e.target.value)} />
+          <Input
+            type='text'
+            required
+            value={title}
+            onChange={(e) =>
+              dispatch({
+                type: 'SET_TITLE',
+                payload: e.target.value,
+              })
+            }
+          />
           <FirstDiv>
             <div>
               <Label>Journal Type</Label>
@@ -75,12 +74,27 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={journaltype}
-                onChange={(e) => setJournaltype(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_JOURNALTYPE',
+                    payload: e.target.value,
+                  })
+                }
               />
             </div>
             <div>
               <Label>ISSN Number</Label>
-              <Input type='text' required value={issn} onChange={(e) => setIssn(e.target.value)} />
+              <Input
+                type='text'
+                required
+                value={issn}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_ISSN',
+                    payload: e.target.value,
+                  })
+                }
+              />
             </div>
             <div>
               <Label>Enforced Evidence</Label>
@@ -88,7 +102,12 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={evidence}
-                onChange={(e) => setEvidence(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_EVIDENCE',
+                    payload: e.target.value,
+                  })
+                }
               />
             </div>
           </FirstDiv>
@@ -99,12 +118,27 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={topic}
-                onChange={(e) => setTopic(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_TOPIC',
+                    payload: e.target.value,
+                  })
+                }
               />
             </div>
             <div>
               <Label>Source</Label>
-              <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
+              <Input
+                type='text'
+                required
+                value={link}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_LINK',
+                    payload: e.target.value,
+                  })
+                }
+              />
             </div>
             <div>
               <Label>Authors</Label>
@@ -112,7 +146,12 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={authors}
-                onChange={(e) => setAuthors(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: 'SET_AUTHORS',
+                    payload: e.target.value,
+                  })
+                }
               />
             </div>
           </FirstDiv>
@@ -126,7 +165,15 @@ const AddJournal = () => {
             <SecondDiv>
               <div>
                 <Label>Policy Type:</Label>
-                <Select value={policy} onChange={(e) => setPolicy(e.target.value)}>
+                <Select
+                  value={policy}
+                  onChange={(e) =>
+                    dispatch({
+                      type: 'SET_POLICY',
+                      payload: e.target.value,
+                    })
+                  }
+                >
                   <option value='policy 1'>Policy 1</option>
                   <option value='policy 2'>Policy 2</option>
                   <option value='policy 3'>Policy 3</option>
@@ -134,7 +181,15 @@ const AddJournal = () => {
               </div>
               <div>
                 <Label>Enforced:</Label>
-                <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
+                <Select
+                  value={enforced}
+                  onChange={(e) =>
+                    dispatch({
+                      type: 'ENFORCED',
+                      payload: e.target.value,
+                    })
+                  }
+                >
                   <option value='Yes - before publication'>Yes - before publication</option>
                   <option value='option 2'>Option 2</option>
                 </Select>

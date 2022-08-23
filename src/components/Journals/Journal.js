@@ -6,7 +6,7 @@ import JournalList from './JournalList';
 // import useFetch from './useFetch';
 import { JContainer, Head, Search, SearchTerm, SearchButton } from './styles';
 
-const Journal = ({ posts, search, setSearch, postsPerPage, totalPosts, paginate }) => {
+const Journal = ({ posts, search, postsPerPage, totalPosts, paginate, dispatch }) => {
   return (
     <JContainer>
       <Head>Journals</Head>
@@ -17,8 +17,9 @@ const Journal = ({ posts, search, setSearch, postsPerPage, totalPosts, paginate 
             type='text'
             placeholder='Search Journal'
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => dispatch({ type: 'SEARCH', payload: e.target.value })}
           />
+          {console.log(search)}
           <SearchButton type='submit'>
             <FiSearch />
           </SearchButton>
