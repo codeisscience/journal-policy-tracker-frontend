@@ -8,10 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
 import {
-  Container,
   Head,
   Label,
-  PolicyContainer,
   Toggle,
   Input,
   FirstDiv,
@@ -26,6 +24,7 @@ import {
 } from '../AddJournal/styles';
 import { FormInputBtn } from '../Authentication/styles';
 import { useGlobalContext } from '../../context/DataContext';
+import { SectionLayout, PolicyContainer } from '../marginals';
 
 const Edit = () => {
   const {
@@ -101,7 +100,7 @@ const Edit = () => {
   }, [dispatch, post]);
 
   return (
-    <Container>
+    <SectionLayout>
       <PolicyContainer>
         {editTitle && (
           <>
@@ -341,7 +340,7 @@ const Edit = () => {
           </>
         )}
       </PolicyContainer>
-    </Container>
+    </SectionLayout>
   );
 };
 

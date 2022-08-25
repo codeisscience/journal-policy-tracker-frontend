@@ -223,54 +223,6 @@
       "datashared": false,
       "peerreview": true,
       "enforced": "Yes - before application"
-    },
-    {
-      "title": "DD",
-      "authors": "DDD",
-      "journaltype": "DD",
-      "topic": "D",
-      "published": "August 20, 02022 1:58:04 PM",
-      "issn": "ISSN",
-      "link": "D",
-      "policy": "policy 3",
-      "dataavail": false,
-      "datashared": false,
-      "peerreview": false,
-      "enforced": "option 2",
-      "evidence": "ENF",
-      "id": 15
-    },
-    {
-      "title": "EE",
-      "authors": "Q",
-      "journaltype": "EE",
-      "topic": "J",
-      "published": "August 20, 02022 2:05:57 PM",
-      "issn": "W",
-      "link": "J",
-      "policy": "policy 1",
-      "dataavail": true,
-      "datashared": false,
-      "peerreview": false,
-      "enforced": "",
-      "evidence": "W",
-      "id": 16
-    },
-    {
-      "title": "B",
-      "authors": "dqwdqw",
-      "journaltype": "DSWd",
-      "topic": "dqw",
-      "published": "August 20, 02022 2:07:39 PM",
-      "issn": "wdwq",
-      "link": "dqwdqw",
-      "policy": "policy 1",
-      "dataavail": true,
-      "datashared": false,
-      "peerreview": false,
-      "enforced": "",
-      "evidence": "dqwdqw",
-      "id": 17
     }
   ]
 }

@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 're
 import { format } from 'date-fns';
 import { api } from './api/posts';
 import { Journal, Contact, Manifesto, Home } from './pages';
-import { Footer, Auth, Header, Login, JournalDetails, AddJournal } from './components';
+import { Footer, Auth, Header, Login, JournalDetails, AddJournal, Layout } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
 import Edit from './components/EditJournal/Edit';
 import useAxiosFetch from './hooks/useAxiosFetch';
@@ -18,7 +18,7 @@ import { DataProvider } from './context/DataContext';
 
 function App() {
   return (
-    <div className='App'>
+    <Layout>
       <DataProvider>
         <Switch>
           <Route exact path='/'>
@@ -47,10 +47,9 @@ function App() {
           </Route>
           <Redirect to='/' />
         </Switch>
-        <Navbar />
         <Footer />
       </DataProvider>
-    </div>
+    </Layout>
   );
 }
 
