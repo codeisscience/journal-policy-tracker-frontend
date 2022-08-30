@@ -13,7 +13,6 @@ import {
   Container,
   Head,
   Label,
-  PolicyContainer,
   Toggle,
   Input,
   FirstDiv,
@@ -28,6 +27,7 @@ import {
 } from './styles';
 import { FormInputBtn } from '../Authentication/styles';
 import { useGlobalContext } from '../../context/DataContext';
+import { SectionLayout, PolicyContainer } from '../marginals';
 
 const AddJournal = () => {
   const {
@@ -51,7 +51,7 @@ const AddJournal = () => {
     dispatch,
   } = useGlobalContext();
   return (
-    <Container>
+    <SectionLayout>
       <PolicyContainer>
         <Head>Create Journal Policies</Head>
         <Form onSubmit={handleSubmit}>
@@ -270,7 +270,7 @@ const AddJournal = () => {
           {isPending && <FormInputBtn>Adding blog...</FormInputBtn>}
         </Form>
       </PolicyContainer>
-    </Container>
+    </SectionLayout>
   );
 };
 

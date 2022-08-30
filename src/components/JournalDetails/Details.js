@@ -16,9 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import useFetch from '../Journals/useFetch';
 import {
-  Container,
   Head,
-  PolicyContainer,
   Title,
   Subhead,
   Subhead2,
@@ -33,6 +31,7 @@ import {
 import { Authors, Head3 } from '../Journals/styles';
 import { FormInputBtn } from '../Authentication/styles';
 import { useGlobalContext } from '../../context/DataContext';
+import { SectionLayout, PolicyContainer } from '../marginals';
 
 function Details() {
   const { posts, handleDelete } = useGlobalContext();
@@ -97,7 +96,7 @@ function Details() {
   ];
 
   return (
-    <Container>
+    <SectionLayout>
       <Head>Journal policies</Head>
       {indv && (
         <PolicyContainer>
@@ -149,7 +148,7 @@ function Details() {
           </p>
         </>
       )}
-    </Container>
+    </SectionLayout>
   );
 }
 

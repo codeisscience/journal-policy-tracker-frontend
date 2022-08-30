@@ -11,7 +11,6 @@ export const Container = styled.div`
 export const Head = styled.h1`
   font-size: 1.8rem;
   color: #ec8d20;
-  //   text-align: center;
 `;
 
 export const PolicyContainer = styled.div`

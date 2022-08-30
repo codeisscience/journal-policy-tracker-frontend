@@ -9,7 +9,6 @@ export const Container = styled.div`
 `;
 
 export const Head = styled.h1`
-  margin-top: 100px;
   font-size: 2rem;
   color: #ec8d20;
   text-align: center;
@@ -19,8 +18,9 @@ export const PolicyContainer = styled.div`
   width: 65%;
   margin: 0px auto 0px auto;
   background-color: #ffff;
-  padding: 3rem 6rem;
+  padding: 2rem 3rem;
   border: 5px;
+  border-radius: 8px;
   align-self: center;
   justify-self: center;
   @media (max-width: 1300px) {

@@ -10,15 +10,12 @@ export const JContainer = styled.div`
   display: grid;
   width: 60%;
   margin: 0px auto 0px auto;
-  // margin-left: 100px;
   gap: 10px;
   @media (max-width: 1300px) {
     width: 70%;
-    margin-left: 80px;
   }
   @media (max-width: 1000px) {
     width: 70%;
-    margin-left: 50px;
   }
   @media (max-width: 700px) {
     margin: 0px auto 0px auto;

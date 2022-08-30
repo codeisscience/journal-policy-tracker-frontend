@@ -27,7 +27,8 @@ export const MenuLink = styled.a`
 `;
 
 export const Nav = styled.div`
-  padding: 0 2rem;
+  padding: 0;
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   align-items: center;
