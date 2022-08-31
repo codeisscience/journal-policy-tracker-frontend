@@ -72,6 +72,7 @@ const Manifesto = () => (
           >
             Sign the manifesto as an organisation or institution.
           </a>
+          <br/>
           Please make sure you have authority to sign on behalf of your organisation before you sign
           on behalf of an organisation.
         </p>
