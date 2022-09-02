@@ -1,32 +1,30 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-/* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useReducer } from 'react';
+import { useQuery } from '@apollo/client';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
-import { useGlobalContext } from '../../context/DataContext';
+import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
+import reducer from '../../useReducer/Journals/reducer';
 
 const Journal = () => {
-  const { posts, search, loading, postsPerPage, paginate, currentPost, dispatch } =
-    useGlobalContext();
+  const initialState = {
+    currentPage: 1,
+    postsPerPage: 5,
+  };
+
+  const [state] = useReducer(reducer, initialState);
+
+  const { loading } = useQuery(GET_ALL_JOURNALS, {
+    variables: { currentPageNumber: state.currentPage, limitValue: state.postsPerPage },
+  });
+
   if (loading) {
     return <h2>loading...</h2>;
   }
   return (
     <Container>
-      {currentPost.length ? (
-        <Journals
-          posts={currentPost}
-          search={search}
-          loading={loading}
-          postsPerPage={postsPerPage}
-          totalPosts={posts.length}
-          paginate={paginate}
-          dispatch={dispatch}
-        />
-      ) : (
-        <p>No posts to display</p>
-      )}
+      <Journals />
     </Container>
   );
 };
