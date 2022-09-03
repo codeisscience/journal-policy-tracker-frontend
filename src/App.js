@@ -56,7 +56,7 @@ function App() {
             <Route path='/edit/:id'>
               <Edit />
             </Route>
-            <Route path='/policy/:id'>
+            <Route path='/policy/:issn'>
               <JournalDetails />
             </Route>
             <Route path='/Signup'>

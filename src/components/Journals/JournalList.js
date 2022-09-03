@@ -38,8 +38,6 @@ const JournalList = () => {
     variables: { currentPageNumber: state.currentPage, limitValue: state.postsPerPage },
   });
 
-  console.log(data);
-
   useEffect(() => {
     dispatch({ type: 'POSTS', payload: data?.getAllJournals });
   }, [data?.getAllJournals]);
@@ -82,7 +80,7 @@ const JournalList = () => {
         {currentPost.map((blog) => (
           <Preview key={blog.id}>
             <Head2 primary>{blog.domainName}</Head2>
-            <Link to={`/policy/${blog.id}`}>
+            <Link to={`/policy/${blog.issn}`}>
               <Head2>{blog.title}</Head2>
               <Authors>
                 <Head3 secondary>{blog.createdBy}</Head3>
