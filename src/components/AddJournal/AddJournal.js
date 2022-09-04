@@ -9,6 +9,8 @@ import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
+import { useMutation } from '@apollo/client';
+import CREATE_JOURNAL from '../../graphql/mutation/createJournal';
 import {
   Container,
   Head,
@@ -30,71 +32,79 @@ import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
 
 const AddJournal = () => {
-  const {
-    title,
-    authors,
-    journaltype,
-    topic,
-    issn,
-    link,
-    policy,
-    dataavail,
-    handleChangeData,
-    datashared,
-    handleChangeData2,
-    peerreview,
-    handleChangePeer,
-    enforced,
-    evidence,
-    isPending,
-    handleSubmit,
-    dispatch,
-  } = useGlobalContext();
+  const [title, setTitile] = useState('');
+  const [topic, setTopic] = useState('');
+  const [issn, setIssn] = useState('');
+  const [link, setLink] = useState('');
+  const [policy, setPolicy] = useState('');
+  const [dataavail, setDataavail] = useState(false);
+  const [datashared, setDatashared] = useState(false);
+  const [peerreview, setPeerreview] = useState(false);
+  const [enforced, setEnforced] = useState('');
+  const [evidence, setEvidence] = useState('');
+  const [policyTitle, setPolicyTitle] = useState('');
+  // const [firstYear] = useState(2000);
+
+  const [createJournal, { data, error }] = useMutation(CREATE_JOURNAL);
+
+  console.log({ data });
+  // console.log(createJournal);
+
+  const addJournal = async (event) => {
+    event.preventDefault();
+    const response = await createJournal({
+      variables: {
+        journalToCreate: {
+          title,
+          url: link,
+          issn,
+          domainName: topic,
+          policies: {
+            title: policyTitle,
+            policyType: policy,
+            enforced,
+            enforcedEvidence: evidence,
+            isDataAvailabilityStatementPublished: dataavail,
+            isDataShared: datashared,
+            isDataPeerReviewed: peerreview,
+            firstYear: 2000,
+          },
+        },
+      },
+    });
+  };
+
+  const handleChangeData = (nextChecked) => {
+    setDataavail(nextChecked);
+  };
+  const handleChangeData2 = (nextChecked) => {
+    setDatashared(nextChecked);
+  };
+  const handleChangePeer = (nextChecked) => {
+    setPeerreview(nextChecked);
+  };
+  const [isPending, setIsPending] = useState(false);
+
   return (
     <SectionLayout>
       <PolicyContainer>
         <Head>Create Journal Policies</Head>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={addJournal}>
           <Label>Journal titile</Label>
-          <Input
-            type='text'
-            required
-            value={title}
-            onChange={(e) =>
-              dispatch({
-                type: 'SET_TITLE',
-                payload: e.target.value,
-              })
-            }
-          />
+          <Input type='text' required value={title} onChange={(e) => setTitile(e.target.value)} />
           <FirstDiv>
             <div>
               <Label>Journal Type</Label>
               <Input
                 type='text'
                 required
-                value={journaltype}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_JOURNALTYPE',
-                    payload: e.target.value,
-                  })
-                }
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
               />
             </div>
             <div>
               <Label>ISSN Number</Label>
-              <Input
-                type='text'
-                required
-                value={issn}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_ISSN',
-                    payload: e.target.value,
-                  })
-                }
-              />
+              <Input type='text' required value={issn} onChange={(e) => setIssn(e.target.value)} />
             </div>
             <div>
               <Label>Enforced Evidence</Label>
@@ -102,58 +112,33 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={evidence}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_EVIDENCE',
-                    payload: e.target.value,
-                  })
-                }
+                onChange={(e) => setEvidence(e.target.value)}
               />
             </div>
           </FirstDiv>
           <FirstDiv>
-            <div>
+            {/* <div>
               <Label>Domain</Label>
               <Input
                 type='text'
                 required
                 value={topic}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_TOPIC',
-                    payload: e.target.value,
-                  })
-                }
+                onChange={(e) => setTopic(e.target.value)}
               />
-            </div>
+            </div> */}
             <div>
               <Label>Source</Label>
-              <Input
-                type='text'
-                required
-                value={link}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_LINK',
-                    payload: e.target.value,
-                  })
-                }
-              />
+              <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
             </div>
-            <div>
+            {/* <div>
               <Label>Authors</Label>
               <Input
                 type='text'
                 required
                 value={authors}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'SET_AUTHORS',
-                    payload: e.target.value,
-                  })
-                }
+                onChange={(e) => setAuthors(e.target.value)}
               />
-            </div>
+            </div> */}
           </FirstDiv>
           <Subhead>
             <Icon>
@@ -163,35 +148,37 @@ const AddJournal = () => {
           </Subhead>
           <Div>
             <SecondDiv>
+              {/* <div>
+                <Label>First Year</Label>
+                <Input
+                  type='text'
+                  required
+                  value={policyTitle}
+                  onChange={(e) => setPolicyTitle(e.target.value)}
+                />
+              </div> */}
+              <div>
+                <Label>Policy Title</Label>
+                <Input
+                  type='text'
+                  required
+                  value={policyTitle}
+                  onChange={(e) => setPolicyTitle(e.target.value)}
+                />
+              </div>
               <div>
                 <Label>Policy Type:</Label>
-                <Select
-                  value={policy}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'SET_POLICY',
-                      payload: e.target.value,
-                    })
-                  }
-                >
-                  <option value='policy 1'>Policy 1</option>
-                  <option value='policy 2'>Policy 2</option>
-                  <option value='policy 3'>Policy 3</option>
+                <Select value={policy} onChange={(e) => setPolicy(e.target.value)}>
+                  <option value='NUMBER_ONE'>NUMBER_ONE</option>
+                  <option value='NUMBER_TWO'>NUMBER_TWO</option>
+                  <option value='NUMBER_THREE'>NUMBER_THREE</option>
                 </Select>
               </div>
               <div>
                 <Label>Enforced:</Label>
-                <Select
-                  value={enforced}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'ENFORCED',
-                      payload: e.target.value,
-                    })
-                  }
-                >
-                  <option value='Yes - before publication'>Yes - before publication</option>
-                  <option value='option 2'>Option 2</option>
+                <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
+                  <option value='YES'>Yes - before publication</option>
+                  <option value='NO'>Option 2</option>
                 </Select>
               </div>
             </SecondDiv>
@@ -205,7 +192,7 @@ const AddJournal = () => {
                         onChange={handleChangeData}
                         checked={dataavail}
                         onColor='#ef9c38'
-                        onHandleColor='#'
+                        // onHandleColor='#'
                         handleDiameter={22}
                         uncheckedIcon={false}
                         checkedIcon={false}
@@ -227,7 +214,7 @@ const AddJournal = () => {
                         onChange={handleChangePeer}
                         checked={peerreview}
                         onColor='#ef9c38'
-                        onHandleColor='#'
+                        // onHandleColor='#'
                         handleDiameter={22}
                         uncheckedIcon={false}
                         checkedIcon={false}
@@ -249,7 +236,7 @@ const AddJournal = () => {
                         onChange={handleChangeData2}
                         checked={datashared}
                         onColor='#ef9c38'
-                        onHandleColor='#'
+                        // onHandleColor='#'
                         handleDiameter={22}
                         uncheckedIcon={false}
                         checkedIcon={false}
@@ -266,8 +253,9 @@ const AddJournal = () => {
               </ToggleContainer>
             </SecondDiv>
           </Div>
-          {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
-          {isPending && <FormInputBtn>Adding blog...</FormInputBtn>}
+          <FormInputBtn>Add blog</FormInputBtn>
+          {/* {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
+          {isPending && <FormInputBtn>Adding blog...</FormInputBtn>} */}
         </Form>
       </PolicyContainer>
     </SectionLayout>

@@ -29,7 +29,7 @@ const JournalList = () => {
     searchResults: [],
     currentPage: 1,
     search: '',
-    postsPerPage: 5,
+    postsPerPage: 10,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -37,6 +37,8 @@ const JournalList = () => {
   const { data, loading } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: state.currentPage, limitValue: state.postsPerPage },
   });
+
+  console.log(typeof state.postsPerPage);
 
   useEffect(() => {
     dispatch({ type: 'POSTS', payload: data?.getAllJournals });

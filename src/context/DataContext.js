@@ -170,10 +170,10 @@ const DataProvider = ({ children }) => {
       evidence: state.editEvidence,
     };
     try {
-      const response = await api.put(`/journals/${id}`, updatedPost);
+      const response = await api.put(`/journals/${issn}`, updatedPost);
       dispatch({
         type: 'POSTS',
-        payload: state.posts.map((post) => (post.id === id ? { ...response.data } : post)),
+        payload: state.posts.map((post) => (post.issn === id ? { ...response.data } : post)),
       });
       history.push('/journal');
     } catch (err) {

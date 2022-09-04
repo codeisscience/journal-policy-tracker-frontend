@@ -10,7 +10,7 @@ import reducer from '../../useReducer/Journals/reducer';
 const Journal = () => {
   const initialState = {
     currentPage: 1,
-    postsPerPage: 5,
+    postsPerPage: 10,
   };
 
   const [state] = useReducer(reducer, initialState);

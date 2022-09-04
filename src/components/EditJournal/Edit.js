@@ -2,11 +2,14 @@
 /* eslint-disable no-shadow */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
+import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
+import UPDATE_JOURNAL from '../../graphql/mutation/updateJournal';
 import {
   Head,
   Label,
@@ -28,11 +31,11 @@ import { SectionLayout, PolicyContainer } from '../marginals';
 
 const Edit = () => {
   const {
-    posts,
+    // posts,
     handleEdit,
-    editTitle,
-    editAuthors,
+    // editTitle,
     editJournaltype,
+    // editAuthors,
     editTopic,
     editIssn,
     editLink,
@@ -44,125 +47,187 @@ const Edit = () => {
     editEvidence,
     dispatch,
   } = useGlobalContext();
-  const { id } = useParams();
-  const post = posts.find((post) => post.id.toString() === id);
+
+  const [post, setPost] = useState([]);
+
+  const { issn } = useParams();
+
+  const { data, loading, error, refetch } = useQuery(GET_ALL_JOURNAL_DETAILS, {
+    variables: { issn },
+  });
+
+  console.log(data);
+  console.log(post?.title);
+
   useEffect(() => {
-    if (post) {
-      dispatch({
-        type: 'EDIT_TITLE',
-        payload: post.title,
-      });
-      dispatch({
-        type: 'EDIT_AUTHORS',
-        payload: post.authors,
-      });
-      dispatch({
-        type: 'EDIT_JOURNALTYPE',
-        payload: post.journaltype,
-      });
-      dispatch({
-        type: 'EDIT_TOPIC',
-        payload: post.topic,
-      });
-      dispatch({
-        type: 'EDIT_ISSN',
-        payload: post.issn,
-      });
-      dispatch({
-        type: 'EDIT_LINK',
-        payload: post.link,
-      });
-      dispatch({
-        type: 'EDIT_POLICY',
-        payload: post.policy,
-      });
-      dispatch({
-        type: 'EDIT_DATAAVAIL',
-        payload: post.dataavail,
-      });
-      dispatch({
-        type: 'EDIT_DATASHARED',
-        payload: post.datashared,
-      });
-      dispatch({
-        type: 'EDIT_PEERREVIEW',
-        payload: post.peerreview,
-      });
-      dispatch({
-        type: 'EDIT_ENFORCED',
-        payload: post.enforced,
-      });
-      dispatch({
-        type: 'EDIT_EVIDENCE',
-        payload: post.evidence,
-      });
+    if (loading === false) {
+      setPost(data?.getJournalByISSN);
     }
-  }, [dispatch, post]);
+  }, [data?.getJournalByISSN, loading]);
+
+  const [title, setTitle] = useState('');
+  const [journalType, setJournalType] = useState('');
+  const [topic, setTopic] = useState('');
+  const [link, setLink] = useState('');
+  const [policy, setPolicy] = useState('');
+  const [dataavail, setDataavail] = useState(false);
+  const [datashared, setDatashared] = useState(false);
+  const [peerreview, setPeerreview] = useState(false);
+  const [enforced, setEnforced] = useState('');
+  const [evidence, setEvidence] = useState('');
+  const [policyTitle, setPolicyTitle] = useState('');
+  const [firstYear, setFirstYear] = useState(2000);
+
+  console.log(post);
+
+  const [updateJournal, { data1, error1 }] = useMutation(UPDATE_JOURNAL);
+
+  console.log(data1);
+
+  const editJournal = async (event) => {
+    event.preventDefault();
+    const response = await updateJournal({
+      variables: {
+        issnToUpdate: issn,
+        newJournalDetails: {
+          title,
+          url: link,
+          issn,
+          domainName: topic,
+          policies: {
+            title: policyTitle,
+            policyType: policy,
+            enforced,
+            enforcedEvidence: evidence,
+            isDataAvailabilityStatementPublished: dataavail,
+            isDataShared: datashared,
+            isDataPeerReviewed: peerreview,
+            firstYear,
+          },
+        },
+      },
+    });
+  };
+
+  // const post = posts.find((post) => post.issn.toString() === issn);
+  // useEffect(() => {
+  //   if (post) {
+  //     // dispatch({
+  //     //   type: 'EDIT_TITLE',
+  //     //   payload: post?.title,
+  //     // });
+  //     // dispatch({
+  //     //   type: 'EDIT_AUTHORS',
+  //     //   payload: post.authors,
+  //     // });
+  //     dispatch({
+  //       type: 'EDIT_JOURNALTYPE',
+  //       payload: post.domainName,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_TOPIC',
+  //       payload: post.topic,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_ISSN',
+  //       payload: post.issn,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_LINK',
+  //       payload: post.url,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_POLICY',
+  //       payload: post.policy,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_DATAAVAIL',
+  //       payload: post.dataavail,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_DATASHARED',
+  //       payload: post.datashared,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_PEERREVIEW',
+  //       payload: post.peerreview,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_ENFORCED',
+  //       payload: post.enforced,
+  //     });
+  //     dispatch({
+  //       type: 'EDIT_EVIDENCE',
+  //       payload: post.evidence,
+  //     });
+  //   }
+  // }, [dispatch, post]);
 
   return (
     <SectionLayout>
       <PolicyContainer>
-        {editTitle && (
-          <>
-            <Head>Edit Journal Policies</Head>
-            <Form onSubmit={(e) => e.preventDefault()}>
-              <Label>Journal titile</Label>
-              <Input
-                type='text'
-                required
-                value={editTitle}
-                onChange={(e) =>
-                  dispatch({
-                    type: 'EDIT_TITLE',
-                    payload: e.target.value,
-                  })
-                }
-              />
-              <FirstDiv>
-                <div>
-                  <Label>Journal Type</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editJournaltype}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_JOURNALTYPE',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div>
-                  <Label>ISSN Number</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editIssn}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_ISSN',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-                <div>
-                  <Label>Enforced Evidence</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editEvidence}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_EVIDENCE',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-              </FirstDiv>
-              <FirstDiv>
+        {/* {title && ( */}
+        <>
+          <Head>Edit Journal Policies</Head>
+          <Form onSubmit={editJournal}>
+            <Label>Journal title</Label>
+            <Input
+              type='text'
+              required
+              value={post?.title}
+              // onChange={
+              //   (e) => setTitle(e.target.value)
+              //   // dispatch({
+              //   //   type: 'EDIT_TITLE',
+              //   //   payload: e.target.value,
+              //   // })
+              // }
+            />
+            {/* <FirstDiv>
+              <div>
+                <Label>Journal Type</Label>
+                <Input
+                  type='text'
+                  required
+                  value={journalType}
+                  onChange={(e) =>
+                    dispatch({
+                      type: 'EDIT_JOURNALTYPE',
+                      payload: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div>
+                <Label>ISSN Number</Label>
+                <Input
+                  type='text'
+                  required
+                  value={editIssn}
+                  onChange={(e) =>
+                    dispatch({
+                      type: 'EDIT_ISSN',
+                      payload: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div>
+                <Label>Enforced Evidence</Label>
+                <Input
+                  type='text'
+                  required
+                  value={editEvidence}
+                  onChange={(e) =>
+                    dispatch({
+                      type: 'EDIT_EVIDENCE',
+                      payload: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </FirstDiv> */}
+            {/* <FirstDiv>
                 <div>
                   <Label>Domain</Label>
                   <Input
@@ -205,14 +270,14 @@ const Edit = () => {
                     }
                   />
                 </div>
-              </FirstDiv>
-              <Subhead>
+              </FirstDiv> */}
+            {/* <Subhead>
                 <Icon>
                   <FontAwesomeIcon icon={faBookmark} color='#EC8D20' />
                 </Icon>
                 <Subhead2>Policies</Subhead2>
-              </Subhead>
-              <Div>
+              </Subhead> */}
+            {/* <Div>
                 <SecondDiv>
                   <div>
                     <Label>Policy Type:</Label>
@@ -331,14 +396,15 @@ const Edit = () => {
                     </Div>
                   </ToggleContainer>
                 </SecondDiv>
-              </Div>
+              </Div> */}
 
-              <FormInputBtn type='submit' onClick={() => handleEdit(post.id)}>
-                Submit
-              </FormInputBtn>
-            </Form>
-          </>
-        )}
+            <FormInputBtn type='submit' onClick={editJournal}>
+              Submit
+            </FormInputBtn>
+            {console.log(post.issn)}
+          </Form>
+        </>
+        {/* )} */}
       </PolicyContainer>
     </SectionLayout>
   );
