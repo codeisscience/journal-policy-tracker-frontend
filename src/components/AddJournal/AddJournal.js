@@ -40,15 +40,16 @@ const AddJournal = () => {
   const [dataavail, setDataavail] = useState(false);
   const [datashared, setDatashared] = useState(false);
   const [peerreview, setPeerreview] = useState(false);
-  const [enforced, setEnforced] = useState('');
+  const [enforced, setEnforced] = useState('YES');
   const [evidence, setEvidence] = useState('');
   const [policyTitle, setPolicyTitle] = useState('');
-  // const [firstYear] = useState(2000);
+  const [firstYear, setFirstYear] = useState();
 
   const [createJournal, { data, error }] = useMutation(CREATE_JOURNAL);
 
   console.log({ data });
   // console.log(createJournal);
+  const history = useHistory();
 
   const addJournal = async (event) => {
     event.preventDefault();
@@ -67,11 +68,12 @@ const AddJournal = () => {
             isDataAvailabilityStatementPublished: dataavail,
             isDataShared: datashared,
             isDataPeerReviewed: peerreview,
-            firstYear: 2000,
+            firstYear,
           },
         },
       },
     });
+    history.push('/journal');
   };
 
   const handleChangeData = (nextChecked) => {
@@ -117,28 +119,10 @@ const AddJournal = () => {
             </div>
           </FirstDiv>
           <FirstDiv>
-            {/* <div>
-              <Label>Domain</Label>
-              <Input
-                type='text'
-                required
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-              />
-            </div> */}
             <div>
               <Label>Source</Label>
               <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
             </div>
-            {/* <div>
-              <Label>Authors</Label>
-              <Input
-                type='text'
-                required
-                value={authors}
-                onChange={(e) => setAuthors(e.target.value)}
-              />
-            </div> */}
           </FirstDiv>
           <Subhead>
             <Icon>
@@ -148,15 +132,15 @@ const AddJournal = () => {
           </Subhead>
           <Div>
             <SecondDiv>
-              {/* <div>
+              <div>
                 <Label>First Year</Label>
                 <Input
-                  type='text'
+                  type='number'
                   required
-                  value={policyTitle}
-                  onChange={(e) => setPolicyTitle(e.target.value)}
+                  value={firstYear}
+                  onChange={(e) => setFirstYear(parseInt(e.target.value, 10))}
                 />
-              </div> */}
+              </div>
               <div>
                 <Label>Policy Title</Label>
                 <Input

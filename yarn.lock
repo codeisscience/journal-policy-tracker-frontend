@@ -11063,6 +11063,13 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-user-profile@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-user-profile/-/react-user-profile-1.0.3.tgz#4b34629e1da4bf74ed6ca709164ee5d3f2e34b7a"
+  integrity sha512-ygJvgMhcEommMEttF7x9/lwqmfMlG7Q4bHOu0yT8yo5+kHxOxp295wCFyFbpXb6pkpEpxer+7NxYF3ExpcYBXA==
+  dependencies:
+    prop-types "^15.6.2"
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"

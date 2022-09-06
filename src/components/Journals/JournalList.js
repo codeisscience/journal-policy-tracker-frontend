@@ -4,7 +4,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FiSearch } from 'react-icons/fi';
@@ -26,38 +26,42 @@ import reducer from '../../useReducer/Journals/reducer';
 const JournalList = () => {
   const initialState = {
     posts: [],
-    searchResults: [],
-    currentPage: 1,
-    search: '',
-    postsPerPage: 10,
   };
+
+  const [searchResults, setSearchResults] = useState([]);
+  const [search, setSearch] = useState('');
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { data, loading } = useQuery(GET_ALL_JOURNALS, {
-    variables: { currentPageNumber: state.currentPage, limitValue: state.postsPerPage },
+    variables: { currentPageNumber: currentPage, limitValue: postsPerPage },
+    fetchPolicy: 'network-only',
   });
 
-  console.log(typeof state.postsPerPage);
+  let journalsOnCurrentPage;
 
-  useEffect(() => {
-    dispatch({ type: 'POSTS', payload: data?.getAllJournals });
-  }, [data?.getAllJournals]);
+  if (data) {
+    journalsOnCurrentPage = data?.getAllJournals?.journals;
+  }
 
-  useEffect(() => {
-    const filteredResults = state.posts.filter(
-      (post) =>
-        post.issn.includes(state.search) ||
-        post.title.toLowerCase().includes(state.search.toLowerCase()),
-    );
+  // useEffect(() => {
+  //   const filteredResults = journalsOnCurrentPage.filter(
+  //     (post) =>
+  //       post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+  //   );
+  //   setSearchResults(filteredResults.reverse());
+  // }, [journalsOnCurrentPage, search]);
 
-    dispatch({ type: 'SEARCH_RESULTS', payload: filteredResults.reverse() });
-  }, [state.posts, state.search]);
+  // console.log(currentPage);
 
-  const indexOfLastPost = state.currentPage * state.postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
-  const currentPost = state.searchResults.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => dispatch({ type: 'CURRENT_PAGE', payload: pageNumber });
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPost = searchResults.slice(indexOfFirstPost, indexOfLastPost);
 
   if (loading) {
     return <h2>loading...</h2>;
@@ -70,8 +74,8 @@ const JournalList = () => {
             id='search'
             type='text'
             placeholder='Search Journal'
-            value={state.search}
-            onChange={(e) => dispatch({ type: 'SEARCH', payload: e.target.value })}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <SearchButton type='submit'>
             <FiSearch />
@@ -79,7 +83,7 @@ const JournalList = () => {
         </Search>
       </form>
       <Box>
-        {currentPost.map((blog) => (
+        {journalsOnCurrentPage.map((blog) => (
           <Preview key={blog.id}>
             <Head2 primary>{blog.domainName}</Head2>
             <Link to={`/policy/${blog.issn}`}>
@@ -99,8 +103,8 @@ const JournalList = () => {
           </Preview>
         ))}
         <Pagination
-          postsPerPage={state.postsPerPage}
-          totalPosts={state.posts.length}
+          postsPerPage={postsPerPage}
+          totalPosts={data.getAllJournals.totalJournals}
           paginate={paginate}
         />
       </Box>

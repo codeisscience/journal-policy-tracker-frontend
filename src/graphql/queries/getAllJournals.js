@@ -3,13 +3,17 @@ import { gql } from '@apollo/client';
 const GET_ALL_JOURNALS = gql`
   query GetAllJournals($currentPageNumber: Int!, $limitValue: Int!) {
     getAllJournals(currentPageNumber: $currentPageNumber, limitValue: $limitValue) {
-      id
-      title
-      issn
-      domainName
-      createdAt
-      updatedAt
-      createdBy
+      journals {
+        id
+        title
+        url
+        issn
+        domainName
+        createdAt
+        updatedAt
+        createdBy
+      }
+      totalJournals
     }
   }
 `;

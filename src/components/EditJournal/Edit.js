@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 /* eslint-disable arrow-body-style */
@@ -30,25 +31,8 @@ import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
 
 const Edit = () => {
-  const {
-    // posts,
-    handleEdit,
-    // editTitle,
-    editJournaltype,
-    // editAuthors,
-    editTopic,
-    editIssn,
-    editLink,
-    editPolicy,
-    editDataavail,
-    editDatashared,
-    editPeerreview,
-    editEnforced,
-    editEvidence,
-    dispatch,
-  } = useGlobalContext();
-
   const [post, setPost] = useState([]);
+  const [plicies, setPlicies] = useState([]);
 
   const { issn } = useParams();
 
@@ -56,33 +40,20 @@ const Edit = () => {
     variables: { issn },
   });
 
-  console.log(data);
-  console.log(post?.title);
-
   useEffect(() => {
-    if (loading === false) {
+    if (data) {
       setPost(data?.getJournalByISSN);
     }
-  }, [data?.getJournalByISSN, loading]);
+    if (data) {
+      setPlicies(data?.getJournalByISSN?.policies);
+    }
+  }, [data?.getJournalByISSN, data, data?.getJournalByISSN?.policies]);
 
-  const [title, setTitle] = useState('');
-  const [journalType, setJournalType] = useState('');
-  const [topic, setTopic] = useState('');
-  const [link, setLink] = useState('');
-  const [policy, setPolicy] = useState('');
-  const [dataavail, setDataavail] = useState(false);
-  const [datashared, setDatashared] = useState(false);
-  const [peerreview, setPeerreview] = useState(false);
-  const [enforced, setEnforced] = useState('');
-  const [evidence, setEvidence] = useState('');
-  const [policyTitle, setPolicyTitle] = useState('');
-  const [firstYear, setFirstYear] = useState(2000);
+  const setPost2 = (key, value) => setPost((current) => ({ ...current, [key]: value }));
 
-  console.log(post);
+  // const setPost3 = (key, value) => setPlicies((current) => ({ ...current, [key]: value }));
 
   const [updateJournal, { data1, error1 }] = useMutation(UPDATE_JOURNAL);
-
-  console.log(data1);
 
   const editJournal = async (event) => {
     event.preventDefault();
@@ -90,83 +61,45 @@ const Edit = () => {
       variables: {
         issnToUpdate: issn,
         newJournalDetails: {
-          title,
-          url: link,
-          issn,
-          domainName: topic,
+          title: post.title,
+          url: post.url,
+          issn: post.issn,
+          domainName: post.domainName,
           policies: {
-            title: policyTitle,
-            policyType: policy,
-            enforced,
-            enforcedEvidence: evidence,
-            isDataAvailabilityStatementPublished: dataavail,
-            isDataShared: datashared,
-            isDataPeerReviewed: peerreview,
-            firstYear,
+            title: post?.policies?.title,
+            policyType: post.policies.policyType,
+            enforced: post?.policies?.enforced,
+            enforcedEvidence: post?.policies?.enforcedEvidence,
+            isDataAvailabilityStatementPublished:
+              post?.policies?.isDataAvailabilityStatementPublished,
+            isDataShared: post?.policies?.isDataShared,
+            isDataPeerReviewed: post?.policies?.isDataPeerReviewed,
+            firstYear: post?.policies?.firstYear,
           },
         },
       },
     });
+    console.log({ response });
   };
 
-  // const post = posts.find((post) => post.issn.toString() === issn);
-  // useEffect(() => {
-  //   if (post) {
-  //     // dispatch({
-  //     //   type: 'EDIT_TITLE',
-  //     //   payload: post?.title,
-  //     // });
-  //     // dispatch({
-  //     //   type: 'EDIT_AUTHORS',
-  //     //   payload: post.authors,
-  //     // });
-  //     dispatch({
-  //       type: 'EDIT_JOURNALTYPE',
-  //       payload: post.domainName,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_TOPIC',
-  //       payload: post.topic,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_ISSN',
-  //       payload: post.issn,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_LINK',
-  //       payload: post.url,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_POLICY',
-  //       payload: post.policy,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_DATAAVAIL',
-  //       payload: post.dataavail,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_DATASHARED',
-  //       payload: post.datashared,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_PEERREVIEW',
-  //       payload: post.peerreview,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_ENFORCED',
-  //       payload: post.enforced,
-  //     });
-  //     dispatch({
-  //       type: 'EDIT_EVIDENCE',
-  //       payload: post.evidence,
-  //     });
-  //   }
-  // }, [dispatch, post]);
+  // console.log({
+  //   policies: {
+  //     title: post?.policies?.title,
+  //     policyType: post?.policies?.policyType,
+  //     enforced: post?.policies?.enforced,
+  //     enforcedEvidence: post?.policies?.enforcedEvidence,
+  //     isDataAvailabilityStatementPublished: post?.policies?.isDataAvailabilityStatementPublished,
+  //     isDataShared: post?.policies?.isDataShared,
+  //     isDataPeerReviewed: post?.policies?.isDataPeerReviewed,
+  //     firstYear: post?.policies?.firstYear,
+  //   },
+  // });
+
+  if (!post) return <div>Loading</div>;
 
   return (
     <SectionLayout>
       <PolicyContainer>
-        {/* {title && ( */}
         <>
           <Head>Edit Journal Policies</Head>
           <Form onSubmit={editJournal}>
@@ -174,28 +107,21 @@ const Edit = () => {
             <Input
               type='text'
               required
-              value={post?.title}
-              // onChange={
-              //   (e) => setTitle(e.target.value)
-              //   // dispatch({
-              //   //   type: 'EDIT_TITLE',
-              //   //   payload: e.target.value,
-              //   // })
-              // }
+              value={post.title}
+              onChange={(e) => {
+                setPost2('title', e.target.value);
+              }}
             />
-            {/* <FirstDiv>
+            <FirstDiv>
               <div>
                 <Label>Journal Type</Label>
                 <Input
                   type='text'
                   required
-                  value={journalType}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'EDIT_JOURNALTYPE',
-                      payload: e.target.value,
-                    })
-                  }
+                  value={post.domainName}
+                  onChange={(e) => {
+                    setPost2('domainName', e.target.value);
+                  }}
                 />
               </div>
               <div>
@@ -203,13 +129,10 @@ const Edit = () => {
                 <Input
                   type='text'
                   required
-                  value={editIssn}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'EDIT_ISSN',
-                      payload: e.target.value,
-                    })
-                  }
+                  value={post.issn}
+                  onChange={(e) => {
+                    setPost2('issn', e.target.value);
+                  }}
                 />
               </div>
               <div>
@@ -217,191 +140,164 @@ const Edit = () => {
                 <Input
                   type='text'
                   required
-                  value={editEvidence}
+                  value={post?.policies?.enforcedEvidence}
+                  onChange={(e) => {
+                    setPost2('policies?.enforcedEvidence', e.target.value);
+                  }}
+                />
+              </div>
+            </FirstDiv>
+            <FirstDiv>
+              <div>
+                <Label>Domain</Label>
+                <Input
+                  type='text'
+                  required
+                  value={post.domainName}
+                  onChange={(e) => {
+                    setPost2('domainName', e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <Label>Source</Label>
+                <Input
+                  type='text'
+                  required
+                  value={post.url}
+                  onChange={(e) => {
+                    setPost2('url', e.target.value);
+                  }}
+                />
+              </div>
+              {/* <div>
+                <Label>Authors</Label>
+                <Input
+                  type='text'
+                  required
+                  value={editA}
                   onChange={(e) =>
                     dispatch({
-                      type: 'EDIT_EVIDENCE',
+                      type: 'EDIT_AUTHORS',
                       payload: e.target.value,
                     })
                   }
                 />
-              </div>
-            </FirstDiv> */}
-            {/* <FirstDiv>
+              </div> */}
+            </FirstDiv>
+            <Subhead>
+              <Icon>
+                <FontAwesomeIcon icon={faBookmark} color='#EC8D20' />
+              </Icon>
+              <Subhead2>Policies</Subhead2>
+            </Subhead>
+            <Div>
+              <SecondDiv>
                 <div>
-                  <Label>Domain</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editTopic}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_TOPIC',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
+                  <Label>Policy Type:</Label>
+                  <Select
+                    value={post?.policies?.policyType}
+                    onChange={(e) => {
+                      setPost2('policies.policyType', e.target.value);
+                    }}
+                  >
+                    <option value='NUMBER_ONE'>NUMBER_ONE</option>
+                    <option value='NUMBER_TWO'>NUMBER_TWO</option>
+                    <option value='NUMBER_THREE'>NUMBER_THREE</option>
+                  </Select>
                 </div>
                 <div>
-                  <Label>Source</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editLink}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_LINK',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
+                  <Label>Enforced:</Label>
+                  <Select
+                    value={post?.policies?.enforced}
+                    onChange={(e) => {
+                      setPost2('policies.enforced', e.target.value);
+                    }}
+                  >
+                    <option value='YES'>Yes - before publication</option>
+                    <option value='NO'>Option 2</option>
+                  </Select>
                 </div>
-                <div>
-                  <Label>Authors</Label>
-                  <Input
-                    type='text'
-                    required
-                    value={editAuthors}
-                    onChange={(e) =>
-                      dispatch({
-                        type: 'EDIT_AUTHORS',
-                        payload: e.target.value,
-                      })
-                    }
-                  />
-                </div>
-              </FirstDiv> */}
-            {/* <Subhead>
-                <Icon>
-                  <FontAwesomeIcon icon={faBookmark} color='#EC8D20' />
-                </Icon>
-                <Subhead2>Policies</Subhead2>
-              </Subhead> */}
-            {/* <Div>
-                <SecondDiv>
-                  <div>
-                    <Label>Policy Type:</Label>
-                    <Select
-                      value={editPolicy}
-                      onChange={(e) =>
-                        dispatch({
-                          type: 'EDIT_POLICY',
-                          payload: e.target.value,
-                        })
-                      }
-                    >
-                      <option value='policy 1'>Policy 1</option>
-                      <option value='policy 2'>Policy 2</option>
-                      <option value='policy 3'>Policy 3</option>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label>Enforced:</Label>
-                    <Select
-                      value={editEnforced}
-                      onChange={(e) =>
-                        dispatch({
-                          type: 'EDIT_ENFORCED',
-                          payload: e.target.value,
-                        })
-                      }
-                    >
-                      <option value='policy 1'>Yes - before publication</option>
-                      <option value='policy 2'>Policy 2</option>
-                    </Select>
-                  </div>
-                </SecondDiv>
-                <SecondDiv primary>
-                  <ToggleContainer primary>
-                    <Div primary>
-                      <Label>Data Availability Statement Published:</Label>
-                      <Label htmlFor='material-switch'>
-                        <Toggle>
-                          <Switch
-                            onChange={(nextChecked) =>
-                              dispatch({
-                                type: 'EDIT_DATAAVAIL',
-                                payload: nextChecked,
-                              })
-                            }
-                            checked={editDataavail}
-                            onColor='#ef9c38'
-                            onHandleColor='#'
-                            handleDiameter={22}
-                            uncheckedIcon={false}
-                            checkedIcon={false}
-                            boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
-                            activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
-                            height={28}
-                            width={54}
-                            className='react-switch'
-                            id='material-switch'
-                          />
-                        </Toggle>
-                      </Label>
-                    </Div>
-                    <Div primary>
-                      <Label>Data Peer Reviewed:</Label>
-                      <Label htmlFor='material-switch'>
-                        <Toggle>
-                          <Switch
-                            onChange={(nextChecked) =>
-                              dispatch({
-                                type: 'EDIT_PEERREVIEW',
-                                payload: nextChecked,
-                              })
-                            }
-                            checked={editPeerreview}
-                            onColor='#ef9c38'
-                            onHandleColor='#'
-                            handleDiameter={22}
-                            uncheckedIcon={false}
-                            checkedIcon={false}
-                            boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
-                            activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
-                            height={28}
-                            width={54}
-                            className='react-switch'
-                            id='material-switch'
-                          />
-                        </Toggle>
-                      </Label>
-                    </Div>
-                    <Div primary>
-                      <Label>Data Shared:</Label>
-                      <Label htmlFor='material-switch'>
-                        <Toggle>
-                          <Switch
-                            onChange={(nextChecked) =>
-                              dispatch({
-                                type: 'EDIT_SHARED',
-                                payload: nextChecked,
-                              })
-                            }
-                            checked={editDatashared}
-                            onColor='#ef9c38'
-                            onHandleColor='#'
-                            handleDiameter={22}
-                            uncheckedIcon={false}
-                            checkedIcon={false}
-                            boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
-                            activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
-                            height={28}
-                            width={54}
-                            className='react-switch'
-                            id='material-switch'
-                          />
-                        </Toggle>
-                      </Label>
-                    </Div>
-                  </ToggleContainer>
-                </SecondDiv>
-              </Div> */}
+              </SecondDiv>
+              <SecondDiv primary>
+                <ToggleContainer primary>
+                  <Div primary>
+                    <Label>Data Availability Statement Published:</Label>
+                    <Label htmlFor='material-switch'>
+                      <Toggle>
+                        <Switch
+                          onChange={(nextChecked) =>
+                            setPost2('policies.isDataAvailabilityStatementPublished', nextChecked)
+                          }
+                          checked={post?.policies?.isDataAvailabilityStatementPublished}
+                          onColor='#ef9c38'
+                          onHandleColor='#'
+                          handleDiameter={22}
+                          uncheckedIcon={false}
+                          checkedIcon={false}
+                          boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                          activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                          height={28}
+                          width={54}
+                          className='react-switch'
+                          id='material-switch'
+                        />
+                      </Toggle>
+                    </Label>
+                  </Div>
+                  <Div primary>
+                    <Label>Data Peer Reviewed:</Label>
+                    <Label htmlFor='material-switch'>
+                      <Toggle>
+                        <Switch
+                          onChange={(nextChecked) =>
+                            setPost2('policies.isDataPeerReviewed', nextChecked)
+                          }
+                          checked={post?.policies?.isDataPeerReviewed}
+                          onColor='#ef9c38'
+                          onHandleColor='#'
+                          handleDiameter={22}
+                          uncheckedIcon={false}
+                          checkedIcon={false}
+                          boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                          activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                          height={28}
+                          width={54}
+                          className='react-switch'
+                          id='material-switch'
+                        />
+                      </Toggle>
+                    </Label>
+                  </Div>
+                  <Div primary>
+                    <Label>Data Shared:</Label>
+                    <Label htmlFor='material-switch'>
+                      <Toggle>
+                        <Switch
+                          onChange={(nextChecked) => setPost2('policies.isDataShared')}
+                          checked={post?.policies?.isDataShared}
+                          onColor='#ef9c38'
+                          onHandleColor='#'
+                          handleDiameter={22}
+                          uncheckedIcon={false}
+                          checkedIcon={false}
+                          boxShadow='0px 1px 5px rgba(0, 0, 0, 0.6)'
+                          activeBoxShadow='0px 0px 1px 10px rgba(0, 0, 0, 0.2)'
+                          height={28}
+                          width={54}
+                          className='react-switch'
+                          id='material-switch'
+                        />
+                      </Toggle>
+                    </Label>
+                  </Div>
+                </ToggleContainer>
+              </SecondDiv>
+            </Div>
 
             <FormInputBtn type='submit' onClick={editJournal}>
               Submit
             </FormInputBtn>
-            {console.log(post.issn)}
           </Form>
         </>
         {/* )} */}
@@ -411,3 +307,10 @@ const Edit = () => {
 };
 
 export default Edit;
+
+/**
+ * fetch post details via graphql query (useQuery query)
+ * set these details in local state (useState, useEffect)
+ * use this state to give values to input and update via onChange
+ * onClick for save, use post state
+ */

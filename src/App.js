@@ -12,6 +12,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
+import Profile from './components/Authentication/User-Profile/useprofile';
 import { api } from './api/posts';
 import { Journal, Contact, Manifesto, Home } from './pages';
 import { Footer, Auth, Header, Login, JournalDetails, AddJournal, Layout } from './components';
@@ -69,6 +70,10 @@ function App() {
             <Route path='/Login'>
               <Login />
             </Route>
+            <Route path='/profile'>
+              <Profile />
+            </Route>
+
             <Redirect to='/' />
           </Switch>
           <Footer />

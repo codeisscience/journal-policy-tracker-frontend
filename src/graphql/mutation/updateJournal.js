@@ -9,6 +9,9 @@ const UPDATE_JOURNAL = gql`
         url
         issn
         domainName
+        createdAt
+        updatedAt
+        createdBy
         policies {
           title
           firstYear
@@ -20,9 +23,6 @@ const UPDATE_JOURNAL = gql`
           enforced
           enforcedEvidence
         }
-        createdAt
-        updatedAt
-        createdBy
       }
     }
   }

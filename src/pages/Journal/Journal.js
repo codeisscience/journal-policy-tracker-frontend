@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 import React, { useReducer } from 'react';
@@ -10,13 +11,14 @@ import reducer from '../../useReducer/Journals/reducer';
 const Journal = () => {
   const initialState = {
     currentPage: 1,
-    postsPerPage: 10,
+    postsPerPage: 5,
   };
 
   const [state] = useReducer(reducer, initialState);
 
   const { loading } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: state.currentPage, limitValue: state.postsPerPage },
+    fetchPolicy: 'network-only',
   });
 
   if (loading) {
