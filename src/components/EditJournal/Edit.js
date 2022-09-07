@@ -27,8 +27,8 @@ import {
   ToggleContainer,
 } from '../AddJournal/styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
+import Spinner from '../marginals/Loader/Spinner';
 
 const Edit = () => {
   const [post, setPost] = useState([]);
@@ -95,7 +95,9 @@ const Edit = () => {
     });
   };
 
-  if (!post) return <div>Loading</div>;
+  if (loading) {
+    <Spinner />;
+  }
 
   return (
     <SectionLayout>

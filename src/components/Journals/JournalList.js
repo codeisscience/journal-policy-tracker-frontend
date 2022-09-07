@@ -21,7 +21,8 @@ import {
   SearchButton,
 } from './styles';
 import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
-import reducer from '../../useReducer/Journals/reducer';
+import Spinner from '../marginals/Loader/Spinner';
+import Error from '../marginals/Error/Error';
 
 const JournalList = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -33,13 +34,11 @@ const JournalList = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const { data, loading } = useQuery(GET_ALL_JOURNALS, {
+  const { data, loading, error } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: currentPage, limitValue: postsPerPage },
-    // fetchPolicy: 'network-only',
   });
 
   useEffect(() => {
-    console.log({ data });
     if (data) {
       const filteredResults = data.getAllJournals.journals.filter(
         (post) =>
@@ -49,13 +48,12 @@ const JournalList = () => {
     }
   }, [data, search]);
 
-  console.log(currentPage);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
   if (loading) {
-    return <h2>loading...</h2>;
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <Error />;
   }
   return (
     <>

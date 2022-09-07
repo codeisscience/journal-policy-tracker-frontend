@@ -29,13 +29,12 @@ import {
   Icon,
   ButtonContainer,
 } from './styles';
-import { Authors, Head3 } from '../Journals/styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
 import reducer from '../../useReducer/JournalDetails/reducer';
 import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
 import DELETE_JOURNAL from '../../graphql/mutation/deleteJournal';
+import Spinner from '../marginals/Loader/Spinner';
 
 function Details() {
   const initialState = {
@@ -126,6 +125,10 @@ function Details() {
       ans: indv && indv.createdBy,
     },
   ];
+
+  if (loading) {
+    <Spinner />;
+  }
 
   return (
     <SectionLayout>
