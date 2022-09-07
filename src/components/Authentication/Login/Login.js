@@ -57,7 +57,6 @@ const FormLogin = () => {
 
     if (response.data?.login.errors) {
       const errorMapped = toErrorMap(response.data.login.errors);
-      // console.log(toErrorMap(response.data.login.errors));
       if (errorMapped.usernameOrEmail) {
         setUsernameOrEmailErrorMessage(errorMapped.usernameOrEmail);
         setIsUsernameOrEmailError(true);
@@ -67,8 +66,15 @@ const FormLogin = () => {
         setPasswordErrorMessage(errorMapped.password);
         setIsPasswordError(true);
       }
+      if (!password) {
+        setPasswordErrorMessage('Password required');
+        setIsPasswordError(true);
+      }
+      if (password.length < 6) {
+        setPasswordErrorMessage('Password needs to be 6 characters or more');
+        setIsPasswordError(true);
+      }
     } else if (response.data?.login.user) {
-      // console.log('Login Successful');
       resetErrorStateValues();
       history.push('/journal');
     }
@@ -82,10 +88,12 @@ const FormLogin = () => {
         <FormInputs>
           <FormLabel htmlFor='email'>{signup.labelEmail}</FormLabel>
           <FormInput id='email' label='Email Address' type='email' name='email' />
+          {isUsernameOrEmailError && <FormInputsP>{usernameOrEmailErrorMessage}</FormInputsP>}
         </FormInputs>
         <FormInputs>
           <FormLabel htmlFor='password'>{signup.labelPassword}</FormLabel>
           <FormInput id='password' label='Password' type='password' name='password' />
+          {isPasswordError && <FormInputsP>{passwordErrorMessage}</FormInputsP>}
         </FormInputs>
         <ButtonContainer>
           <FormInputBtn type='submit'>{signup.buttonLogin}</FormInputBtn>
