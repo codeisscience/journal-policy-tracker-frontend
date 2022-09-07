@@ -32,7 +32,6 @@ import { SectionLayout, PolicyContainer } from '../marginals';
 
 const Edit = () => {
   const [post, setPost] = useState([]);
-  const [plicies, setPlicies] = useState([]);
 
   const { issn } = useParams();
 
@@ -43,18 +42,34 @@ const Edit = () => {
   useEffect(() => {
     if (data) {
       setPost(data?.getJournalByISSN);
-    }
-    if (data) {
-      setPlicies(data?.getJournalByISSN?.policies);
+
+      console.log({ data });
+      setTitle(data.getJournalByISSN.policies.title);
+      setPolicyType(data.getJournalByISSN.policies.policyType);
+      setEnforced(data.getJournalByISSN.policies.enforced);
+      setEnforcedEvidence(data.getJournalByISSN.policies.enforcedEvidence);
+      setIsDataAvailabilityStatementPublished(
+        data.getJournalByISSN.policies.isDataAvailabilityStatementPublished,
+      );
+      setIsDataShared(data.getJournalByISSN.policies.isDataShared);
+      setIsDataPeerReviewed(data.getJournalByISSN.policies.isDataPeerReviewed);
+      setFirstYear(data.getJournalByISSN.policies.firstYear);
     }
   }, [data?.getJournalByISSN, data, data?.getJournalByISSN?.policies]);
 
   const setPost2 = (key, value) => setPost((current) => ({ ...current, [key]: value }));
 
-  // const setPost3 = (key, value) => setPlicies((current) => ({ ...current, [key]: value }));
+  const [title, setTitle] = useState('');
+  const [policyType, setPolicyType] = useState('');
+  const [enforced, setEnforced] = useState('');
+  const [enforcedEvidence, setEnforcedEvidence] = useState('');
+  const [isDataAvailabilityStatementPublished, setIsDataAvailabilityStatementPublished] =
+    useState(false);
+  const [isDataShared, setIsDataShared] = useState(false);
+  const [isDataPeerReviewed, setIsDataPeerReviewed] = useState(false);
+  const [firstYear, setFirstYear] = useState(9999);
 
   const [updateJournal, { data1, error1 }] = useMutation(UPDATE_JOURNAL);
-
   const editJournal = async (event) => {
     event.preventDefault();
     const response = await updateJournal({
@@ -66,34 +81,19 @@ const Edit = () => {
           issn: post.issn,
           domainName: post.domainName,
           policies: {
-            title: post?.policies?.title,
-            policyType: post.policies.policyType,
-            enforced: post?.policies?.enforced,
-            enforcedEvidence: post?.policies?.enforcedEvidence,
-            isDataAvailabilityStatementPublished:
-              post?.policies?.isDataAvailabilityStatementPublished,
-            isDataShared: post?.policies?.isDataShared,
-            isDataPeerReviewed: post?.policies?.isDataPeerReviewed,
-            firstYear: post?.policies?.firstYear,
+            title,
+            policyType,
+            enforced,
+            enforcedEvidence,
+            isDataAvailabilityStatementPublished,
+            isDataShared,
+            isDataPeerReviewed,
+            firstYear,
           },
         },
       },
     });
-    console.log({ response });
   };
-
-  // console.log({
-  //   policies: {
-  //     title: post?.policies?.title,
-  //     policyType: post?.policies?.policyType,
-  //     enforced: post?.policies?.enforced,
-  //     enforcedEvidence: post?.policies?.enforcedEvidence,
-  //     isDataAvailabilityStatementPublished: post?.policies?.isDataAvailabilityStatementPublished,
-  //     isDataShared: post?.policies?.isDataShared,
-  //     isDataPeerReviewed: post?.policies?.isDataPeerReviewed,
-  //     firstYear: post?.policies?.firstYear,
-  //   },
-  // });
 
   if (!post) return <div>Loading</div>;
 
@@ -140,9 +140,21 @@ const Edit = () => {
                 <Input
                   type='text'
                   required
-                  value={post?.policies?.enforcedEvidence}
+                  value={enforcedEvidence}
                   onChange={(e) => {
-                    setPost2('policies?.enforcedEvidence', e.target.value);
+                    setEnforcedEvidence(e.target.value);
+                  }}
+                />
+              </div>
+
+              <div>
+                <Label>policy title</Label>
+                <Input
+                  type='text'
+                  required
+                  value={title}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
                   }}
                 />
               </div>
@@ -170,20 +182,6 @@ const Edit = () => {
                   }}
                 />
               </div>
-              {/* <div>
-                <Label>Authors</Label>
-                <Input
-                  type='text'
-                  required
-                  value={editA}
-                  onChange={(e) =>
-                    dispatch({
-                      type: 'EDIT_AUTHORS',
-                      payload: e.target.value,
-                    })
-                  }
-                />
-              </div> */}
             </FirstDiv>
             <Subhead>
               <Icon>
@@ -195,12 +193,7 @@ const Edit = () => {
               <SecondDiv>
                 <div>
                   <Label>Policy Type:</Label>
-                  <Select
-                    value={post?.policies?.policyType}
-                    onChange={(e) => {
-                      setPost2('policies.policyType', e.target.value);
-                    }}
-                  >
+                  <Select value={policyType} onChange={(e) => setPolicyType(e.target.value)}>
                     <option value='NUMBER_ONE'>NUMBER_ONE</option>
                     <option value='NUMBER_TWO'>NUMBER_TWO</option>
                     <option value='NUMBER_THREE'>NUMBER_THREE</option>
@@ -208,12 +201,7 @@ const Edit = () => {
                 </div>
                 <div>
                   <Label>Enforced:</Label>
-                  <Select
-                    value={post?.policies?.enforced}
-                    onChange={(e) => {
-                      setPost2('policies.enforced', e.target.value);
-                    }}
-                  >
+                  <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
                     <option value='YES'>Yes - before publication</option>
                     <option value='NO'>Option 2</option>
                   </Select>
@@ -227,9 +215,9 @@ const Edit = () => {
                       <Toggle>
                         <Switch
                           onChange={(nextChecked) =>
-                            setPost2('policies.isDataAvailabilityStatementPublished', nextChecked)
+                            setIsDataAvailabilityStatementPublished(nextChecked)
                           }
-                          checked={post?.policies?.isDataAvailabilityStatementPublished}
+                          checked={isDataAvailabilityStatementPublished}
                           onColor='#ef9c38'
                           onHandleColor='#'
                           handleDiameter={22}
@@ -250,10 +238,8 @@ const Edit = () => {
                     <Label htmlFor='material-switch'>
                       <Toggle>
                         <Switch
-                          onChange={(nextChecked) =>
-                            setPost2('policies.isDataPeerReviewed', nextChecked)
-                          }
-                          checked={post?.policies?.isDataPeerReviewed}
+                          onChange={(nextChecked) => setIsDataPeerReviewed(nextChecked)}
+                          checked={isDataPeerReviewed}
                           onColor='#ef9c38'
                           onHandleColor='#'
                           handleDiameter={22}
@@ -274,8 +260,8 @@ const Edit = () => {
                     <Label htmlFor='material-switch'>
                       <Toggle>
                         <Switch
-                          onChange={(nextChecked) => setPost2('policies.isDataShared')}
-                          checked={post?.policies?.isDataShared}
+                          onChange={(nextChecked) => setIsDataShared(nextChecked)}
+                          checked={isDataShared}
                           onColor='#ef9c38'
                           onHandleColor='#'
                           handleDiameter={22}
@@ -300,17 +286,9 @@ const Edit = () => {
             </FormInputBtn>
           </Form>
         </>
-        {/* )} */}
       </PolicyContainer>
     </SectionLayout>
   );
 };
 
 export default Edit;
-
-/**
- * fetch post details via graphql query (useQuery query)
- * set these details in local state (useState, useEffect)
- * use this state to give values to input and update via onChange
- * onClick for save, use post state
- */

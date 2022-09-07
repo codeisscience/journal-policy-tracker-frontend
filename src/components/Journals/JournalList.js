@@ -24,44 +24,35 @@ import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
 import reducer from '../../useReducer/Journals/reducer';
 
 const JournalList = () => {
-  const initialState = {
-    posts: [],
-  };
-
   const [searchResults, setSearchResults] = useState([]);
   const [search, setSearch] = useState('');
 
+  // Pagination Values
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   const { data, loading } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: currentPage, limitValue: postsPerPage },
-    fetchPolicy: 'network-only',
+    // fetchPolicy: 'network-only',
   });
 
-  let journalsOnCurrentPage;
+  useEffect(() => {
+    console.log({ data });
+    if (data) {
+      const filteredResults = data.getAllJournals.journals.filter(
+        (post) =>
+          post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
+      );
+      setSearchResults(filteredResults.reverse());
+    }
+  }, [data, search]);
 
-  if (data) {
-    journalsOnCurrentPage = data?.getAllJournals?.journals;
-  }
+  console.log(currentPage);
 
-  // useEffect(() => {
-  //   const filteredResults = journalsOnCurrentPage.filter(
-  //     (post) =>
-  //       post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
-  //   );
-  //   setSearchResults(filteredResults.reverse());
-  // }, [journalsOnCurrentPage, search]);
-
-  // console.log(currentPage);
-
-  // const indexOfLastPost = currentPage * postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const currentPost = searchResults.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
   if (loading) {
     return <h2>loading...</h2>;
@@ -83,7 +74,7 @@ const JournalList = () => {
         </Search>
       </form>
       <Box>
-        {journalsOnCurrentPage.map((blog) => (
+        {searchResults.map((blog) => (
           <Preview key={blog.id}>
             <Head2 primary>{blog.domainName}</Head2>
             <Link to={`/policy/${blog.issn}`}>
