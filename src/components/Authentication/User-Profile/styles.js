@@ -1,4 +1,11 @@
-.card {
+import styled from 'styled-components';
+
+export const Heading = styled.h1`
+  font-size: 1.8rem;
+  color: #ec8d20;
+`;
+
+export const Card = styled.h1`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: auto;
@@ -6,14 +13,14 @@
   text-align: center;
   font-family: arial;
   padding: 2rem;
-}
+`;
 
-.title {
+export const Title = styled.p`
   color: grey;
   font-size: 18px;
-}
+`;
 
-button {
+export const ButtonLogout = styled.button`
   border: none;
   outline: 0;
   display: inline-block;
@@ -24,14 +31,14 @@ button {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-}
+`;
 
-a {
-  text-decoration: none;
-  /* font-size: 22px; */
-  color: black;
-}
+// a {
+//   text-decoration: none;
+//   /* font-size: 22px; */
+//   color: black;
+// }
 
-button:hover, a:hover {
-  opacity: 0.7;
-}
+// button:hover, a:hover {
+//   opacity: 0.7;
+// }

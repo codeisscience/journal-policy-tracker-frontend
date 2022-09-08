@@ -10,11 +10,11 @@ import UserProfile from 'react-user-profile';
 import { useQuery, useMutation } from '@apollo/client';
 import GET_USER from '../../../graphql/queries/GET_USER';
 import Logout from './Logout';
-import './userprofile.css';
 import { SectionLayout } from '../../marginals';
 import { Container } from 'react-bootstrap';
 import LOGOUT from '../../../graphql/mutation/LOGOUT';
 import { useHistory } from 'react-router';
+import { Heading, Card, Title, ButtonLogout } from './styles';
 
 function Profile() {
   const { data } = useQuery(GET_USER);
@@ -38,19 +38,19 @@ function Profile() {
   return (
     <SectionLayout>
       <Container>
-        <h2 style={{ textAlign: 'center' }}>User Profile</h2>
+        <Heading style={{ textAlign: 'center' }}>User Profile</Heading>
 
-        <div className='card'>
+        <Card>
           {/* <img src="/w3images/team2.jpg" alt="John" style="width:100%"> */}
           <h1>{user.fullName}</h1>
           <p>{user.username}</p>
-          <p className='title'>{user.role}</p>
+          <Title>{user.role}</Title>
           <p>Email: {user.email}</p>
 
           <p>
             <button onClick={handlelogout}>Logout</button>
           </p>
-        </div>
+        </Card>
       </Container>
     </SectionLayout>
   );

@@ -1,25 +1,31 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-curly-brace-presence */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+
+// Libraries
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Nav, Logo, Menu, MenuLink, Button, Items } from './styles';
+
+// Assets
 import { navbar } from '../../../config/content';
-import { useGlobalContext } from '../../../context/DataContext';
+
+// Styles
+import { Nav, Logo, Menu, Button, Items } from './styles';
+
+// import { useGlobalContext } from '../../../context/DataContext';
 
 function Navbar() {
-  const { search, setSearch } = useGlobalContext();
+  // const { search, setSearch } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Nav>
-      <Logo src={navbar.logo.src} />
+      <Link to='/'>
+        <Logo src={navbar.logo.src} />
+      </Link>
+
       {/* <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
         <input
           id='search'
-          type='text'
+          type='text' 
           placeholder='Search Journal'
           value={search}
           onChange={(e) => setSearch(e.target.value)}

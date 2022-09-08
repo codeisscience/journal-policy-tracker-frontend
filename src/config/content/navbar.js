@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 export default {
   title: 'Navbar',
   logo: {
-    src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702059/CiS/logo_ch4fzv.png',
+    src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662665526/CiS/code-is-science-model-2-light_zaohia.png',
     alt: 'Code Is Science',
   },
   icon: faBars,
@@ -25,15 +26,20 @@ export default {
       link: '/addjournal',
     },
     {
-      id: 'manifesto',
-      name: 'Manifesto',
-      link: '/manifesto',
+      id: 'profile',
+      name: 'Profile',
+      link: '/profile',
     },
-    {
-      id: 'contact',
-      name: 'Contact',
-      link: '/contact',
-    },
+    // {
+    //   id: 'manifesto',
+    //   name: 'Manifesto',
+    //   link: '/manifesto',
+    // },
+    // {
+    //   id: 'contact',
+    //   name: 'Contact',
+    //   link: '/contact',
+    // },
     {
       id: 'signup',
       name: 'Signup',

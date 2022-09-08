@@ -33,7 +33,7 @@ export const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: white;
+  background: #006599;
   position: absolute;
   top: 0;
   left: 0;
@@ -43,6 +43,7 @@ export const Nav = styled.div`
 
 export const Logo = styled.img`
   width: 9rem;
+  margin-left: 2rem;
 `;
 
 export const Menu = styled.div`
@@ -64,13 +65,13 @@ export const Menu = styled.div`
 export const Items = styled.li`
   text-decoration: none;
   list-style: none;
-  color: #636363;
+  color: white;
   font-weight: 500;
   padding: 0 10px;
   margin: 0 10px;
   cursor: pointer;
   text-transform: capitalize;
   :hover {
-    color: #3d9dd9;
+    color: #eae3d2;
   }
 `;

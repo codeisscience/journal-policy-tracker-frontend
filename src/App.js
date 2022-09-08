@@ -49,9 +49,6 @@ function App() {
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route path='/manifesto'>
-              <Manifesto />
-            </Route>
             <Route path='/journal'>
               <Journal />
             </Route>
@@ -73,7 +70,6 @@ function App() {
             <Route path='/profile'>
               <Profile />
             </Route>
-
             <Redirect to='/' />
           </Switch>
           <Footer />
