@@ -7,8 +7,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import useFormLogin from './useFormLogin';
-import validateLoginInfo from './validateLoginInfo.js';
+
 import {
   FormContentRight,
   FormDiv,
@@ -61,7 +60,10 @@ const FormLogin = () => {
         setUsernameOrEmailErrorMessage(errorMapped.usernameOrEmail);
         setIsUsernameOrEmailError(true);
       }
-
+      if (!/\S+@\S+\.\S+/.test(usernameOrEmail)) {
+        setUsernameOrEmailErrorMessage('Invalid email');
+        setIsUsernameOrEmailError(true);
+      }
       if (errorMapped.password) {
         setPasswordErrorMessage(errorMapped.password);
         setIsPasswordError(true);

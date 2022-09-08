@@ -1,15 +1,20 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import { useMutation } from '@apollo/client';
 import LOGOUT from '../../../graphql/mutation/LOGOUT';
 
 function Logout() {
-    const [logout, { data, error }] = useMutation(CREATE_JOURNAL);
+  const [logout, { data, error }] = useMutation(LOGOUT);
 
-    logoutUser
+  const handlelogout = async (event) => {
+    logout({});
+  };
+
   return (
     <>
       <div>Logout</div>
-      <button onClick={}>Logout</button>
+      <button onClick={handlelogout}>Logout</button>
     </>
   );
 }

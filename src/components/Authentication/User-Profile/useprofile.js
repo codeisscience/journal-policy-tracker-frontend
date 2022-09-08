@@ -1,22 +1,58 @@
-import React from 'react';
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable max-len */
+/* eslint-disable import/order */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import UserProfile from 'react-user-profile';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import GET_USER from '../../../graphql/queries/GET_USER';
+import Logout from './Logout';
+import './userprofile.css';
+import { SectionLayout } from '../../marginals';
+import { Container } from 'react-bootstrap';
+import LOGOUT from '../../../graphql/mutation/LOGOUT';
+import { useHistory } from 'react-router';
 
 function Profile() {
   const { data } = useQuery(GET_USER);
+  const [logout, { data1, error }] = useMutation(LOGOUT);
 
-  console.log(data);
+  const [user, setUser] = useState('');
 
-  const photo =
-    // eslint-disable-next-line max-len
-    'https://api-cdn.spott.tv/rest/v004/image/images/e91f9cad-a70c-4f75-9db4-6508c37cd3c0?width=587&height=599';
-  const userName = 'Harvey Specter';
-  const location = 'New York, USA';
+  const history = useHistory();
+
+  useEffect(() => {
+    if (data) {
+      setUser(data.getCurrentUser);
+    }
+  }, [setUser, data]);
+
+  const handlelogout = async (event) => {
+    logout({});
+    history.push('/signup');
+  };
+
   return (
-    <div style={{ width: '100%', marginTop: '5rem' }}>
-      <UserProfile photo={photo} userName={userName} location={location} />
-    </div>
+    <SectionLayout>
+      <Container>
+        <h2 style={{ textAlign: 'center' }}>User Profile</h2>
+
+        <div className='card'>
+          {/* <img src="/w3images/team2.jpg" alt="John" style="width:100%"> */}
+          <h1>{user.fullName}</h1>
+          <p>{user.username}</p>
+          <p className='title'>{user.role}</p>
+          <p>Email: {user.email}</p>
+
+          <p>
+            <button onClick={handlelogout}>Logout</button>
+          </p>
+        </div>
+      </Container>
+    </SectionLayout>
   );
 }
 
