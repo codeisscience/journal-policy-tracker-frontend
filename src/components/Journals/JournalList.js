@@ -32,12 +32,12 @@ const JournalList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  // Query from GraphQL
   const { data, loading, error } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: currentPage, limitValue: postsPerPage },
   });
 
+  // SearchBar values
   useEffect(() => {
     if (data) {
       const filteredResults = data.getAllJournals.journals.filter(
@@ -47,6 +47,8 @@ const JournalList = () => {
       setSearchResults(filteredResults.reverse());
     }
   }, [data, search]);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return <Spinner />;

@@ -1,18 +1,18 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/function-component-definition */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+
+// Libraries
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
 import { useMutation } from '@apollo/client';
+
+// Styles
 import CREATE_JOURNAL from '../../graphql/mutation/createJournal';
 import {
-  Container,
   Head,
   Label,
   Toggle,
@@ -28,15 +28,21 @@ import {
   ToggleContainer,
 } from './styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { useGlobalContext } from '../../context/DataContext';
+
+// Components
+import Error from '../marginals/Error/Error';
+import Spinner from '../marginals/Loader/Spinner';
+
+// import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
 
 const AddJournal = () => {
+  // States
   const [title, setTitile] = useState('');
   const [topic, setTopic] = useState('');
   const [issn, setIssn] = useState('');
   const [link, setLink] = useState('');
-  const [policy, setPolicy] = useState('');
+  const [policy, setPolicy] = useState('NUMBER_ONE');
   const [dataavail, setDataavail] = useState(false);
   const [datashared, setDatashared] = useState(false);
   const [peerreview, setPeerreview] = useState(false);
@@ -45,12 +51,13 @@ const AddJournal = () => {
   const [policyTitle, setPolicyTitle] = useState('');
   const [firstYear, setFirstYear] = useState();
 
-  const [createJournal, { data, error }] = useMutation(CREATE_JOURNAL);
+  // GraphQL Mutation
+  const [createJournal, { error, loading }] = useMutation(CREATE_JOURNAL);
 
-  console.log({ data });
-  // console.log(createJournal);
+  // useHistory router
   const history = useHistory();
 
+  // Function to add Journal
   const addJournal = async (event) => {
     event.preventDefault();
     const response = await createJournal({
@@ -76,6 +83,7 @@ const AddJournal = () => {
     history.push('/journal');
   };
 
+  // Toggle handlechange
   const handleChangeData = (nextChecked) => {
     setDataavail(nextChecked);
   };
@@ -85,7 +93,15 @@ const AddJournal = () => {
   const handleChangePeer = (nextChecked) => {
     setPeerreview(nextChecked);
   };
-  const [isPending, setIsPending] = useState(false);
+
+  // Loading and Error component
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <SectionLayout>
@@ -238,8 +254,6 @@ const AddJournal = () => {
             </SecondDiv>
           </Div>
           <FormInputBtn>Add blog</FormInputBtn>
-          {/* {!isPending && <FormInputBtn>Add blog</FormInputBtn>}
-          {isPending && <FormInputBtn>Adding blog...</FormInputBtn>} */}
         </Form>
       </PolicyContainer>
     </SectionLayout>
