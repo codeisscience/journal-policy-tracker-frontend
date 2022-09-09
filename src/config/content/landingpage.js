@@ -18,73 +18,39 @@ export default {
         id: 1,
         subhead: 'Science is often computing',
         para: 'Much of modern science involves code these days, in large part due to the amount of data available - it would be almost impossible to analyse without computational    assistance.',
+        link: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662731787/CiS/cloud-computing_1_xzmqvm.png',
       },
       {
         id: 2,
         subhead: 'Science requires peer review',
         para: 'One of the basic prerequisites for any published scientific results is that it be reviewed by peers, to ensure the research and conclusions are valid.',
+        link: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662731900/CiS/customer-review_pqze4b.png',
+      },
+      {
+        id: 3,
+        subhead: 'Software contains errors:',
+        para: 'We may try pretty hard to write software without bugs, but they definitely still happen - and errors can be hard to spot. The bug doesn’t have to cause catastrophic and obvious failure - it could be silent but sneaky.',
+        link: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662731886/CiS/error_awxsrv.png',
       },
     ],
   },
   section2: {
-    content: [
-      {
-        id: 1,
-        head: 'Code == Science',
-        para: 'If software is required to perform science, it stands to reason that errors in your software mean errors in your science.',
-        img: {
-          src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702030/CiS/clock_dryc5d.png',
-          alt: 'clock',
-        },
-      },
-      {
-        id: 2,
-        head: 'Possible Solution?',
-        para: 'Scientific code needs to be peer reviewed, and ideally open source.That’s easier said than done. Getting there requires awareness, culture shift, and adherence to best practices.',
-        img: {
-          src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702098/CiS/talking_q54knb.png',
-          alt: 'humans',
-        },
-      },
-    ],
+    id: 1,
+    head: 'Code == Science',
+    para: 'If software is required to perform science, it stands to reason that errors in your software mean errors in your science.',
+    img: {
+      src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662731146/CiS/man-thinking-to-start-a-startup_r6sbsj.svg',
+      alt: 'clock',
+    },
   },
 
   section3: {
-    content: [
-      {
-        head: 'Looking to Contribute?',
-        para: [
-          {
-            id: 1,
-            sub: 'Do you wish more code was open source? Have you wished in the past that a DB of open source journals existed? Share your story.',
-          },
-          {
-            id: 2,
-            sub: 'Add more journals to our list Right now it’s a google form, but hopefully we’ll have the full site up and running soon!',
-          },
-          {
-            id: 3,
-            sub: 'Pick up a technical or design task on GitHub: https://github.com/codeisscience/code-is-science',
-          },
-        ],
-      },
-      {
-        head: 'Latest Posts',
-        links: [
-          {
-            title: 'Good practices & good quality code',
-            link: '',
-          },
-          {
-            title: 'Mozfest Session 2017',
-            link: '',
-          },
-          {
-            title: 'Mozfest Is Coming',
-            link: '',
-          },
-        ],
-      },
-    ],
+    id: 2,
+    head: 'Possible Solution?',
+    para: 'Scientific code needs to be peer reviewed, and ideally open source.That’s easier said than done. Getting there requires awareness, culture shift, and adherence to best practices.',
+    img: {
+      src: 'https://res.cloudinary.com/dh6j2zoog/image/upload/v1662736763/CiS/concept-of-importance-of-team-work-in-business-startup_j8epyu.svg',
+      alt: 'humans',
+    },
   },
 };

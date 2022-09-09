@@ -2,22 +2,42 @@
 .section-one {
   margin-top: 5em;
   margin-bottom: 5em;
+  text-align: center;
+  display: grid;
+  justify-content: center;
 }
 
 .section-one h1,
 .section-two h1 {
-  color: #3d9dd9;
+  color: black;
+  font-size: 2rem;
+  font-weight: 800;
 }
 
 .section-one h2,
 .section-three h1 {
-  color: #e74d3c;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section-two p {
+  color: #a7a7a7;
+  font-size: 1.2rem;
+}
+
+.section-two h2 {
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 /* Landing page section two */
 .section-two,
 .section-three {
+  display: grid;
+  justify-content: center;
   margin-bottom: 5em;
+
 }
 
 /* landing page section three */
@@ -28,4 +48,57 @@
 
 .section-three a {
   text-decoration: none;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  border-style: none;
+  text-align: center;
+  align-items: center;
+}
+
+.card-container{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-content: start;
+  gap:  1rem;
+  padding: 1rem;
+}
+
+.image-header{
+  width: 6rem;
+  margin: 0px auto 0px auto;
+}
+
+.div2{
+  display: flex;
+  padding: 0.5rem 4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.image2{
+  width: 20rem;
+}
+
+.para{
+  display: grid;
+  width: 50%;
+  gap: 0.8rem;
+}
+
+.para1{
+  width: 80%;
+  color: #a7a7a7;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.para2{
+  width: 100%;
+  color: #a7a7a7;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
 }
