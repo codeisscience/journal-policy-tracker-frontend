@@ -6,3 +6,5 @@ export { default as SearchBar } from './Search/Search';
 export { default as Layout } from './shared/Layout';
 export { default as SectionLayout } from './shared/SectionLayout';
 export { default as PolicyContainer } from './shared/PolicyContainer';
+export { default as Error } from './Error/Error';
+export { default as Loader } from './Loader/Spinner';

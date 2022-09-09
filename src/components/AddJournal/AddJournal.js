@@ -30,11 +30,7 @@ import {
 import { FormInputBtn } from '../Authentication/styles';
 
 // Components
-import Error from '../marginals/Error/Error';
-import Spinner from '../marginals/Loader/Spinner';
-
-// import { useGlobalContext } from '../../context/DataContext';
-import { SectionLayout, PolicyContainer } from '../marginals';
+import { Error, Loader, SectionLayout, PolicyContainer } from '../marginals';
 
 const AddJournal = () => {
   // States
@@ -96,7 +92,7 @@ const AddJournal = () => {
 
   // Loading and Error component
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   if (error) {

@@ -1,14 +1,14 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+// Libraries
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FiSearch } from 'react-icons/fi';
-import Pagination from '../Pagination/Pagination';
+
+// Styles
 import {
   Box,
   Preview,
@@ -20,11 +20,14 @@ import {
   SearchTerm,
   SearchButton,
 } from './styles';
+
+// Components
+import Pagination from '../Pagination/Pagination';
 import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
-import Spinner from '../marginals/Loader/Spinner';
-import Error from '../marginals/Error/Error';
+import { Loader, Error } from '../marginals';
 
 const JournalList = () => {
+  // State
   const [searchResults, setSearchResults] = useState([]);
   const [search, setSearch] = useState('');
 
@@ -48,10 +51,12 @@ const JournalList = () => {
     }
   }, [data, search]);
 
+  // Paginate
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  // Loading and Error component
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   if (error) {
