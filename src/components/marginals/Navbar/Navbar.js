@@ -10,8 +10,6 @@ import { navbar } from '../../../config/content';
 // Styles
 import { Nav, Logo, Menu, Button, Items } from './styles';
 
-// import { useGlobalContext } from '../../../context/DataContext';
-
 function Navbar() {
   // const { search, setSearch } = useGlobalContext();
   const [isOpen, setIsOpen] = useState(false);
