@@ -34,7 +34,7 @@ export const Nav = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background: #1f4690;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;

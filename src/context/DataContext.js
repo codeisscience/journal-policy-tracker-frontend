@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 're
 import ReactDOM from 'react-dom';
 import { format } from 'date-fns';
 import { useQuery } from '@apollo/client';
-import { api } from '../components/api/posts';
 import useAxiosFetch from '../hooks/useAxiosFetch';
 import reducer from './reducer';
 import query from '../graphql/queries/getAllJournals';

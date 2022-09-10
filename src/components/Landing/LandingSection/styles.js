@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SectionOne = styled.section`
-  margin-top: 5em;
+  margin-top: 5rem;
   margin-bottom: 5em;
   text-align: center;
   display: grid;
@@ -45,7 +45,7 @@ export const SectionTwo = styled.section`
 
 export const Div2 = styled.div`
   display: flex;
-  padding: 0.5rem 4rem;
+  padding: 0.5rem 0rem;
   justify-content: center;
   align-items: center;
   gap: 4rem;
@@ -86,6 +86,6 @@ export const Section2P = styled.p`
 `;
 
 export const SectionTH2 = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
 `;

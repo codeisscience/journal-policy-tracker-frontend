@@ -3,6 +3,7 @@
   height: 550px;
   background-size: 150vw;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .header button {
