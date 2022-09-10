@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -11,7 +12,6 @@ import Switch from 'react-switch';
 import { useMutation } from '@apollo/client';
 
 // Styles
-import CREATE_JOURNAL from '../../graphql/mutation/createJournal';
 import {
   Head,
   Label,
@@ -32,19 +32,28 @@ import { FormInputBtn } from '../Authentication/styles';
 // Components
 import { Error, Loader, SectionLayout, PolicyContainer } from '../marginals';
 
+// Graphql
+import CREATE_JOURNAL from '../../graphql/mutation/createJournal';
+
+// Reducer
+import { useGlobalContext } from '../../context/DataContext';
+
 const AddJournal = () => {
   // States
-  const [title, setTitile] = useState('');
-  const [topic, setTopic] = useState('');
-  const [issn, setIssn] = useState('');
-  const [link, setLink] = useState('');
-  const [policy, setPolicy] = useState('NUMBER_ONE');
-  const [dataavail, setDataavail] = useState(false);
-  const [datashared, setDatashared] = useState(false);
-  const [peerreview, setPeerreview] = useState(false);
-  const [enforced, setEnforced] = useState('YES');
-  const [evidence, setEvidence] = useState('');
-  const [policyTitle, setPolicyTitle] = useState('');
+  const {
+    title,
+    topic,
+    issn,
+    link,
+    policy,
+    dataavail,
+    datashared,
+    peerreview,
+    enforced,
+    evidence,
+    policyTitle,
+    dispatch,
+  } = useGlobalContext();
   const [firstYear, setFirstYear] = useState();
 
   // GraphQL Mutation
@@ -81,20 +90,19 @@ const AddJournal = () => {
 
   // Toggle handlechange
   const handleChangeData = (nextChecked) => {
-    setDataavail(nextChecked);
+    dispatch({ type: 'SET_DATAAVAIL', payload: nextChecked });
   };
   const handleChangeData2 = (nextChecked) => {
-    setDatashared(nextChecked);
+    dispatch({ type: 'SET_DATASHARED', payload: nextChecked });
   };
   const handleChangePeer = (nextChecked) => {
-    setPeerreview(nextChecked);
+    dispatch({ type: 'SET_PEERREVIEW', payload: nextChecked });
   };
 
   // Loading and Error component
   if (loading) {
     return <Loader />;
   }
-
   if (error) {
     return <Error />;
   }
@@ -105,7 +113,12 @@ const AddJournal = () => {
         <Head>Create Journal Policies</Head>
         <Form onSubmit={addJournal}>
           <Label>Journal titile</Label>
-          <Input type='text' required value={title} onChange={(e) => setTitile(e.target.value)} />
+          <Input
+            type='text'
+            required
+            value={title}
+            onChange={(e) => dispatch({ type: 'SET_TITLE', payload: e.target.value })}
+          />
           <FirstDiv>
             <div>
               <Label>Journal Type</Label>
@@ -113,12 +126,17 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={topic}
-                onChange={(e) => setTopic(e.target.value)}
+                onChange={(e) => dispatch({ type: 'SET_TOPIC', payload: e.target.value })}
               />
             </div>
             <div>
               <Label>ISSN Number</Label>
-              <Input type='text' required value={issn} onChange={(e) => setIssn(e.target.value)} />
+              <Input
+                type='text'
+                required
+                value={issn}
+                onChange={(e) => dispatch({ type: 'SET_ISSN', payload: e.target.value })}
+              />
             </div>
             <div>
               <Label>Enforced Evidence</Label>
@@ -126,14 +144,19 @@ const AddJournal = () => {
                 type='text'
                 required
                 value={evidence}
-                onChange={(e) => setEvidence(e.target.value)}
+                onChange={(e) => dispatch({ type: 'SET_EVIDENCE', payload: e.target.value })}
               />
             </div>
           </FirstDiv>
           <FirstDiv>
             <div>
               <Label>Source</Label>
-              <Input type='text' required value={link} onChange={(e) => setLink(e.target.value)} />
+              <Input
+                type='text'
+                required
+                value={link}
+                onChange={(e) => dispatch({ type: 'SET_LINK', payload: e.target.value })}
+              />
             </div>
           </FirstDiv>
           <Subhead>
@@ -159,12 +182,15 @@ const AddJournal = () => {
                   type='text'
                   required
                   value={policyTitle}
-                  onChange={(e) => setPolicyTitle(e.target.value)}
+                  onChange={(e) => dispatch({ type: 'POLICYTITLE', payload: e.target.value })}
                 />
               </div>
               <div>
                 <Label>Policy Type:</Label>
-                <Select value={policy} onChange={(e) => setPolicy(e.target.value)}>
+                <Select
+                  value={policy}
+                  onChange={(e) => dispatch({ type: 'SET_POLICY', payload: e.target.value })}
+                >
                   <option value='NUMBER_ONE'>NUMBER_ONE</option>
                   <option value='NUMBER_TWO'>NUMBER_TWO</option>
                   <option value='NUMBER_THREE'>NUMBER_THREE</option>
@@ -172,7 +198,10 @@ const AddJournal = () => {
               </div>
               <div>
                 <Label>Enforced:</Label>
-                <Select value={enforced} onChange={(e) => setEnforced(e.target.value)}>
+                <Select
+                  value={enforced}
+                  onChange={(e) => dispatch({ type: 'SET_ENFORCED', payload: e.target.value })}
+                >
                   <option value='YES'>Yes - before publication</option>
                   <option value='NO'>Option 2</option>
                 </Select>

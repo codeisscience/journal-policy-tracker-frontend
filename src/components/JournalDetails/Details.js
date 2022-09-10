@@ -1,11 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/button-has-type */
 /* eslint-disable no-shadow */
-/* eslint-disable react/jsx-key */
 /* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-template */
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+// Libraries
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +12,8 @@ import {
   faRectangleXmark,
   faLink,
 } from '@fortawesome/free-solid-svg-icons';
-import useFetch from '../Journals/useFetch';
+
+// Styles
 import {
   Head,
   Title,
@@ -30,33 +28,37 @@ import {
   ButtonContainer,
 } from './styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { SectionLayout, PolicyContainer } from '../marginals';
-import reducer from '../../useReducer/JournalDetails/reducer';
+
+// Components
+import { SectionLayout, PolicyContainer, Loader, Error } from '../marginals';
+
+// Graphql
 import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
 import DELETE_JOURNAL from '../../graphql/mutation/deleteJournal';
-import Spinner from '../marginals/Loader/Spinner';
+
+// Reducer
+import { useGlobalContext } from '../../context/DataContext';
 
 function Details() {
-  const initialState = {
-    posts: [],
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // States
+  const { posts, dispatch } = useGlobalContext();
 
   const { issn } = useParams();
   const history = useHistory();
 
+  // Query/Mutation from GraphQL
   const { data, loading, error, refetch } = useQuery(GET_ALL_JOURNAL_DETAILS, {
     variables: { issn },
   });
 
   const [deleteJournal] = useMutation(DELETE_JOURNAL);
 
+  // Set details and delete functions
   useEffect(() => {
     if (loading === false) {
       dispatch({ type: 'POSTS', payload: data?.getJournalByISSN });
     }
-  }, [data?.getJournalByISSN, loading]);
+  }, [data?.getJournalByISSN, loading, dispatch]);
 
   const handleDelete = (issn) => {
     deleteJournal({
@@ -65,16 +67,17 @@ function Details() {
     history.push('/journal');
   };
 
-  const indv = state.posts;
+  const indv = posts;
 
-  const policy = indv?.policies;
-
+  // Policies
   const poli = [
     {
+      id: 1,
       ques: 'POLICY TYPE:',
       ans: indv?.policies && indv?.policies.policyType,
     },
     {
+      id: 2,
       ques: 'DATA AVAILABILITY STATEMENT PUBLISHED:',
       ans:
         indv?.policies && indv?.policies.isDataAvailabilityStatementPublished ? (
@@ -84,6 +87,7 @@ function Details() {
         ),
     },
     {
+      id: 3,
       ques: 'DATA SHARED:',
       ans:
         indv?.policies && indv?.policies.isDataShared ? (
@@ -93,6 +97,7 @@ function Details() {
         ),
     },
     {
+      id: 4,
       ques: 'DATA PEER REVIEWED:',
       ans:
         indv?.policies && indv?.policies.isDataPeerReviewed ? (
@@ -102,32 +107,43 @@ function Details() {
         ),
     },
     {
+      id: 5,
       ques: 'ENFORCED:',
       ans: indv?.policies && indv?.policies.enforced,
     },
     {
+      id: 6,
       ques: 'ENFORCED EVIDENCE:',
       ans: indv?.policies && indv?.policies.enforcedEvidence,
     },
   ];
 
+  // Misc attributes
   const misc = [
     {
+      id: 1,
       ques: 'CREATED AT:',
       ans: indv && indv.createdAt,
     },
     {
+      id: 2,
       ques: 'UPDATED AT:',
       ans: indv && indv.createdAt,
     },
     {
+      id: 3,
       ques: 'CREATED BY:',
       ans: indv && indv.createdBy,
     },
   ];
 
+  // Loading and Error component
   if (loading) {
-    <Spinner />;
+    return <Loader />;
+  }
+
+  if (error) {
+    return <Error />;
   }
 
   return (
@@ -144,10 +160,10 @@ function Details() {
               <Subhead2>Policies</Subhead2>
             </Subhead>
             <Box>
-              {poli.map((detail) => (
-                <List primary>
-                  <Que primary>{detail.ques}</Que>
-                  <span style={{ color: 'black' }}>{detail.ans}</span>
+              {poli.map(({ id, ques, ans }) => (
+                <List key={id} primary>
+                  <Que primary>{ques}</Que>
+                  <span style={{ color: 'black' }}>{ans}</span>
                 </List>
               ))}
             </Box>
@@ -156,10 +172,10 @@ function Details() {
               <FontAwesomeIcon icon={faLink} color='#29A3CE' />{' '}
               <span style={{ color: '#A39797' }}>{indv.url}</span>
               <UpdateContainer>
-                {misc.map((mis) => (
-                  <List>
-                    <Que>{mis.ques}</Que>
-                    <div>{mis.ans}</div>
+                {misc.map(({ ques, ans, id }) => (
+                  <List key={id}>
+                    <Que>{ques}</Que>
+                    <div>{ans}</div>
                   </List>
                 ))}
               </UpdateContainer>

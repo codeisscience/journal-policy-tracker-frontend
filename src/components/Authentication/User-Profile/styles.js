@@ -19,6 +19,10 @@ export const Title = styled.p`
   color: grey;
   font-size: 18px;
 `;
+export const H1 = styled.h1`
+  color: grey;
+  font-size: 1.3rem;
+`;
 
 export const ButtonLogout = styled.button`
   border: none;

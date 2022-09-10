@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 // Libraries
 import { Link } from 'react-router-dom';
@@ -23,17 +23,17 @@ import {
 
 // Components
 import Pagination from '../Pagination/Pagination';
-import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
 import { Loader, Error } from '../marginals';
 
-const JournalList = () => {
-  // State
-  const [searchResults, setSearchResults] = useState([]);
-  const [search, setSearch] = useState('');
+// Graphql
+import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
 
-  // Pagination Values
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+// Reducer
+import { useGlobalContext } from '../../context/DataContext';
+
+const JournalList = () => {
+  // States
+  const { searchResults, search, currentPage, postsPerPage, dispatch } = useGlobalContext();
 
   // Query from GraphQL
   const { data, loading, error } = useQuery(GET_ALL_JOURNALS, {
@@ -47,12 +47,12 @@ const JournalList = () => {
         (post) =>
           post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
       );
-      setSearchResults(filteredResults.reverse());
+      dispatch({ type: 'SEARCH_RESULTS', payload: filteredResults.reverse() });
     }
-  }, [data, search]);
+  }, [data, search, dispatch]);
 
   // Paginate
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => dispatch({ type: 'CURRENT_PAGE', payload: pageNumber });
 
   // Loading and Error component
   if (loading) {
@@ -71,7 +71,7 @@ const JournalList = () => {
             type='text'
             placeholder='Search Journal'
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => dispatch({ type: 'SEARCH', payload: e.target.value })}
           />
           <SearchButton type='submit'>
             <FiSearch />

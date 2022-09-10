@@ -14,7 +14,8 @@ import { SectionLayout } from '../../marginals';
 import { Container } from 'react-bootstrap';
 import LOGOUT from '../../../graphql/mutation/LOGOUT';
 import { useHistory } from 'react-router';
-import { Heading, Card, Title, ButtonLogout } from './styles';
+import { Heading, Card, Title, ButtonLogout, H1 } from './styles';
+import { FormInputBtn } from '../styles';
 
 function Profile() {
   const { data } = useQuery(GET_USER);
@@ -41,15 +42,11 @@ function Profile() {
         <Heading style={{ textAlign: 'center' }}>User Profile</Heading>
 
         <Card>
-          {/* <img src="/w3images/team2.jpg" alt="John" style="width:100%"> */}
-          <h1>{user.fullName}</h1>
-          <p>{user.username}</p>
+          <H1>Name: {user.fullName}</H1>
+          <H1>Username: {user.username}</H1>
           <Title>{user.role}</Title>
-          <p>Email: {user.email}</p>
-
-          <p>
-            <button onClick={handlelogout}>Logout</button>
-          </p>
+          <H1>Email: {user.email}</H1>
+          <FormInputBtn onClick={handlelogout}>Logout</FormInputBtn>
         </Card>
       </Container>
     </SectionLayout>
