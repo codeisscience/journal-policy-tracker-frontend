@@ -6,7 +6,6 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import UserProfile from 'react-user-profile';
 import { useQuery, useMutation } from '@apollo/client';
 import GET_USER from '../../../graphql/queries/GET_USER';
 import Logout from './Logout';

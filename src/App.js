@@ -4,23 +4,30 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
-import { React, useEffect, useState } from 'react';
+import { React } from 'react';
+
+// Libraries
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client';
+import { format } from 'date-fns';
 import { onError } from '@apollo/client/link/error';
+
+// Styles
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
-import { format } from 'date-fns';
+
+// Components
 import Profile from './components/Authentication/User-Profile/useprofile';
-import { api } from './api/posts';
-import { Journal, Contact, Manifesto, Home } from './pages';
+import { Journal, Manifesto, Home } from './pages';
 import { Footer, Auth, Header, Login, JournalDetails, AddJournal, Layout } from './components';
 import Navbar from './components/marginals/Navbar/Navbar';
 import Edit from './components/EditJournal/Edit';
-import useAxiosFetch from './hooks/useAxiosFetch';
+
+// Context
 import { DataProvider } from './context/DataContext';
 
+// React-Apollo setup
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
     graphqlErrors.map(({ message, location, path }) => {
