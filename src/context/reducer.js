@@ -14,20 +14,6 @@ import {
   SET_ENFORCED,
   SET_EVIDENCE,
   POLICYTITLE,
-  // SET_AUTHORS,
-  // SET_JOURNALTYPE,
-  // EDIT_TITLE,
-  // EDIT_AUTHORS,
-  // EDIT_JOURNALTYPE,
-  // EDIT_TOPIC,
-  // EDIT_ISSN,
-  // EDIT_LINK,
-  // EDIT_POLICY,
-  // EDIT_DATAAVAIL,
-  // EDIT_DATASHARED,
-  // EDIT_PEERREVIEW,
-  // EDIT_ENFORCED,
-  // EDIT_EVIDENCE,
 } from './types';
 
 const reducer = (state, action) => {
