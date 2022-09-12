@@ -19,8 +19,8 @@ function Navigation() {
         <img src={Logo} alt='code is science' srcSet='' height={81} width={150} />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-      <Navbar.Collapse id='responsive-navbar-nav' className='justify-content-evenly'>
-        <Nav>
+      <Navbar.Collapse id='responsive-navbar-nav' className='justify-content-center item'>
+        <Nav className='navbar_items'>
           <LinkContainer to='/' exact>
             <Nav.Link active={false}>Home</Nav.Link>
           </LinkContainer>

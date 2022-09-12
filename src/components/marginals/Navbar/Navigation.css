@@ -10,3 +10,11 @@
 a:link {
   text-decoration: none;
 }
+@media (min-width: 320px) and (max-width: 480px) {
+  #responsive-navbar-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
