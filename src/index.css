@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -81,6 +83,7 @@ input:focus {
 a {
   text-decoration: none;
 }
+a:link { text-decoration: none; }
 
 #clearBtn {
   cursor: pointer;

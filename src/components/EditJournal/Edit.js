@@ -1,16 +1,22 @@
-/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
 /* eslint-disable no-shadow */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 import { React, useEffect, useState } from 'react';
+
+// Libraries
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Switch from 'react-switch';
+
+// Graphql
 import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
 import UPDATE_JOURNAL from '../../graphql/mutation/updateJournal';
+
+// Styles
 import {
   Head,
   Label,
@@ -27,23 +33,34 @@ import {
   ToggleContainer,
 } from '../AddJournal/styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { SectionLayout, PolicyContainer } from '../marginals';
-import Spinner from '../marginals/Loader/Spinner';
+
+// Components
+import { SectionLayout, PolicyContainer, Error, Loader } from '../marginals';
 
 const Edit = () => {
+  // State
   const [post, setPost] = useState([]);
+  const [title, setTitle] = useState('');
+  const [policyType, setPolicyType] = useState('');
+  const [enforced, setEnforced] = useState('');
+  const [enforcedEvidence, setEnforcedEvidence] = useState('');
+  const [isDataAvailabilityStatementPublished, setIsDataAvailabilityStatementPublished] =
+    useState(false);
+  const [isDataShared, setIsDataShared] = useState();
+  const [isDataPeerReviewed, setIsDataPeerReviewed] = useState(false);
+  const [firstYear, setFirstYear] = useState();
 
   const { issn } = useParams();
 
-  const { data, loading, error, refetch } = useQuery(GET_ALL_JOURNAL_DETAILS, {
+  // Graphql query
+  const { data, loading, error } = useQuery(GET_ALL_JOURNAL_DETAILS, {
     variables: { issn },
   });
 
+  // populate existing data
   useEffect(() => {
     if (data) {
       setPost(data?.getJournalByISSN);
-
-      console.log({ data });
       setTitle(data.getJournalByISSN.policies.title);
       setPolicyType(data.getJournalByISSN.policies.policyType);
       setEnforced(data.getJournalByISSN.policies.enforced);
@@ -59,17 +76,8 @@ const Edit = () => {
 
   const setPost2 = (key, value) => setPost((current) => ({ ...current, [key]: value }));
 
-  const [title, setTitle] = useState('');
-  const [policyType, setPolicyType] = useState('');
-  const [enforced, setEnforced] = useState('');
-  const [enforcedEvidence, setEnforcedEvidence] = useState('');
-  const [isDataAvailabilityStatementPublished, setIsDataAvailabilityStatementPublished] =
-    useState(false);
-  const [isDataShared, setIsDataShared] = useState(false);
-  const [isDataPeerReviewed, setIsDataPeerReviewed] = useState(false);
-  const [firstYear, setFirstYear] = useState(9999);
-
-  const [updateJournal, { data1, error1 }] = useMutation(UPDATE_JOURNAL);
+  // function to edit journal
+  const [updateJournal, { data1, error1, loading1 }] = useMutation(UPDATE_JOURNAL);
   const editJournal = async (event) => {
     event.preventDefault();
     const response = await updateJournal({
@@ -95,10 +103,13 @@ const Edit = () => {
     });
   };
 
-  if (loading) {
-    <Spinner />;
+  // Loading and Error component
+  if (loading1) {
+    return <Loader />;
   }
-
+  if (error1) {
+    return <Error />;
+  }
   return (
     <SectionLayout>
       <PolicyContainer>
@@ -193,6 +204,24 @@ const Edit = () => {
             </Subhead>
             <Div>
               <SecondDiv>
+                <div>
+                  <Label>First Year</Label>
+                  <Input
+                    type='number'
+                    required
+                    value={firstYear}
+                    onChange={(e) => setFirstYear(parseInt(e.target.value, 10))}
+                  />
+                </div>
+                <div>
+                  <Label>Policy Title</Label>
+                  <Input
+                    type='text'
+                    required
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </div>
                 <div>
                   <Label>Policy Type:</Label>
                   <Select value={policyType} onChange={(e) => setPolicyType(e.target.value)}>

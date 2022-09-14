@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { Journals } from '../../components';
 import { Container } from '../../components/Journals/styles';
 import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
-import reducer from '../../useReducer/Journals/reducer';
+import reducer from '../../context/reducer';
 
 const Journal = () => {
   const initialState = {

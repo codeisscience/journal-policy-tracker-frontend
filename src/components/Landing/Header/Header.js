@@ -17,16 +17,16 @@ function Header({
   return (
     <div className='header'>
       <Jumbotron fluid>
-        <SearchBar
+        {/* <SearchBar
           posts={posts}
           filteredData={filteredData}
           setFilteredData={setFilteredData}
           wordEntered={wordEntered}
           setWordEntered={setWordEntered}
           handleFilter={handleFilter}
-        />
-        <Link to='/manifesto'>
-          <Button fluid='true'>Read and Sign the Manifesto</Button>
+        /> */}
+        <Link to='/signup'>
+          <Button fluid='true'>Sign up to sign the manifesto!</Button>
         </Link>
       </Jumbotron>
     </div>

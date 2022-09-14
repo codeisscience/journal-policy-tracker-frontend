@@ -1,12 +1,9 @@
 import {
-  POSTS,
   SEARCH,
   SEARCH_RESULTS,
   CURRENT_PAGE,
+  POSTS,
   SET_TITLE,
-  POSTS_PER_PAGE,
-  SET_AUTHORS,
-  SET_JOURNALTYPE,
   SET_TOPIC,
   SET_ISSN,
   SET_LINK,
@@ -14,63 +11,37 @@ import {
   SET_DATAAVAIL,
   SET_DATASHARED,
   SET_PEERREVIEW,
-  ENFORCED,
+  SET_ENFORCED,
   SET_EVIDENCE,
-  EDIT_TITLE,
-  EDIT_AUTHORS,
-  EDIT_JOURNALTYPE,
-  EDIT_TOPIC,
-  EDIT_ISSN,
-  EDIT_LINK,
-  EDIT_POLICY,
-  EDIT_DATAAVAIL,
-  EDIT_DATASHARED,
-  EDIT_PEERREVIEW,
-  EDIT_ENFORCED,
-  EDIT_EVIDENCE,
+  POLICYTITLE,
 } from './types';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case POSTS:
+    case SEARCH_RESULTS:
       return {
         ...state,
-        posts: action.payload,
+        searchResults: action.payload,
       };
     case SEARCH:
       return {
         ...state,
         search: action.payload,
       };
-    case SEARCH_RESULTS:
-      return {
-        ...state,
-        searchResults: action.payload,
-      };
     case CURRENT_PAGE:
       return {
         ...state,
         currentPage: action.payload,
       };
-    case POSTS_PER_PAGE:
+    case POSTS:
       return {
         ...state,
-        postsPerPage: action.payload,
+        posts: action.payload,
       };
     case SET_TITLE:
       return {
         ...state,
         title: action.payload,
-      };
-    case SET_AUTHORS:
-      return {
-        ...state,
-        authors: action.payload,
-      };
-    case SET_JOURNALTYPE:
-      return {
-        ...state,
-        journaltype: action.payload,
       };
     case SET_TOPIC:
       return {
@@ -107,7 +78,7 @@ const reducer = (state, action) => {
         ...state,
         peerreview: action.payload,
       };
-    case ENFORCED:
+    case SET_ENFORCED:
       return {
         ...state,
         enforced: action.payload,
@@ -117,65 +88,10 @@ const reducer = (state, action) => {
         ...state,
         evidence: action.payload,
       };
-    case EDIT_TITLE:
+    case POLICYTITLE:
       return {
         ...state,
-        editTitle: action.payload,
-      };
-    case EDIT_AUTHORS:
-      return {
-        ...state,
-        editAuthors: action.payload,
-      };
-    case EDIT_JOURNALTYPE:
-      return {
-        ...state,
-        editJournaltype: action.payload,
-      };
-    case EDIT_TOPIC:
-      return {
-        ...state,
-        editTopic: action.payload,
-      };
-    case EDIT_ISSN:
-      return {
-        ...state,
-        editIssn: action.payload,
-      };
-    case EDIT_LINK:
-      return {
-        ...state,
-        editLink: action.payload,
-      };
-    case EDIT_POLICY:
-      return {
-        ...state,
-        editPolicy: action.payload,
-      };
-    case EDIT_DATAAVAIL:
-      return {
-        ...state,
-        editDataavail: action.payload,
-      };
-    case EDIT_DATASHARED:
-      return {
-        ...state,
-        editDatashared: action.payload,
-      };
-    case EDIT_PEERREVIEW:
-      return {
-        ...state,
-        editPeerreview: action.payload,
-      };
-    case EDIT_ENFORCED:
-      return {
-        ...state,
-        editEnforced: action.payload,
-      };
-    case EDIT_EVIDENCE:
-      return {
-        ...state,
-        editEvidence: action.payload,
+        policyTitle: action.payload,
       };
 
     default:

@@ -1,14 +1,14 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+// Libraries
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { FiSearch } from 'react-icons/fi';
-import Pagination from '../Pagination/Pagination';
+
+// Styles
 import {
   Box,
   Preview,
@@ -20,36 +20,43 @@ import {
   SearchTerm,
   SearchButton,
 } from './styles';
+
+// Components
+import Pagination from '../Pagination/Pagination';
+import { Loader, Error } from '../marginals';
+
+// Graphql
 import GET_ALL_JOURNALS from '../../graphql/queries/getAllJournals';
-import Spinner from '../marginals/Loader/Spinner';
-import Error from '../marginals/Error/Error';
+
+// Reducer
+import { useGlobalContext } from '../../context/DataContext';
 
 const JournalList = () => {
-  const [searchResults, setSearchResults] = useState([]);
-  const [search, setSearch] = useState('');
+  // States
+  const { searchResults, search, currentPage, postsPerPage, dispatch } = useGlobalContext();
 
-  // Pagination Values
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  // Query from GraphQL
   const { data, loading, error } = useQuery(GET_ALL_JOURNALS, {
     variables: { currentPageNumber: currentPage, limitValue: postsPerPage },
   });
 
+  // SearchBar values
   useEffect(() => {
     if (data) {
       const filteredResults = data.getAllJournals.journals.filter(
         (post) =>
           post.issn.includes(search) || post.title.toLowerCase().includes(search.toLowerCase()),
       );
-      setSearchResults(filteredResults.reverse());
+      dispatch({ type: 'SEARCH_RESULTS', payload: filteredResults.reverse() });
     }
-  }, [data, search]);
+  }, [data, search, dispatch]);
 
+  // Paginate
+  const paginate = (pageNumber) => dispatch({ type: 'CURRENT_PAGE', payload: pageNumber });
+
+  // Loading and Error component
   if (loading) {
-    return <Spinner />;
+    return <Loader />;
   }
 
   if (error) {
@@ -64,7 +71,7 @@ const JournalList = () => {
             type='text'
             placeholder='Search Journal'
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => dispatch({ type: 'SEARCH', payload: e.target.value })}
           />
           <SearchButton type='submit'>
             <FiSearch />
