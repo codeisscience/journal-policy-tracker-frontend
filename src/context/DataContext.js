@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-constructed-context-values */
@@ -9,9 +10,11 @@ import { React, createContext, useState, useEffect, useContext, useReducer } fro
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { format } from 'date-fns';
+import { useQuery } from '@apollo/client';
 import { api } from '../components/api/posts';
 import useAxiosFetch from '../hooks/useAxiosFetch';
 import reducer from './reducer';
+import query from '../graphql/queries/getAllJournals';
 
 const initialState = {
   posts: [],
@@ -89,11 +92,19 @@ const DataProvider = ({ children }) => {
     }
   };
 
-  const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/journals');
+  // const { data } = useQuery(query, {
+  //   variables: { currentPageNumber: 1, limitValue: 10 },
+  // });
 
-  useEffect(() => {
-    dispatch({ type: 'POSTS', payload: data });
-  }, [data]);
+  // console.log(data);
+
+  // const { data1, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/journals');
+  // console.log(typeof data1);
+  // console.log({ data1 });
+
+  // useEffect(() => {
+  //   dispatch({ type: 'POSTS', payload: data });
+  // }, [data]);
 
   useEffect(() => {
     const filteredResults = state.posts.filter(
@@ -159,10 +170,10 @@ const DataProvider = ({ children }) => {
       evidence: state.editEvidence,
     };
     try {
-      const response = await api.put(`/journals/${id}`, updatedPost);
+      const response = await api.put(`/journals/${issn}`, updatedPost);
       dispatch({
         type: 'POSTS',
-        payload: state.posts.map((post) => (post.id === id ? { ...response.data } : post)),
+        payload: state.posts.map((post) => (post.issn === id ? { ...response.data } : post)),
       });
       history.push('/journal');
     } catch (err) {
@@ -193,6 +204,7 @@ const DataProvider = ({ children }) => {
         setWordEntered,
         handleFilter,
         currentPost,
+        currentPage: state.currentPage,
         loading,
         postsPerPage: state.postsPerPage,
         paginate,

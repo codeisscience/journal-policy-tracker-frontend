@@ -12,6 +12,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
+import Profile from './components/Authentication/User-Profile/useprofile';
 import { api } from './api/posts';
 import { Journal, Contact, Manifesto, Home } from './pages';
 import { Footer, Auth, Header, Login, JournalDetails, AddJournal, Layout } from './components';
@@ -28,10 +29,14 @@ const errorLink = onError(({ graphqlErrors, networkError }) => {
   }
 });
 
-const link = from([errorLink, new HttpLink({ uri: 'http://localhost:4000/graphql' })]);
+const link = from([
+  errorLink,
+  new HttpLink({ uri: 'http://localhost:4000/graphql', credentials: 'include' }),
+]);
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
+  // credentials: 'include',
   link,
 });
 
@@ -53,10 +58,10 @@ function App() {
             <Route exact path='/addjournal'>
               <AddJournal />
             </Route>
-            <Route path='/edit/:id'>
+            <Route path='/edit/:issn'>
               <Edit />
             </Route>
-            <Route path='/policy/:id'>
+            <Route path='/policy/:issn'>
               <JournalDetails />
             </Route>
             <Route path='/Signup'>
@@ -65,6 +70,10 @@ function App() {
             <Route path='/Login'>
               <Login />
             </Route>
+            <Route path='/profile'>
+              <Profile />
+            </Route>
+
             <Redirect to='/' />
           </Switch>
           <Footer />

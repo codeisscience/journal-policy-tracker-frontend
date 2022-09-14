@@ -5,8 +5,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-template */
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useReducer, useEffect, useState } from 'react';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBookmark,
@@ -28,25 +29,55 @@ import {
   Icon,
   ButtonContainer,
 } from './styles';
-import { Authors, Head3 } from '../Journals/styles';
 import { FormInputBtn } from '../Authentication/styles';
-import { useGlobalContext } from '../../context/DataContext';
 import { SectionLayout, PolicyContainer } from '../marginals';
+import reducer from '../../useReducer/JournalDetails/reducer';
+import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
+import DELETE_JOURNAL from '../../graphql/mutation/deleteJournal';
+import Spinner from '../marginals/Loader/Spinner';
 
 function Details() {
-  const { posts, handleDelete } = useGlobalContext();
-  const { id } = useParams();
-  const indv = posts.find((post) => post.id.toString() === id);
+  const initialState = {
+    posts: [],
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { issn } = useParams();
+  const history = useHistory();
+
+  const { data, loading, error, refetch } = useQuery(GET_ALL_JOURNAL_DETAILS, {
+    variables: { issn },
+  });
+
+  const [deleteJournal] = useMutation(DELETE_JOURNAL);
+
+  useEffect(() => {
+    if (loading === false) {
+      dispatch({ type: 'POSTS', payload: data?.getJournalByISSN });
+    }
+  }, [data?.getJournalByISSN, loading]);
+
+  const handleDelete = (issn) => {
+    deleteJournal({
+      variables: { issnToDelete: issn },
+    }).then(() => refetch());
+    history.push('/journal');
+  };
+
+  const indv = state.posts;
+
+  const policy = indv?.policies;
 
   const poli = [
     {
       ques: 'POLICY TYPE:',
-      ans: indv && indv.policy,
+      ans: indv?.policies && indv?.policies.policyType,
     },
     {
       ques: 'DATA AVAILABILITY STATEMENT PUBLISHED:',
       ans:
-        indv && indv.dataavail ? (
+        indv?.policies && indv?.policies.isDataAvailabilityStatementPublished ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -55,7 +86,7 @@ function Details() {
     {
       ques: 'DATA SHARED:',
       ans:
-        indv && indv.datashared ? (
+        indv?.policies && indv?.policies.isDataShared ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -64,7 +95,7 @@ function Details() {
     {
       ques: 'DATA PEER REVIEWED:',
       ans:
-        indv && indv.peerreview ? (
+        indv?.policies && indv?.policies.isDataPeerReviewed ? (
           <FontAwesomeIcon icon={faSquareCheck} color='green' />
         ) : (
           <FontAwesomeIcon icon={faRectangleXmark} color='red' />
@@ -72,28 +103,32 @@ function Details() {
     },
     {
       ques: 'ENFORCED:',
-      ans: indv && indv.enforced,
+      ans: indv?.policies && indv?.policies.enforced,
     },
     {
       ques: 'ENFORCED EVIDENCE:',
-      ans: indv && indv.evidence,
+      ans: indv?.policies && indv?.policies.enforcedEvidence,
     },
   ];
 
   const misc = [
     {
       ques: 'CREATED AT:',
-      ans: indv && indv.published,
+      ans: indv && indv.createdAt,
     },
     {
       ques: 'UPDATED AT:',
-      ans: indv && indv.updated,
+      ans: indv && indv.createdAt,
     },
     {
       ques: 'CREATED BY:',
-      ans: indv && indv.authors,
+      ans: indv && indv.createdBy,
     },
   ];
+
+  if (loading) {
+    <Spinner />;
+  }
 
   return (
     <SectionLayout>
@@ -117,9 +152,9 @@ function Details() {
               ))}
             </Box>
             <Misc>
-              <span style={{ color: '#EC8D20' }}>{indv.topic}</span> |{' '}
+              <span style={{ color: '#EC8D20' }}>{indv.domainName}</span> |{' '}
               <FontAwesomeIcon icon={faLink} color='#29A3CE' />{' '}
-              <span style={{ color: '#A39797' }}>{indv.link}</span>
+              <span style={{ color: '#A39797' }}>{indv.url}</span>
               <UpdateContainer>
                 {misc.map((mis) => (
                   <List>
@@ -130,10 +165,10 @@ function Details() {
               </UpdateContainer>
             </Misc>
             <ButtonContainer>
-              <Link to={`/edit/${indv.id}`}>
+              <Link to={`/edit/${indv.issn}`}>
                 <FormInputBtn>Edit Post</FormInputBtn>
               </Link>
-              <FormInputBtn style={{ marginLeft: '1rem' }} onClick={() => handleDelete(indv.id)}>
+              <FormInputBtn style={{ marginLeft: '1rem' }} onClick={() => handleDelete(indv.issn)}>
                 Delete Post
               </FormInputBtn>
             </ButtonContainer>

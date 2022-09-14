@@ -6,11 +6,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useReducer } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { gql, useMutation } from '@apollo/client';
-import useForm from './useForm';
-import validate from './validateInfo';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 import {
   FormContentRight,
   FormDiv,
@@ -26,136 +24,107 @@ import { signup } from '../../../config/content';
 import REGISTER from '../../../graphql/mutation/register';
 import { toErrorMap } from '../../../utils/toErrorMap';
 
-const ACTIONS = {
-  EMAIL_ERROR: 'emailError',
-  USERNAME_ERROR: 'usernameError',
-  PASSWORD_ERROR: 'passwordError',
-  RESET_FORM: 'resetForm',
-};
-
-const initialState = {
-  isUsernameError: false,
-  isEmailError: false,
-  isPasswordError: false,
-  usernameErrorMessage: '',
-  emailErrorMessage: '',
-  passwordErrorMessage: '',
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTIONS.EMAIL_ERROR:
-      return {
-        ...state,
-        isEmailError: true,
-        emailErrorMessage: action.payload.errorMessage,
-      };
-
-    case ACTIONS.USERNAME_ERROR:
-      return {
-        ...state,
-        isUsernameError: true,
-        usernameErrorMessage: action.payload.errorMessage,
-      };
-
-    case ACTIONS.PASSWORD_ERROR:
-      return {
-        ...state,
-        isPasswordError: true,
-        passwordErrorMessage: action.payload.errorMessage,
-      };
-
-    case ACTIONS.RESET_FORM:
-      return {
-        isUsernameError: false,
-        isEmailError: false,
-        isPasswordError: false,
-        usernameErrorMessage: '',
-        emailErrorMessage: '',
-        passwordErrorMessage: '',
-      };
-  }
-};
-
-const FormSignup = ({ submitForm }) => {
+const FormSignup = () => {
   const [register, { loading, error }] = useMutation(REGISTER);
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
   const history = useHistory();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [isFullNameError, setIsFullNameError] = useState(false);
+  const [isUsernameError, setIsUsernameError] = useState(false);
+  const [isEmailError, setIsEmailError] = useState(false);
+  const [isPasswordError, setIsPasswordError] = useState(false);
+  const [fullNameErrorMessage, setIsFullNameErrorMessage] = useState('');
+  const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
-    dispatch({ type: ACTIONS.RESET_FORM });
+  const resetErrorStateValues = () => {
+    setIsFullNameError(false);
+    setIsUsernameError(false);
+    setIsEmailError(false);
+    setIsPasswordError(false);
+    setIsFullNameErrorMessage('');
+    setUsernameErrorMessage('');
+    setEmailErrorMessage('');
+    setPasswordErrorMessage('');
+  };
+
+  const handleSubmit1 = async (event) => {
+    event.preventDefault();
+    resetErrorStateValues();
     const data = new FormData(event.currentTarget);
 
+    const fullName = data.get('fullName');
     const username = data.get('username');
     const email = data.get('email');
     const password = data.get('password');
 
     const response = await register({
       variables: {
-        userInfo: { username, email, password, fullName: 'fullNameRegister' },
+        userInfo: { fullName, username, email, password },
       },
     });
 
     if (response.data?.register.errors) {
       const errorMapped = toErrorMap(response.data.register.errors);
-
-      if (errorMapped.email) {
-        dispatch({
-          type: ACTIONS.EMAIL_ERROR,
-          payload: { errorMessage: errorMapped.email },
-        });
+      if (errorMapped.fullName) {
+        setIsFullNameErrorMessage(errorMapped.fullName);
+        setIsFullNameError(true);
       }
-
-      if (errorMapped.password) {
-        dispatch({
-          type: ACTIONS.PASSWORD_ERROR,
-          payload: { errorMessage: errorMapped.password },
-        });
-      }
-
       if (errorMapped.username) {
-        dispatch({
-          type: ACTIONS.USERNAME_ERROR,
-          payload: { errorMessage: errorMapped.username },
-        });
+        setUsernameErrorMessage(errorMapped.username);
+        setIsUsernameError(true);
       }
-    } else if (response.data?.register.user) {
-      dispatch({ type: ACTIONS.RESET_FORM });
-      history.push('/login');
+      if (errorMapped.email) {
+        setEmailErrorMessage(errorMapped.email);
+        setIsEmailError(true);
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        setEmailErrorMessage('Invalid email');
+        setIsEmailError(true);
+      }
+      if (errorMapped.password) {
+        setPasswordErrorMessage(errorMapped.password);
+        setIsPasswordError(true);
+      }
+      if (!password) {
+        setPasswordErrorMessage('Password required');
+        setIsPasswordError(true);
+      }
+      if (password.length < 6) {
+        setPasswordErrorMessage('Password needs to be 6 characters or more');
+        setIsPasswordError(true);
+      }
+    } else if (response.data.register.user) {
+      resetErrorStateValues();
+      history.push('/journal');
     }
   };
 
   return (
     <FormContentRight>
-      <FormDiv onSubmit={handleSubmit}>
+      <FormDiv onSubmit={handleSubmit1}>
         <FormH1>{signup.head}</FormH1>
         <FormInputs>
+          <FormLabel htmlFor='fullName'>Enter Full Name</FormLabel>
+          <FormInput id='fullName' label='Username' type='text' name='fullName' required />
+          {isFullNameError && <FormInputsP>{fullNameErrorMessage}</FormInputsP>}
+        </FormInputs>
+        <FormInputs>
           <FormLabel htmlFor='username'>{signup.labelUsername}</FormLabel>
-          <FormInput id='username' label='Username' name='username' required />
-          {state.isUsernameError && <FormInputsP>{state.usernameErrorMessage}</FormInputsP>}
+          <FormInput id='username' label='Username' type='text' name='username' required />
+          {isUsernameError && <FormInputsP>{usernameErrorMessage}</FormInputsP>}
         </FormInputs>
         <FormInputs>
           <FormLabel htmlFor='email'>{signup.labelEmail}</FormLabel>
-          <FormInput id='email' label='Email Address' autoComplete='email' name='email' required />
-          {state.isEmailError && <FormInputsP>{state.emailErrorMessage}</FormInputsP>}
+          <FormInput id='email' label='Email Address' type='email' name='email' required />
+          {isEmailError && <FormInputsP>{emailErrorMessage}</FormInputsP>}
         </FormInputs>
         <FormInputs>
           <FormLabel htmlFor='password'>{signup.labelPassword}</FormLabel>
-          <FormInput id='password' label='Password' name='password' type='password' required />
-          {state.isPasswordError && <FormInputsP>{state.passwordErrorMessage}</FormInputsP>}
+          <FormInput id='password' label='Password' type='password' name='password' required />
+          {isPasswordError || <FormInputsP>{passwordErrorMessage}</FormInputsP>}
         </FormInputs>
-        <FormInputs>
-          <FormLabel htmlFor='password2'>{signup.labelPassword2}</FormLabel>
-          <FormInput id='password2' type='password' name='password2' required />
-          {state.isPasswordError && <FormInputsP>{state.passwordErrorMessage}</FormInputsP>}
-        </FormInputs>
-        <FormInputBtn signup type='submit'>
-          {signup.button}
-        </FormInputBtn>
+        <FormInputBtn type='submit'>{signup.button}</FormInputBtn>
         <FormInputLogin>
           {signup.login}{' '}
           <a href='/login' style={{ color: 'orange' }}>
