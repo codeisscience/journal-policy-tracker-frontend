@@ -3,6 +3,7 @@ import { React, useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { showSuccessMessage, showErrorMessage } from "../../helpers/alerts"
 import { JournalValidation } from '../../helpers/validate';
+import "./Addjournal.css"
 
 function AddJournal() {
   const [title, setTitle] = useState('');
@@ -119,24 +120,28 @@ function AddJournal() {
             <Form.Control
               type='text'
               placeholder='Policy Title'
+              className='policy-ele'
               onChange={(e) => setPolicyTitle(e.target.value)}
               value={policyTitle}
             />
             <Form.Control
               type='text'
               placeholder='First Year'
+              className='first-ele'
               onChange={(e) => setFirstYear(e.target.value)}
               value={firstYear}
             />
             <Form.Control
               type='text'
               placeholder='Last Year'
+              className='last-ele'
               onChange={(e) => setLastYear(e.target.value)}
               value={lastYear}
             />
             <Form.Control
               type='text'
               placeholder='Type'
+              
               onChange={(e) => setPolicyType(e.target.value)}
               value={policyType}
             />

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navigation.css';
 import { Navbar, Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap';
 import Logo from '../../../assets/logo.webp';
 import { SearchBar } from '../index';
@@ -15,9 +16,11 @@ function Navigation() {
       style={{ paddingLeft: '30px', paddingRight: '30px' }}
       fixed='top'
     >
+      <Link to='/'> 
       <Navbar.Brand href='#home'>
         <img src={Logo} alt='code is science' srcSet='' height={81} width={150} />
       </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls='responsive-navbar-nav' />
       <Navbar.Collapse id='responsive-navbar-nav' className='justify-content-evenly'>
         <Nav>
