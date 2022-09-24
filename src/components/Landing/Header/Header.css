@@ -1,8 +1,9 @@
 .header {
-  background-image: url('../../../assets/bg.webp');
+  background-image: url('https://res.cloudinary.com/dh6j2zoog/image/upload/v1655702025/CiS/bg_jhdw6s.png');
   height: 550px;
   background-size: 150vw;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .header button {
@@ -20,7 +21,7 @@
   background-color: #3d9dd9;
 }
 .header-padding {
-  padding-top: 6.7em;
+  /* padding-top: 6.7em; */
 }
 
 @media screen and (max-width: 1162px) {

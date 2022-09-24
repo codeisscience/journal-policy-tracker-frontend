@@ -1,0 +1,15 @@
+export const SEARCH_RESULTS = 'SEARCH_RESULTS';
+export const SEARCH = 'SEARCH';
+export const CURRENT_PAGE = 'CURRENT_PAGE';
+export const POSTS = 'POSTS';
+export const SET_TITLE = 'SET_TITLE';
+export const SET_TOPIC = 'SET_TOPIC';
+export const SET_ISSN = 'SET_ISSN';
+export const SET_LINK = 'SET_LINK';
+export const SET_POLICY = 'SET_POLICY';
+export const SET_DATAAVAIL = 'SET_DATAAVAIL';
+export const SET_DATASHARED = 'SET_DATASHARED';
+export const SET_PEERREVIEW = 'SET_PEERREVIEW';
+export const SET_ENFORCED = 'SET_ENFORCED';
+export const SET_EVIDENCE = 'SET_EVIDENCE';
+export const POLICYTITLE = 'POLICYTITLE';

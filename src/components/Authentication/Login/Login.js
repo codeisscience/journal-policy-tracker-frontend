@@ -1,92 +1,113 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-alert */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/state-in-constructor */
-import { React, useState } from 'react';
-import './Login.css';
-import { Col, Row, Form, Button } from 'react-bootstrap';
-import { showSuccessMessage, showErrorMessage } from '../../../helpers/alerts';
-import { LoginValidation } from '../../../helpers/validate';
+/* eslint-disable max-len */
+/* eslint-disable import/extensions */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/function-component-definition */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
 
-function Login() {
-  const [details, setDetails] = useState({
-    email: '',
-    password: '',
-    accessToken: '',
-  });
-  const [success, setSuccess] = useState('');
-  const [error, setError] = useState('');
+import {
+  FormContentRight,
+  FormDiv,
+  FormH1,
+  FormInputs,
+  FormInputsP,
+  FormLabel,
+  FormInput,
+  FormInputBtn,
+  ButtonContainer,
+  FormH2,
+} from './styles';
+import { signup } from '../../../config/content';
+import LOGIN from '../../../graphql/mutation/login';
+import { toErrorMap } from '../../../utils/toErrorMap';
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setSuccess('');
-    setError('');
-    const check = LoginValidation(details);
-    if (check) {
-      try {
-        const response = fetch('https://journal-policy-tracker.herokuapp.com/users/login', {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            details,
-          }),
-        });
-        // const res = response.json();
-        // setDetails({ ...details,accessToken: res.token })
-        setSuccess('Login Successful');
-      } catch (err) {
-        // console.log(error);
-        setError('Invalid Credentials');
+const FormLogin = () => {
+  const [login, { loading, error }] = useMutation(LOGIN);
+  const history = useHistory();
+
+  const [isUsernameOrEmailError, setIsUsernameOrEmailError] = useState(false);
+  const [isPasswordError, setIsPasswordError] = useState(false);
+  const [usernameOrEmailErrorMessage, setUsernameOrEmailErrorMessage] = useState('');
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+
+  const resetErrorStateValues = () => {
+    setIsUsernameOrEmailError(false);
+    setIsPasswordError(false);
+    setUsernameOrEmailErrorMessage('');
+    setPasswordErrorMessage('');
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    resetErrorStateValues();
+    const data = new FormData(event.currentTarget);
+
+    const usernameOrEmail = data.get('email');
+    const password = data.get('password');
+
+    const response = await login({
+      variables: {
+        userInfo: { usernameOrEmail, password },
+      },
+    });
+
+    if (response.data?.login.errors) {
+      const errorMapped = toErrorMap(response.data.login.errors);
+      if (errorMapped.usernameOrEmail) {
+        setUsernameOrEmailErrorMessage(errorMapped.usernameOrEmail);
+        setIsUsernameOrEmailError(true);
       }
-    } else {
-      setError('Invalid Input');
+      if (!/\S+@\S+\.\S+/.test(usernameOrEmail)) {
+        setUsernameOrEmailErrorMessage('Invalid email');
+        setIsUsernameOrEmailError(true);
+      }
+      if (errorMapped.password) {
+        setPasswordErrorMessage(errorMapped.password);
+        setIsPasswordError(true);
+      }
+      if (!password) {
+        setPasswordErrorMessage('Password required');
+        setIsPasswordError(true);
+      }
+      if (password.length < 6) {
+        setPasswordErrorMessage('Password needs to be 6 characters or more');
+        setIsPasswordError(true);
+      }
+    } else if (response.data?.login.user) {
+      resetErrorStateValues();
+      history.push('/journal');
     }
   };
+
   return (
-    <Row className='login-padding login-margin'>
-      <Col>
-        <Form className='login-form' onSubmit={handleLogin}>
-          <Form.Group className='mb-3' controlId='formBasicEmail'>
-            {success && showSuccessMessage(success)}
-            {error && showErrorMessage(error)}
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter email'
-              name='email'
-              value={details.email}
-              onChange={(e) => setDetails({ ...details, email: e.target.value })}
-            />
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Password'
-              name='password'
-              value={details.password}
-              onChange={(e) => setDetails({ ...details, password: e.target.value })}
-            />
-          </Form.Group>
-          <Form.Group className='mb-3' controlId='formBasicCheckbox'>
-            <Form.Check type='checkbox' label='Remember me' />
-          </Form.Group>
-          <Button variant='primary' type='submit'>
-            Login
-          </Button>
-        </Form>
-      </Col>
-    </Row>
+    <FormContentRight>
+      <FormDiv onSubmit={handleSubmit}>
+        <FormH1>{signup.head}</FormH1>
+        <FormH2>{signup.head2}</FormH2>
+        <FormInputs>
+          <FormLabel htmlFor='email'>{signup.labelEmail}</FormLabel>
+          <FormInput id='email' label='Email Address' type='email' name='email' />
+          {isUsernameOrEmailError && <FormInputsP>{usernameOrEmailErrorMessage}</FormInputsP>}
+        </FormInputs>
+        <FormInputs>
+          <FormLabel htmlFor='password'>{signup.labelPassword}</FormLabel>
+          <FormInput id='password' label='Password' type='password' name='password' />
+          {isPasswordError && <FormInputsP>{passwordErrorMessage}</FormInputsP>}
+        </FormInputs>
+        <ButtonContainer>
+          <FormInputBtn type='submit'>{signup.buttonLogin}</FormInputBtn>
+          <FormInputBtn primary type='button'>
+            <Link to='/Signup' style={{ color: '#EA8900', hover: '#fff' }}>
+              {signup.button}
+            </Link>
+          </FormInputBtn>
+        </ButtonContainer>
+      </FormDiv>
+    </FormContentRight>
   );
-}
+};
 
-export default Login;
+export default FormLogin;

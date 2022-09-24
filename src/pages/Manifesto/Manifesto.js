@@ -1,22 +1,23 @@
+/* eslint-disable no-undef */
 /* eslint-disable max-len */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/order */
 import React from 'react';
 import './Manifesto.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import StandingImg from '../../assets/human-2.webp';
-import SittingImg from '../../assets/human-1.webp';
-import ImgOne from '../../assets/manifesto-img-1.webp';
-import WalkingImg from '../../assets/walking-man.webp';
-import PeersImg from '../../assets/peers.webp';
-import HandsIcon from '../../assets/hands-icon.webp';
+// import StandingImg from '../../assets/human-2.webp';
+// import SittingImg from '../../assets/human-1.webp';
+// import ImgOne from '../../assets/manifesto-img-1.webp';
+// import WalkingImg from '../../assets/walking-man.webp';
+// import PeersImg from '../../assets/peers.webp';
+// import HandsIcon from '../../assets/hands-icon.webp';
 import { ImTwitter, ImMail, ImGithub } from 'react-icons/im';
 
 const Manifesto = () => (
   <Container>
     <Row className='manifesto-header manifesto-padding'>
       <Col xs={12} sm={12} md={3} className='imgContainer'>
-        <Image src={StandingImg} height={220} alt= 'animated standing and talking girl' />
+        <Image src={StandingImg} height={220} alt='animated standing and talking girl' />
       </Col>
       <Col xs={12} sm={12} md={6} className='manifesto'>
         <h1>Manifesto</h1>
@@ -50,7 +51,7 @@ const Manifesto = () => (
     </Row>
     <Row className='manifesto-support'>
       <h1>I want to express my support for the manifesto! Tell me how</h1>
-      <Col md={3} className="manifesto-support-points">
+      <Col md={3} className='manifesto-support-points'>
         <Image src={WalkingImg} height={140} alt='walking man' />
         <p>
           <a
@@ -62,8 +63,8 @@ const Manifesto = () => (
           </a>
         </p>
       </Col>
-      <Col md={3} className="manifesto-support-points">
-        <Image src={PeersImg} height={140} alt='animated talking boys'/>
+      <Col md={3} className='manifesto-support-points'>
+        <Image src={PeersImg} height={140} alt='animated talking boys' />
         <p>
           <a
             href='https://docs.google.com/forms/d/e/1FAIpQLSdUPKlP__5saaYMyEJwkHF3gRNAHiKihOlp6zd6QK4vUqs3gg/viewform?usp=sf_link'
@@ -76,7 +77,7 @@ const Manifesto = () => (
           on behalf of an organisation.
         </p>
       </Col>
-      <Col md={3} className="manifesto-support-points">
+      <Col md={3} className='manifesto-support-points'>
         <img src={HandsIcon} alt='hands icon' height={140} />
         <p>
           We’re particularly interested in adding logos and links indicating organisational support
