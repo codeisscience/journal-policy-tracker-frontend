@@ -13,8 +13,8 @@
   border-radius: 30px;
   padding: 20px;
   border: none;
-  margin-top: 20em;
-  margin-left: calc(((100% - 270px) / 3) * 2);
+  margin-top: 28em;
+  margin-left: calc(((82% - 270px) / 3) * 2);
 }
 
 .header button:hover {
@@ -58,7 +58,7 @@
   .header button {
     margin-top: 8em;
     font-size: 14px;
-    margin-left: 12em;
+    margin-left: 10em;
   }
   .header {
     height: 190px;
