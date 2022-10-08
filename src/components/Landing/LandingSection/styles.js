@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const SectionOne = styled.section`
   margin-top: 5rem;
-  margin-bottom: 5em;
+  margin-bottom: 4em;
   text-align: center;
-  display: grid;
-  justify-content: center;
+  display: grid; 
+  justify-items: center;
 `;
 
 export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-content: start;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
 `;
@@ -23,6 +23,7 @@ export const Card = styled.div`
   border-style: none;
   text-align: center;
   align-items: center;
+  width: 22em;
 `;
 
 export const ImageHeader = styled.img`
@@ -45,7 +46,7 @@ export const SectionTwo = styled.section`
 
 export const Div2 = styled.div`
   display: flex;
-  padding: 0.5rem 0rem;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 4rem;
