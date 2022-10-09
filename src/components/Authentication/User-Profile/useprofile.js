@@ -99,7 +99,7 @@ function Profile() {
               {/* LogOut Button */}
               <FormInputBtn onClick={handlelogout}>Logout</FormInputBtn>
             </ProfileDetailsWrapper>
-            {/* Additional Information Section Ends */}
+            {/* Additional information section Ends here */}
           </Card>
         </ProfileGridContainer>
       </Container>
