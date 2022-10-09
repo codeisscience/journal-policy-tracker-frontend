@@ -26,8 +26,8 @@ This is the frontend repository for the [Journal Policy Tracker](https://github.
 
 ### Built With
 
-- [React Bootstrap](https://react-bootstrap.github.io/)
 - [React](https://reactjs.org/)
+- [Apollo Client](https://github.com/apollographql/apollo-client)
 
 <!-- GETTING STARTED -->
 
@@ -38,7 +38,7 @@ This is the frontend repository for the [Journal Policy Tracker](https://github.
 To run this project locally on your machine you need the following installed
 
 - nodejs
-- npm
+- yarn
 
 ### Installation
 
@@ -48,11 +48,11 @@ To run this project locally on your machine you need the following installed
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   yarn
    ```
 3. Running the project
    ```sh
-   npm start
+   yarn start
    ```
 <!-- USAGE EXAMPLES -->
 <!-- ## Usage will be added later -->
