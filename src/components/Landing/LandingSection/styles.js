@@ -45,10 +45,28 @@ export const SectionTwo = styled.section`
 
 export const Div2 = styled.div`
   display: flex;
+  flex-wrap:wrap;
   padding: 0.5rem 0rem;
   justify-content: center;
   align-items: center;
   gap: 4rem;
+  
+  @media (max-width: 800px) {
+      gap:1rem;
+    } 
+`;
+export const Div3 = styled.div`
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0.5rem 0rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  
+  @media (max-width: 800px) {
+      flex-direction:column-reverse;
+      gap:1rem;
+    } 
 `;
 
 export const Para = styled.div`
@@ -88,4 +106,8 @@ export const Section2P = styled.p`
 export const SectionTH2 = styled.h2`
   font-size: 1.5rem;
   font-weight: 900;
+
+  @media (max-width: 800px) {
+    font-size: 1.25rem;
+    } 
 `;
