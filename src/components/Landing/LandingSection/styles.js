@@ -52,7 +52,7 @@ export const Div2 = styled.div`
   gap: 4rem;
   
   @media (max-width: 800px) {
-      gap:1rem;
+      gap:5rem;
     } 
 `;
 export const Div3 = styled.div`
@@ -65,7 +65,7 @@ export const Div3 = styled.div`
   
   @media (max-width: 800px) {
       flex-direction:column-reverse;
-      gap:1rem;
+      gap:5rem;
     } 
 `;
 
