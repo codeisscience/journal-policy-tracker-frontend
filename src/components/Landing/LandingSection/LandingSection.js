@@ -13,6 +13,7 @@ import {
   Para1,
   SectionTwo,
   Div2,
+  Div3,
   Para,
   Image2,
   SectionOH1,
@@ -44,13 +45,13 @@ function LandingSection() {
           </Para>
           <Image2 src={landingpage.section2.img.src} alt={landingpage.section2.img.alt} />
         </Div2>
-        <Div2>
+        <Div3>
           <Image2 src={landingpage.section3.img.src} alt={landingpage.section3.img.alt} />
           <Para>
             <SectionTH2>{landingpage.section3.head}</SectionTH2>
             <Para2>{landingpage.section3.para}</Para2>
           </Para>
-        </Div2>
+        </Div3>
       </SectionTwo>
     </>
   );
