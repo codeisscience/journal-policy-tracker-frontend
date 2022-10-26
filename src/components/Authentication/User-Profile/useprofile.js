@@ -13,7 +13,27 @@ import { SectionLayout } from '../../marginals';
 import { Container } from 'react-bootstrap';
 import LOGOUT from '../../../graphql/mutation/LOGOUT';
 import { useHistory } from 'react-router';
-import { Heading, Card, Title, ButtonLogout, H1 } from './styles';
+
+import {
+  HeadingContainer,
+  Heading,
+  Card,
+  Title,
+  ButtonLogout,
+  P,
+  H1,
+  H4,
+  CTXH4,
+  ProfileGridContainer,
+  ProfileImageContainer,
+  ProfileImageCircle,
+  ProfileCTXText,
+  ProfileCtxBadge,
+  ProfileCtxUser,
+  ProfileDetailsWrapper,
+  ProfileDetails,
+  ProfileGridInnerContainer,
+} from './styles';
 import { FormInputBtn } from '../styles';
 
 function Profile() {
@@ -38,15 +58,50 @@ function Profile() {
   return (
     <SectionLayout>
       <Container>
-        <Heading style={{ textAlign: 'center' }}>User Profile</Heading>
-
-        <Card>
-          <H1>Name: {user.fullName}</H1>
-          <H1>Username: {user.username}</H1>
-          <Title>{user.role}</Title>
-          <H1>Email: {user.email}</H1>
-          <FormInputBtn onClick={handlelogout}>Logout</FormInputBtn>
-        </Card>
+        <HeadingContainer>
+          <Heading style={{ textAlign: 'center' }}>User Profile</Heading>
+        </HeadingContainer>
+        <ProfileGridContainer>
+          <Card>
+            <ProfileImageContainer>
+              <ProfileImageCircle></ProfileImageCircle>
+            </ProfileImageContainer>
+            <ProfileCTXText>
+              <ProfileCtxUser>
+                <CTXH4>Mary Jane (spidergirl)</CTXH4>
+              </ProfileCtxUser>
+              <ProfileCtxBadge>
+                <span>New Member</span>
+              </ProfileCtxBadge>
+            </ProfileCTXText>
+            {/* Additional Information About This User */}
+            <ProfileDetailsWrapper>
+              <ProfileDetails>
+                <P>Username</P>
+                <H4>{user.username} JaneMar23 </H4>
+              </ProfileDetails>
+              <ProfileDetails>
+                <P>Role</P>
+                <H4>{user.role} Front-End Engineer </H4>
+              </ProfileDetails>
+              <ProfileDetails>
+                <P>Email</P>
+                <H4>{user.email} Jjanmar02@gmail.com</H4>
+              </ProfileDetails>
+              <ProfileDetails>
+                <P>Gender</P>
+                <H4>Female</H4>
+              </ProfileDetails>
+              <ProfileDetails>
+                <P>About</P>
+                <H4>Swimming, Dancing and Coding </H4>
+              </ProfileDetails>
+              {/* LogOut Button */}
+              <FormInputBtn onClick={handlelogout}>Logout</FormInputBtn>
+            </ProfileDetailsWrapper>
+            {/* Additional information section Ends here */}
+          </Card>
+        </ProfileGridContainer>
       </Container>
     </SectionLayout>
   );

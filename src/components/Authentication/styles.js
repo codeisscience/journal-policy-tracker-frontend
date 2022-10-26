@@ -146,12 +146,18 @@ export const FormInputBtn = styled.button`
   padding: 2.2%;
   // height: 50px;
   margin-top: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   background: ${(props) => (props.primary ? 'white' : '#E48900')};
   outline: none;
   border: ${(props) => (props.primary ? '1.5px solid #EA8900' : 'none')};
   color: ${(props) => (props.primary ? '#EA8900' : '#fff')};
   font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 2em auto 0 auto;
+  cursor: pointer;
+
   &:hover {
     cursor: pointer;
     color: #fff;
