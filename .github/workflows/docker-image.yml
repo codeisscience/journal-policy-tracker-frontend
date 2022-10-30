@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "development" ]
+  pull_request:
+    branches: [ "development" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: DockerHub Login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USERNAME_PADMAJA }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD_PADMAJA }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        
+    - name: Build the Docker Image
+      run: docker build -t codeisscience/journal-policy-tracker-frontend:$(date +%d.%b.%Y_%a_%H) .
+      
+    - name: Push the Docker Image to DockerHub
+      run: docker push codeisscience/journal-policy-tracker-frontend:$(date +%d.%b.%Y_%a_%H)
