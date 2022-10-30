@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 're
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client';
 import { format } from 'date-fns';
 import { onError } from '@apollo/client/link/error';
+// import * as dotenv from 'dotenv';
 
 // Styles
 import './index.css';
