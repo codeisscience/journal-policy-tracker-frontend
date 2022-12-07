@@ -16,8 +16,8 @@ function Header({
 }) {
   return (
     <div className='header'>
-      <Jumbotron fluid>
-        {/* <SearchBar
+      {/* <Jumbotron fluid> */}
+      {/* <SearchBar
           posts={posts}
           filteredData={filteredData}
           setFilteredData={setFilteredData}
@@ -25,10 +25,10 @@ function Header({
           setWordEntered={setWordEntered}
           handleFilter={handleFilter}
         /> */}
-        <Link to='/signup'>
-          <Button fluid='true'>Sign up to sign the manifesto!</Button>
-        </Link>
-      </Jumbotron>
+      <Link to='/signup'>
+        <Button fluid='true'>Sign up to sign the manifesto!</Button>
+      </Link>
+      {/* </Jumbotron> */}
     </div>
   );
 }
