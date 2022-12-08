@@ -6,8 +6,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/function-component-definition */
 
-import { React, createContext, useState, useEffect, useContext, useReducer } from 'react';
-import { BrowserRouter as useHistory } from 'react-router-dom';
+import { createContext, React, useContext, useReducer } from 'react';
 import reducer from './reducer';
 
 const initialState = {

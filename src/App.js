@@ -7,23 +7,20 @@
 import { React } from 'react';
 
 // Libraries
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client';
-import { format } from 'date-fns';
+import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
+import { Route, Routes } from 'react-router-dom';
 // import * as dotenv from 'dotenv';
 
 // Styles
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 // Components
+import { AddJournal, Auth, Footer, JournalDetails, Layout, Login } from './components';
 import Profile from './components/Authentication/User-Profile/useprofile';
-import { Journal, Manifesto, Home } from './pages';
-import { Footer, Auth, Header, Login, JournalDetails, AddJournal, Layout } from './components';
-import Navbar from './components/marginals/Navbar/Navbar';
 import Edit from './components/EditJournal/Edit';
+import { Home, Journal } from './pages';
 
 // Context
 import { DataProvider } from './context/DataContext';
@@ -53,33 +50,16 @@ function App() {
     <ApolloProvider client={client}>
       <Layout>
         <DataProvider>
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route path='/journal'>
-              <Journal />
-            </Route>
-            <Route exact path='/addjournal'>
-              <AddJournal />
-            </Route>
-            <Route path='/edit/:issn'>
-              <Edit />
-            </Route>
-            <Route path='/policy/:issn'>
-              <JournalDetails />
-            </Route>
-            <Route path='/Signup'>
-              <Auth />
-            </Route>
-            <Route path='/Login'>
-              <Login />
-            </Route>
-            <Route path='/profile'>
-              <Profile />
-            </Route>
-            <Redirect to='/' />
-          </Switch>
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route path='/journal' element={<Journal />} />
+            <Route exact path='/addJournal' element={<AddJournal />} />
+            <Route path='/edit/:issn' element={<Edit />} />
+            <Route path='/policy/:issn' element={<JournalDetails />} />
+            <Route path='/Signup' element={<Auth />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
           <Footer />
         </DataProvider>
       </Layout>

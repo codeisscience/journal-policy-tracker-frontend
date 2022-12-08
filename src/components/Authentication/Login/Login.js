@@ -4,29 +4,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import {
-  FormContentRight,
-  FormDiv,
-  FormH1,
-  FormInputs,
-  FormInputsP,
-  FormLabel,
-  FormInput,
-  FormInputBtn,
-  ButtonContainer,
-  FormH2,
-} from './styles';
 import { signup } from '../../../config/content';
 import LOGIN from '../../../graphql/mutation/login';
 import { toErrorMap } from '../../../utils/toErrorMap';
+import {
+  ButtonContainer,
+  FormContentRight,
+  FormDiv,
+  FormH1,
+  FormH2,
+  FormInput,
+  FormInputBtn,
+  FormInputs,
+  FormInputsP,
+  FormLabel,
+} from './styles';
 
 const FormLogin = () => {
   const [login, { loading, error }] = useMutation(LOGIN);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [isUsernameOrEmailError, setIsUsernameOrEmailError] = useState(false);
   const [isPasswordError, setIsPasswordError] = useState(false);

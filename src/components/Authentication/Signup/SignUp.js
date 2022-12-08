@@ -7,7 +7,7 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import {
   FormContentRight,
@@ -26,7 +26,7 @@ import { toErrorMap } from '../../../utils/toErrorMap';
 
 const FormSignup = () => {
   const [register, { loading, error }] = useMutation(REGISTER);
-  const history = useHistory();
+  const history = useNavigate();
 
   const [isFullNameError, setIsFullNameError] = useState(false);
   const [isUsernameError, setIsUsernameError] = useState(false);
