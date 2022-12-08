@@ -5,16 +5,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unused-vars */
+import { useMutation, useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
-import GET_USER from '../../../graphql/queries/GET_USER';
-import Logout from './Logout';
-import { SectionLayout } from '../../marginals';
 import { Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 import LOGOUT from '../../../graphql/mutation/LOGOUT';
-import { useHistory } from 'react-router';
-import { Heading, Card, Title, ButtonLogout, H1 } from './styles';
+import GET_USER from '../../../graphql/queries/GET_USER';
+import { SectionLayout } from '../../marginals';
 import { FormInputBtn } from '../styles';
+import { Card, H1, Heading, Title } from './styles';
 
 function Profile() {
   const { data } = useQuery(GET_USER);
@@ -22,7 +21,7 @@ function Profile() {
 
   const [user, setUser] = useState('');
 
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     if (data) {

@@ -5,32 +5,32 @@
 import React, { useState } from 'react';
 
 // Libraries
-import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark } from '@fortawesome/free-solid-svg-icons';
-import Switch from 'react-switch';
 import { useMutation } from '@apollo/client';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
+import Switch from 'react-switch';
 
 // Styles
+import { FormInputBtn } from '../Authentication/styles';
 import {
-  Head,
-  Label,
-  Toggle,
-  Input,
-  FirstDiv,
-  Subhead,
-  Icon,
-  Subhead2,
-  Select,
-  SecondDiv,
-  Form,
   Div,
+  FirstDiv,
+  Form,
+  Head,
+  Icon,
+  Input,
+  Label,
+  SecondDiv,
+  Select,
+  Subhead,
+  Subhead2,
+  Toggle,
   ToggleContainer,
 } from './styles';
-import { FormInputBtn } from '../Authentication/styles';
 
 // Components
-import { Error, Loader, SectionLayout, PolicyContainer } from '../marginals';
+import { Error, Loader, PolicyContainer, SectionLayout } from '../marginals';
 
 // Graphql
 import CREATE_JOURNAL from '../../graphql/mutation/createJournal';
@@ -59,8 +59,7 @@ const AddJournal = () => {
   // GraphQL Mutation
   const [createJournal, { error, loading }] = useMutation(CREATE_JOURNAL);
 
-  // useHistory router
-  const history = useHistory();
+  const history = useNavigate();
 
   // Function to add Journal
   const addJournal = async (event) => {

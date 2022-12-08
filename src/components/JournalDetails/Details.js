@@ -3,38 +3,38 @@
 import React, { useEffect } from 'react';
 
 // Libraries
-import { useParams, Link, useHistory } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMutation, useQuery } from '@apollo/client';
 import {
   faBookmark,
-  faSquareCheck,
-  faRectangleXmark,
   faLink,
+  faRectangleXmark,
+  faSquareCheck,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 // Styles
+import { FormInputBtn } from '../Authentication/styles';
 import {
+  Box,
+  ButtonContainer,
   Head,
-  Title,
+  Icon,
+  List,
+  Misc,
+  Que,
   Subhead,
   Subhead2,
-  Box,
-  List,
-  Que,
-  Misc,
+  Title,
   UpdateContainer,
-  Icon,
-  ButtonContainer,
 } from './styles';
-import { FormInputBtn } from '../Authentication/styles';
 
 // Components
-import { SectionLayout, PolicyContainer, Loader, Error } from '../marginals';
+import { Error, Loader, PolicyContainer, SectionLayout } from '../marginals';
 
 // Graphql
-import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
 import DELETE_JOURNAL from '../../graphql/mutation/deleteJournal';
+import GET_ALL_JOURNAL_DETAILS from '../../graphql/queries/getFullJournalByISSN';
 
 // Reducer
 import { useGlobalContext } from '../../context/DataContext';
@@ -44,7 +44,7 @@ function Details() {
   const { posts, dispatch } = useGlobalContext();
 
   const { issn } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   // Query/Mutation from GraphQL
   const { data, loading, error, refetch } = useQuery(GET_ALL_JOURNAL_DETAILS, {
