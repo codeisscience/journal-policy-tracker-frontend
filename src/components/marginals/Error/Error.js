@@ -7,7 +7,7 @@ function Error() {
     <div className='main'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        xmlnsXlin='http://www.w3.org/1999/xlink'
+        // xmlnsXlin='http://www.w3.org/1999/xlink'
         width='470'
         height='290'
         viewBox='0 0 470 290'
