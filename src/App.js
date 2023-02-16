@@ -29,23 +29,11 @@ import Edit from './components/EditJournal/Edit';
 import { DataProvider } from './context/DataContext';
 
 // React-Apollo setup
-const errorLink = onError(({ graphqlErrors, networkError }) => {
-  if (graphqlErrors) {
-    graphqlErrors.map(({ message, location, path }) => {
-      alert(`Graphql error ${message}`);
-    });
-  }
-});
-
-const link = from([
-  errorLink,
-  new HttpLink({ uri: process.env.REACT_APP_PUBLIC_API_URL, credentials: 'include' }),
-]);
 
 const client = new ApolloClient({
+  uri: process.env.REACT_APP_PUBLIC_API_URL,
+  credentials: 'include',
   cache: new InMemoryCache(),
-  // credentials: 'include',
-  link,
 });
 
 function App() {
