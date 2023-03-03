@@ -9,11 +9,17 @@ export const SectionOne = styled.section`
 `;
 
 export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-content: start;
-  gap: 1rem;
-  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding 1rem;
+
+  @media screen and (max-width:800px){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding 1rem;
+  }
 `;
 
 export const Card = styled.div`
