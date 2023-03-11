@@ -44,6 +44,15 @@ export const Nav = styled.div`
 export const Logo = styled.img`
   width: 9rem;
   margin-left: 2rem;
+
+@media only screen and  (min-width:578px) and (max-width: 768px) {
+  width: 7rem !important;
+}
+
+@media only screen and (max-width: 576px) {
+  width: 5rem;}
+
+  
 `;
 
 export const Menu = styled.div`
