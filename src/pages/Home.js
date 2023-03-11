@@ -16,7 +16,7 @@ function Home() {
     handleFilter,
   } = useGlobalContext();
   return (
-    <div className='header-padding'>
+    <div>
       <Header
         search={search}
         setSearch={setSearch}

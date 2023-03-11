@@ -21,9 +21,6 @@
   background-color: #3d9dd9;
   transform: scale(1.02);
 }
-.header-padding {
-   padding-top: 6.7em; 
-}
 
 @media screen and (max-width: 1162px) {
   .header button {
