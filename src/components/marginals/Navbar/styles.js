@@ -8,6 +8,7 @@ export const Button = styled.button`
   cursor: pointer;
   color: #3d9dd9;
   background: transparent;
+  margin-right: 2rem;
   @media (max-width: 1032px) {
     display: flex;
   }
