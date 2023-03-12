@@ -41,16 +41,16 @@ export const PolicyContainer = styled.div`
 `;
 
 export const Toggle = styled.div`
-  padding-left: 5px;
-  padding-top: 1.5px;
-  margin-left: 4rem;
+  padding-left: 2px;
+  padding-top: 0px;
+  margin-left: 2rem;
 `;
 
 export const Label = styled.label`
   width: 100%;
   font-size: 0.98rem;
   text-align: left;
-  display: block;
+  display: grid;
   color: #a39797;
 `;
 
@@ -150,7 +150,7 @@ export const ToggleContainer = styled.div`
   // gap: ${(props) => (props.primary ? '4rem' : '4rem')};
   margin-top: 50px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 80px 70px;
+  grid-template-rows: 105px 70px;
   column-gap: 7rem;
 
   @media (max-width: 800px) {
