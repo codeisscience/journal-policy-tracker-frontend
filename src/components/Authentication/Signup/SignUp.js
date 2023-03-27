@@ -23,6 +23,7 @@ import {
 import { signup } from '../../../config/content';
 import REGISTER from '../../../graphql/mutation/register';
 import { toErrorMap } from '../../../utils/toErrorMap';
+import { Error, Loader } from '../../marginals';
 
 const FormSignup = () => {
   const [register, { loading, error }] = useMutation(REGISTER);
@@ -99,6 +100,13 @@ const FormSignup = () => {
       history.push('/journal');
     }
   };
+    // Loading and Error component
+    if (loading) {
+      return <Loader />;
+    }
+    if (error) {
+      return <Error />;
+    }
 
   return (
     <FormContentRight>
